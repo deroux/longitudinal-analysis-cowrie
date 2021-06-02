@@ -1,0 +1,281 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% License: GPL-2 | GPL-3
+%% Copyright: (C) 2017 Reto Stauffer, Achim Zeileis
+%% Please report errors to: Reto.Stauffer@uibk.ac.at or Achim.Zeileis@uibk.ac.at
+
+%% packages
+\ProvidesPackage{beamerthemeuibkposter}
+%% re-use settings from beamer slides style
+\usetheme{uibk}
+%% for boxblock definition
+\RequirePackage{tikz}
+%% to derive column widths
+\RequirePackage{calc}
+
+%% Setting 'frutiger like' font called berasans
+\RequirePackage[T1]{fontenc}
+\RequirePackage[scaled=.9]{berasans}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% layout
+
+%% define column and margin widths
+\newlength{\mycolumnwidth}
+\newlength{\myleftmargin}
+\newlength{\mycentermargin}
+\newlength{\myrightmargin}
+
+%% get number of columns and margin widths from usetheme options
+\DeclareOptionBeamer{ncols}{\def\ncols{#1}}
+\DeclareOptionBeamer{lmar}{\setlength{\myleftmargin}{#1}}
+\DeclareOptionBeamer{cmar}{\setlength{\mycentermargin}{#1}}
+\DeclareOptionBeamer{rmar}{\setlength{\myrightmargin}{#1}}
+%% Allows to switch to the orange theme
+\newif\iforangetheme
+\orangethemefalse
+\DeclareOptionBeamer{orangetheme}{\orangethemetrue}
+
+%% noslidenumber removes the slide number
+\newif\iflandscape
+\if@beamerposter@portrait
+   \landscapefalse
+\else
+   \landscapetrue
+\fi
+
+
+%% set defaults
+\ExecuteOptionsBeamer{ncols=2,lmar=24mm,cmar=10mm,rmar=24mm}
+\ProcessOptionsBeamer
+
+%% derive columnwidth from margins
+\setlength{\mycolumnwidth}{(\paperwidth-\myleftmargin-
+  \mycentermargin*(\ncols-1)-\myrightmargin)/\ncols}
+
+%% How to use options:
+%% e.g. to set number of columns to 2 and margin widths to 0.05 (left), 
+%% 0.04 (center), and 0.05 (right) of paperwidth call: 
+%% \usetheme[ncols=2,lmar=0.05\paperwidth,cmar=0.04\paperwidth,
+%%   rmar=0.05\paperwidth]{eeeconposter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% set custom colors
+\setbeamercolor{title}{fg=uibkcol}
+\setbeamercolor{boxblock title}{fg=uibkcol}
+\colorlet{boxblockbordercol}{uibkcol}
+\iforangetheme
+   \setbeamercolor{title}{fg=uibkorange}
+   \setbeamercolor{boxblock title}{fg=uibkorange}
+   \colorlet{boxblockbordercol}{uibkgraym}
+\fi
+
+\setbeamerfont{title}{size*={16pt}{16pt},series=\mdseries}
+\setbeamerfont{subtitle}{size*={10pt}{14pt},series=\mdseries}
+\setbeamercolor{author}{fg=uibkgray}
+\setbeamertemplate{footline}{}
+
+%% Setting the header image based on input 'ID'.
+%% Switch/Case, Default is "1" or uibk_header1.png.
+%% Command has to be respecified to use the poster theme
+%% headers (which come with a different resolution for print,
+%% about 90 dpi on A0 landscale) and a different aspect ratio.
+\renewcommand{\headerimage}[1]{%
+   \IfStrEqCase{#1}{%
+      {4}{%
+         \gdef\myheaderimageid{#1}%
+         \gdef\myheaderimageposition{ne}%
+         \gdef\myheaderimage{uibk_header4p.png}%
+      }{3}{%
+         \gdef\myheaderimageid{#1}%
+         \gdef\myheaderimageposition{ne}%
+         \gdef\myheaderimage{uibk_header3p.png}%
+      }{2}{%
+         \gdef\myheaderimageid{#1}%
+         \gdef\myheaderimageposition{ne}%
+         \gdef\myheaderimage{uibk_header2p.png}%
+      }}[%
+         \gdef\myheaderimageid{1}%
+         \gdef\myheaderimageposition{nw}%
+         \gdef\myheaderimage{uibk_header1p.png}%
+      ]%
+}
+
+%% font size for R/S chunks
+\renewenvironment{Schunk}{\fontsize{26}{30}\selectfont}{}
+
+%% Display logo top left
+\newcommand{\showlogo}{
+   %% Logo is scaled by a factor of 1.5. Original width: 55mm
+   \begin{tikzpicture}[remember picture,overlay,anchor=north west]
+      \node[xshift=-1.5mm,yshift=1.5mm] at (current page.north west) {
+         \includegraphics[width=97.5mm]{\mylogoimage}
+      };
+   \end{tikzpicture}
+}
+
+\newcommand{\showheaderlandscape}[1]{%
+   \node[xshift=-.005\paperwidth,yshift=-53.1mm] at (current page.north west){%
+      \includegraphics[width=1.01\paperwidth,trim=0 35 0 35,clip]{\myheaderimage}%
+   };
+   %%\IfStrEqCase{#1}{
+   %%   {4}{%
+   %%      \node[xshift=-.005\paperwidth,yshift=-53.1mm] at (current page.north west){%
+   %%         \includegraphics[width=1.01\paperwidth,trim=0 35 0 35,clip]{\myheaderimage}%
+   %%      };
+   %%   }{3}{
+   %%      \node[xshift=-.005\paperwidth,yshift=-53.1mm] at (current page.north west){%
+   %%         \includegraphics[width=1.01\paperwidth,trim=0 35 0 35,clip]{\myheaderimage}%
+   %%      };
+   %%   }{2}{
+   %%      \node[xshift=-.005\paperwidth,yshift=-53.1mm] at (current page.north west){%
+   %%         \includegraphics[width=1.01\paperwidth,trim=0 35 0 35,clip]{\myheaderimage}%
+   %%      };
+   %%   }{1}{
+   %%      \node[xshift=-.005\paperwidth,yshift=-53.1mm] at (current page.north west){%
+   %%         \includegraphics[width=1.01\paperwidth,trim=0 35 0 35,clip]{\myheaderimage}
+   %%      };
+   %%   }
+   %%}
+}
+
+\newcommand{\showheaderportrait}[1]{
+   \node[xshift=-.005\paperwidth,yshift=-53.1mm] at (current page.north west){%
+      \includegraphics[width=1.01\paperwidth]{\myheaderimage}
+   };
+}
+
+%% Function to display the poster header.
+%% Calls the functions \showheaderportrait or \showheaderlandscape
+%% depending on what the user has specified.
+\newcommand{\showheader}[1]{%
+   \begin{tikzpicture}[remember picture,overlay,anchor=north west]
+      %% Shift header image by 1% and set width to 102% to avoid
+      %% thin white spaces left/right of the image
+
+      %% For portrait mode
+      \iflandscape
+         \showheaderlandscape{#1}
+      %% If portrait
+      \else
+         \showheaderportrait{#1}
+      \fi
+   \end{tikzpicture}
+}
+
+
+%% Helper function to show subtitle if specified
+\makeatletter
+\newcommand\showpostersubtitle[1]{%
+  \edef\w@test{#1}      % Makro, dessen Inhalt gleich #1 ist
+  \ifx\w@test\@empty % Anweisungen, falls #1 unbesetzt ist nichts machen
+    \vspace{5mm}
+  \else        % Anweisungen, falls #1 nicht unbesetzt ist
+    \\[1cm]
+    \usebeamerfont{subtitle}
+    \usebeamercolor{subtitle}{\color{fg}\LARGE#1}
+    \vspace{1cm}
+  \fi}
+\makeatother
+
+
+%% headline
+\setbeamertemplate{headline}{  
+
+   \showlogo{}
+   \showheader{\myheaderimageid}
+   \if@beamerposter@portrait
+      \vspace*{129mm}
+   \else
+      \vspace*{120mm}
+   \fi
+   
+   \begin{columns}[T]
+      %% Spacing on the left hand side (empty)
+      \begin{column}{\myleftmargin}
+      \end{column}
+      %% Places column for title
+      \begin{column}{\paperwidth-\myleftmargin-\myrightmargin}
+         \usebeamerfont{title}\usebeamercolor{title}{\color{fg}\Huge\inserttitle}
+         \showpostersubtitle{\insertsubtitle}
+   
+         \usebeamercolor{author}{\color{fg}\Large\insertauthor}
+      \end{column}
+      \begin{column}{\myrightmargin}
+      \end{column}
+   \end{columns}
+}
+
+
+%% Left column for landscape and portrait posters
+\newenvironment{leftcolumn}{%
+  %% empty left margin
+  \begin{column}{\myleftmargin}
+  \vspace{80cm}
+  \end{column}
+ 
+  %% left column 
+  \begin{column}{\mycolumnwidth}
+}{
+  \end{column}
+
+  %% empty middle margin
+  \begin{column}{\mycentermargin}
+  \end{column}
+}
+
+%% Denter column for landscape posters
+\newenvironment{centercolumn}{%
+  %% right column
+  \begin{column}{\mycolumnwidth}
+}{
+  \end{column}
+
+  %% empty margin
+  \begin{column}{\mycentermargin}
+  \end{column}
+}
+
+%% Right column for landscape and portrait posters
+\newenvironment{rightcolumn}{%
+  %% right column
+  \begin{column}{\mycolumnwidth}
+}{
+  \end{column}
+
+  %% empty right margin
+  \begin{column}{\myrightmargin}
+  \end{column}
+}
+
+
+%% Sets the blockbox titles
+\newcommand{\setboxtitle}[1]{
+  \begin{beamercolorbox}[]{frametitle}
+    \hspace{3mm}
+    {\usebeamerfont{boxblock title}\rule[-0.2em]{0pt}{-15mm}%
+   \usebeamercolor[fg]{boxblock title}{\bf #1}\par}%
+
+  \end{beamercolorbox}%
+}
+
+%% box blocks
+\newsavebox\blockbox
+\newenvironment{boxblock}[1]{%
+  \setboxtitle{#1} %% Draw title
+  \vspace{2mm}
+  \begin{lrbox}{\blockbox}%
+  \begin{minipage}{.95\textwidth}\vskip0.5ex
+}{
+  \end{minipage}
+  \end{lrbox}
+  \tikz\node[
+    fill=white, % background color
+    %draw=uibkgraym, % frame color
+    draw=boxblockbordercol, % frame color
+    line width=.5mm, % frame line thickness
+    inner sep=20pt, % distance from text to frame
+    %rounded corners,
+    outer sep=20pt,
+  ]{\usebox\blockbox};
+}
+

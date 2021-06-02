@@ -1,0 +1,91 @@
+\documentclass[fontsize=11pt, paper=a4, parskip=half]{scrartcl}
+\pagestyle{plain}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage[perpage]{footmisc}
+\usepackage{tikz}
+\usepackage[
+backend=biber,
+style=alphabetic,
+citestyle=alphabetic
+]{biblatex}
+
+\addbibresource{literature.bib}
+
+\newcommand{\foo}{\hspace{-2.3pt}$\bullet$ \hspace{5pt}}
+
+\setkomafont{disposition}{\normalcolor\bfseries}
+
+% In den folgenden Zeilen {...} jeweils durch die tatsächliche personen-/exposébezogene Angaben ergänzen
+\title{
+	Longitudinal Analysis of SSH Honeypot Logs \\ 
+}
+
+\subtitle{Bachelor's thesis proposal}
+
+\author{
+	Dominic Rudigier
+	\\
+	\texttt{Dominic.Rudigier@student.uibk.ac.at}  
+	\\ \\
+	{11832156}
+}
+
+\begin{document}
+
+\maketitle
+\newpage
+\section{Motivation}
+% Lipsum durch tatsächlichen Exposé-Text ersetzen
+A honeypot is a sacrificial computer system which is intended to attract potential hackers. It mimics a target and is built to gain information about how a attack was intended to be executed.  A research honeypot is built to extract as much information about the specific methods and tactics used as possible, unlike a production honeypot which is used by businesses to detect attacks in their internal networks. Once connected to the internet the honeypot generates log files for all events, but the gathered information is hard to handle.
+
+While a large number of honeypot related tools exist,\footnote{\url{https://github.com/paralax/awesome-honeypots}} they generally focus on high-level aggregated statistics and not about individual log anomalies. These anomalies can be user/password combinations, weird looking strings or other executables, indicating new device vulnerabilities of specific vendors. For example, an attacker may find out that a particular device can be accessed with hardcoded configuration credentials, which is a common problem in software and hardware.\footnote{\url{https://cwe.mitre.org/data/definitions/798.html}} If someone finds this vulnerability they can harm the system. This is crucial for a company to know to protect their users and data from malicious actors. Attacks happen regularly by hackers and botnets which are trying to exploit already known or new vulnerabilities of specific versions of software systems. 
+
+Potentially new exploits can be found using honeypots analyzing millions of attacks happening every day.\footnote{\url{https://www.sicherheitstacho.eu/start/main}}. O rganizations and providers deploy thousands of honeypots. Hackers might find out they connected to a honeypot and disconnect, so their configurations need to be optimized. The main problem is that there is no easy way to analyze and visualize the log data of many honeypots over time. This is necessary to find weak spots in honeypot configurations. Batch-processing log files of multiple honeypots can be used to further improve our systems. One goal is to find out why the attacker disconnected and view the previously executed commands, which might give us ways to improve it. Malware could have found paths to detect our system by executing common commands and matching the results with possible honeypot attributes. The main contribution of this thesis is a tool that visualizes attacks encountered by a network of SSH honeypots over time. This helps their operators to detect new attacks and supports honeypot developers in adapting their honeypots.
+
+As every honeypot is generating its own log files, it can be seen that it would be beneficial to analyze and process data of all honeypots in parallel. Using programming models like MapReduce \cite{62} provide the possibility to aggregate files discretely (map) and  connect the aggregated results to overall results (reduce). 
+
+Therefore the main focus lies on techniques to adapt a honeypot using the information queried from potentially thousands of batch-processed log files across different systems.
+
+\pagebreak
+\section{Status quo}
+The current state of the art for logging brute-force attacks and shell interactions of connection-based intrusion attacks is a SSH and Telnet honeypot called Cowrie\footnote{\url{https://github.com/cowrie/cowrie}} by micheloosterhof (Github). Cowrie grants the possibility to catch attacker actions and provides logs  of all kinds like JSON, UML, TTY, Splunk HEC and different databases like MongoDB, SQLite and MySQL \cite{cowrie:artefacts}. Although there exist data analyzation platforms like Splunk Enterprise\footnote{\url{https://www.splunk.com/}} (which is not for free) with Cowrie analysis apps like Tango\footnote{\url{https://github.com/aplura/Tango}} they are all more concentrated on the individual analysis of honeypots and collection of statistics than on a severe analysis of individual attacker behaviors and action paths. Malware has become more intelligent recently which enlights the need for analysis and improvement of intrusion detection systems.\footnote{\url{https://www.avira.com/en/blog/new-mirai-variant-aisuru-detects-cowrie-opensource-honeypots}}
+
+\section{Modus operandi}
+\subsection{Goals}
+The primary goal of the work is to batch-process many connection-based honeypot log data and extract useful information to improve existing systems and have as well a possibility to view interaction based attacker behavior. There are tons of attacks happening all the time, the tool should provide a possibility to detect changes in attacker behaviour over time like sudden disconnects after specific commands or general log data anomalies not previously shown up. As an initial try the MapReduce programming model \cite{62} is used on local files to process and gather information of the honeypots. As this is non-trivial there will only be time for an easy visualization and probably no time for machine learning attempts for detection of outliers, this will be left for future work. 
+\subsection{Timeline}
+\scalebox{1}{
+	\begin{tabular}{r |@{\foo} l}
+		February & Research ssh honeypots\\
+		March & Set up multiple cowrie honeypots, test Splunk, test logging functionalities\\
+		April & Research MapReduce programming model \\
+		April & Research batch-processing log data \& aggregating information \\
+		May & Run MapReduce job across multiple log files locally\\
+		May & Develop initial MapReduce job extracting information of local log files\\
+		May & Visualize MapReduce data \\
+		June & Extract pre-disconnect commands frequency across all nodes\\
+		June & Detect outliers for different logs \\
+		June & Handle bugs/improvements \\
+		July & Dream: Visualize everything and provide hints to improve honeypots \\
+		July & Finish batch-processing system\\
+		August & Write thesis
+	\end{tabular}
+}
+
+\subsection{Risks}
+\begin{itemize}
+	\item Gathering Data \\
+	As the goal is to have test data for our web application in the first place there is a need to set up honeypots and create those log data for cowrie. With the attraction of attackers there is always a slight risk of them escaping our sandbox and using a honeypot as pivot node to penetrate productive systems. There were used dedicated droplets on DigitalOcean\footnote{ \url{https://www.digitalocean.com/}} to secure this. 
+\end{itemize}
+
+\pagebreak
+\nocite{*}
+\printbibliography
+\end{document}

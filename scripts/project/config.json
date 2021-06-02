@@ -1,0 +1,7 @@
+{
+    "settings":
+    {
+      "log_file_path": "./logs_mini",
+      "robot_max_time": "10.0"
+    }
+}

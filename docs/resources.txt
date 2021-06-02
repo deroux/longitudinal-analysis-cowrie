@@ -1,0 +1,11 @@
+# Create Honeypot on Digitalocean
+## https://medium.com/@galolbardes/learn-how-to-deploy-a-honeypot-and-visualise-its-data-step-by-step-ea3cd3f25822 
+
+https://cowrie.readthedocs.io/en/latest/INSTALL.html
+
+
+
+ssh root@167.172.172.95
+sudo su - cowrie
+source cowrie-env/bin/activate
+tail -n 10 /home/cowrie/cowrie/var/log/cowrie/cowrie.json 

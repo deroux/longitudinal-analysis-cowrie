@@ -1,0 +1,645 @@
+\ProvidesPackage{beamerthemeuibk}
+\def\fileversion{0.2}
+\def\filename{beamerthemeuibk}
+\def\filedate{2017/08/16}
+%% License: GPL-2 | GPL-3
+%% Copyright: (C) 2017 Reto Stauffer, Achim Zeileis
+%% Please report errors to: Reto.Stauffer@uibk.ac.at or Achim.Zeileis@uibk.ac.at
+
+%% Setting images path
+\graphicspath{{_images/}{./}}
+
+%% define options: foot, noslidenumber, logo, license, licenseall, sectionintroframe,
+%% nototalframenumber, titleoutline, nosectiontitlepage and bigfoot/sasquatch.
+
+\newif\ifbigfoot
+\bigfootfalse
+\DeclareOption{bigfoot}{\bigfoottrue}
+\newif\ifsasquatch
+\sasquatchfalse
+\DeclareOption{sasquatch}{\sasquatchtrue}
+
+%% foot adds a foot line to the frames including conference and date
+\newif\iffooter
+\footerfalse
+\DeclareOption{foot}{
+  \footertrue
+}
+
+%% noslidenumber removes the slide number
+\newif\ifsn
+\sntrue
+\DeclareOption{noslidenumber}{
+  \snfalse
+  \footerfalse
+}
+
+%% logo adds the university logo on the left of the footer line
+\newif\ifframelogo
+\framelogofalse
+\DeclareOption{logo}{
+  \framelogotrue
+}
+
+%% license adds a creative common license (CC-BY) symbol to the title slide
+\newif\iflicense
+\licensefalse
+\DeclareOption{license}{
+  \licensetrue
+}
+
+%% licenseall adds a creative common license (CC-BY) symbol to all other slides
+\newif\iflicenseall
+\licenseallfalse
+\DeclareOption{licenseall}{
+  \licensealltrue
+}
+
+%% sectionintroframe adds an empty frame before each new section with the title of the section
+% intended for long talks;
+\newif\ifsectionintroframe
+\sectionintroframefalse
+\DeclareOption{sectionintroframe}{
+  \sectionintroframetrue
+}
+
+%% nototalframenumber suppresses the display of the totalframenumber in the lower right
+%% (e.g., '2' instead of '2/27')
+\newif\ifnototalframenumber
+\nototalframenumberfalse
+\DeclareOption{nototalframenumber}{
+  \nototalframenumbertrue
+}
+
+%% titleoutline adds a slight black border around the font in the titlepage, because white text on
+%% light blue background is hard to read on bad projectors/bright rooms
+%% THIS BREAKS OUT OF THE CORPORATE DESIGN!
+\newif\iftitleoutline
+\titleoutlinefalse
+\DeclareOption{titleoutline}{
+  \titleoutlinetrue
+}
+
+%% nosectiontitlepage switches off the behaviour of inserting the titlepage every time a \section is called
+% this makes it possible to use more than one section + thanks page and a ToC
+% off by default
+\newif\ifnosectiontitlepage
+\nosectiontitlepagefalse
+\DeclareOption{nosectiontitlepage}{
+    \nosectiontitlepagetrue
+}
+
+\DeclareOption{faculty}{#1}
+
+%% url controls whether \url{} or \href{} is used for the URL on the title page
+\newif\iftitleurl
+\titleurlfalse
+\DeclareOption{url}{
+  \titleurltrue
+}
+
+%% default options
+\ExecuteOptions{}
+
+%% to activate the options:
+\ProcessOptions
+
+%% fonts
+\RequirePackage[T1]{fontenc}
+\RequirePackage[scaled=.9]{berasans}
+\usefonttheme{structurebold}
+\setbeamerfont{frametitle}{size*={16pt}{16pt},series=\mdseries}
+\setbeamerfont{framesubtitle}{size*={12pt}{12pt},series=\mdseries}
+\setbeamerfont{title}{size*={16pt}{18pt},series=\mdseries}
+\setbeamerfont{author}{size*={13.5pt}{14pt},series=\mdseries}
+\setbeamerfont{url}{size*={13.5pt}{14pt},series=\mdseries}
+\setbeamerfont{subtitle}{size*={10pt}{12pt},series=\mdseries}
+
+\setbeamerfont{footline}{size*={5pt}{50pt},parent=normal text}
+\newcommand\footraise{.9}
+\ifbigfoot
+   \setbeamerfont{footline}{size*={8pt}{8pt},parent=normal text}
+   \renewcommand\footraise{.4}
+\fi
+\ifsasquatch
+   \setbeamerfont{footline}{size*={8pt}{8pt},parent=normal text}
+   \renewcommand\footraise{.4}
+\fi
+
+
+%% colors
+\setbeamercolor*{normal text}{fg=uibkgray,bg=white}
+\setbeamercolor*{title}{fg=uibkgray,bg=white}
+\setbeamercolor*{subtitle}{fg=uibkgray,bg=white}
+\setbeamercolor*{frametitle}{fg=uibkgraym}
+\setbeamercolor*{framesubtitle}{fg=uibkgraym}
+\setbeamercolor*{item}{fg=uibkgraym}
+\setbeamercolor*{structure}{fg=uibkgray,bg=white}
+\setbeamercolor*{alerted text}{parent=structure}
+\setbeamercolor*{verbcolor}{fg=black}
+\setbeamercolor*{author}{fg=uibkgraym} % on title slide
+\setbeamercolor*{url}{fg=uibkgraym} % on title slide
+\setbeamercolor*{footer}{fg=uibkgraym}
+\setbeamercolor*{section in head/foot}{parent=normal text}
+\setbeamercolor*{framenumber in head/foot}{parent=normal text}
+
+%% Latex block styling: {block}, {alertblock}, and {exampleblock}
+\setbeamercolor*{block title}{fg=white,bg=uibkcol}
+\setbeamercolor*{block body}{fg=uibkgray,bg=uibkcoll}
+\setbeamercolor*{block title alerted}{fg=white,bg=uibkorange}
+\setbeamercolor*{block body alerted}{fg=uibkgray,bg=uibkorangel}
+\setbeamercolor*{block title example}{fg=white,bg=uibkgraym}
+\setbeamercolor*{block body example}{fg=uibkgray,bg=uibkgrayl}
+
+%% Code styling
+\setbeamercolor*{code}{fg=uibkgray} % inline code
+
+
+%% Switch/Case command to set the faculty colors
+\usepackage{xstring}
+\newcommand{\setfacultycolors}[1]{%
+   % Depending on the input in function \setfacultycolors:
+   % define the two colors 'uibkcol' and 'uibkcoll'.
+   % Note that there is an R script called 'colors.R'
+   % inside the repository which can be used to convert
+   % the colors and to procude the code below.
+   \IfStrEqCase{#1}{%
+      {architektur}{%
+         \definecolor{uibkcol}{rgb}{0.14,0.12,0.13}%
+         \definecolor{uibkcoll}{rgb}{0.95,0.94,0.95}%
+      }{betriebswirtschaft}{%
+         \definecolor{uibkcol}{rgb}{0.16,0.61,0.79}%
+         \definecolor{uibkcoll}{rgb}{0.73,0.98,1.00}%
+      }{bildungswissenschaften}{%
+         \definecolor{uibkcol}{rgb}{0.94,0.20,0.59}%
+         \definecolor{uibkcoll}{rgb}{1.00,0.85,0.98}%
+      }{biologie}{%
+         \definecolor{uibkcol}{rgb}{0.25,0.70,0.23}%
+         \definecolor{uibkcoll}{rgb}{0.76,1.00,0.76}%
+      }{chemieundpharmazie}{%
+         \definecolor{uibkcol}{rgb}{0.87,0.33,0.09}%
+         \definecolor{uibkcoll}{rgb}{1.00,0.88,0.83}%
+      }{geoundatmosphaerenwissenschaften}{%
+         \definecolor{uibkcol}{rgb}{0.13,0.34,0.68}%
+         \definecolor{uibkcoll}{rgb}{0.87,0.94,1.00}%
+      }{mip}{%
+         \definecolor{uibkcol}{rgb}{0.59,0.78,0.21}%
+         \definecolor{uibkcoll}{rgb}{0.86,0.98,0.71}%
+      }{socialandpoliticalsciences}{%
+         \definecolor{uibkcol}{rgb}{0.03,0.28,0.25}%
+         \definecolor{uibkcoll}{rgb}{0.82,0.98,0.95}%
+      }{psychologieundsportwissenschaften}{%
+         \definecolor{uibkcol}{rgb}{0.00,0.67,0.63}%
+         \definecolor{uibkcoll}{rgb}{0.58,1.00,0.98}%
+      }{technischewissenschaften}{%
+         \definecolor{uibkcol}{rgb}{0.55,0.38,0.17}%
+         \definecolor{uibkcoll}{rgb}{1.00,0.91,0.75}%
+      }{volkswirtschaftundstatistik}{%
+         \definecolor{uibkcol}{rgb}{0.09,0.19,0.43}%
+         \definecolor{uibkcoll}{rgb}{0.89,0.93,1.00}%
+      }{theol}{%
+         \definecolor{uibkcol}{rgb}{0.38,0.35,0.66}%
+         \definecolor{uibkcoll}{rgb}{0.94,0.92,1.00}%
+      }{philologisch}{%
+         \definecolor{uibkcol}{rgb}{0.07,0.24,0.30}%
+         \definecolor{uibkcoll}{rgb}{0.85,0.96,1.00}%
+      }{philosophisch}{%
+         \definecolor{uibkcol}{rgb}{0.90,0.63,0.04}%
+         \definecolor{uibkcoll}{rgb}{1.00,0.91,0.73}%
+      }{law}{%
+         \definecolor{uibkcol}{rgb}{0.75,0.09,0.15}%
+         \definecolor{uibkcoll}{rgb}{1.00,0.87,0.87}%
+      }{soe}{%
+         \definecolor{uibkcol}{rgb}{0.91,0.80,0.10}%
+         \definecolor{uibkcoll}{rgb}{1.00,0.95,0.69}%
+      }{weiterbildungen}{%
+         \definecolor{uibkcol}{rgb}{0.74,0.74,0.74}%
+         \definecolor{uibkcoll}{rgb}{0.95,0.94,0.94}%
+      }{none}{%
+         \definecolor{uibkcol}{cmyk}{1,0.6,0,0.65}%
+         \definecolor{uibkcoll}{rgb}{0.89,0.94,1.00}%
+      }}[%
+         \definecolor{uibkcol}{cmyk}{1,0.6,0,0.65}%
+         \definecolor{uibkcoll}{rgb}{0.89,0.94,1.00}%
+      ]
+
+}
+
+
+%% Setting the header image based on input 'ID'.
+%% Switch/Case, Default is "1" or uibk_header1.png.
+\newcommand{\headerimage}[1]{%
+   \IfStrEqCase{#1}{%
+      {4}{%
+         \gdef\myheaderimageid{#1}%
+         \gdef\myheaderimageposition{ne}%
+         \gdef\myheaderimage{uibk_header4.png}%
+      }{3}{%
+         \gdef\myheaderimageid{#1}%
+         \gdef\myheaderimageposition{ne}%
+         \gdef\myheaderimage{uibk_header3.png}%
+      }{2}{%
+         \gdef\myheaderimageid{#1}%
+         \gdef\myheaderimageposition{ne}%
+         \gdef\myheaderimage{uibk_header2.png}%
+      }}[%
+         \gdef\myheaderimageid{1}%
+         \gdef\myheaderimageposition{nw}%
+         \gdef\myheaderimage{uibk_header1.png}%
+      ]%
+}
+
+
+%% Using different logos for footer and title. Logo on title
+%% slides can be replaced by a version with wordmark while the
+%% footer should always show the version without wordmark.
+\newcommand{\footerlogoimage}[1]{\gdef\myfooterlogoimage{#1}}
+\newcommand{\logoimage}[1]{\gdef\mylogoimage{#1}}
+
+
+%% inner theme
+%% itemize symbols
+\setbeamertemplate{items}[circle]
+
+%% custom beamer button
+\setbeamertemplate{button}{\tikz
+  \node[
+  inner xsep=3pt,
+  draw=uibkblue,
+  fill=uibkblue,
+  rounded corners=0pt]  {\mathstrut\insertbuttontext\mathstrut};}
+
+%% frametitle (header)
+\defbeamertemplate*{frametitle}{UIBK}
+{
+   {\usebeamerfont{frametitle}\rule[-.4em]{0pt}{10mm}\insertframetitle\par}%
+   \ifx\insertframesubtitle\@empty%
+   \else%
+      {\usebeamerfont{framesubtitle}\rule[-1.3em]{0pt}{9mm}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\par}%
+   \fi
+
+}
+
+
+%% Helper function to show the subtitle if set
+\makeatletter
+\newcommand\showsubtitle[1]{%
+  \edef\w@test{#1}      % Makro, dessen Inhalt gleich #1 ist
+  \ifx\w@test\@empty    % Anweisungen, falls #1 unbesetzt ist nichts machen
+  \else                 % Anweisungen, falls #1 nicht unbesetzt ist
+    \\[0mm]
+    \usebeamercolor[fg]{subtitle}
+    \fontsize{10}{10}{\selectfont#1}
+  \fi}
+\makeatother
+
+%% Helper function to show URL if specified
+\makeatletter
+\newcommand\showurl[1]{%
+   \edef\w@test{#1}      % Makro, dessen Inhalt gleich #1 ist
+   \ifx\w@test\@empty % Anweisungen, falls #1 unbesetzt ist nichts machen
+      % do nothing
+   \else        % Anweisungen, falls #1 nicht unbesetzt ist
+      {\usebeamerfont{url}\vspace{.3em}\usebeamercolor[fg]{url}\\ \url{\myURL}}
+   \fi}
+\makeatother
+
+%% outer theme
+\setbeamersize{text margin left=10mm,text margin right=10mm}
+
+% foot line
+\setbeamertemplate{footline}{
+
+\iffooter
+   \begin{beamercolorbox}[wd=\paperwidth,dp=1.3mm]{title in head/foot}
+     \usebeamercolor[fg]{titleline}
+     \hspace{5mm}\hrulefill\hspace{5mm} % offsync like in the corporate design manual
+
+     \usebeamercolor[fg]{structure}
+     \ifframelogo
+        % Different spacing as the image comes with white margins
+        \hspace{6.5mm}\raisebox{-.20\height}{\includegraphics[width=15mm]{\myfooterlogoimage}}\hspace{1mm}
+     \else
+        \hspace{10mm}
+         {\rule[0em]{0pt}{4.5mm}}%
+     \fi
+     \raisebox{\footraise\height}{{\usebeamerfont{footline}\myfootertext~\insertdate}}
+     \ifnototalframenumber
+       \hfill \raisebox{\footraise\height}{{\usebeamerfont{footline} \selectfont\insertframenumber}}
+     \else
+       \hfill \raisebox{\footraise\height}{{\usebeamerfont{footline} \selectfont\insertframenumber/\inserttotalframenumber}}
+     \fi
+     \iflicenseall
+        \raisebox{.15\height}{\hspace{1mm}\includegraphics[width=5mm]{license_ccby}\hspace{10mm}}
+     \else
+        \hspace{10mm}
+     \fi
+   \end{beamercolorbox}
+\else
+   \ifsn
+      \begin{beamercolorbox}[wd=\paperwidth,dp=0.2cm]{title in head/foot}%
+         \usebeamercolor[fg]{structure}
+         \vspace{0.2cm}
+         \ifnototalframenumber
+            \hfill \insertframenumber\hspace{0.8cm}
+         \else
+            \hfill \insertframenumber/\inserttotalframenumber\hspace{0.8cm}
+         \fi
+      \end{beamercolorbox}
+   \else
+      \begin{beamercolorbox}[wd=\paperwidth,dp=0.2cm]{title in head/foot}%
+         \usebeamercolor[fg]{structure}
+         \vspace{0.2cm}
+         \vspace{\baselineskip}
+      \end{beamercolorbox}
+   \fi
+\fi
+}
+
+%% navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%% style
+\RequirePackage{colortbl}
+\RequirePackage{graphicx}
+%text outline for better visibility
+\iftitleoutline
+    \RequirePackage{pdfrender}
+    \newcommand{\textoutline}[1]{\textpdfrender{TextRenderingMode=2,
+                                                 LineWidth=.025ex,
+                                                 StrokeColor=black,
+                                                 FillColor=white}{#1}%
+                                }
+\fi
+
+\renewcommand{\arraystretch}{1.2}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{array}
+
+%%%% Official corporate design UIBK colors
+\definecolor{uibkblue}{cmyk}{1,0.6,0,0.65}%
+\definecolor{uibkbluel}{rgb}{0.89,0.94,1.00}%
+
+\definecolor{uibkorange}{cmyk}{0,.5,1,0}%
+\definecolor{uibkorangel}{rgb}{1.00,0.90,0.76}%
+
+\definecolor{uibkgray}{cmyk}{0,0,0,0.9}%
+\definecolor{uibkgraym}{cmyk}{0,0,0,0.6}%
+\definecolor{uibkgrayl}{cmyk}{0,0,0,0.2}%
+\definecolor{gray80}{cmyk}{0,0,0,.8}%
+
+% Fix broken symbols
+% (I don't know why, but some symbols do not work correctly)
+\DeclareSymbolFont{mysymbols}{OMS}{cmsy}{m}{n}
+\SetSymbolFont{mysymbols}{bold}{OMS}{cmsy}{b}{n}
+\DeclareMathSymbol{\myRightarrow}{\mathrel}{symbols}{"29}
+\let\Rightarrow\myRightarrow
+
+% R/Sweave
+\setkeys{Gin}{width=0.8\textwidth}
+\RequirePackage{fancyvrb}
+\IfFileExists{upquote.sty}{\RequirePackage{upquote}}{}
+\renewcommand{\ttdefault}{laett}
+\DefineVerbatimEnvironment{Scode}{Verbatim}{}
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{formatcom=\color{uibkblue}}
+\DefineVerbatimEnvironment{Soutput}{Verbatim}{formatcom=\color{uibkgray}}
+\newenvironment{Schunk}{\fontsize{9}{10}\selectfont}{}
+
+\AtBeginLecture{%
+  \section{\inserttitle}%
+  \immediate\write\@auxout {\string \newlabel{lect:@@\thelecture}{{\insertframenumber}}}%
+  \typeout{[LECTURE]=[\thelecture][\insertlecture][\thepage][\theframenumber]}%
+}
+
+% ------------------------------------------------------------------------
+% Make section titles
+
+% we start with section 0 (instead of default 1)
+\setcounter{section}{0}
+\usepackage{tikz}
+
+%% Required for text positioning on the title page
+\usepackage{scrextend}
+
+
+\ifnosectiontitlepage
+    % do nothing here, create the titlepage via \titlepage in the presentation
+\else
+    \AtBeginSection[]{
+    % use background image
+    {\setbeamertemplate{footline}{}
+
+    \begin{frame}
+      \begin{tikzpicture}[remember picture,overlay,anchor=north west,inner sep=0pt]
+
+         \node[xshift=0mm,yshift=0mm] at (current page.north west) {
+            % Ignore title page logo on all title slides which are not slide 1
+            \ifnum\theframenumber=1
+               \includegraphics[width=42.1mm]{\mylogoimage}%
+            \fi
+         };
+
+         %% License
+         \iflicense
+            \node[xshift=-14.99mm,yshift=4.35mm] at (current page.south east) {
+               \includegraphics[width=5mm]{license_ccby}
+            };
+         \fi
+
+         % Shows the UIBK title image. Always include image the same way,
+	      % i.e., for 4:3 the image extends outside the page.
+         \IfStrEqCase{\myheaderimageposition}{
+            {ne}{%
+               \node[xshift=-161mm,yshift=-23.6mm] at (current page.north east) {%
+                  \includegraphics[width=162mm]{\myheaderimage}%
+               };%
+            }{nw}{
+               \node[xshift=-1mm,yshift=-23.6mm] at (current page.north west) {%
+                  \includegraphics[width=162mm]{\myheaderimage}%
+               };%
+            }}
+      \end{tikzpicture}
+
+      %% Title/subtitle, author, URL
+      \vspace*{4.6cm}
+      {%
+         \usebeamercolor[fg]{title}%
+	      \usebeamerfont{title}%
+         \inserttitle%
+      }%
+	  
+      {%
+         \usebeamercolor[fg]{subtitle}%
+	      \usebeamerfont{subtitle}%
+         \insertsubtitle%
+	      \medskip%
+      }%
+
+      \bigskip
+
+      {%
+         \usebeamercolor[fg]{author}%
+         \usebeamerfont{author}%
+         \insertauthor%
+      }%
+
+      \medskip
+
+      {%
+         \usebeamercolor[fg]{url}%
+	      \iftitleurl%
+	         \url{\myURL}%
+	      \else%
+	         \usebeamerfont{url}%
+	         \href{\myURL}{\myURL}%
+	      \fi%
+	   }%
+
+
+    \end{frame}}
+    \addtocounter{framenumber}{-1}
+    % reset background image
+    \usebackgroundtemplate{}
+    }
+\fi
+
+
+%empty page with only name of subsection at start of each subsection - for long talks where the structure helps
+\ifsectionintroframe
+    \AtBeginSection[]{
+        \usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{titlebackground.pdf}}
+        {\setbeamertemplate{footline}{}
+        \begin{frame}
+            \vspace*{3.5cm}
+            \begin{center}
+            \vspace{0pt}
+            \usebeamercolor[fg]{title}
+            \iftitleoutline
+                {\fontsize{20}{24} \bfseries\selectfont\textoutline{\thesection.~\insertsection} \par}
+            \else
+                {\fontsize{20}{24} \bfseries\selectfont\thesection.~\insertsection \par}
+            \fi
+            \end{center}
+        \end{frame}}
+        \addtocounter{framenumber}{-1}
+        \usebackgroundtemplate{}
+    }
+\else
+\fi
+
+%% Table of Contents - Setup
+\setbeamertemplate{section in toc}{ \hspace*{0.5cm}%
+                                    \LARGE%
+                                    \inserttocsectionnumber.~\inserttocsection}
+\setbeamertemplate{subsection in toc}{}
+\setbeamertemplate{subsubsection in toc}{}
+\setbeamertemplate{subsubsubsection in toc}{}
+
+
+
+\setbeamercolor*{subsectionfade}{use={normal text},parent={normal text},fg=structure.fg!30!normal text.bg}
+
+%hyperref settings
+% etoolbox is required because beamer usually sets those options itsself,
+% but we want to override them; (default beamer has full title and subtitle
+% as pdftitle)
+% this is also the reason why we need 'usepdftitle=false' in the documentclass options,
+% it disables beamer's pdfinfo settings
+\RequirePackage{etoolbox}
+\makeatletter
+\AtEndPreamble{
+  \hypersetup{
+    colorlinks = false,
+    pdfauthor = {\beamer@shortauthor},
+    pdfsubject = {{\inserttitle} - {\insertsubtitle}},
+    pdftitle = {\beamer@shorttitle},
+    bookmarksopen=false,
+    pdfstartview=Fit
+  }
+}
+\makeatother
+
+%% additional commands
+%% text
+\newcommand{\squote}[1]{`{#1}'}
+\newcommand{\dquote}[1]{``{#1}''}
+%% programming
+\makeatletter
+\newcommand\code{\bgroup\@makeother\_\@makeother\~\@makeother\$\@codex}
+\def\@codex#1{{\normalfont\ttfamily\hyphenchar\font=-1\usebeamercolor[fg]{code} #1}\egroup}
+\makeatother
+\let\proglang=\textsf
+\newcommand{\dataset}[1]{{\usebeamercolor[fg]{verbcolor}{\texttt{#1}}}}
+\newcommand{\file}[1]{{\usebeamercolor[fg]{verbcolor}{\texttt{#1}}}}
+\newcommand{\fct}[1]{\texttt{#1()}}
+\newcommand{\class}[1]{\dquote{\texttt{#1}}}
+\newcommand{\pkg}[1]{{\emph{#1}}}
+\newcommand{\email}[1]{\href{mailto:#1}{{\usebeamercolor[fg]{verbcolor}\normalfont\texttt{#1}}}}
+\newcommand{\doi}[1]{\href{http://dx.doi.org/#1}{{\usebeamercolor[fg]{verbcolor}\normalfont\texttt{doi:#1}}}}
+%% mathematics
+\newcommand{\E}{\textnormal{E}}
+\newcommand{\Var}{\textnormal{Var}}
+\newcommand{\Cov}{\textnormal{Cov}}
+\newcommand{\Cor}{\textnormal{Cor}}
+\newcommand{\Prob}{\textnormal{Pr}}
+%% customization
+\newcommand{\footertext}[1]{\gdef\myfootertext{#1}}
+\newcommand{\URL}[1]{\gdef\myURL{#1}}
+
+%variable width block, centered, use as \begin{varblock}[WIDTH]{blockheader text}...\end{varblock}
+\newenvironment<>{varblock}[2][\textwidth]{%
+    \begin{center}%
+      \begin{minipage}{#1}%
+        \setlength{\textwidth}{#1}%
+          \begin{actionenv}#3%
+            \def\insertblocktitle{#2}%
+            \par%
+            \usebeamertemplate{block begin}}
+  {\par%
+      \usebeamertemplate{block end}%
+    \end{actionenv}
+  \end{minipage}%
+\end{center}}
+
+%this avoids slides in the appendix from being counted as framenumber (bottom right)
+%copied from appendixnumberbeamer.sty
+\makeatletter
+\let\appendixtotalframenumber\empty
+\def\mainend{-1}
+\let\appendixorig\appendix
+% Redefine the \appendix command:
+%   - it resets the framenumber counter
+%   - freezes the total framenumber for this first part of the document
+\def\appendix{
+  \edef\mainend{\theframenumber}
+  \immediate\write\@auxout{\string\global\string\@namedef{mainendframenumber}{\mainend}}
+  \appendixorig
+  \def\inserttotalframenumber{\appendixtotalframenumber}%
+  \setcounter{framenumber}{0}
+}
+% To be called at the end of document to fix the total framenumber in the
+% main document and in the appendix.
+\def\pageatend{
+  \edef\appendixend{\theframenumber}
+  \ifnum\mainend>0%
+  \immediate\write\@auxout{\string\global\string\@namedef{appendixtotalframenumber}{\appendixend}}%
+  \immediate\write\@auxout{\string\global\string\@namedef{inserttotalframenumber}{\mainend}}%
+  \immediate\write\@auxout{\string\@writefile{nav}{\noexpand \headcommand {%
+        \noexpand \def\noexpand \inserttotalframenumber{\mainend}}}}%
+  \immediate\write\@auxout{\string\@writefile{nav}{\noexpand \headcommand {%
+        \noexpand \def\noexpand \appendixtotalframenumber{\appendixend}}}}%
+  \else
+  \fi
+}
+\AtEndDocument{\pageatend}
+\makeatother
+
+%% defaults
+\headerimage{1}
+\logoimage{uibk_logo_4c_cmyk}
+\setfacultycolors{none}
+\footerlogoimage{uibk_logo_4c_cmyk}
+\URL{}
+\footertext{}
+\date{}
+

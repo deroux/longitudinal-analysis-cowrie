@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2021-03-23T09:59:54.364Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 Edg/89.0.774.57" etag="flxzjaH46DacdJX_eRqG" version="14.4.9" type="device">
+  <diagram name="Page-1" id="c37626ed-c26b-45fb-9056-f9ebc6bb27b6">
+    <mxGraphModel dx="991" dy="554" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-1" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/REALVISTA/food/png/128/honey.png" vertex="1" parent="1">
+          <mxGeometry x="240" y="161" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-41" style="edgeStyle=orthogonalEdgeStyle;curved=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="1" source="L9JFOU5dOi_U3HRKem6z-6" target="L9JFOU5dOi_U3HRKem6z-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-42" value="1. Cowrie writes logs to MongoDB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L9JFOU5dOi_U3HRKem6z-41">
+          <mxGeometry x="0.2708" y="4" relative="1" as="geometry">
+            <mxPoint x="-50" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-6" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/REALVISTA/food/png/128/honey.png" vertex="1" parent="1">
+          <mxGeometry x="130" y="240" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-7" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/REALVISTA/food/png/128/honey.png" vertex="1" parent="1">
+          <mxGeometry x="240" y="321.5" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-16" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/logos-brands-in-colors/128/react-128.png" vertex="1" parent="1">
+          <mxGeometry x="886" y="244" width="58" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-35" style="edgeStyle=orthogonalEdgeStyle;curved=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="1" source="L9JFOU5dOi_U3HRKem6z-17" target="L9JFOU5dOi_U3HRKem6z-29">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="259" />
+              <mxPoint x="860" y="259" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-36" value="2. User requests entries" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L9JFOU5dOi_U3HRKem6z-35">
+          <mxGeometry x="-0.25" y="-2" relative="1" as="geometry">
+            <mxPoint x="-20" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-17" value="" style="pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.devices.laptop;" vertex="1" parent="1">
+          <mxGeometry x="860" y="236.5" width="110" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-27" style="edgeStyle=orthogonalEdgeStyle;curved=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;startArrow=block;startFill=1;" edge="1" parent="1" source="L9JFOU5dOi_U3HRKem6z-25" target="L9JFOU5dOi_U3HRKem6z-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-28" style="edgeStyle=orthogonalEdgeStyle;curved=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="L9JFOU5dOi_U3HRKem6z-25" target="L9JFOU5dOi_U3HRKem6z-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-43" style="edgeStyle=orthogonalEdgeStyle;curved=1;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="451.20000000000005" y="278.5" as="sourcePoint" />
+            <mxPoint x="610" y="278.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-44" value="4. Database returns entries" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L9JFOU5dOi_U3HRKem6z-43">
+          <mxGeometry x="0.2891" y="2" relative="1" as="geometry">
+            <mxPoint x="-30.2" y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-25" value="mongoDB" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.mongodb" vertex="1" parent="1">
+          <mxGeometry x="410" y="235.9" width="41.2" height="86.2" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-45" style="edgeStyle=orthogonalEdgeStyle;curved=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="1" source="L9JFOU5dOi_U3HRKem6z-29" target="L9JFOU5dOi_U3HRKem6z-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-46" value="5. Return processed results" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L9JFOU5dOi_U3HRKem6z-45">
+          <mxGeometry x="0.275" y="2" relative="1" as="geometry">
+            <mxPoint x="-22" y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-29" value="Flask API" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/flask-128.png" vertex="1" parent="1">
+          <mxGeometry x="620" y="239" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-39" style="edgeStyle=orthogonalEdgeStyle;curved=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=block;endFill=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="611.2" y="260" as="sourcePoint" />
+            <mxPoint x="451.2" y="260" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="611.2" y="260" />
+              <mxPoint x="611.2" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L9JFOU5dOi_U3HRKem6z-40" value="3. Flask queries database" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L9JFOU5dOi_U3HRKem6z-39">
+          <mxGeometry x="-0.25" y="-2" relative="1" as="geometry">
+            <mxPoint x="-20" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

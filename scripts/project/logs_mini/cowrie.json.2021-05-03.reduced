@@ -1,0 +1,66 @@
+[
+  {
+    "date": "2021-05-01",
+    "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+    "passwords": [
+      {
+        "username": "nproc",
+        "password": "nproc",
+        "count": 2
+      },
+      {
+        "username": "root",
+        "password": "Aa123654",
+        "count": 1
+      }
+    ],
+    "commands": [
+      {
+        "input": "cat /proc/cpuinfo | grep name | wc -l",
+        "count": 4
+      }
+    ],
+    "pre_disconnect_command": [
+      {
+        "input": "cat /proc/cpuinfo | grep name | wc -l",
+        "count": 2
+      }
+    ],
+    "connect": [
+      {
+        "src_ip": "54.37.138.193",
+        "dst_port": 2222,
+        "count": 1
+      },
+      {
+        "src_ip": "101.32.218.36",
+        "dst_port": 2222,
+        "count": 1
+      }
+    ],
+    "session_closed": [
+      {
+        "src_ip": "54.37.138.193",
+        "robot": true,
+        "count": 1
+      },
+      {
+        "src_ip": "101.32.218.36",
+        "robot": true,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "date": "2021-05-05",
+    "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+    "proxy_request": [
+      {
+        "src_ip": "5.188.87.53",
+        "dst_ip": "ya.ru",
+        "dst_port": 80,
+        "count": 1
+      }
+    ]
+  }
+]

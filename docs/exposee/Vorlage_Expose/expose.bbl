@@ -1,0 +1,239 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{cowrie:artefacts}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=8b55062de92f4f9cbfb82f21bed0ef58}{%
+           family={{Cabral}},
+           familyi={C\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=4ecc8cdf95490b147a8cab6481dbb02e}{%
+           family={{Valli}},
+           familyi={V\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3c76c31bdb6613d59edf55bdc771a54a}{%
+           family={{Sikos}},
+           familyi={S\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=8e41ee55f6c0952424b538ac71163ad1}{%
+           family={{Wakeling}},
+           familyi={W\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{e4f7af86b4cd55e40d1f4d7d3d0c6050}
+      \strng{fullhash}{6d7e6e1efbe5955ac1193943e7eb71ea}
+      \strng{bibnamehash}{e4f7af86b4cd55e40d1f4d7d3d0c6050}
+      \strng{authorbibnamehash}{e4f7af86b4cd55e40d1f4d7d3d0c6050}
+      \strng{authornamehash}{e4f7af86b4cd55e40d1f4d7d3d0c6050}
+      \strng{authorfullhash}{6d7e6e1efbe5955ac1193943e7eb71ea}
+      \field{labelalpha}{Cab+19}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 International Conference on Computational Science and Computational Intelligence (CSCI)}
+      \field{title}{Review and Analysis of Cowrie Artefacts and Their Potential to be Used Deceptively}
+      \field{year}{2019}
+      \field{pages}{166\bibrangedash 171}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/CSCI49370.2019.00035
+      \endverb
+    \endentry
+    \entry{62}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=4aecfb0cc2e1e3b7899129fa2a94e2b8}{%
+           family={Dean},
+           familyi={D\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod}}}%
+        {{hash=193bcec5240237591ad8fb697869f013}{%
+           family={Ghemawat},
+           familyi={G\bibinitperiod},
+           given={Sanjay},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco, CA}%
+      }
+      \strng{namehash}{59b423e9fed33260f87a089f738c1beb}
+      \strng{fullhash}{59b423e9fed33260f87a089f738c1beb}
+      \strng{bibnamehash}{59b423e9fed33260f87a089f738c1beb}
+      \strng{authorbibnamehash}{59b423e9fed33260f87a089f738c1beb}
+      \strng{authornamehash}{59b423e9fed33260f87a089f738c1beb}
+      \strng{authorfullhash}{59b423e9fed33260f87a089f738c1beb}
+      \field{labelalpha}{DG04}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{OSDI'04: Sixth Symposium on Operating System Design and Implementation}
+      \field{title}{MapReduce: Simplified Data Processing on Large Clusters}
+      \field{year}{2004}
+      \field{pages}{137\bibrangedash 150}
+      \range{pages}{14}
+    \endentry
+    \entry{ghemawat2003google}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=193bcec5240237591ad8fb697869f013}{%
+           family={Ghemawat},
+           familyi={G\bibinitperiod},
+           given={Sanjay},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cba27430b5b9cc9a103159616e785bbd}{%
+           family={Gobioff},
+           familyi={G\bibinitperiod},
+           given={Howard},
+           giveni={H\bibinitperiod}}}%
+        {{hash=408f4502cb10162a8e4bab0e4cc0649b}{%
+           family={Leung},
+           familyi={L\bibinitperiod},
+           given={Shun-Tak},
+           giveni={S\bibinithyphendelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{57e17cb11465ebe3ae3f1449f8b1549f}
+      \strng{fullhash}{57e17cb11465ebe3ae3f1449f8b1549f}
+      \strng{bibnamehash}{57e17cb11465ebe3ae3f1449f8b1549f}
+      \strng{authorbibnamehash}{57e17cb11465ebe3ae3f1449f8b1549f}
+      \strng{authornamehash}{57e17cb11465ebe3ae3f1449f8b1549f}
+      \strng{authorfullhash}{57e17cb11465ebe3ae3f1449f8b1549f}
+      \field{labelalpha}{GGL03}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the nineteenth ACM symposium on Operating systems principles}
+      \field{title}{The Google file system}
+      \field{year}{2003}
+      \true{nocite}
+      \field{pages}{29\bibrangedash 43}
+      \range{pages}{15}
+    \endentry
+    \entry{8971584}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=a545bd13ef1e9c1672bfb284155fc1ad}{%
+           family={{Kumar}},
+           familyi={K\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a0aec9f5edf315e6d97332ebadc59f4b}{%
+           family={{Janet}},
+           familyi={J\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=bfb87b43961fc718fffbfbc12413c7e4}{%
+           family={{Eswari}},
+           familyi={E\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9ad56a430b49c5845d2aa7c2a8447a6}
+      \strng{fullhash}{f9ad56a430b49c5845d2aa7c2a8447a6}
+      \strng{bibnamehash}{f9ad56a430b49c5845d2aa7c2a8447a6}
+      \strng{authorbibnamehash}{f9ad56a430b49c5845d2aa7c2a8447a6}
+      \strng{authornamehash}{f9ad56a430b49c5845d2aa7c2a8447a6}
+      \strng{authorfullhash}{f9ad56a430b49c5845d2aa7c2a8447a6}
+      \field{labelalpha}{KJE19}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 IEEE 9th International Conference on Advanced Computing (IACC)}
+      \field{title}{Multi Platform Honeypot for Generation of Cyber Threat Intelligence}
+      \field{year}{2019}
+      \true{nocite}
+      \field{pages}{25\bibrangedash 29}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/IACC48062.2019.8971584
+      \endverb
+    \endentry
+    \entry{8635778}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=1ea3289a435c524cb4dda7a182c5931a}{%
+           family={{Kyriakou}},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=568e4a0ae9c17571730d478cfa1b296e}{%
+           family={{Sklavos}},
+           familyi={S\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{f029f900a35011c8ba505ea7efc0454c}
+      \strng{fullhash}{f029f900a35011c8ba505ea7efc0454c}
+      \strng{bibnamehash}{f029f900a35011c8ba505ea7efc0454c}
+      \strng{authorbibnamehash}{f029f900a35011c8ba505ea7efc0454c}
+      \strng{authornamehash}{f029f900a35011c8ba505ea7efc0454c}
+      \strng{authorfullhash}{f029f900a35011c8ba505ea7efc0454c}
+      \field{labelalpha}{KS18}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2018 Global Information Infrastructure and Networking Symposium (GIIS)}
+      \field{title}{Container-Based Honeypot Deployment for the Analysis of Malicious Activity}
+      \field{year}{2018}
+      \true{nocite}
+      \field{pages}{1\bibrangedash 4}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/GIIS.2018.8635778
+      \endverb
+    \endentry
+    \entry{idshoneypots}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9efd423d2616822f48e3b9e6fcb0d12c}{%
+           family={Sanders},
+           familyi={S\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Applied Network Defense}%
+      }
+      \strng{namehash}{9efd423d2616822f48e3b9e6fcb0d12c}
+      \strng{fullhash}{9efd423d2616822f48e3b9e6fcb0d12c}
+      \strng{bibnamehash}{9efd423d2616822f48e3b9e6fcb0d12c}
+      \strng{authorbibnamehash}{9efd423d2616822f48e3b9e6fcb0d12c}
+      \strng{authornamehash}{9efd423d2616822f48e3b9e6fcb0d12c}
+      \strng{authorfullhash}{9efd423d2616822f48e3b9e6fcb0d12c}
+      \field{labelalpha}{San20}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Intrusion Detection Honeypots}
+      \field{isbn}{978-1735188300}
+      \field{subtitle}{Detection Through Deception}
+      \field{title}{Intrusion Detection Honeypots, Detection Through Deception}
+      \field{year}{2020}
+      \true{nocite}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
