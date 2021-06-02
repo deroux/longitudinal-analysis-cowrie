@@ -14,10 +14,11 @@ try:
         data = json.load(json_data_file)
         MAX_ROBOT_TIME = float(data["settings"]["robot_max_time"])
         LOG_FILE_PATH = data["settings"]["log_file_path"]
-except ImportError:
+except :
     # fallback if config file not found
     MAX_ROBOT_TIME = 10.0
     LOG_FILE_PATH = './'
+    pass
 
 
 class Reduce:

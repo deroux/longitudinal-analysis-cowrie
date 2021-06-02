@@ -9,16 +9,18 @@ import os
 from pathlib import Path
 from Helpers import cEvent, bcolors
 
+global MAX_ROBOT_TIME, LOG_FILE_PATH
 
 try:
     with open("config.json") as json_data_file:
         data = json.load(json_data_file)
         MAX_ROBOT_TIME = float(data["settings"]["robot_max_time"])
         LOG_FILE_PATH = data["settings"]["log_file_path"]
-except ImportError:
+except:
     # fallback if config file not found
     MAX_ROBOT_TIME = 10.0
     LOG_FILE_PATH = './'
+    pass
 
 
 class Map:
@@ -52,7 +54,7 @@ class Map:
 
                 el = {'date': date, 'sensor': sensor, 'event': event}
                 if cEvent.LOGIN in event:
-                    el['event'] = cEvent.LOGIN # as we need cowrie.login.failed and cowrie.login.sucess => cowrie.login
+                    el['event'] = cEvent.LOGIN  # as we need cowrie.login.failed and cowrie.login.sucess => cowrie.login
                     el['username'] = js.get('username')
                     el['password'] = js.get('password')
                     output.append((orjson.dumps(el), 1))
@@ -66,8 +68,8 @@ class Map:
 
                 if cEvent.SESSION_CLOSED in event:
                     duration = js.get('duration')
-                    #todo make configurable
-                    if duration < MAX_ROBOT_TIME: # most likely robot
+                    # todo make configurable
+                    if duration < MAX_ROBOT_TIME:  # most likely robot
                         el['robot'] = True
                     else:
                         el['robot'] = False
@@ -76,7 +78,6 @@ class Map:
                     # el['session'] = js.get('session')
                     output.append((orjson.dumps(el), 1))
                     continue
-
 
                 if cEvent.DIRECT_TCPIP_PROXYING in event:
                     el['src_ip'] = js.get('src_ip')
@@ -148,22 +149,31 @@ class Map:
                 output.append((orjson.dumps(val), 1))
         return output
 
+
 def run_map(file):
+    from Map import Map
+    from Helpers import bcolors
+    import orjson, json
+
     print(f"Map on: {file}")
-    mapped = Map().map_func(file)
-    out = []
-    for tup in mapped:
-        obj = {'log': orjson.loads(tup[0]), 'count': 1}
-        out.append(obj)
+    try:
+        mapped = Map().map_func(file)
+        out = []
+        for tup in mapped:
+            obj = {'log': orjson.loads(tup[0]), 'count': 1}
+            out.append(obj)
 
-    outFile = LOG_FILE_PATH + '/' + file.name + '.mapped'
-    with open(outFile, 'w') as f:
-        json.dump(out, f, indent=2)
+        outFile = LOG_FILE_PATH + '/' + file.name + '.mapped'
+        with open(outFile, 'w') as f:
+            json.dump(out, f, indent=2)
 
-        if len(out) > 0:
-            print(f"{bcolors.OKGREEN} Map operation finished successfully {bcolors.ENDC}")
-        else:
-            print(f"{bcolors.WARNING} Map operation produced no data, please check manually {bcolors.ENDC}")
+            if len(out) > 0:
+                print(f"{bcolors.OKGREEN} Map operation finished successfully {bcolors.ENDC}")
+            else:
+                print(f"{bcolors.WARNING} Map operation produced no data, please check manually {bcolors.ENDC}")
+    except Exception:
+        sys.stdout.write(f"Error processing: {file} {Exception}")
+        pass
 
 if __name__ == "__main__":
     # TODO: implement multiprocessing for n files distributed
