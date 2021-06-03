@@ -3,11 +3,15 @@ import argparse
 import collections
 import io
 import operator
+
+import ijson as ijson
 import orjson, json  # as json is more conventient for writing to file
 from pathlib import Path
 import os, sys
 
 from Helpers import json_help, bcolors, build_json
+
+global MAX_ROBOT_TIME, LOG_FILE_PATH
 
 try:
     with open("config.json") as json_data_file:
@@ -45,6 +49,10 @@ class Reduce:
 
 
 if __name__ == "__main__":
+    # necessary for remote execution
+    if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
+        LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
+
     files = []
     if len(sys.argv) > 1:
         # use provided files to reduce
@@ -62,7 +70,7 @@ if __name__ == "__main__":
                 files.append(file_path)
             continue
 
-    name = str('cowrie.json.')
+    name = 'cowrie.json.'
     map_responses = []
     for f in files:
         fl = f
@@ -70,6 +78,8 @@ if __name__ == "__main__":
             fl = f.name
         with open(fl) as file:
             name += f.name.split('.')[2]
+            # in_file = open(fl, 'r')
+            # data = ijson.items(in_file, 'item')
             data = json.load(file)
             for tup in data:
                 map_responses.append((orjson.dumps(tup['log']), tup['count']))

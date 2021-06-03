@@ -2,9 +2,13 @@ import sys
 import os
 
 def main():
-    stream = open("Map.py")
-    map_file = stream.read()
-    exec(map_file)
+    #stream = open("/home/cowrie/cowrie/var/log/cowrie/Map.py")
+    #map_file = stream.read()
+    #exec(map_file)
+
+    str = open("/home/cowrie/cowrie/var/log/cowrie/Reduce.py")
+    reduce_file = str.read()
+    exec(reduce_file)
 
 if __name__ == '__main__':
     try:
@@ -15,7 +19,7 @@ if __name__ == '__main__':
             client = paramiko.SSHClient()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             client.connect('104.248.253.81', username='root', password='16Sfl,Rkack', port=2112)
-
+            """
             # apt install python-pip
             stdout = client.exec_command('apt install python3-pip')[1]
             for line in stdout:
@@ -35,21 +39,24 @@ if __name__ == '__main__':
                 # Process each line in the remote output
                 print(line)
             # /home/cowrie/cowrie/var/log/cowrie
-
+            """
             # Setup sftp connection and transmit this script
             sftp = client.open_sftp()
             sftp.put(__file__, '/home/cowrie/cowrie/var/log/cowrie/longitudinal.py')
             sftp.put('Map.py', '/home/cowrie/cowrie/var/log/cowrie/Map.py')
+            sftp.put('Reduce.py', '/home/cowrie/cowrie/var/log/cowrie/Reduce.py')
+            sftp.put('main.py', '/home/cowrie/cowrie/var/log/cowrie/main.py')
             sftp.put('Helpers.py', '/home/cowrie/cowrie/var/log/cowrie/Helpers.py')
-            # sftp.put('config.json', '/home/cowrie/cowrie/var/log/cowrie/config.json')
+            sftp.put('MapReduce.py', '/home/cowrie/cowrie/var/log/cowrie/MapReduce.py')
+            sftp.put('config.json', '/home/cowrie/cowrie/var/log/cowrie/config.json')
             sftp.close()
 
             # Run the transmitted script remotely without args and show its output.
             # SSHClient.exec_command() returns the tuple (stdin,stdout,stderr)
-            stdout = client.exec_command('python3 /home/cowrie/cowrie/var/log/cowrie/longitudinal.py')[1]
-            for line in stdout:
-                # Process each line in the remote output
-                print(line)
+
+            stdin, stdout, stderr = client.exec_command('python3 /home/cowrie/cowrie/var/log/cowrie/longitudinal.py', get_pty=True)
+            for line in iter(stdout.readline, ""):
+                print(line, end="")
 
             client.close()
             sys.exit(0)

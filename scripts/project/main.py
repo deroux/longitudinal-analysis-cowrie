@@ -51,7 +51,7 @@ MAP
 """
 
 
-def run_map_reduce(files):
+def run_map_reduce(files, mapper):
     # main work
     counts = mapper(files)
     counts.sort(key=operator.itemgetter(1))
@@ -61,7 +61,6 @@ def run_map_reduce(files):
     data = helper.split_data_by_events(counts)
     result = build_json(data)
     return result
-
 
 """
 REDUCE
@@ -75,6 +74,10 @@ if __name__ == '__main__':
     import glob
     import os
 
+    # necessary for remote execution
+    if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
+        LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
+
     start = time.time()
     filesize = 0
 
@@ -85,9 +88,15 @@ if __name__ == '__main__':
         filename = os.path.basename(file_path)
         if '.mapped' in filename or '.reduced' in filename:
             # don't use already processed files
+            #result = filename.rsplit('.', 1)[0]
+            #print(result)
+
+            #if result in input_files:
+            #    input_files.remove(result)
             continue
         else:
             input_files.append(file_path)
+
 
     if len(input_files) == 0:
         print(f"{bcolors.FAIL} Error: No log files found in... {folder_path.absolute()} {bcolors.ENDC}")
@@ -99,7 +108,7 @@ if __name__ == '__main__':
     mapper = MapReduce(Map().map_func, Reduce().reduce_func)
 
     log_data = []
-    log_data = run_map_reduce(sorted(input_files))
+    log_data = run_map_reduce(sorted(input_files), mapper)
 
     #    #as orjson is just able to write binary to file, but we lose FORMATTING then...
     #    with open('reduced.json', 'wb') as f:
@@ -131,3 +140,5 @@ if __name__ == '__main__':
     print("total size:      {:10.2f} MB".format(filesize))
     print("Analysis:  \t     {:10.2f} s {:10.2f} min".format((end - start), (end - start) / 60))
     print("Speed:     \t     {:10.2f} MB/s".format(filesize / (end - start)))
+
+

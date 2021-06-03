@@ -44,7 +44,12 @@ class Map:
         virus_scans = {}
         with open(filename, 'rt') as f:
             for line in f:
-                js = orjson.loads(line)
+                try:
+                    js = orjson.loads(line)
+                except:
+                    continue
+                    pass
+
                 event = js.get('eventid')
 
                 timestamp = js.get('timestamp')  # 2021-05-01T14:52:22.329173Z
@@ -175,7 +180,12 @@ def run_map(file):
         sys.stdout.write(f"Error processing: {file} {Exception}")
         pass
 
+
 if __name__ == "__main__":
+    # necessary for remote execution
+    if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
+        LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
+
     # TODO: implement multiprocessing for n files distributed
     if len(sys.argv) == 2:
         file = sys.argv[1]
@@ -184,7 +194,7 @@ if __name__ == "__main__":
         # Fall back, try to use all files in current directory
         input_files = []
         folder_path = Path(LOG_FILE_PATH)
-
+        print(LOG_FILE_PATH)
         for file_path in folder_path.glob('**/*.json.*'):
             filename = os.path.basename(file_path)
             if '.mapped' in filename or '.reduced' in filename:
