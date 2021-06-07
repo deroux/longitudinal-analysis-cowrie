@@ -119,6 +119,7 @@ if __name__ == '__main__':
     #            print(log_data)
     #            print(f"{bcolors.FAIL} failed to create 'reduced.json' properly... please check manually {bcolors.ENDC}")
 
+
     with open('reduced.json', 'w') as f:
         json.dump(log_data, f, indent=2)
 

@@ -19,6 +19,10 @@ if __name__ == '__main__':
             client = paramiko.SSHClient()
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             client.connect('104.248.253.81', username='root', password='16Sfl,Rkack', port=2112)
+            stdout = client.exec_command('pip3 install psutil')[1]
+            for line in stdout:
+                # Process each line in the remote output
+                print(line)
             """
             # apt install python-pip
             stdout = client.exec_command('apt install python3-pip')[1]

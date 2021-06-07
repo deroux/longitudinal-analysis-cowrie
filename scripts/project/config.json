@@ -1,7 +1,8 @@
 {
     "settings":
     {
-      "log_file_path": "/home/cowrie/cowrie/var/log/cowrie/",
-      "robot_max_time": "10.0",
+      "log_file_path2": "/home/cowrie/cowrie/var/log/cowrie/",
+      "log_file_path": "C:\\Users\\Dominic\\Documents\\longitudinal-analysis-cowrie\\scripts\\project\\logs",
+      "robot_max_time": "10.0"
     }
 }

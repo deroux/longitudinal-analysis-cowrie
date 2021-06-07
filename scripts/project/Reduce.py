@@ -1,10 +1,9 @@
 #!/usr/bin/python
 import argparse
-import collections
 import io
 import operator
 
-import ijson as ijson
+import psutil
 import orjson, json  # as json is more conventient for writing to file
 from pathlib import Path
 import os, sys
@@ -26,6 +25,8 @@ except :
 
 
 class Reduce:
+    from collections import defaultdict
+
     def __init__(self):
         pass
 
@@ -33,6 +34,7 @@ class Reduce:
         """Organize mapped values by their key.
         Returns an unsorted sequence of tuples with a key and a sequence of values.
         """
+        import collections
         partitioned_data = collections.defaultdict(list)
 
         for key, value in mapped_values:
@@ -49,6 +51,7 @@ class Reduce:
 
 
 if __name__ == "__main__":
+    print('RAM memory % used:', psutil.virtual_memory()[2])
     # necessary for remote execution
     if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
@@ -71,38 +74,62 @@ if __name__ == "__main__":
             continue
 
     name = 'cowrie.json.'
-    map_responses = []
+
+    outFile = LOG_FILE_PATH + '/reduced.json'
+
+    out = open(outFile, "w")
+    out.write("[\n")
+    out.close()
+
+    it = 1
     for f in files:
         fl = f
         if isinstance(fl, io.TextIOWrapper):
             fl = f.name
+
         with open(fl) as file:
+            if file.buffer.name == outFile:
+                continue
+
+            map_responses = []
             name += f.name.split('.')[2]
             # in_file = open(fl, 'r')
             # data = ijson.items(in_file, 'item')
             data = json.load(file)
+
+            process = psutil.Process(os.getpid())
+            ram = float("{:.2f}".format(process.memory_info().rss / 1000000))  # in megabytes
+            print(f"RAM usage: {ram} MB")
+            print('% used:', psutil.virtual_memory()[2])
+
             for tup in data:
                 map_responses.append((orjson.dumps(tup['log']), tup['count']))
 
-    reducer = Reduce()
-    partitioned_data = reducer.partition_func(map_responses)
+            reducer = Reduce()
+            partitioned_data = reducer.partition_func(map_responses)
 
-    reduced_values = []
-    reduced_values = list(map(reducer.reduce_func, partitioned_data))
-    reduced_values.sort(key=operator.itemgetter(1))
-    reduced_values.reverse()
+            reduced_values = []
+            reduced_values = list(map(reducer.reduce_func, partitioned_data))
+            reduced_values.sort(key=operator.itemgetter(1))
+            reduced_values.reverse()
 
-    helper = json_help()
-    data = helper.split_data_by_events(reduced_values)
-    result = build_json(data)
+            helper = json_help()
+            data = helper.split_data_by_events(reduced_values)
+            result = build_json(data)
 
-    outFile = LOG_FILE_PATH + '/' + name + '.reduced'
+            with open(outFile, 'a') as f:
+                json.dump(result, f, indent=2)
 
-    with open(outFile, 'w') as f:
-        json.dump(result, f, indent=2)
+                if it < len(files):
+                    f.write(",\n")
+                    it += 1
 
-        if len(result) > 0:
-            print(f"{bcolors.OKGREEN} Reduce operation finished successfully {bcolors.ENDC}")
-        else:
-            print(result)
-            print(f"{bcolors.WARNING} Reduce operation produced no data, please check manually {bcolors.ENDC}")
+                if len(result) > 0:
+                    print(f"{bcolors.OKGREEN} Reduce operation finished successfully {bcolors.ENDC}")
+                else:
+                    print(result)
+                    print(f"{bcolors.WARNING} Reduce operation produced no data, please check manually {bcolors.ENDC}")
+
+    out = open(outFile, "a")
+    out.write("\n]")
+    out.close()

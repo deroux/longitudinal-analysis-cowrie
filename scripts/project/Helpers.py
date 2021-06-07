@@ -74,7 +74,10 @@ def build_json(data):
                 obj['proxy_request'] = res
         result_json.append(obj)
 
-    return list(result_json)
+    if len(result_json) == 1:
+        return result_json[0] # this is everything about reducing the RAM on remote execution, as we are using single objects there,.. python ran out of RAM and yes...
+    else:
+        return result_json
 
 
 class json_help:

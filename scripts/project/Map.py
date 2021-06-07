@@ -168,7 +168,7 @@ def run_map(file):
             obj = {'log': orjson.loads(tup[0]), 'count': 1}
             out.append(obj)
 
-        outFile = LOG_FILE_PATH + '/' + file.name + '.mapped'
+        outFile = str(file) + '.mapped'
         with open(outFile, 'w') as f:
             json.dump(out, f, indent=2)
 
