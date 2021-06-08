@@ -1,0 +1,156 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         UIBK_WIPL-Template          %%
+%%                                     %%
+%%            for writing a            %%
+%%  master thesis with pdflatex/latex  %%
+%%                                     %%
+%%  (2018) Stefan Haeussler            %%
+%%       & Manuel Schneckenreither     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{plmmthesis}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Addiditonal Packages  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%      Definition of cover page and title page      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Longitudinal Analysis of SSH Honeypot Logs}                % for title page
+\plaintitle{Longitudinal Analysis of SSH Honeypot Logs}           % for cover page
+\mailaddress{Dominic.Rudigier@student.uibk.ac.at}
+\matriculationnumber{11832156}
+\author{Dominic~Rudigier}      % for title page
+\plainauthor{Dominic~Rudigier} % for cover page
+\date{\today}
+\supervisor{Maximilian Hils,~MSc}
+\institute{Department of Computer Science, Security and Privacy Lab}
+\acknowledgments{I like to thank \ldots}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   Begin of document    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% Abstract
+% %%%%%%%%
+\abstract{We consider \ldots problem description \ldots method \ldots result \ldots Contribution \ldots Lorem ipsum dolor sit amet, consectetur  
+  adipiscing elit. Fusce dictum tellus id ligula vestibulum, a tristique metus consectetur.
+  Phasellus sit amet sollicitudin velit, ut ultrices turpis. Sed malesuada odio posuere magna
+  tempus, ut lacinia nisl tincidunt. Sed diam nulla, rhoncus a ultricies id, rutrum vitae dolor.
+  Vivamus sed ligula a mauris malesuada gravida eleifend laoreet neque. Nunc eget mi vulputate,
+  rutrum diam at, ullamcorper ipsum. Aenean porttitor egestas metus, a aliquet metus efficitur eu.
+  Vestibulum consectetur ut massa sit amet facilisis. Donec et ante sem.
+}
+
+\maketitle
+
+
+\tableofcontents 
+
+\listoffigures        \cleardoublepage  %Uncomment if not neccessary
+\listoftables         \cleardoublepage  %Uncomment if not neccessary
+
+
+\chapter{Introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur tincidunt enim efficitur sollicitudin. Fusce mollis, magna ac ultrices vestibulum, enim quam egestas mauris, nec suscipit ex ante quis turpis. In hac habitasse platea dictumst. Suspendisse dapibus, augue id dictum gravida, diam libero fermentum odio, non convallis sem sapien in erat. Integer elementum nibh urna, in consequat diam aliquam eu. Quisque dapibus posuere erat at venenatis. Donec lobortis fringilla augue quis vulputate. Etiam sollicitudin felis sed rutrum ultrices. Curabitur eu neque eget magna vehicula commodo. Curabitur lobortis odio ut volutpat aliquam. Ut mattis luctus massa.
+
+Vivamus augue felis, efficitur ac dolor id, convallis lacinia magna. Vivamus mi nunc, tempus ut justo ac, bibendum interdum elit. In at tortor pretium, cursus nisi nec, condimentum ex. Aenean varius lacinia rutrum. Phasellus nisl nibh, maximus in euismod quis, egestas ac erat. Aliquam non dapibus enim. Etiam pharetra ipsum risus, vitae suscipit velit rhoncus at. Donec imperdiet tortor leo, non iaculis diam aliquam vitae. Donec consectetur convallis massa, sed ultrices ipsum tristique eu. Etiam accumsan vel mauris et rutrum. Praesent augue diam, egestas auctor hendrerit eget, ultrices a libero. Ut eu est a tellus porttitor pretium. Nam auctor mi aliquet consequat congue. Etiam ultrices imperdiet tortor a sodales.
+
+Integer porta accumsan augue, sit amet convallis sapien ultricies vitae. Nam quis facilisis lacus. Donec vel quam at lacus iaculis interdum. Sed at scelerisque augue, ut elementum tellus. Sed euismod tincidunt enim ac lacinia. Aliquam non nunc sollicitudin, aliquet lacus non, efficitur tortor. Vestibulum eleifend aliquam metus, ut pretium turpis pharetra quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut vitae purus placerat nulla posuere auctor. Stefan and Manuel are awesome. Cras blandit neque quam, ac tempor augue rutrum eu. Curabitur sapien magna, eleifend id dolor eu, mattis commodo nisl. Sed sem leo, lacinia in facilisis vitae, consectetur et enim. Sed rhoncus cursus dui. Nullam nisi arcu, gravida in tortor nec, pretium egestas enim. In egestas elit ut mauris lacinia euismod.
+
+Duis efficitur commodo varius. Morbi tempus, urna at ullamcorper dictum, odio odio sagittis dolor, id euismod est mi sit amet orci. Maecenas pretium metus a sem lacinia luctus. Quisque dolor magna, rhoncus venenatis velit a, lobortis dignissim urna. Sed luctus convallis sapien, et malesuada lorem placerat non. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque in enim turpis. Pellentesque et maximus magna, eu rhoncus sem. Quisque massa lectus, eleifend id leo ac, fringilla bibendum ex. Suspendisse blandit velit sit amet turpis porta ultrices. Sed congue tellus ut elementum feugiat. Praesent vestibulum eu felis ut viverra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Donec non odio arcu. Nunc gravida efficitur mi sed tempor. Sed tincidunt metus sit amet orci aliquam lobortis. Donec viverra metus vitae orci faucibus gravida. Vivamus sit amet justo fermentum, commodo orci in, congue urna. Aliquam nec volutpat nulla, et placerat leo. Vestibulum in hendrerit est. Vivamus vehicula orci ut arcu maximus tempor. Ut facilisis felis et massa varius suscipit. Morbi non gravida nibh, id tincidunt velit. Phasellus non rhoncus velit. Sed viverra sapien a risus tincidunt pharetra. Praesent eleifend pharetra risus vitae eleifend.
+
+\section{What is Lorem Ipsum?}
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Can you find the easteregg? It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\cite{loremipsum}
+
+\section{Why do we use it?}
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\cite{loremipsum}
+
+
+\section{Where does it come from?}
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.\cite{loremipsum}
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in
+their exact original form, accompanied by English versions from the 1914 translation by H.
+Rackham.\cite{loremipsum}
+
+\chapter{XYZ}
+
+Ut maiores eum soluta totam. Aut odit veniam iure qui odit sit dicta. Temporibus sit aut accusamus
+ab ab ut iure. Nihil consequuntur eveniet nihil non quas. Hic ipsum dicta eligendi fuga. Veritatis
+nam consequatur quis suscipit voluptas earum.
+
+Aut esse doloremque non. Nulla voluptatem nam tempore. Natus amet quisquam consequatur eaque impedit eius.
+
+Ut omnis dolores minus iure maxime. Nostrum voluptatum unde sit perferendis. Quae magnam temporibus totam. Quia est et quisquam. Ut velit vel inventore vel mollitia.
+
+Voluptatem nostrum qui exercitationem dolorem itaque voluptas numquam molestiae. Consequatur sed dolores doloremque odio corrupti. Quos et reiciendis magni veniam. Sed sequi impedit quaerat. Aut voluptas necessitatibus vero.
+
+Ipsum voluptate repellendus velit quia voluptatem sunt quis. Quis et porro vero atque ratione. Corporis nemo aliquam sequi vel. Soluta ea et possimus dicta ratione veniam. Est magnam voluptatum delectus sit eum perferendis et.d
+
+
+\section{ABC}
+
+Ut maiores eum soluta totam. Aut odit veniam iure qui odit sit dicta. Temporibus sit aut accusamus
+ab ab ut iure. Nihil consequuntur eveniet nihil non quas. Hic ipsum dicta eligendi fuga. Veritatis
+nam consequatur quis suscipit voluptas earum.
+
+Aut esse doloremque non. Nulla voluptatem nam tempore. Natus amet quisquam consequatur eaque impedit eius.
+
+Ut omnis dolores minus iure maxime. Nostrum voluptatum unde sit perferendis. Quae magnam temporibus totam. Quia est et quisquam. Ut velit vel inventore vel mollitia.
+
+Voluptatem nostrum qui exercitationem dolorem itaque voluptas numquam molestiae. Consequatur sed dolores doloremque odio corrupti. Quos et reiciendis magni veniam. Sed sequi impedit quaerat. Aut voluptas necessitatibus vero.
+
+Ipsum voluptate repellendus velit quia voluptatem sunt quis. Quis et porro vero atque ratione. Corporis nemo aliquam sequi vel. Soluta ea et possimus dicta ratione veniam. Est magnam voluptatum delectus sit eum perferendis et.d
+
+\chapter{Citation}
+
+In brackets \cite{Almeida1997,Doltsinis2012} or in text \citep{Bertrand1990,Chen2013}.
+With page \cite[see][p.123]{Bertrand1990}
+
+
+\chapter{Conclusion}
+
+Ut maiores eum soluta totam. Aut odit veniam iure qui odit sit dicta. Temporibus sit aut accusamus
+ab ab ut iure. Nihil consequuntur eveniet nihil non quas. Hic ipsum dicta eligendi fuga. Veritatis
+nam consequatur quis suscipit voluptas earum.
+
+Aut esse doloremque non. Nulla voluptatem nam tempore. Natus amet quisquam consequatur eaque impedit eius.
+
+Ut omnis dolores minus iure maxime. Nostrum voluptatum unde sit perferendis. Quae magnam temporibus totam. Quia est et quisquam. Ut velit vel inventore vel mollitia.
+
+Voluptatem nostrum qui exercitationem dolorem itaque voluptas numquam molestiae. Consequatur sed dolores doloremque odio corrupti. Quos et reiciendis magni veniam. Sed sequi impedit quaerat. Aut voluptas necessitatibus vero.
+
+Ipsum voluptate repellendus velit quia voluptatem sunt quis. Quis et porro vero atque ratione. Corporis nemo aliquam sequi vel. Soluta ea et possimus dicta ratione veniam. Est magnam voluptatum delectus sit eum perferendis et.d
+
+
+% Appendix
+\appendix
+% \insert{appendix}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
