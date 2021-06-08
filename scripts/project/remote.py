@@ -1,24 +1,47 @@
 import sys
 import os
 
+
 def main():
-    #stream = open("/home/cowrie/cowrie/var/log/cowrie/Map.py")
-    #map_file = stream.read()
-    #exec(map_file)
+    # stream = open("/home/cowrie/cowrie/var/log/cowrie/Map.py")
+    # map_file = stream.read()
+    # exec(map_file)
 
     str = open("/home/cowrie/cowrie/var/log/cowrie/Reduce.py")
     reduce_file = str.read()
     exec(reduce_file)
 
 if __name__ == '__main__':
-    try:
-        if sys.argv[1] == 'deploy':
-            import paramiko
+    ip_address = '104.248.253.81'
+    port = 2112
+    user = 'root'
+    pw = '16Sfl,Rkack'
 
-            # Connect to remote host
-            client = paramiko.SSHClient()
-            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-            client.connect('104.248.253.81', username='root', password='16Sfl,Rkack', port=2112)
+    import paramiko
+    try:
+        # Connect to remote host
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(ip_address, username=user, password=pw, port=port)
+
+        if sys.argv[1] == 'fetch':
+            # fetch reduced.json file
+            # Setup sftp connection and fetch the reduced.json file
+            remote_path = '/home/cowrie/cowrie/var/log/cowrie/reduced.json'
+            local_path = f'C:\\Users\\Dominic\\Documents\\longitudinal-analysis-cowrie\\scripts\\project\\{ip_address}_reduced.json'
+
+            sftp = client.open_sftp()
+            sftp.get(remote_path, local_path)
+            sftp.close()
+            print(f'Downloaded reduced log file from {ip_address}:{port} into {local_path}')
+            exit(0)
+
+        if sys.argv[1] == 'deploy':
+            stdout = client.exec_command('pip3 install paramiko')[1]
+            for line in stdout:
+                # Process each line in the remote output
+                print(line)
+
             stdout = client.exec_command('pip3 install psutil')[1]
             for line in stdout:
                 # Process each line in the remote output
@@ -58,7 +81,8 @@ if __name__ == '__main__':
             # Run the transmitted script remotely without args and show its output.
             # SSHClient.exec_command() returns the tuple (stdin,stdout,stderr)
 
-            stdin, stdout, stderr = client.exec_command('python3 /home/cowrie/cowrie/var/log/cowrie/longitudinal.py', get_pty=True)
+            stdin, stdout, stderr = client.exec_command('python3 /home/cowrie/cowrie/var/log/cowrie/longitudinal.py',
+                                                        get_pty=True)
             for line in iter(stdout.readline, ""):
                 print(line, end="")
 
