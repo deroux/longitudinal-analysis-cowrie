@@ -4,13 +4,14 @@ import time
 from pathlib import Path
 
 from MapReduce import MapReduce
-from Helpers import cEvent, bcolors, build_json
+from Helpers import cEvent, bcolors, build_json, write_to_file
 from Map import Map
 from Reduce import Reduce
 from Helpers import json_help
 
 try:
     import config as cfg
+
     LOG_FILE_PATH = cfg.settings['log_file_path']
 except ImportError:
     LOG_FILE_PATH = './'
@@ -62,6 +63,7 @@ def run_map_reduce(files, mapper):
     result = build_json(data)
     return result
 
+
 """
 REDUCE
 [ {date: "2021-04-25",
@@ -75,7 +77,7 @@ if __name__ == '__main__':
     import os
 
     # necessary for remote execution
-    if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
+    if os.getcwd() == "/root":  # we check if current directory is /root so we know we are on a digitalocean node
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
 
     start = time.time()
@@ -88,15 +90,14 @@ if __name__ == '__main__':
         filename = os.path.basename(file_path)
         if '.mapped' in filename or '.reduced' in filename:
             # don't use already processed files
-            #result = filename.rsplit('.', 1)[0]
-            #print(result)
+            # result = filename.rsplit('.', 1)[0]
+            # print(result)
 
-            #if result in input_files:
+            # if result in input_files:
             #    input_files.remove(result)
             continue
         else:
             input_files.append(file_path)
-
 
     if len(input_files) == 0:
         print(f"{bcolors.FAIL} Error: No log files found in... {folder_path.absolute()} {bcolors.ENDC}")
@@ -119,15 +120,7 @@ if __name__ == '__main__':
     #            print(log_data)
     #            print(f"{bcolors.FAIL} failed to create 'reduced.json' properly... please check manually {bcolors.ENDC}")
 
-
-    with open('reduced.json', 'w') as f:
-        json.dump(log_data, f, indent=2)
-
-        if len(log_data) > 0:
-            print(f"{bcolors.OKGREEN} created 'reduced.json' file with cummulated log data{bcolors.ENDC}")
-        else:
-            print(log_data)
-            print(f"{bcolors.WARNING} 'reduced.json' contains no data... please check manually {bcolors.ENDC}")
+    write_to_file('reduced.json', log_data, 'w')
 
     end = time.time()
     filesize = filesize / 1000000
@@ -141,5 +134,3 @@ if __name__ == '__main__':
     print("total size:      {:10.2f} MB".format(filesize))
     print("Analysis:  \t     {:10.2f} s {:10.2f} min".format((end - start), (end - start) / 60))
     print("Speed:     \t     {:10.2f} MB/s".format(filesize / (end - start)))
-
-

@@ -5,15 +5,14 @@ import numpy as np
 
 from bubbly.bubbly import bubbleplot
 
-from Helpers import add_to_dictionary
+from Helpers import add_to_dictionary, key_exists, key_exists_arr
+
 
 # todo: integrate animated bubble_chart
 
-# todo: implement session tracer
 
 def histogram(data, title):
     fig = go.Figure()
-
 
     for key in data:
         x_data = []
@@ -46,6 +45,7 @@ def histogram(data, title):
     # Reduce opacity to see both histograms
     fig.update_traces(opacity=0.75)
     return fig
+
 
 def bubble_chart(data, y_global, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
     fig_2d = go.Figure()
@@ -80,12 +80,12 @@ def bubble_chart(data, y_global, str_xaxis, str_yaxis, str_zaxis, title, legend_
         fig_2d.update_xaxes(title_text=str_xaxis)
         fig_2d.update_yaxes(title_text=str_yaxis, type="log")
         fig_2d.update_layout(title=f"{title}",
-                    legend_title=f"{legend_title}",
-                    font=dict(
-                        family="Courier New, monospace",
-                        size=14,
-                        color="Black"
-                    ))
+                             legend_title=f"{legend_title}",
+                             font=dict(
+                                 family="Courier New, monospace",
+                                 size=14,
+                                 color="Black"
+                             ))
 
         # m_size = normalizeRange(y_data, max(y_global), min(y_global), 100, 10)
         data_3d.append(go.Scatter3d(
@@ -179,14 +179,14 @@ uploads_y_global = []
 uploads = {}
 
 for entry in lines:
-    date = entry['date']
-    sensor = entry['sensor']
-    passwords = entry['passwords']
-    commands = entry['commands']
-    pre_disconnect_command = entry['pre_disconnect_command']
-    connect = entry['connect']
+    date = key_exists_arr(entry, 'date')
+    sensor = key_exists_arr(entry, 'sensor')
+    passwords = key_exists_arr(entry, 'passwords')
+    commands = key_exists_arr(entry, 'commands')
+    pre_disconnect_command = key_exists_arr(entry, 'pre_disconnect_command')
+    connect = key_exists_arr(entry, 'connect')
 
-    if 'file_download' in entry:
+    if key_exists(entry, 'file_download'):
         for el in entry['file_download']:
             url = el['url']
 
@@ -195,17 +195,16 @@ for entry in lines:
 
             outfile = el['outfile']
             avira = f"{el['scans']['positives']} / {el['scans']['total']} positives."
-            count = el ['count']
+            count = el['count']
 
             downloads_y_global.append(count)
             add_to_dictionary(downloads, url + ' : ' + avira, date + ':' + sensor + ":" + str(count))
 
-
-    if 'file_upload' in entry:
+    if key_exists(entry, 'file_upload'):
         for el in entry['file_upload']:
             filename = el['filename']
             src_ip = el['src_ip']
-            count = el ['count']
+            count = el['count']
 
             uploads_y_global.append(count)
             add_to_dictionary(uploads, filename + ' : ' + src_ip, date + ':' + sensor + ":" + str(count))
@@ -257,15 +256,23 @@ figure = bubbleplot(dataset=df, x_column='Count', y_column='Honeypot',
 # iplot(figure, config={'scrollzoom': True})
 """
 
-
-fig_userpw_2d, fig_userpw_3d = bubble_chart(userpw_dict, userpw_y_global, "date", "log(#logins)", "Droplet", "Top n user:password combinations", "user:password")
-fig_input_2d, fig_input_3d = bubble_chart(commands_dict, input_y_global, "date", "log(#inputs)", "Droplet",  "Top n commands", "Command")
-fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d = bubble_chart(pre_disconnect_commands_dict, input_pre_disconnect_y_global, "date", "log(#inputs)", "Droplet", "Top n pre-disconnect-commands", "Pre-disconnect command")
-fig_connect_2d, fig_connect_3d = bubble_chart(connect_dict, connect_y_global, "date", "log(#inputs)", "Droplet", "Top n connects", "src_ip:dst_port")
+fig_userpw_2d, fig_userpw_3d = bubble_chart(userpw_dict, userpw_y_global, "date", "log(#logins)", "Droplet",
+                                            "Top n user:password combinations", "user:password")
+fig_input_2d, fig_input_3d = bubble_chart(commands_dict, input_y_global, "date", "log(#inputs)", "Droplet",
+                                          "Top n commands", "Command")
+fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d = bubble_chart(pre_disconnect_commands_dict,
+                                                                        input_pre_disconnect_y_global, "date",
+                                                                        "log(#inputs)", "Droplet",
+                                                                        "Top n pre-disconnect-commands",
+                                                                        "Pre-disconnect command")
+fig_connect_2d, fig_connect_3d = bubble_chart(connect_dict, connect_y_global, "date", "log(#inputs)", "Droplet",
+                                              "Top n connects", "src_ip:dst_port")
 fig_histogram_connect = histogram(connect_dict, "Connection frequency")
 fig_histogram_pdc = histogram(pre_disconnect_commands_dict, "Pre disconnect command frequency")
-fig_download_2d, fig_download_3d = bubble_chart(downloads, downloads_y_global, "date", "log(#downloads)", "Droplet", "Top n downloads", "File : Anti-Virus-Results")
-fig_upload_2d, fig_upload_3d = bubble_chart(uploads, uploads_y_global, "date", "log(#uploads)", "Droplet", "Top n uploads", "filename : src_ip")
+fig_download_2d, fig_download_3d = bubble_chart(downloads, downloads_y_global, "date", "log(#downloads)", "Droplet",
+                                                "Top n downloads", "File : Anti-Virus-Results")
+fig_upload_2d, fig_upload_3d = bubble_chart(uploads, uploads_y_global, "date", "log(#uploads)", "Droplet",
+                                            "Top n uploads", "filename : src_ip")
 
 figure_list = [
     fig_userpw_2d, fig_userpw_3d,

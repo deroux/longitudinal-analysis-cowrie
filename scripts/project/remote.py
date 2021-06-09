@@ -20,59 +20,61 @@ def error_cli():
 
 
 def fetch_from_remote(ip_address, port, user, pw):
-    # fetch reduced.json file
-    # Setup sftp connection and fetch the reduced.json file
-    remote_path = '/home/cowrie/cowrie/var/log/cowrie/reduced.json'
-    local_path = f'C:\\Users\\Dominic\\Documents\\longitudinal-analysis-cowrie\\scripts\\project\\{ip_address}_reduced.json'
 
-    # Connect to remote host
-    client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(ip_address, username=user, password=pw, port=port)
+    import paramiko
+    try:
+        # fetch reduced.json file
+        print(f"Copying reduced JSON from {ip_address}:{port}")
+        # Setup sftp connection and fetch the reduced.json file
+        remote_path = '/home/cowrie/cowrie/var/log/cowrie/reduced.json'
+        local_path = f'C:\\Users\\Dominic\\Documents\\longitudinal-analysis-cowrie\\scripts\\project\\{ip_address}_reduced.json'
 
-    sftp = client.open_sftp()
-    sftp.get(remote_path, local_path)
-    sftp.close()
-    print(f'Downloaded reduced log file from {ip_address}:{port} into {local_path}')
+        # Connect to remote host
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(ip_address, username=user, password=pw, port=port)
+
+        sftp = client.open_sftp()
+        sftp.get(remote_path, local_path)
+        sftp.close()
+        print(f'Downloaded reduced log file from {ip_address}:{port} into {local_path}')
+    except Exception as e:
+        print(f"Error fetching files from remote {ip}:{port}")
+        print(e)
+        exit(0)
 
 
 def deploy_to_remote(ip_address, port, user, pw):
+    import paramiko
+    print(f"Deploying scripts to {ip_address}:{port}")
     try:
         # Connect to remote host
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         client.connect(ip_address, username=user, password=pw, port=port)
 
-        """
-        stdout = client.exec_command('pip3 install paramiko')[1]
-        for line in stdout:
-            # Process each line in the remote output
-            print(line)
+        commands = []
+        # update ubuntu and install required libraries
+        commands.append("sudo apt-get -y update && sudo apt-get -y upgrade")
+        commands.append("sudo apt-get -y install python3.6")
+        commands.append("sudo apt install -y python-pip")
+        commands.append("sudo apt install -y python3-pip")
+        # create virtual environment
+        commands.append("sudo apt-get -y install python3-venv")
+        commands.append("python3 -m venv honeypot-env")
+        commands.append("source honeypot-env/bin/activate")
+        # upgrade pip's
+        commands.append("sudo -H pip3 install --upgrade pip")
+        # install required libraries
+        commands.append("pip3 install paramiko")
+        commands.append("pip3 install orjson")
+        commands.append("pip3 install psutil")
 
-        stdout = client.exec_command('pip3 install psutil')[1]
-        for line in stdout:
-            # Process each line in the remote output
-            print(line)
-        # apt install python-pip
-        stdout = client.exec_command('apt install python3-pip')[1]
-        for line in stdout:
-            # Process each line in the remote output
-            print(line)
-        stdout = client.exec_command('pip3 install --upgrade pip')[1]
-        for line in stdout:
-            # Process each line in the remote output
-            print(line)
-        # install orjson
-        stdout = client.exec_command('pip3 install orjson')[1]
-        for line in stdout:
-            # Process each line in the remote output
-            print(line)
-        stdout = client.exec_command('pip3 install json')[1]
-        for line in stdout:
-            # Process each line in the remote output
-            print(line)
-        # /home/cowrie/cowrie/var/log/cowrie
-        """
+        for command in commands:
+            stdin, stdout, stderr = client.exec_command(command, get_pty=True)
+            for line in iter(stdout.readline, ""):
+                print(line, end="")
+
         # Setup sftp connection and transmit this script
         sftp = client.open_sftp()
         print(f"copying {__file__}")
@@ -94,26 +96,32 @@ def deploy_to_remote(ip_address, port, user, pw):
         # Run the transmitted script remotely without args and show its output.
         # SSHClient.exec_command() returns the tuple (stdin,stdout,stderr)
 
-        stdin, stdout, stderr = client.exec_command('python3 /home/cowrie/cowrie/var/log/cowrie/remote.py',
-                                                    get_pty=True)
+        stdin, stdout, stderr = client.exec_command('python3 /home/cowrie/cowrie/var/log/cowrie/remote.py', get_pty=True)
+
         for line in iter(stdout.readline, ""):
             print(line, end="")
-
         client.close()
-        sys.exit(0)
-    except IndexError:
-        pass
+    except Exception as e:
+        print(f"Error deploying files to remote {ip}:{port}")
+        print(e)
+        exit(0)
 
 
 if __name__ == '__main__':
-    import paramiko
+    #import paramiko
 
     if len(sys.argv) > 1:
         try:
+            """
             ip = sys.argv[1]
             port = sys.argv[2]
             user = sys.argv[3]
             pw = sys.argv[4]
+            """
+            ip = "104.248.245.133"
+            port = 2112
+            user = "root"
+            pw = "16Sfl,Rkack"
             """
             ip_address = '104.248.253.81'
             port = 2112
@@ -121,13 +129,13 @@ if __name__ == '__main__':
             pw = '16Sfl,Rkack'
             """
             # deploy to REMOTE server
-            print(f"Deploying scripts to {ip}:{port}")
             deploy_to_remote(ip, port, user, pw)
             # fetch reduced file from REMOTE server
-            print(f"Copying reduced JSON from {ip}:{port}")
             fetch_from_remote(ip, port, user, pw)
-        except:
-            error_cli()
+        except Exception as e:
+            print(f"Error executing remote.py script")
+            print(e)
+            exit(0)
     else:
         # No cmd-line args provided, run script normally (on REMOTE server)
         main()

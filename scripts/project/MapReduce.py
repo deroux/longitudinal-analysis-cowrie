@@ -6,7 +6,6 @@ import tqdm
 
 
 class MapReduce(object):
-
     def __init__(self, map_func, reduce_func, num_workers=multiprocessing.cpu_count() * 2):  #
         """
         map_func

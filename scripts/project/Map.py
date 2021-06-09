@@ -1,13 +1,10 @@
 #!/usr/bin/python
 import multiprocessing
-import sys
-import argparse
-import orjson, json  # as json is more conventient for writing to file
-import operator
-import glob
-import os
+import sys, os
+import orjson, json  # as json is more conventient for writing to file, orjson faster
+
 from pathlib import Path
-from Helpers import cEvent, bcolors
+from Helpers import cEvent, bcolors, write_to_file
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
 
@@ -16,12 +13,12 @@ try:
         data = json.load(json_data_file)
         MAX_ROBOT_TIME = float(data["settings"]["robot_max_time"])
         LOG_FILE_PATH = data["settings"]["log_file_path"]
-except:
+except Exception as e:
     # fallback if config file not found
     MAX_ROBOT_TIME = 10.0
     LOG_FILE_PATH = './'
+    print(e)
     pass
-
 
 class Map:
     def __init__(self):
@@ -46,7 +43,8 @@ class Map:
             for line in f:
                 try:
                     js = orjson.loads(line)
-                except:
+                except Exception as e:
+                    print(e)
                     continue
                     pass
 
@@ -155,29 +153,24 @@ class Map:
         return output
 
 
-def run_map(file):
+def run_map(filename):
+    import orjson
     from Map import Map
-    from Helpers import bcolors
-    import orjson, json
+    from Helpers import write_to_file
 
-    print(f"Map on: {file}")
+    print(f"Map on: {filename}")
     try:
-        mapped = Map().map_func(file)
+        mapped = Map().map_func(filename)
         out = []
         for tup in mapped:
             obj = {'log': orjson.loads(tup[0]), 'count': 1}
             out.append(obj)
 
-        outFile = str(file) + '.mapped'
-        with open(outFile, 'w') as f:
-            json.dump(out, f, indent=2)
+        outFile = str(filename) + '.mapped'
+        write_to_file(outFile, out, 'w')
 
-            if len(out) > 0:
-                print(f"{bcolors.OKGREEN} Map operation finished successfully {bcolors.ENDC}")
-            else:
-                print(f"{bcolors.WARNING} Map operation produced no data, please check manually {bcolors.ENDC}")
-    except Exception:
-        sys.stdout.write(f"Error processing: {file} {Exception}")
+    except Exception as e:
+        print(e)
         pass
 
 
@@ -195,6 +188,7 @@ if __name__ == "__main__":
         input_files = []
         folder_path = Path(LOG_FILE_PATH)
         print(LOG_FILE_PATH)
+
         for file_path in folder_path.glob('**/*.json.*'):
             filename = os.path.basename(file_path)
             if '.mapped' in filename or '.reduced' in filename:

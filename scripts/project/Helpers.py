@@ -14,7 +14,7 @@ class cEvent:
     CLIENT_SSH_FINGERPRINT = 'cowrie.client.fingerprint'  # login via SSH public key
     DIRECT_TCPIP_PROXYING = 'cowrie.direct-tcpip.request'  # proxying request
     DIRECT_TCPIP_DATA_SEND = 'cowrie.direct-tcpip.data'  # data attempted to be sent through our server
-    SESSION_CLOSED = 'cowrie.session.closed' # to find out duration of session
+    SESSION_CLOSED = 'cowrie.session.closed'  # to find out duration of session
 
     # not part of cowrie
     PRE_DISCONNECT_COMMAND = 'pre_disconnect_command'
@@ -38,6 +38,30 @@ def add_to_dictionary(dict, key, value):
     else:
         elements = [value]
         dict.update({key: elements})  # add key if not existing already
+
+
+def key_exists_arr(dic, key):
+    if key in dic:
+        return dic[key]
+    else:
+        return []
+
+def key_exists(dic, key):
+    if key in dic:
+        return True
+    else:
+        return False
+
+
+def write_to_file(filename, result, mode):
+    import json
+    with open(filename, mode) as f:
+        json.dump(result, f, indent=2)
+
+        if len(result) > 0:
+            print(f"{bcolors.OKGREEN} created {filename} {bcolors.ENDC}")
+        else:
+            print(f"{bcolors.WARNING} {filename} contains no data... please check manually {bcolors.ENDC}")
 
 
 def build_json(data):
@@ -75,7 +99,8 @@ def build_json(data):
         result_json.append(obj)
 
     if len(result_json) == 1:
-        return result_json[0] # this is everything about reducing the RAM on remote execution, as we are using single objects there,.. python ran out of RAM and yes...
+        return result_json[
+            0]  # this is everything about reducing the RAM on remote execution, as we are using single objects there,.. python ran out of RAM and yes...
     else:
         return result_json
 

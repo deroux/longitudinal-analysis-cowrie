@@ -1,13 +1,10 @@
 #!/usr/bin/python
-import argparse
-import io
+import io, os, sys, psutil
 import operator
+import argparse
+import orjson, json  # as json is more conventient for writing to file, orjson faster
 
-import psutil
-import orjson, json  # as json is more conventient for writing to file
 from pathlib import Path
-import os, sys
-
 from Helpers import json_help, bcolors, build_json
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
@@ -17,10 +14,11 @@ try:
         data = json.load(json_data_file)
         MAX_ROBOT_TIME = float(data["settings"]["robot_max_time"])
         LOG_FILE_PATH = data["settings"]["log_file_path"]
-except :
+except Exception as e:
     # fallback if config file not found
     MAX_ROBOT_TIME = 10.0
     LOG_FILE_PATH = './'
+    print(e)
     pass
 
 
@@ -125,10 +123,9 @@ if __name__ == "__main__":
                     it += 1
 
                 if len(result) > 0:
-                    print(f"{bcolors.OKGREEN} Reduce operation finished successfully {bcolors.ENDC}")
+                    print(f"{bcolors.OKGREEN} created {filename} {bcolors.ENDC}")
                 else:
-                    print(result)
-                    print(f"{bcolors.WARNING} Reduce operation produced no data, please check manually {bcolors.ENDC}")
+                    print(f"{bcolors.WARNING} {filename} contains no data... please check manually {bcolors.ENDC}")
 
     out = open(outFile, "a")
     out.write("\n]")
