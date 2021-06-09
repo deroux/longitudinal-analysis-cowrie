@@ -1,5 +1,0 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[1] Config.pm:314> INFO - Logfile is 'MasterThesis_Name.blg'
-[359] biber-MSWIN32:340> INFO - === 
-[1772] Utils.pm:411> ERROR - Cannot find 'MasterThesis_Name.bcf'!
-[1773] Biber.pm:132> INFO - ERRORS: 1

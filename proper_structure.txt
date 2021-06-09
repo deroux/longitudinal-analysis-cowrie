@@ -1,0 +1,14 @@
+
+https://realpython.com/documenting-python-code/
+
+
+
+    Readme: A brief summary of the project and its purpose. Include any special requirements for installing or operating the projects. Additionally, add any major changes since the previous version. Finally, add links to further documentation, bug reporting, and any other important information for the project. Dan Bader has put together a great tutorial on what all should be included in your readme.
+
+    How to Contribute: This should include how new contributors to the project can help. This includes developing new features, fixing known issues, adding documentation, adding new tests, or reporting issues.
+
+    Code of Conduct: Defines how other contributors should treat each other when developing or using your software. This also states what will happen if this code is broken. If you’re using Github, a Code of Conduct template can be generated with recommended wording. For Open Source projects especially, consider adding this.
+
+    License: A plaintext file that describes the license your project is using. For Open Source projects especially, consider adding this.
+
+    docs: A folder that contains further documentation. The next section describes more fully what should be included and how to organize the contents of this folder.
