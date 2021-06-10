@@ -1,9 +1,5 @@
 import json
 import plotly.graph_objects as go
-import pandas as pd
-import numpy as np
-
-from bubbly.bubbly import bubbleplot
 
 from Helpers import add_to_dictionary, key_exists, key_exists_arr
 
@@ -148,143 +144,149 @@ def normalize_range(data, OldMax, OldMin, NewMax, NewMin):
     return normalized;
 
 
-f = open('reduced.json', 'r')
-db = json.load(f)
+if __name__ == '__main__':
+    # !/usr/bin/env python3
+    try:
+        f = open('reduced.json', 'r')
+        db = json.load(f)
 
-x_global = []
-userpw_y_global = []
-input_y_global = []
-input_pre_disconnect_y_global = []
-connect_y_global = []
+        x_global = []
+        userpw_y_global = []
+        input_y_global = []
+        input_pre_disconnect_y_global = []
+        connect_y_global = []
 
-temp = {}
-lines = sorted(db, key=lambda k: k['date'], reverse=False)
-print(lines)
+        temp = {}
+        lines = sorted(db, key=lambda k: k['date'], reverse=False)
 
-userpw_dict = {}
-commands_dict = {}
-pre_disconnect_commands_dict = {}
-connect_dict = {}
+        userpw_dict = {}
+        commands_dict = {}
+        pre_disconnect_commands_dict = {}
+        connect_dict = {}
 
-passwords_dict = {}
+        passwords_dict = {}
 
-dates = []
-sensors = []
-pws = []
-counts = []
+        dates = []
+        sensors = []
+        pws = []
+        counts = []
 
-downloads = {}
-downloads_y_global = []
-uploads_y_global = []
-uploads = {}
+        downloads = {}
+        downloads_y_global = []
+        uploads_y_global = []
+        uploads = {}
 
-for entry in lines:
-    date = key_exists_arr(entry, 'date')
-    sensor = key_exists_arr(entry, 'sensor')
-    passwords = key_exists_arr(entry, 'passwords')
-    commands = key_exists_arr(entry, 'commands')
-    pre_disconnect_command = key_exists_arr(entry, 'pre_disconnect_command')
-    connect = key_exists_arr(entry, 'connect')
+        for entry in lines:
+            date = key_exists_arr(entry, 'date')
+            sensor = key_exists_arr(entry, 'sensor')
+            passwords = key_exists_arr(entry, 'passwords')
+            commands = key_exists_arr(entry, 'commands')
+            pre_disconnect_command = key_exists_arr(entry, 'pre_disconnect_command')
+            connect = key_exists_arr(entry, 'connect')
 
-    if key_exists(entry, 'file_download'):
-        for el in entry['file_download']:
-            url = el['url']
+            if key_exists(entry, 'file_download'):
+                for el in entry['file_download']:
+                    url = el['url']
 
-            if url == '' or url == None:
-                continue
+                    if url == '' or url == None:
+                        continue
 
-            outfile = el['outfile']
-            avira = f"{el['scans']['positives']} / {el['scans']['total']} positives."
-            count = el['count']
+                    outfile = el['outfile']
+                    avira = f"{el['scans']['positives']} / {el['scans']['total']} positives."
+                    count = el['count']
 
-            downloads_y_global.append(count)
-            add_to_dictionary(downloads, url + ' : ' + avira, date + ':' + sensor + ":" + str(count))
+                    downloads_y_global.append(count)
+                    add_to_dictionary(downloads, url + ' : ' + avira, date + ':' + sensor + ":" + str(count))
 
-    if key_exists(entry, 'file_upload'):
-        for el in entry['file_upload']:
-            filename = el['filename']
-            src_ip = el['src_ip']
-            count = el['count']
+            if key_exists(entry, 'file_upload'):
+                for el in entry['file_upload']:
+                    filename = el['filename']
+                    src_ip = el['src_ip']
+                    count = el['count']
 
-            uploads_y_global.append(count)
-            add_to_dictionary(uploads, filename + ' : ' + src_ip, date + ':' + sensor + ":" + str(count))
+                    uploads_y_global.append(count)
+                    add_to_dictionary(uploads, filename + ' : ' + src_ip, date + ':' + sensor + ":" + str(count))
 
-    for el in passwords:
-        userpw = el['username'] + ':' + el['password']
-        count = el['count']
-        userpw_y_global.append(count)
+            for el in passwords:
+                userpw = el['username'] + ':' + el['password']
+                count = el['count']
+                userpw_y_global.append(count)
 
-        add_to_dictionary(userpw_dict, userpw, date + ':' + sensor + ":" + str(count))
+                add_to_dictionary(userpw_dict, userpw, date + ':' + sensor + ":" + str(count))
 
-    for el in commands:
-        inp = el['input']
-        count = el['count']
-        input_y_global.append(count)
+            for el in commands:
+                inp = el['input']
+                count = el['count']
+                input_y_global.append(count)
 
-        add_to_dictionary(commands_dict, inp, date + ':' + sensor + ":" + str(count))
+                add_to_dictionary(commands_dict, inp, date + ':' + sensor + ":" + str(count))
 
-    for el in pre_disconnect_command:
-        inp = el['input']
-        count = el['count']
-        input_pre_disconnect_y_global.append(count)
+            for el in pre_disconnect_command:
+                inp = el['input']
+                count = el['count']
+                input_pre_disconnect_y_global.append(count)
 
-        add_to_dictionary(pre_disconnect_commands_dict, inp, date + ':' + sensor + ":" + str(count))
+                add_to_dictionary(pre_disconnect_commands_dict, inp, date + ':' + sensor + ":" + str(count))
 
-    for el in connect:
-        src_ip = el['src_ip']
-        dst_port = el['dst_port']
-        count = el['count']
-        connect_y_global.append(count)
+            for el in connect:
+                src_ip = el['src_ip']
+                dst_port = el['dst_port']
+                count = el['count']
+                connect_y_global.append(count)
 
-        add_to_dictionary(connect_dict, f"{src_ip}:{dst_port}", date + ':' + sensor + ":" + str(count))
+                add_to_dictionary(connect_dict, f"{src_ip}:{dst_port}", date + ':' + sensor + ":" + str(count))
 
-"""
-Future: animated bubblechart for different dates
+        """
+        Future: animated bubblechart for different dates
+        
+        print(dates)
+        df = pd.DataFrame({"Date":dates,
+                          "Honeypot":sensors, "Passwords": pws, "Count":counts})
+        
+        df.set_index('Date', inplace=True)
+        df.index = pd.to_datetime(df.index)
+        
+        figure = bubbleplot(dataset=df, x_column='Count', y_column='Honeypot',
+            bubble_column='Passwords', time_column='Date', size_column='Count', color_column='Passwords',
+            x_title="Number of logins", y_title="Honeypot", title='Top n logins',
+            x_logscale=True, scale_bubble=3, height=650)
+        
+        # iplot(figure, config={'scrollzoom': True})
+        """
 
-print(dates)
-df = pd.DataFrame({"Date":dates,
-                  "Honeypot":sensors, "Passwords": pws, "Count":counts})
+        fig_userpw_2d, fig_userpw_3d = bubble_chart(userpw_dict, userpw_y_global, "date", "log(#logins)", "Droplet",
+                                                    "Top n user:password combinations", "user:password")
+        fig_input_2d, fig_input_3d = bubble_chart(commands_dict, input_y_global, "date", "log(#inputs)", "Droplet",
+                                                  "Top n commands", "Command")
+        fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d = bubble_chart(pre_disconnect_commands_dict,
+                                                                                input_pre_disconnect_y_global, "date",
+                                                                                "log(#inputs)", "Droplet",
+                                                                                "Top n pre-disconnect-commands",
+                                                                                "Pre-disconnect command")
+        fig_connect_2d, fig_connect_3d = bubble_chart(connect_dict, connect_y_global, "date", "log(#inputs)", "Droplet",
+                                                      "Top n connects", "src_ip:dst_port")
+        fig_histogram_connect = histogram(connect_dict, "Connection frequency")
+        fig_histogram_pdc = histogram(pre_disconnect_commands_dict, "Pre disconnect command frequency")
+        fig_download_2d, fig_download_3d = bubble_chart(downloads, downloads_y_global, "date", "log(#downloads)", "Droplet",
+                                                        "Top n downloads", "File : Anti-Virus-Results")
+        fig_upload_2d, fig_upload_3d = bubble_chart(uploads, uploads_y_global, "date", "log(#uploads)", "Droplet",
+                                                    "Top n uploads", "filename : src_ip")
 
-df.set_index('Date', inplace=True)
-df.index = pd.to_datetime(df.index)
+        figure_list = [
+            fig_userpw_2d, fig_userpw_3d,
+            fig_input_2d, fig_input_3d,
+            fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d,
+            fig_histogram_pdc,
+            fig_connect_2d, fig_connect_3d,
+            fig_histogram_connect,
+            fig_download_2d, fig_download_3d,
+            fig_upload_2d, fig_upload_3d
+        ]
 
-figure = bubbleplot(dataset=df, x_column='Count', y_column='Honeypot',
-    bubble_column='Passwords', time_column='Date', size_column='Count', color_column='Passwords',
-    x_title="Number of logins", y_title="Honeypot", title='Top n logins',
-    x_logscale=True, scale_bubble=3, height=650)
-
-# iplot(figure, config={'scrollzoom': True})
-"""
-
-fig_userpw_2d, fig_userpw_3d = bubble_chart(userpw_dict, userpw_y_global, "date", "log(#logins)", "Droplet",
-                                            "Top n user:password combinations", "user:password")
-fig_input_2d, fig_input_3d = bubble_chart(commands_dict, input_y_global, "date", "log(#inputs)", "Droplet",
-                                          "Top n commands", "Command")
-fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d = bubble_chart(pre_disconnect_commands_dict,
-                                                                        input_pre_disconnect_y_global, "date",
-                                                                        "log(#inputs)", "Droplet",
-                                                                        "Top n pre-disconnect-commands",
-                                                                        "Pre-disconnect command")
-fig_connect_2d, fig_connect_3d = bubble_chart(connect_dict, connect_y_global, "date", "log(#inputs)", "Droplet",
-                                              "Top n connects", "src_ip:dst_port")
-fig_histogram_connect = histogram(connect_dict, "Connection frequency")
-fig_histogram_pdc = histogram(pre_disconnect_commands_dict, "Pre disconnect command frequency")
-fig_download_2d, fig_download_3d = bubble_chart(downloads, downloads_y_global, "date", "log(#downloads)", "Droplet",
-                                                "Top n downloads", "File : Anti-Virus-Results")
-fig_upload_2d, fig_upload_3d = bubble_chart(uploads, uploads_y_global, "date", "log(#uploads)", "Droplet",
-                                            "Top n uploads", "filename : src_ip")
-
-figure_list = [
-    fig_userpw_2d, fig_userpw_3d,
-    fig_input_2d, fig_input_3d,
-    fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d,
-    fig_histogram_pdc,
-    fig_connect_2d, fig_connect_3d,
-    fig_histogram_connect,
-    fig_download_2d, fig_download_3d,
-    fig_upload_2d, fig_upload_3d
-]
-
-with open('result.html', 'w') as f:  # a for append
-    for figure in figure_list:
-        f.write(figure.to_html(full_html=False, include_plotlyjs='cdn'))
+        with open('result.html', 'w') as f:  # a for append
+            for figure in figure_list:
+                f.write(figure.to_html(full_html=False, include_plotlyjs='cdn'))
+            print('created result.html')
+    except Exception as e:
+        print(e)
+        exit(0)

@@ -106,7 +106,7 @@ def print_ip_many_session_trace(filename, ip_address):
 
 
 if __name__ == "__main__":
-
+    # !/usr/bin/env python3
     if len(sys.argv) != 3:
         print(
             f"Invalid number of arguments. Type 'python {sys.argv[0]} <LOG_FILE_PATH/cowrie.json.YYYY-MM-DD> <session_id>")

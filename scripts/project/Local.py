@@ -72,6 +72,7 @@ REDUCE
   passwords: [ {user: "foo", password: "bar", count: 6}, ... ]}]"""
 
 if __name__ == '__main__':
+    # !/usr/bin/env python3
     import operator
     import glob
     import os

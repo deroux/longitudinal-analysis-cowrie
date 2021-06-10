@@ -49,6 +49,7 @@ class Reduce:
 
 
 if __name__ == "__main__":
+    # !/usr/bin/env python3
     print('RAM memory % used:', psutil.virtual_memory()[2])
     # necessary for remote execution
     if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node

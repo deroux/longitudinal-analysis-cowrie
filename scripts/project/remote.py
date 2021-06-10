@@ -2,7 +2,7 @@ import sys
 import os
 
 
-def main():
+def run_on_remote():
     # executed on remote machine
 
     stream = open("/home/cowrie/cowrie/var/log/cowrie/Map.py")
@@ -108,6 +108,7 @@ def deploy_to_remote(ip_address, port, user, pw):
 
 
 if __name__ == '__main__':
+    # !/usr/bin/env python3
     #import paramiko
 
     if len(sys.argv) > 1:
@@ -138,4 +139,4 @@ if __name__ == '__main__':
             exit(0)
     else:
         # No cmd-line args provided, run script normally (on REMOTE server)
-        main()
+        run_on_remote()

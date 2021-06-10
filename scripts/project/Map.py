@@ -175,6 +175,7 @@ def run_map(filename):
 
 
 if __name__ == "__main__":
+    # !/usr/bin/env python3
     # necessary for remote execution
     if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"

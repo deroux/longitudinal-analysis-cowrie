@@ -10,6 +10,7 @@ files = []
 combined = []
 
 if __name__ == "__main__":
+    # !/usr/bin/env python3
     if len(sys.argv) > 1:
         # use provided files to combine
         parser = argparse.ArgumentParser()
