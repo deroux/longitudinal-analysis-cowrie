@@ -1,7 +1,7 @@
 import os
 import click
 from pyfiglet import Figlet
-from remote import deploy_to_remote, run_on_remote, fetch_from_remote
+from remote import deploy_exec_remote, fetch_from_remote
 
 __author__ = "d3roux"
 
@@ -15,7 +15,7 @@ def cli():
 
     LOCAL: python cli.py local --log-file-path  PATH
 
-    REMOTE: python cli.py run-remote -i 123.456.789.10 -p 2112 -u root -pw pass
+    REMOTE: python cli.py analyze-remote -i 123.456.789.10 -p 2112 -u root -pw pass
     """
     # f = Figlet(font='slant')
     # print(f.renderText('cowralyze'))
@@ -23,22 +23,23 @@ def cli():
 
 
 @click.command()
-@click.option('--ip', '-i')
-@click.option('--port', '-p')
-@click.option('--user', '-u')
-@click.option('--pw', '-pw')
-def run_remote(ip, port, user, pw):
-    deploy_to_remote(ip, port, user, pw)
-    run_on_remote()
+@click.option('--ip', '-i', help="IP Address of remote droplet")
+@click.option('--port', '-p', help="Port of remote droplet (real SSH port of server, not cowrie port)")
+@click.option('--user', '-u', default='root', help="Login username of remote droplet")
+@click.option('--pw', '-pw', help="Login password of remote droplet")
+def analyze_remote(ip, port, user, pw):
+    deploy_exec_remote(ip, port, user, pw)
     fetch_from_remote(ip, port, user, pw)
-
+    visualize()
 
 @click.command()
-def visualize():
-    os.system("python visualize.py reduced.json")
+@click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
+@click.option('--output', '-o', default='result.html', help='Filename of result visualization *.html')
+def visualize(logfile, output):
+    os.system(f"python visualize.py {logfile} {output}")
 
 
-cli.add_command(run_remote)
+cli.add_command(analyze_remote)
 cli.add_command(visualize)
 
 if __name__ == "__main__":

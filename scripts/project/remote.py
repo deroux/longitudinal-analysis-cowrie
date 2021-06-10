@@ -4,7 +4,6 @@ import os
 
 def run_on_remote():
     # executed on remote machine
-
     stream = open("/home/cowrie/cowrie/var/log/cowrie/Map.py")
     map_file = stream.read()
     exec(map_file)
@@ -44,7 +43,7 @@ def fetch_from_remote(ip_address, port, user, pw):
         exit(0)
 
 
-def deploy_to_remote(ip_address, port, user, pw):
+def deploy_exec_remote(ip_address, port, user, pw):
     import paramiko
     print(f"Deploying scripts to {ip_address}:{port}")
     try:
@@ -101,6 +100,7 @@ def deploy_to_remote(ip_address, port, user, pw):
         for line in iter(stdout.readline, ""):
             print(line, end="")
         client.close()
+
     except Exception as e:
         print(f"Error deploying files to remote {ip}:{port}")
         print(e)
@@ -130,7 +130,7 @@ if __name__ == '__main__':
             pw = '16Sfl,Rkack'
             """
             # deploy to REMOTE server
-            deploy_to_remote(ip, port, user, pw)
+            deploy_exec_remote(ip, port, user, pw)
             # fetch reduced file from REMOTE server
             fetch_from_remote(ip, port, user, pw)
         except Exception as e:

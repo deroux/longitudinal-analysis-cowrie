@@ -1,4 +1,4 @@
-import json
+import json, sys
 import plotly.graph_objects as go
 
 from Helpers import add_to_dictionary, key_exists, key_exists_arr
@@ -147,7 +147,10 @@ def normalize_range(data, OldMax, OldMin, NewMax, NewMin):
 if __name__ == '__main__':
     # !/usr/bin/env python3
     try:
-        f = open('reduced.json', 'r')
+        reduced_json = sys.argv[1]
+        output_html = sys.argv[2]
+
+        f = open(reduced_json, 'r')
         db = json.load(f)
 
         x_global = []
@@ -283,10 +286,10 @@ if __name__ == '__main__':
             fig_upload_2d, fig_upload_3d
         ]
 
-        with open('result.html', 'w') as f:  # a for append
+        with open(output_html, 'w') as f:  # a for append
             for figure in figure_list:
                 f.write(figure.to_html(full_html=False, include_plotlyjs='cdn'))
-            print('created result.html')
+            print(f'created {output_html}')
     except Exception as e:
         print(e)
         exit(0)
