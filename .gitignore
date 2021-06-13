@@ -1,7 +1,5 @@
 >>>>>>> master
-
 .DS_Store
-
 scripts/old_MapReduce/logs
 scripts/project/logs
 scripts/project/venv
