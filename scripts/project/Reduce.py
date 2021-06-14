@@ -5,7 +5,7 @@ import argparse
 import orjson, json  # as json is more conventient for writing to file, orjson faster
 
 from pathlib import Path
-from Helpers import json_help, bcolors, build_json
+from Helpers import json_help, bcolors, build_json, get_files_from_path
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
 
@@ -17,7 +17,7 @@ try:
 except Exception as e:
     # fallback if config file not found
     MAX_ROBOT_TIME = 10.0
-    LOG_FILE_PATH = './'
+    LOG_FILE_PATH = '.\\'
     print(e)
     pass
 
@@ -50,7 +50,6 @@ class Reduce:
 
 if __name__ == "__main__":
     # !/usr/bin/env python3
-    print('RAM memory % used:', psutil.virtual_memory()[2])
     # necessary for remote execution
     if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
@@ -66,15 +65,10 @@ if __name__ == "__main__":
     else:
         # use all files in LOG_FILE_PATH
         folder_path = Path(LOG_FILE_PATH)
-        for file_path in folder_path.glob('**/*.json.*'):
-            filename = os.path.basename(file_path)
-            if '.mapped' in filename: # or '.reduced' in filename:
-                files.append(file_path)
-            continue
+        input_files = get_files_from_path(folder_path, False, True, False)
 
     name = 'cowrie.json.'
-
-    outFile = LOG_FILE_PATH + '/reduced.json'
+    outFile = LOG_FILE_PATH + '\\reduced.json'
 
     out = open(outFile, "w")
     out.write("[\n")
@@ -124,9 +118,9 @@ if __name__ == "__main__":
                     it += 1
 
                 if len(result) > 0:
-                    print(f"{bcolors.OKGREEN} created {filename} {bcolors.ENDC}")
+                    print(f"{bcolors.OKGREEN} created {outFile} {bcolors.ENDC}")
                 else:
-                    print(f"{bcolors.WARNING} {filename} contains no data... please check manually {bcolors.ENDC}")
+                    print(f"{bcolors.WARNING} {outFile} contains no data... please check manually {bcolors.ENDC}")
 
     out = open(outFile, "a")
     out.write("\n]")

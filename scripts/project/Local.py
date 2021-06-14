@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 import json
+import sys
 import time
 from pathlib import Path
 
 from MapReduce import MapReduce
-from Helpers import cEvent, bcolors, build_json, write_to_file
+from Helpers import cEvent, bcolors, build_json, write_to_file, get_files_from_path
 from Map import Map
 from Reduce import Reduce
 from Helpers import json_help
@@ -77,6 +78,10 @@ if __name__ == '__main__':
     import glob
     import os
 
+    # apparently someone provided a log path so let's use this one
+    if len(sys.argv) > 1:
+        LOG_FILE_PATH = sys.argv[1]
+
     # necessary for remote execution
     if os.getcwd() == "/root":  # we check if current directory is /root so we know we are on a digitalocean node
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
@@ -87,51 +92,22 @@ if __name__ == '__main__':
     input_files = []
     folder_path = Path(LOG_FILE_PATH)
 
-    for file_path in folder_path.glob('**/*.json.*'):
-        filename = os.path.basename(file_path)
-        if '.mapped' in filename or '.reduced' in filename:
-            # don't use already processed files
-            # result = filename.rsplit('.', 1)[0]
-            # print(result)
-
-            # if result in input_files:
-            #    input_files.remove(result)
-            continue
-        else:
-            input_files.append(file_path)
-
-    if len(input_files) == 0:
-        print(f"{bcolors.FAIL} Error: No log files found in... {folder_path.absolute()} {bcolors.ENDC}")
-        exit(0)
+    input_files = get_files_from_path(folder_path)
 
     for file in input_files:
         filesize += os.path.getsize(file)
 
     mapper = MapReduce(Map().map_func, Reduce().reduce_func)
-
     log_data = []
     log_data = run_map_reduce(sorted(input_files), mapper)
-
-    #    #as orjson is just able to write binary to file, but we lose FORMATTING then...
-    #    with open('reduced.json', 'wb') as f:
-    #        f.write(orjson.dumps(log_data, orjson.OPT_INDENT_2))
-    #        if len(log_data) > 0:
-    #            print(f"{bcolors.OKGREEN} created 'reduced.json' file with cummulated log data{bcolors.ENDC}")
-    #        else:
-    #            print(log_data)
-    #            print(f"{bcolors.FAIL} failed to create 'reduced.json' properly... please check manually {bcolors.ENDC}")
-
     write_to_file('reduced.json', log_data, 'w')
 
     end = time.time()
     filesize = filesize / 1000000
-
-    print(f"{bcolors.HEADER} Creating visualization.. {bcolors.ENDC}")
-    os.system("python visualize.py reduced.json")
-    print(f"{bcolors.OKGREEN} created 'result.html' visualization {bcolors.ENDC}")
 
     print(f"{bcolors.HEADER} Results {bcolors.ENDC}")
     print(str(len(input_files)) + " log-files")
     print("total size:      {:10.2f} MB".format(filesize))
     print("Analysis:  \t     {:10.2f} s {:10.2f} min".format((end - start), (end - start) / 60))
     print("Speed:     \t     {:10.2f} MB/s".format(filesize / (end - start)))
+    sys.exit(0)

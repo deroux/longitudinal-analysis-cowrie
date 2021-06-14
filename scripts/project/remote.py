@@ -15,7 +15,7 @@ def run_on_remote():
 
 def error_cli():
     print(f"Please call script like: {sys.argv[0]} IP_ADDRESS PORT USER PASSWORD")
-    sys.exit(0)
+    sys.exit(1)
 
 
 def fetch_from_remote(ip_address, port, user, pw):

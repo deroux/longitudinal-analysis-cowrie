@@ -4,7 +4,7 @@ import sys, os
 import orjson, json  # as json is more conventient for writing to file, orjson faster
 
 from pathlib import Path
-from Helpers import cEvent, bcolors, write_to_file
+from Helpers import cEvent, bcolors, write_to_file, get_files_from_path
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
 
@@ -190,18 +190,8 @@ if __name__ == "__main__":
         folder_path = Path(LOG_FILE_PATH)
         print(LOG_FILE_PATH)
 
-        for file_path in folder_path.glob('**/*.json.*'):
-            filename = os.path.basename(file_path)
-            if '.mapped' in filename or '.reduced' in filename:
-                # don't use already processed files
-                continue
-            else:
-                input_files.append(file_path)
+        input_files = get_files_from_path(folder_path)
 
-        if len(input_files) == 0:
-            print(f"{bcolors.FAIL} Error: No log files found in... {folder_path.absolute()} {bcolors.ENDC}")
-            exit(0)
         # print(f"Invalid number of arguments. Type 'python {sys.argv[0]} <LOG_FILE_PATH/cowrie.json.YYYY-MM-DD>")
-
         for file in input_files:
             run_map(file)

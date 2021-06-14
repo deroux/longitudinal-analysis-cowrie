@@ -1,4 +1,5 @@
 import orjson
+import os
 
 
 # cowrie events
@@ -31,6 +32,27 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+def get_files_from_path(path, useLogFiles=True, useMappedFiles=False, useReducedFiles=False):
+    input_files = []
+    for file_path in path.glob('**/*.json.*'):
+        filename = os.path.basename(file_path)
+
+        if '.mapped' in filename or '.reduced' in filename:
+            if useMappedFiles:
+                input_files.append(file_path)
+                continue
+            if useReducedFiles:
+                input_files.append(file_path)
+                continue
+        else:
+            if useLogFiles:
+                input_files.append(file_path)
+
+    if len(input_files) == 0:
+        print(f"{bcolors.FAIL} Error: No log files found in... {folder_path.absolute()} {bcolors.ENDC}")
+        exit(0)
+
+    return input_files
 
 def add_to_dictionary(dict, key, value):
     if key in dict:
