@@ -86,8 +86,6 @@ if __name__ == "__main__":
 
             map_responses = []
             name += f.name.split('.')[2]
-            # in_file = open(fl, 'r')
-            # data = ijson.items(in_file, 'item')
             data = json.load(file)
 
             process = psutil.Process(os.getpid())
@@ -118,7 +116,7 @@ if __name__ == "__main__":
                     it += 1
 
                 if len(result) > 0:
-                    print(f"{bcolors.OKGREEN} created {outFile} {bcolors.ENDC}")
+                    print(f"{bcolors.OKGREEN} reduced {file.buffer.name} to {outFile} (append) {bcolors.ENDC}")
                 else:
                     print(f"{bcolors.WARNING} {outFile} contains no data... please check manually {bcolors.ENDC}")
 

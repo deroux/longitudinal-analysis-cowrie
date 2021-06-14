@@ -6,9 +6,9 @@ from collections import Counter
 from Helpers import add_to_dictionary
 
 
-def print_session_trace(filename, session_id):
+def print_session_trace(file_path, session_id):
     session_trace = []
-    with open(filename, 'rt') as f:
+    with open(file_path, 'rt') as f:
         for line in f:
             js = orjson.loads(line)
             session = js.get('session')
@@ -38,15 +38,15 @@ def print_session_trace(filename, session_id):
     fig = go.Figure(data)
     fig.update_layout(
         hovermode='x',
-        title_text=f"Session trace for id: {session_id}<br>Source: {filename}",
+        title_text=f"Session trace for id: {session_id}<br>Source: {file_path}",
         font=dict(color='white'),
         paper_bgcolor='#51504f')
     fig.show()
 
 
-def print_ip_many_session_trace(filename, ip_address):
+def print_ip_many_session_trace(file_path, ip_address):
     session_trace = []
-    with open(filename, 'rt') as f:
+    with open(file_path, 'rt') as f:
         for line in f:
             js = orjson.loads(line)
             src_ip = js.get('src_ip')
@@ -99,7 +99,7 @@ def print_ip_many_session_trace(filename, ip_address):
     fig = go.Figure(data)
     fig.update_layout(
         hovermode='x',
-        title_text=f"Session trace for ip: {src_ip}<br>Source: {filename}",
+        title_text=f"Session trace for ip: {src_ip}<br>Source: {file_path}",
         font=dict(color='white'),
         paper_bgcolor='#51504f')
     fig.show()

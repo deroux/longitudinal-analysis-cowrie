@@ -2,11 +2,9 @@ import os
 import click
 from pyfiglet import Figlet
 from remote import deploy_exec_remote, fetch_from_remote
-
-__author__ = "d3roux"
-
 from tracer import print_session_trace, print_ip_many_session_trace
 
+__author__ = "deroux"
 
 @click.group()
 def cli():
@@ -43,35 +41,31 @@ def analyze_remote(ip, port, user, pw, logfile, outfile):
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
 def analyze_local(path, logfile, outfile):
     """Map-Reduce all log files in local folder, create reduced.json, create result.html for visualization."""
+    # python cli.py analyze-local -p C:\Users\Dominic\Documents\longitudinal-analysis-cowrie\scripts\project\logs
     os.system(f"python Local.py {path}")
     call_visualization(logfile, outfile)
 
 
 @click.command()
-@click.option('--file', '-f', help="Local file to perform MAP operation on.")
+@click.option('--file', '-f', type=click.Path(exists=True), help="Local file to perform MAP operation on.")
 def map_file(file):
     """Map local log file and create LOG_FILE.mapped"""
+    # python cli.py map-file -f logs_mini/cowrie.json.2021-05-03
     os.system(f"python Map.py {file}")
 
 
 @click.command()
-@click.argument('files', nargs=-1, type=click.Path()) # help="Local file/s to perform REDUCE operation on."
+@click.argument('files', nargs=-1, type=click.Path(exists=True)) # help="Local file/s to perform REDUCE operation on."
 def reduce_file(files):
     """Reduce local log file/s and create reduced.json and REDUCED_FILE.reduced for further usage"""
+    # python cli.py reduce-file logs_mini/cowrie.json.2021-05-03.mapped logs_mini/cowrie.json.2021-05-04.mapped # ... possibly n files
     arg = ' '.join(files)
+    print(arg)
     os.system(f"python Reduce.py {arg}")
 
 
 @click.command()
-@click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
-@click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
-def visualize(logfile, outfile):
-    """Use reduced.json file and create result.html visualization out of it"""
-    call_visualization(logfile, outfile)
-
-
-@click.command()
-@click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
+@click.option('--logfile', '-f', default='reduced.json', type=click.Path(exists=True), help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
 def visualize(logfile, outfile):
     """Use reduced.json file and create result.html visualization out of it"""
@@ -82,20 +76,22 @@ def call_visualization(logfile, outfile):
     os.system(f"python visualize.py {logfile} {outfile}")
 
 
-@click.command
-@click.option('--file', '-f', help='Filename of log file to find session id in and create trace of commands executed')
+@click.command()
+@click.option('--file', '-f', type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
 @click.option('--session_id', '-sid', help='Session ID for specific session trace of interest')
-def sid_trace(filename, session_id):
+def trace_sid(file, session_id):
     """Use cowrie.json.YYYY-MM-DD file and Session ID to trace commands executed"""
-    print_session_trace(filename, session_id)
+    # python cli.py trace-sid -f logs\honeypot-a\cowrie.json.2021-05-01 -sid 8b7feeeacafd
+    print_session_trace(file, session_id)
 
 
-@click.command
-@ click.option('--file', '-f', help='Filename of log file to find session id in and create trace of commands executed')
+@click.command()
+@ click.option('--file', '-f', type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
 @ click.option('--ip', '-i', help='Session ID for specific session trace of interest')
-def ip_trace(filename, ip):
+def trace_ip(file, ip):
     """Use cowrie.json.YYYY-MM-DD file and IP to trace commands executed"""
-    print_ip_many_session_trace(filename, ip)
+    # python cli.py trace-sid -f logs\honeypot-a\cowrie.json.2021-05-01 -sid 104.131.48.26
+    print_ip_many_session_trace(file, ip)
 
 
 cli.add_command(analyze_remote)
@@ -103,8 +99,8 @@ cli.add_command(analyze_local)
 cli.add_command(map_file)
 cli.add_command(reduce_file)
 cli.add_command(visualize)
-cli.add_command(sid_trace)
-cli.add_command(ip_trace)
+cli.add_command(trace_sid)
+cli.add_command(trace_ip)
 
 if __name__ == "__main__":
     # !/usr/bin/env python3
