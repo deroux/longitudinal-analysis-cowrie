@@ -2,9 +2,9 @@
 import multiprocessing
 import sys, os
 import orjson, json  # as json is more conventient for writing to file, orjson faster
-
 from pathlib import Path
-from Helpers import cEvent, bcolors, write_to_file, get_files_from_path
+
+from Helpers import cEvent, get_files_from_path
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
 
@@ -20,14 +20,27 @@ except Exception as e:
     print(e)
     pass
 
+
 class Map:
+    """
+       The Map object contains functionality to Map a log file according to the MapReduce programming model
+
+       Args:
+        filename (str): The filename of a cowrie generated log file like e.g. cowrie.json.2021-05-03 to perform map operation on.
+    """
     def __init__(self):
         self.detailedAntivirus = False  # enable this to see in output .json which antivir scanners have POSITIVEd our file
         self.urlFilesOnly = False  # output of 'file_download' checks for files with available URL only
         self.detailedOutput = False
 
     def map_func(self, filename):
-        """Read a file and return a sequence of (command, occurances) values.
+        """Read a cowrie log file and return a sequence of various (command, occurences) values.
+        Args:
+            filename (str): Filename of log file in format cowrie.json.YYYY-MM-DD
+
+        Returns:
+            output: List of Tuples with data mapped to 1 for later reduction step.
+            e.g. (b'{"date":"2021-05-01","sensor":"ubuntu-18-04-lts-honeypot-01","event":"cowrie.session.connect","src_ip":"37.120.212.4","dst_port":2222}', 1)
         """
         if self.detailedOutput:
             print(multiprocessing.current_process().name, 'reading', filename)
@@ -38,7 +51,6 @@ class Map:
         downloaded_files = {}
         virus_scans = {}
 
-        virus_scans = {}
         with open(filename, 'rt') as f:
             for line in f:
                 try:
@@ -154,6 +166,13 @@ class Map:
 
 
 def run_map(filename):
+    """Runner to read a cowrie log file and return a sequence of various (command, occurences) values.
+    Args:
+        filename (str): Filename of log file in format cowrie.json.YYYY-MM-DD
+
+    Returns:
+        output: Mapped file of input data in format cowrie.json.YYYY-MM-DD.mapped
+    """
     import orjson
     from Map import Map
     from Helpers import write_to_file
@@ -176,22 +195,24 @@ def run_map(filename):
 
 if __name__ == "__main__":
     # !/usr/bin/env python3
+    """Main function to read a cowrie log file and return a sequence of various (command, occurences) values.
+    
+    Params:
+        filename (str): Filename of log file in format cowrie.json.YYYY-MM-DD
+
+    Returns:
+        output: Mapped file of input data in format cowrie.json.YYYY-MM-DD.mapped
+    """
     # necessary for remote execution
-    if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
+    if os.getcwd() == "/root":  # we check if current directory is /root so we know we are on a digitalocean node
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
 
-    # TODO: implement multiprocessing for n files distributed
     if len(sys.argv) == 2:
         file = sys.argv[1]
         run_map(file)
     else:
         # Fall back, try to use all files in current directory
-        input_files = []
         folder_path = Path(LOG_FILE_PATH)
-        print(LOG_FILE_PATH)
-
         input_files = get_files_from_path(folder_path)
-
-        # print(f"Invalid number of arguments. Type 'python {sys.argv[0]} <LOG_FILE_PATH/cowrie.json.YYYY-MM-DD>")
         for file in input_files:
             run_map(file)

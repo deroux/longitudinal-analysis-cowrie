@@ -1,6 +1,9 @@
 import os
 import click
 from pyfiglet import Figlet
+
+from Map import run_map
+from Reduce import run_reduce
 from remote import deploy_exec_remote, fetch_from_remote
 from tracer import print_session_trace, print_ip_many_session_trace
 
@@ -47,21 +50,20 @@ def analyze_local(path, logfile, outfile):
 
 
 @click.command()
-@click.option('--file', '-f', type=click.Path(exists=True), help="Local file to perform MAP operation on.")
+@click.option('--file', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 def map_file(file):
     """Map local log file and create LOG_FILE.mapped"""
     # python cli.py map-file -f logs_mini/cowrie.json.2021-05-03
-    os.system(f"python Map.py {file}")
+    run_map(file)
 
 
 @click.command()
 @click.argument('files', nargs=-1, type=click.Path(exists=True)) # help="Local file/s to perform REDUCE operation on."
-def reduce_file(files):
+@click.option('--outfile', '-o', default='reduced.json', help='Filename of reduced data *.json')
+def reduce_file(files, outfile):
     """Reduce local log file/s and create reduced.json and REDUCED_FILE.reduced for further usage"""
     # python cli.py reduce-file logs_mini/cowrie.json.2021-05-03.mapped logs_mini/cowrie.json.2021-05-04.mapped # ... possibly n files
-    arg = ' '.join(files)
-    print(arg)
-    os.system(f"python Reduce.py {arg}")
+    run_reduce(files, outfile)
 
 
 @click.command()

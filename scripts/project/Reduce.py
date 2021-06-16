@@ -1,10 +1,8 @@
 #!/usr/bin/python
-import io, os, sys, psutil
-import operator
-import argparse
+import io, os, sys, psutil, operator, argparse
 import orjson, json  # as json is more conventient for writing to file, orjson faster
-
 from pathlib import Path
+
 from Helpers import json_help, bcolors, build_json, get_files_from_path
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
@@ -23,14 +21,22 @@ except Exception as e:
 
 
 class Reduce:
-    from collections import defaultdict
+    """
+       The Reduce object contains functionality to Reduce a mapped file according to the MapReduce programming model
 
+       Args:
+        mapped_values (list of tuples): The values of the .mapped file like ([(b'{"date":"...",...}', 1),(.., 1), ...])
+    """
     def __init__(self):
         pass
 
     def partition_func(self, mapped_values):
-        """Organize mapped values by their key.
-        Returns an unsorted sequence of tuples with a key and a sequence of values.
+        """Organize mapped values by key.        
+        Args:
+            mapped_values (list of tuples): The values produced by the previous map step in format ([(b'{"date":"...",...}', 1),(.., 1), ...])
+
+        Returns:
+            partitioned_data: Unsorted sequence of tuples with a key and a sequence of values.
         """
         import collections
         partitioned_data = collections.defaultdict(list)
@@ -41,34 +47,29 @@ class Reduce:
         return partitioned_data.items()
 
     def reduce_func(self, item):
-        """Convert the partitioned data for a command to a
-        tuple containing the word and the number of occurances.
-        """
+        """Convert partitioned data for command to a tuple containing the command and the number of occurences.
+         Args:
+             item (tuple): One value provided by the previous Map step in format like (b'{"date":"2021-05-01","sensor":"ubuntu-18-04-lts-honeypot-01", "src_ip":"37.120.212.4","dst_port":2222}', 1)
+
+         Returns:
+             key (str):             Log data string.
+             sum(occurences) (int): Reduced number of occurences of specific command across list of our tuples.
+
+             e.g. (b'{"date":"2021-05-01","sensor":"ubuntu-18-04-lts-honeypot-01", "src_ip":"37.120.212.4","dst_port":2222}', 1536)
+         """
         key, occurences = item
         return key, sum(occurences)
 
 
-if __name__ == "__main__":
-    # !/usr/bin/env python3
-    # necessary for remote execution
-    if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
-        LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
+def run_reduce(files, outFile):
+    """
+       Runner to perform reduce operation
 
-    files = []
-    if len(sys.argv) > 1:
-        # use provided files to reduce
-        parser = argparse.ArgumentParser()
-        parser.add_argument('file', type=argparse.FileType('r'), nargs='+')
-        args = parser.parse_args()
-
-        files = args.file
-    else:
-        # use all files in LOG_FILE_PATH
-        folder_path = Path(LOG_FILE_PATH)
-        input_files = get_files_from_path(folder_path, False, True, False)
-
+       Args:
+        files (list(str)):  The .mapped files to be reduced.
+        outFile (str):      The file to write the reduced output to, e.g. reduced.json.
+    """
     name = 'cowrie.json.'
-    outFile = LOG_FILE_PATH + '\\reduced.json'
 
     out = open(outFile, "w")
     out.write("[\n")
@@ -76,6 +77,7 @@ if __name__ == "__main__":
 
     it = 1
     for f in files:
+        print(f.name)
         fl = f
         if isinstance(fl, io.TextIOWrapper):
             fl = f.name
@@ -85,13 +87,17 @@ if __name__ == "__main__":
                 continue
 
             map_responses = []
-            name += f.name.split('.')[2]
+
+            if(isinstance(f, str)):
+                name += f
+            else:
+                name += f.name.split('.')[2]
+
             data = json.load(file)
 
             process = psutil.Process(os.getpid())
             ram = float("{:.2f}".format(process.memory_info().rss / 1000000))  # in megabytes
-            print(f"RAM usage: {ram} MB")
-            print('% used:', psutil.virtual_memory()[2])
+            print(f"RAM usage: {ram} MB \t {psutil.virtual_memory()[2]} % occupied")
 
             for tup in data:
                 map_responses.append((orjson.dumps(tup['log']), tup['count']))
@@ -99,7 +105,6 @@ if __name__ == "__main__":
             reducer = Reduce()
             partitioned_data = reducer.partition_func(map_responses)
 
-            reduced_values = []
             reduced_values = list(map(reducer.reduce_func, partitioned_data))
             reduced_values.sort(key=operator.itemgetter(1))
             reduced_values.reverse()
@@ -123,3 +128,34 @@ if __name__ == "__main__":
     out = open(outFile, "a")
     out.write("\n]")
     out.close()
+
+if __name__ == "__main__":
+    # !/usr/bin/env python3
+    """Main function to perform reduction on remote or local.
+
+    Params:
+        filenames (list(str)): List of filenames to be reduced in format format cowrie.json.YYYY-MM-DD.mapped ...
+
+    Returns:
+        outfile: File with reduced content / information of all mapped files.
+    """
+    # necessary for remote execution
+    if os.getcwd() == "/root": # we check if current directory is /root so we know we are on a digitalocean node
+        LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
+
+    files = []
+    if len(sys.argv) > 1:
+        # use provided files to reduce
+        parser = argparse.ArgumentParser()
+        parser.add_argument('file', type=argparse.FileType('r'), nargs='+')
+        args = parser.parse_args()
+
+        files = args.file
+    else:
+        # use all files in LOG_FILE_PATH
+        folder_path = Path(LOG_FILE_PATH)
+        files = get_files_from_path(folder_path, False, True, False)
+
+    outfile = LOG_FILE_PATH + '\\reduced.json'
+
+    run_reduce(files, outfile)
