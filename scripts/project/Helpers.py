@@ -1,9 +1,10 @@
 import orjson
 import os
 
-
 # cowrie events
 class cEvent:
+    """The cEvent object contains functionality to retrieve (Cowrie) Log File Events.
+    """
     LOGIN = 'cowrie.login'
     CONNECT = 'cowrie.session.connect'
     FILE_DOWNLOAD = 'cowrie.session.file_download'
@@ -11,17 +12,20 @@ class cEvent:
     VIRUS_TOTAL = 'cowrie.virustotal.scanfile'
     COMMAND_INPUT = 'cowrie.command.input'
     CLIENT_VERSION = 'cowrie.client.version'
-    CLIENT_SIZE = 'cowrie.client.size'  # terminal window size
-    CLIENT_SSH_FINGERPRINT = 'cowrie.client.fingerprint'  # login via SSH public key
-    DIRECT_TCPIP_PROXYING = 'cowrie.direct-tcpip.request'  # proxying request
-    DIRECT_TCPIP_DATA_SEND = 'cowrie.direct-tcpip.data'  # data attempted to be sent through our server
-    SESSION_CLOSED = 'cowrie.session.closed'  # to find out duration of session
+    CLIENT_SIZE = 'cowrie.client.size'                      # terminal window size
+    CLIENT_SSH_FINGERPRINT = 'cowrie.client.fingerprint'    # login via SSH public key
+    DIRECT_TCPIP_PROXYING = 'cowrie.direct-tcpip.request'   # proxying request
+    DIRECT_TCPIP_DATA_SEND = 'cowrie.direct-tcpip.data'     # data attempted to be sent through our server
+    SESSION_CLOSED = 'cowrie.session.closed'                # duration of session: Robot or Human?
 
     # not part of cowrie
     PRE_DISCONNECT_COMMAND = 'pre_disconnect_command'
 
 
 class bcolors:
+    """The bcolors object contains functionality to beautify the command line output.
+    TODO: what to do with this class, maybe we should beautify output using Click() somehow?
+    """
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'
@@ -32,43 +36,85 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+
 def get_files_from_path(path, useLogFiles=True, useMappedFiles=False, useReducedFiles=False):
+    """Fetch log files in format *.json.* from specified directory.
+      Args:
+          path            (str):     Path of folder to be searched recursively.
+          useLogFiles     (Boolean): Find and retrieve standard cowrie log files.
+          useMappedFiles  (Boolean): Find and retrieve .mapped files.
+          useReducedFiles (Boolean): Find and retrieve .reduced files.
+
+      Returns:
+          input_files     (list):    List of found input files according to Args specified.
+      """
     input_files = []
     for file_path in path.glob('**/*.json.*'):
         filename = os.path.basename(file_path)
 
-        if '.mapped' in filename or '.reduced' in filename:
-            if useMappedFiles:
-                input_files.append(file_path)
-                continue
-            if useReducedFiles:
-                input_files.append(file_path)
-                continue
+        mapped_file = '.mapped' in filename
+        reduced_file = '.reduced' in filename
+        if mapped_file or reduced_file:
+            if mapped_file:
+                if useMappedFiles:
+                    input_files.append(file_path)
+                    continue
+            if reduced_file:
+                if useReducedFiles:
+                    input_files.append(file_path)
+                    continue
         else:
             if useLogFiles:
                 input_files.append(file_path)
 
     if len(input_files) == 0:
-        print(f"{bcolors.FAIL} Error: No log files found in... {folder_path.absolute()} {bcolors.ENDC}")
-        exit(0)
+        print(f"{bcolors.FAIL} Error: No log files found in... {path.absolute()} {bcolors.ENDC}")
+        exit(1)
 
     return input_files
 
-def add_to_dictionary(dict, key, value):
-    if key in dict:
-        dict[key].append(value)  # use honeypot = sensor as key
+
+def add_to_dictionary(d, key, val):
+    """Add value to dictionary if key is existing or create new key if not.
+      Args:
+          d   (dict): Dictionary to add key, value pair to.
+          key  (Any): Identifier.
+          val  (Any): Value.
+
+      Returns:
+          input_files     (list):    List of found input files according to Args specified.
+      """
+    if key in d:
+        d[key].append(val)  # use honeypot = sensor as key
     else:
-        elements = [value]
-        dict.update({key: elements})  # add key if not existing already
+        elements = [val]
+        d.update({key: elements})  # add key if not existing already
 
 
-def key_exists_arr(dic, key):
-    if key in dic:
-        return dic[key]
+def key_exists_arr(d, key):
+    """Check if key exists in dictionary and return values.
+      Args:
+          d         (dict): Dictionary which might contain key.
+          key        (Any): Identifier.
+
+      Returns:
+          d[key]    (list): Values of specified key.
+    """
+    if key in d:
+        return d[key]
     else:
         return []
 
+
 def key_exists(dic, key):
+    """Check if key exists in dictionary and return Boolean.
+      Args:
+          d         (dict): Dictionary which might contain key.
+          key        (Any): Identifier.
+
+      Returns:
+          Boolean         : Whether dictionary contains key.
+    """
     if key in dic:
         return True
     else:
@@ -76,6 +122,12 @@ def key_exists(dic, key):
 
 
 def write_to_file(filename, result, mode):
+    """Write a jsonj result to a specified filename according to mode.
+      Args:
+          filename (str): Output filename, e.g. result.json
+          result   (Any): JSON result to write to output filename.
+          mode     (str): Character to identify file write mode, 'a' .. append, 'w' .. write and so on.
+    """
     import json
     with open(filename, mode) as f:
         json.dump(result, f, indent=2)
@@ -121,8 +173,9 @@ def build_json(data):
         result_json.append(obj)
 
     if len(result_json) == 1:
-        return result_json[
-            0]  # this is everything about reducing the RAM on remote execution, as we are using single objects there,.. python ran out of RAM and yes...
+        # introduced to reduce RAM on remote execution (as only 1GB RAM)
+        # so better to use single object remotely than whole bulk at once
+        return result_json[0]
     else:
         return result_json
 

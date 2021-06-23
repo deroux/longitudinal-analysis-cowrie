@@ -22,8 +22,7 @@ except Exception as e:
 
 
 class Map:
-    """
-       The Map object contains functionality to Map a log file according to the MapReduce programming model
+    """The Map object contains functionality to Map a log file according to the MapReduce programming model
 
        Args:
         filename (str): The filename of a cowrie generated log file like e.g. cowrie.json.2021-05-03 to perform map operation on.
