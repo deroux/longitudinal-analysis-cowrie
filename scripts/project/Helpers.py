@@ -226,7 +226,7 @@ class json_help:
             if event.startswith(cEvent.DIRECT_TCPIP_PROXYING):
                 add_to_dictionary(proxy_request_events, (date, sensor), (elem, count))
 
-        n = 3
+        n = 5
         top_n_events = []
         top_n_events.append(self.get_top_n_events(login_events, n))
         top_n_events.append(self.get_top_n_events(input_events, n))

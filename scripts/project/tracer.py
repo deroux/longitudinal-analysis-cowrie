@@ -5,7 +5,6 @@ from collections import Counter
 
 from Helpers import add_to_dictionary
 
-
 def print_session_trace(file_path, session_id):
     session_trace = []
     with open(file_path, 'rt') as f:

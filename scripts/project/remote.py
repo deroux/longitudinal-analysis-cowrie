@@ -4,12 +4,12 @@ import os
 
 def run_on_remote():
     # executed on remote machine
-    stream = open("/home/cowrie/cowrie/var/log/cowrie/Map.py")
-    map_file = stream.read()
+    mstream = open("/home/cowrie/cowrie/var/log/cowrie/Map.py")
+    map_file = mstream.read()
     exec(map_file)
 
-    str = open("/home/cowrie/cowrie/var/log/cowrie/Reduce.py")
-    reduce_file = str.read()
+    rstream = open("/home/cowrie/cowrie/var/log/cowrie/Reduce.py")
+    reduce_file = rstream.read()
     exec(reduce_file)
 
 
@@ -19,14 +19,15 @@ def error_cli():
 
 
 def fetch_from_remote(ip_address, port, user, pw):
-
     import paramiko
     try:
         # fetch reduced.json file
         print(f"Copying reduced JSON from {ip_address}:{port}")
         # Setup sftp connection and fetch the reduced.json file
         remote_path = '/home/cowrie/cowrie/var/log/cowrie/reduced.json'
-        local_path = f'C:\\Users\\Dominic\\Documents\\longitudinal-analysis-cowrie\\scripts\\project\\{ip_address}_reduced.json'
+        # TODO: implement check OS Windows/Unix
+        local_path = f'/Users/dominicrudigier/Documents/longitudinal-analysis-cowrie/scripts/project/{ip_address}_reduced.json'
+        # local_path = f'C:\Users\Dominic\Documents\longitudinal-analysis-cowrie\scripts\project\{ip_address}_reduced.json'
 
         # Connect to remote host
         client = paramiko.SSHClient()
@@ -55,9 +56,15 @@ def deploy_exec_remote(ip_address, port, user, pw):
         commands = []
         # update ubuntu and install required libraries
         commands.append("sudo apt-get -y update && sudo apt-get -y upgrade")
-        commands.append("sudo apt-get -y install python3.6")
+        commands.append("sudo apt install software-properties-common")
+        commands.append("sudo add-apt-repository ppa:deadsnakes/ppa -y")
+        commands.append("sudo apt-get update")
+        commands.append("sudo apt-get install -y python3.9")
+        commands.append("update-alternatives --install /usr/bin/python python /usr/bin/python3.9 1")
+
         commands.append("sudo apt install -y python-pip")
         commands.append("sudo apt install -y python3-pip")
+
         # create virtual environment
         commands.append("sudo apt-get -y install python3-venv")
         commands.append("python3 -m venv honeypot-env")
@@ -88,8 +95,8 @@ def deploy_exec_remote(ip_address, port, user, pw):
         sftp.put('Helpers.py', '/home/cowrie/cowrie/var/log/cowrie/Helpers.py')
         print(f"copying MapReduce.py")
         sftp.put('MapReduce.py', '/home/cowrie/cowrie/var/log/cowrie/MapReduce.py')
-        print(f"copying config.json")
-        sftp.put('config.json', '/home/cowrie/cowrie/var/log/cowrie/config.json')
+        # print(f"copying config.json")
+        # sftp.put('config.json', '/home/cowrie/cowrie/var/log/cowrie/config.json')
         sftp.close()
 
         # Run the transmitted script remotely without args and show its output.
@@ -109,8 +116,7 @@ def deploy_exec_remote(ip_address, port, user, pw):
 
 if __name__ == '__main__':
     # !/usr/bin/env python3
-    #import paramiko
-
+    import paramiko, time
     if len(sys.argv) > 1:
         try:
             """

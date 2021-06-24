@@ -1,6 +1,5 @@
 import os
 import click
-from pyfiglet import Figlet
 
 from Map import run_map
 from Reduce import run_reduce
@@ -25,10 +24,10 @@ def cli():
 
 
 @click.command()
-@click.option('--ip', '-i', help="IP Address of remote droplet")
-@click.option('--port', '-p', help="Port of remote droplet (real SSH port of server, not cowrie port)")
+@click.option('--ip', '-i', required=True, help="IP Address of remote droplet")
+@click.option('--port', '-p', required=True, help="Port of remote droplet (real SSH port of server, not cowrie port)")
 @click.option('--user', '-u', default='root', help="Login username of remote droplet")
-@click.option('--pw', '-pw', help="Login password of remote droplet")
+@click.option('--pw', '-pw', required=True, help="Login password of remote droplet")
 @click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
 def analyze_remote(ip, port, user, pw, logfile, outfile):
@@ -39,7 +38,7 @@ def analyze_remote(ip, port, user, pw, logfile, outfile):
 
 
 @click.command()
-@click.option('--path', '-p', default="./", type=click.Path(exists=True), help="Local folder path to look for log files to map reduce and analyze")
+@click.option('--path', '-p', required=True, type=click.Path(exists=True), help="Local folder path to look for log files to map reduce and analyze")
 @click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
 def analyze_local(path, logfile, outfile):
@@ -50,7 +49,7 @@ def analyze_local(path, logfile, outfile):
 
 
 @click.command()
-@click.option('--file', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
+@click.option('--file', '-f', required=True, help='Filename of reduced log file of generated *.json')
 def map_file(file):
     """Map local log file and create LOG_FILE.mapped"""
     # python cli.py map-file -f logs_mini/cowrie.json.2021-05-03
@@ -58,7 +57,7 @@ def map_file(file):
 
 
 @click.command()
-@click.argument('files', nargs=-1, type=click.Path(exists=True)) # help="Local file/s to perform REDUCE operation on."
+@click.argument('files', nargs=-1, required=True, type=click.Path(exists=True)) # help="Local file/s to perform REDUCE operation on."
 @click.option('--outfile', '-o', default='reduced.json', help='Filename of reduced data *.json')
 def reduce_file(files, outfile):
     """Reduce local log file/s and create reduced.json and REDUCED_FILE.reduced for further usage"""
@@ -67,7 +66,7 @@ def reduce_file(files, outfile):
 
 
 @click.command()
-@click.option('--logfile', '-f', default='reduced.json', type=click.Path(exists=True), help='Filename of reduced log file of generated *.json')
+@click.option('--logfile', '-f', required=True, type=click.Path(exists=True), help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
 def visualize(logfile, outfile):
     """Use reduced.json file and create result.html visualization out of it"""
@@ -79,8 +78,8 @@ def call_visualization(logfile, outfile):
 
 
 @click.command()
-@click.option('--file', '-f', type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
-@click.option('--session_id', '-sid', help='Session ID for specific session trace of interest')
+@click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
+@click.option('--session_id', '-sid', required=True, help='Session ID for specific session trace of interest')
 def trace_sid(file, session_id):
     """Use cowrie.json.YYYY-MM-DD file and Session ID to trace commands executed"""
     # python cli.py trace-sid -f logs\honeypot-a\cowrie.json.2021-05-01 -sid 8b7feeeacafd
@@ -88,8 +87,8 @@ def trace_sid(file, session_id):
 
 
 @click.command()
-@ click.option('--file', '-f', type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
-@ click.option('--ip', '-i', help='Session ID for specific session trace of interest')
+@ click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
+@ click.option('--ip', '-i', required=True, help='Session ID for specific session trace of interest')
 def trace_ip(file, ip):
     """Use cowrie.json.YYYY-MM-DD file and IP to trace commands executed"""
     # python cli.py trace-sid -f logs\honeypot-a\cowrie.json.2021-05-01 -sid 104.131.48.26

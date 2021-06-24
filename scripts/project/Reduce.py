@@ -69,6 +69,10 @@ def run_reduce(files, outFile):
         files (list(str)):  The .mapped files to be reduced.
         outFile (str):      The file to write the reduced output to, e.g. reduced.json.
     """
+    from Reduce import Reduce
+    from Helpers import json_help, bcolors, build_json, get_files_from_path
+    import io, json, psutil, orjson, operator
+
     name = 'cowrie.json.'
 
     out = open(outFile, "w")
