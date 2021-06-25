@@ -61,13 +61,14 @@ class Reduce:
         return key, sum(occurences)
 
 
-def run_reduce(files, outFile):
+def run_reduce(files, outFile, n):
     """
        Runner to perform reduce operation
 
        Args:
         files (list(str)):  The .mapped files to be reduced.
         outFile (str):      The file to write the reduced output to, e.g. reduced.json.
+        n       (int):      Get the highest # of n events for specific cowrie event.
     """
     from Reduce import Reduce
     from Helpers import json_help, bcolors, build_json, get_files_from_path
@@ -81,7 +82,6 @@ def run_reduce(files, outFile):
 
     it = 1
     for f in files:
-        print(f.name)
         fl = f
         if isinstance(fl, io.TextIOWrapper):
             fl = f.name
@@ -114,7 +114,7 @@ def run_reduce(files, outFile):
             reduced_values.reverse()
 
             helper = json_help()
-            data = helper.split_data_by_events(reduced_values)
+            data = helper.split_data_by_events(reduced_values, n)
             result = build_json(data)
 
             with open(outFile, 'a') as f:
@@ -162,4 +162,4 @@ if __name__ == "__main__":
 
     outfile = LOG_FILE_PATH + '\\reduced.json'
 
-    run_reduce(files, outfile)
+    run_reduce(files, outfile, 5)

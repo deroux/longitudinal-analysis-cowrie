@@ -1,16 +1,32 @@
-import argparse
-import sys
-import argparse
-import io
+import io, sys, argparse
 import json
 
-from Helpers import bcolors, write_to_file
+from Helpers import write_to_file
 
-files = []
-combined = []
+
+def combine_reduced_files(files, outfile):
+    """Combine multiple _reduced.json files into one file"""
+    combined = []
+    for f in files:
+        fl = f
+        if isinstance(fl, io.TextIOWrapper):
+            fl = f.name
+
+        with open(fl) as file:
+            if file.buffer.name == outfile:
+                continue
+            data = json.load(file)
+
+            for element in data:
+                combined.append(element)
+
+    result = sorted(combined, key=lambda k: k['date'], reverse=False)
+    write_to_file(outfile, result, 'w')
+
 
 if __name__ == "__main__":
     # !/usr/bin/env python3
+    files = []
     if len(sys.argv) > 1:
         # use provided files to combine
         parser = argparse.ArgumentParser()
@@ -19,19 +35,4 @@ if __name__ == "__main__":
         files = args.file
 
     outFile = 'reduced.json'
-
-    for f in files:
-        fl = f
-        if isinstance(fl, io.TextIOWrapper):
-            fl = f.name
-
-        with open(fl) as file:
-            if file.buffer.name == outFile:
-                continue
-            data = json.load(file)
-
-            for element in data:
-                combined.append(element)
-
-    result = sorted(combined, key=lambda k: k['date'], reverse=False)
-    write_to_file(outFile, result, 'w')
+    combine_reduced_files(files, outFile)

@@ -190,7 +190,7 @@ class json_help:
             top_n = top_n + dict[key][:n]  # concat lists
         return top_n
 
-    def split_data_by_events(self, counts):
+    def split_data_by_events(self, counts, n):
         # build json from MapReduce data
         login_events = {}
         input_events = {}
@@ -226,7 +226,6 @@ class json_help:
             if event.startswith(cEvent.DIRECT_TCPIP_PROXYING):
                 add_to_dictionary(proxy_request_events, (date, sensor), (elem, count))
 
-        n = 5
         top_n_events = []
         top_n_events.append(self.get_top_n_events(login_events, n))
         top_n_events.append(self.get_top_n_events(input_events, n))

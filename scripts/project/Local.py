@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-import json
 import sys
 import time
 from pathlib import Path
@@ -29,8 +27,6 @@ except ImportError:
 # [done] proxying requests cowrie.direct-tcpip.request
 # [done] Extract Toxic HOSTS from file_download URLs
 
-# TODO https://click.palletsprojects.com/en/8.0.x/
-
 # TODO
 # Analyze Commands for USERS / HOSTNAMES localhost etc.
 # Users in Commands over Time
@@ -53,14 +49,14 @@ MAP
 """
 
 
-def run_map_reduce(files, mapper):
+def run_map_reduce(files, mapper, n):
     # main work
     counts = mapper(files)
     counts.sort(key=operator.itemgetter(1))
     counts.reverse()
 
     helper = json_help()
-    data = helper.split_data_by_events(counts)
+    data = helper.split_data_by_events(counts, n)
     result = build_json(data)
     return result
 
@@ -81,6 +77,8 @@ if __name__ == '__main__':
     # apparently someone provided a log path so let's use this one
     if len(sys.argv) > 1:
         LOG_FILE_PATH = sys.argv[1]
+    if len(sys.argv) > 2:
+        n = int(sys.argv[2])
 
     # necessary for remote execution
     if os.getcwd() == "/root":  # we check if current directory is /root so we know we are on a digitalocean node
@@ -99,7 +97,7 @@ if __name__ == '__main__':
 
     mapper = MapReduce(Map().map_func, Reduce().reduce_func)
     log_data = []
-    log_data = run_map_reduce(sorted(input_files), mapper)
+    log_data = run_map_reduce(sorted(input_files), mapper, n)
     write_to_file('reduced.json', log_data, 'w')
 
     end = time.time()

@@ -1,9 +1,11 @@
 import os
 import click
+import pyfiglet
 
 from Map import run_map
 from Reduce import run_reduce
 from remote import deploy_exec_remote, fetch_from_remote
+from Combine import combine_reduced_files
 from tracer import print_session_trace, print_ip_many_session_trace
 
 __author__ = "deroux"
@@ -18,8 +20,8 @@ def cli():
     LOCAL: python cli.py analyze-local -p FOLDER_PATH
     REMOTE: python cli.py analyze-remote -i 123.456.789.10 -p 2112 -u root -pw pass
     """
-    # f = Figlet(font='slant')
-    # print(f.renderText('cowralyze'))
+    f = pyfiglet.Figlet(font='slant')
+    print(f.renderText('cowralyze'))
     pass
 
 
@@ -41,16 +43,17 @@ def analyze_remote(ip, port, user, pw, logfile, outfile):
 @click.option('--path', '-p', required=True, type=click.Path(exists=True), help="Local folder path to look for log files to map reduce and analyze")
 @click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
-def analyze_local(path, logfile, outfile):
+@click.option('--top_n_events', '-n', default=5, help='Reduce & visualize top n occurring events in cowrie log files')
+def analyze_local(path, logfile, outfile, top_n_events):
     """Map-Reduce all log files in local folder, create reduced.json, create result.html for visualization."""
     # python cli.py analyze-local -p C:\Users\Dominic\Documents\longitudinal-analysis-cowrie\scripts\project\logs
-    os.system(f"python Local.py {path}")
+    os.system(f"python Local.py {path} {top_n_events}")
     call_visualization(logfile, outfile)
 
 
 @click.command()
-@click.option('--file', '-f', required=True, help='Filename of reduced log file of generated *.json')
-@click.option('--mode', '-m', default='w', help='Filename of reduced log file of generated *.json')
+@click.option('--file', '-f', required=True, help='Filename of cowrie log file to map')
+@click.option('--mode', '-m', default='w', help='Behaviour on already existing mapped file: c=continue, w=overwrite')
 def map_file(file, mode):
     """Map local log file and create LOG_FILE.mapped"""
     # python cli.py map-file -f logs_mini/cowrie.json.2021-05-03
@@ -60,10 +63,28 @@ def map_file(file, mode):
 @click.command()
 @click.argument('files', nargs=-1, required=True, type=click.Path(exists=True)) # help="Local file/s to perform REDUCE operation on."
 @click.option('--outfile', '-o', default='reduced.json', help='Filename of reduced data *.json')
-def reduce_file(files, outfile):
-    """Reduce local log file/s and create reduced.json and REDUCED_FILE.reduced for further usage"""
+@click.option('--top_n_events', '-n', default=5, help='Reduce & visualize top n occurring events in cowrie log files')
+def reduce_file(files, outfile, top_n_events):
+    """Reduce local log file/s and create reduced.json and REDUCED_FILE.reduced for further usage
+     Params:
+         files    (str, n): Filename/s of .mapped files to reduce
+     """
     # python cli.py reduce-file logs_mini/cowrie.json.2021-05-03.mapped logs_mini/cowrie.json.2021-05-04.mapped # ... possibly n files
-    run_reduce(files, outfile)
+    run_reduce(files, outfile, top_n_events)
+
+@click.command()
+@click.argument('files', nargs=-1, required=True, type=click.Path(exists=True))
+@click.option('--outfile', '-o', default='reduced.json', help='Filename of final output *.json')
+def combine_reduced(files, outfile):
+    """Combine reduced.json files from multiple nodes to single reduced.json
+     Params:
+         files    (str, n): Filename/s of result.json files to combine
+         outfile     (str): Filename of final output *.json
+     Returns:
+         Creates file.json with combined reduced file data
+     """
+    # python cli.py combine-reduced 104.248.245.133_reduced.json 104.248.253.81_reduced.json .... -o test.json
+    combine_reduced_files(files, outfile)
 
 
 @click.command()
@@ -100,6 +121,7 @@ cli.add_command(analyze_remote)
 cli.add_command(analyze_local)
 cli.add_command(map_file)
 cli.add_command(reduce_file)
+cli.add_command(combine_reduced)
 cli.add_command(visualize)
 cli.add_command(trace_sid)
 cli.add_command(trace_ip)
