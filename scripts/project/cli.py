@@ -50,10 +50,11 @@ def analyze_local(path, logfile, outfile):
 
 @click.command()
 @click.option('--file', '-f', required=True, help='Filename of reduced log file of generated *.json')
-def map_file(file):
+@click.option('--mode', '-m', default='w', help='Filename of reduced log file of generated *.json')
+def map_file(file, mode):
     """Map local log file and create LOG_FILE.mapped"""
     # python cli.py map-file -f logs_mini/cowrie.json.2021-05-03
-    run_map(file)
+    run_map(file, mode)
 
 
 @click.command()

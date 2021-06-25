@@ -4,3 +4,4 @@ scripts/old_MapReduce/logs
 scripts/project/logs
 scripts/project/venv
 scripts/project/venv_mac
+scripts/project/__pycache__

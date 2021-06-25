@@ -164,7 +164,7 @@ class Map:
         return output
 
 
-def run_map(filename):
+def run_map(filename, mode):
     """Runner to read a cowrie log file and return a sequence of various (command, occurences) values.
     Args:
         filename (str): Filename of log file in format cowrie.json.YYYY-MM-DD
@@ -177,6 +177,13 @@ def run_map(filename):
     from Helpers import write_to_file
 
     print(f"Map on: {filename}")
+
+    if os.path.exists(f'{filename}.mapped'):
+        if 'c' in mode:
+            # continue on filename.mapped already existing
+            print(f"Already existing, using: {filename}.mapped")
+            return
+
     try:
         mapped = Map().map_func(filename)
         out = []
