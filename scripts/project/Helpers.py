@@ -139,6 +139,12 @@ def write_to_file(filename, result, mode):
 
 
 def build_json(data):
+    """Create proper json from list of mapreduced cowrie log file/s data.
+       Args:
+           data            (list):     List of map-reduced cowrie log file data.
+       Returns:
+           result_json     (list):    List of proper json formatted data.
+    """
     # sort counts of elements descending
     result_json = []  # structured by proper json format
     for key in data.keys():
@@ -180,104 +186,100 @@ def build_json(data):
         return result_json
 
 
-class json_help:
-    def __init__(self):
-        pass
+def get_top_n_events(dict, n):
+    top_n = []
+    for key in dict.keys():
+        top_n = top_n + dict[key][:n]  # concat lists
+    return top_n
 
-    def get_top_n_events(self, dict, n):
-        top_n = []
-        for key in dict.keys():
-            top_n = top_n + dict[key][:n]  # concat lists
-        return top_n
+def split_data_by_events(counts, n):
+    # build json from MapReduce data
+    login_events = {}
+    input_events = {}
+    pre_disconnect_events = {}
+    session_duration_events = {}
+    connect_events = {}
+    download_file_events = {}
+    upload_file_events = {}
+    proxy_request_events = {}
 
-    def split_data_by_events(self, counts, n):
-        # build json from MapReduce data
-        login_events = {}
-        input_events = {}
-        pre_disconnect_events = {}
-        session_duration_events = {}
-        connect_events = {}
-        download_file_events = {}
-        upload_file_events = {}
-        proxy_request_events = {}
+    # print(counts)
+    for elem, count in counts:
+        obj = orjson.loads(elem)
 
-        # print(counts)
-        for elem, count in counts:
-            obj = orjson.loads(elem)
+        event = obj['event']
+        date = obj['date']
+        sensor = obj['sensor']
 
-            event = obj['event']
-            date = obj['date']
-            sensor = obj['sensor']
+        if event.startswith(cEvent.LOGIN):
+            add_to_dictionary(login_events, (date, sensor), (elem, count))
+        if event.startswith(cEvent.COMMAND_INPUT):
+            add_to_dictionary(input_events, (date, sensor), (elem, count))
+        if event.startswith(cEvent.CONNECT):
+            add_to_dictionary(connect_events, (date, sensor), (elem, count))
+        if event.startswith(cEvent.SESSION_CLOSED):
+            add_to_dictionary(session_duration_events, (date, sensor), (elem, count))
+        if event.startswith(cEvent.PRE_DISCONNECT_COMMAND):
+            add_to_dictionary(pre_disconnect_events, (date.split('T')[0], sensor), (elem, count))
+        if event.startswith(cEvent.FILE_DOWNLOAD):
+            add_to_dictionary(download_file_events, (date, sensor), (elem, count))
+        if event.startswith(cEvent.FILE_UPLOAD):
+            add_to_dictionary(upload_file_events, (date, sensor), (elem, count))
+        if event.startswith(cEvent.DIRECT_TCPIP_PROXYING):
+            add_to_dictionary(proxy_request_events, (date, sensor), (elem, count))
 
+    top_n_events = []
+    top_n_events.append(get_top_n_events(login_events, n))
+    top_n_events.append(get_top_n_events(input_events, n))
+    top_n_events.append(get_top_n_events(pre_disconnect_events, n))
+    top_n_events.append(get_top_n_events(connect_events, n))
+    top_n_events.append(get_top_n_events(session_duration_events, n))
+    top_n_events.append(get_top_n_events(download_file_events, n))
+    top_n_events.append(get_top_n_events(upload_file_events, n))
+    top_n_events.append(get_top_n_events(proxy_request_events, n))
+
+    data = {}
+    for event_list in top_n_events:
+        for element, count in event_list:
+            elem = orjson.loads(element)
+            event = elem['event']
+            date = elem['date']
+            sensor = elem['sensor']
+
+            obj = {'event': event}
             if event.startswith(cEvent.LOGIN):
-                add_to_dictionary(login_events, (date, sensor), (elem, count))
-            if event.startswith(cEvent.COMMAND_INPUT):
-                add_to_dictionary(input_events, (date, sensor), (elem, count))
+                obj['username'] = elem['username']
+                obj['password'] = elem['password']
+                obj['count'] = count
             if event.startswith(cEvent.CONNECT):
-                add_to_dictionary(connect_events, (date, sensor), (elem, count))
+                obj['src_ip'] = elem['src_ip']
+                obj['dst_port'] = elem['dst_port']
+                obj['count'] = count
             if event.startswith(cEvent.SESSION_CLOSED):
-                add_to_dictionary(session_duration_events, (date, sensor), (elem, count))
+                obj['src_ip'] = elem['src_ip']
+                # obj['session'] = elem['session']
+                # obj['duration'] = elem['duration']
+                obj['robot'] = elem['robot']
+                obj['count'] = count
+            if event.startswith(cEvent.COMMAND_INPUT):
+                obj['input'] = elem['input']
+                obj['count'] = count
             if event.startswith(cEvent.PRE_DISCONNECT_COMMAND):
-                add_to_dictionary(pre_disconnect_events, (date.split('T')[0], sensor), (elem, count))
+                obj['input'] = elem['input']
+                obj['count'] = count
             if event.startswith(cEvent.FILE_DOWNLOAD):
-                add_to_dictionary(download_file_events, (date, sensor), (elem, count))
+                obj['url'] = elem['url']
+                obj['outfile'] = elem['outfile']
+                obj['scans'] = elem['scans']
+                obj['count'] = count
             if event.startswith(cEvent.FILE_UPLOAD):
-                add_to_dictionary(upload_file_events, (date, sensor), (elem, count))
+                obj['filename'] = elem['filename']
+                obj['src_ip'] = elem['src_ip']
+                obj['count'] = count
             if event.startswith(cEvent.DIRECT_TCPIP_PROXYING):
-                add_to_dictionary(proxy_request_events, (date, sensor), (elem, count))
-
-        top_n_events = []
-        top_n_events.append(self.get_top_n_events(login_events, n))
-        top_n_events.append(self.get_top_n_events(input_events, n))
-        top_n_events.append(self.get_top_n_events(pre_disconnect_events, n))
-        top_n_events.append(self.get_top_n_events(connect_events, n))
-        top_n_events.append(self.get_top_n_events(session_duration_events, n))
-        top_n_events.append(self.get_top_n_events(download_file_events, n))
-        top_n_events.append(self.get_top_n_events(upload_file_events, n))
-        top_n_events.append(self.get_top_n_events(proxy_request_events, n))
-
-        data = {}
-        for event_list in top_n_events:
-            for element, count in event_list:
-                elem = orjson.loads(element)
-                event = elem['event']
-                date = elem['date']
-                sensor = elem['sensor']
-
-                obj = {'event': event}
-                if event.startswith(cEvent.LOGIN):
-                    obj['username'] = elem['username']
-                    obj['password'] = elem['password']
-                    obj['count'] = count
-                if event.startswith(cEvent.CONNECT):
-                    obj['src_ip'] = elem['src_ip']
-                    obj['dst_port'] = elem['dst_port']
-                    obj['count'] = count
-                if event.startswith(cEvent.SESSION_CLOSED):
-                    obj['src_ip'] = elem['src_ip']
-                    # obj['session'] = elem['session']
-                    # obj['duration'] = elem['duration']
-                    obj['robot'] = elem['robot']
-                    obj['count'] = count
-                if event.startswith(cEvent.COMMAND_INPUT):
-                    obj['input'] = elem['input']
-                    obj['count'] = count
-                if event.startswith(cEvent.PRE_DISCONNECT_COMMAND):
-                    obj['input'] = elem['input']
-                    obj['count'] = count
-                if event.startswith(cEvent.FILE_DOWNLOAD):
-                    obj['url'] = elem['url']
-                    obj['outfile'] = elem['outfile']
-                    obj['scans'] = elem['scans']
-                    obj['count'] = count
-                if event.startswith(cEvent.FILE_UPLOAD):
-                    obj['filename'] = elem['filename']
-                    obj['src_ip'] = elem['src_ip']
-                    obj['count'] = count
-                if event.startswith(cEvent.DIRECT_TCPIP_PROXYING):
-                    obj['src_ip'] = elem['src_ip']
-                    obj['dst_ip'] = elem['dst_ip']
-                    obj['dst_port'] = elem['dst_port']
-                    obj['count'] = count
-                add_to_dictionary(data, (date, sensor), obj)
-        return data
+                obj['src_ip'] = elem['src_ip']
+                obj['dst_ip'] = elem['dst_ip']
+                obj['dst_port'] = elem['dst_port']
+                obj['count'] = count
+            add_to_dictionary(data, (date, sensor), obj)
+    return data

@@ -1,9 +1,5 @@
-import operator
-
 from rich.console import Console
-from rich.table import Column, Table
-from tabulate import tabulate
-
+from rich.table import Table
 import json
 
 console = Console()

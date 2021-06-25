@@ -3,10 +3,9 @@ import time
 from pathlib import Path
 
 from MapReduce import MapReduce
-from Helpers import cEvent, bcolors, build_json, write_to_file, get_files_from_path
+from Helpers import cEvent, bcolors, build_json, write_to_file, get_files_from_path, split_data_by_events
 from Map import Map
 from Reduce import Reduce
-from Helpers import json_help
 
 try:
     import config as cfg
@@ -15,6 +14,7 @@ try:
 except ImportError:
     LOG_FILE_PATH = './'
 
+# TODO
 # everything done in one map function to reduce file read overhead (open each file only once)
 
 # [done] passwords - user:password combinations
@@ -46,40 +46,41 @@ MAP
 { honeypot: "honeypotA",
   date: "2021-04-25",
   passwords: [ {user: "foo", password: "bar", count: 7}, ... /* top N attempts für den Tag */ ]}
+REDUCE
+[ {date: "2021-04-25",
+  passwords: [ {user: "foo", password: "bar", count: 15}, ... ]},
+  {date: "2021-04-26",
+  passwords: [ {user: "foo", password: "bar", count: 6}, ... ]}]
 """
 
 
 def run_map_reduce(files, mapper, n):
+    """Runner to execute a map-reduce reduction of cowrie log files using mapper and files
+      Args:
+          files (list of files): The cowrie log files to be used for map-reduce reduction.
+          mapper    (MapReduce): The mapper processing the files using map_func and reduce_func.
+          n               (int): We want the n most commands / ips / etc. of the cowrie log files.
+
+      Returns:
+          result         (list): List of map-reduced cowrie log data.
+    """
     # main work
     counts = mapper(files)
     counts.sort(key=operator.itemgetter(1))
     counts.reverse()
 
-    helper = json_help()
-    data = helper.split_data_by_events(counts, n)
+    data = split_data_by_events(counts, n)
     result = build_json(data)
     return result
 
-
-"""
-REDUCE
-[ {date: "2021-04-25",
-  passwords: [ {user: "foo", password: "bar", count: 15}, ... ]},
-  {date: "2021-04-26",
-  passwords: [ {user: "foo", password: "bar", count: 6}, ... ]}]"""
-
 if __name__ == '__main__':
     # !/usr/bin/env python3
-    import operator
-    import glob
-    import os
-
+    import os, operator
     # apparently someone provided a log path so let's use this one
     if len(sys.argv) > 1:
         LOG_FILE_PATH = sys.argv[1]
     if len(sys.argv) > 2:
         n = int(sys.argv[2])
-
     # necessary for remote execution
     if os.getcwd() == "/root":  # we check if current directory is /root so we know we are on a digitalocean node
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"

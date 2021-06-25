@@ -3,7 +3,7 @@ import io, os, sys, psutil, operator, argparse
 import orjson, json  # as json is more conventient for writing to file, orjson faster
 from pathlib import Path
 
-from Helpers import json_help, bcolors, build_json, get_files_from_path
+from Helpers import bcolors, build_json, get_files_from_path, split_data_by_events
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
 
@@ -71,7 +71,7 @@ def run_reduce(files, outFile, n):
         n       (int):      Get the highest # of n events for specific cowrie event.
     """
     from Reduce import Reduce
-    from Helpers import json_help, bcolors, build_json, get_files_from_path
+    from Helpers import bcolors, build_json
     import io, json, psutil, orjson, operator
 
     name = 'cowrie.json.'
@@ -113,8 +113,7 @@ def run_reduce(files, outFile, n):
             reduced_values.sort(key=operator.itemgetter(1))
             reduced_values.reverse()
 
-            helper = json_help()
-            data = helper.split_data_by_events(reduced_values, n)
+            data = split_data_by_events(reduced_values, n)
             result = build_json(data)
 
             with open(outFile, 'a') as f:
