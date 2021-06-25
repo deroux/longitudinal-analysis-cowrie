@@ -6,6 +6,7 @@ from Map import run_map
 from Reduce import run_reduce
 from remote import deploy_exec_remote, fetch_from_remote
 from Combine import combine_reduced_files
+from table import create_output_table
 from tracer import print_session_trace, print_ip_many_session_trace
 
 __author__ = "deroux"
@@ -24,18 +25,18 @@ def cli():
     print(f.renderText('cowralyze'))
     pass
 
-
+# TODO: add possibility to specify n as parameter
 @click.command()
 @click.option('--ip', '-i', required=True, help="IP Address of remote droplet")
 @click.option('--port', '-p', required=True, help="Port of remote droplet (real SSH port of server, not cowrie port)")
 @click.option('--user', '-u', default='root', help="Login username of remote droplet")
 @click.option('--pw', '-pw', required=True, help="Login password of remote droplet")
-@click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
+#@click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
-def analyze_remote(ip, port, user, pw, logfile, outfile):
+def analyze_remote(ip, port, user, pw, outfile):
     """Map-Reduce all log files on remote cowrie node, download reduced.json, create result.html for visualization."""
     deploy_exec_remote(ip, port, user, pw)
-    fetch_from_remote(ip, port, user, pw)
+    logfile = fetch_from_remote(ip, port, user, pw)
     call_visualization(logfile, outfile)
 
 
@@ -97,6 +98,7 @@ def visualize(logfile, outfile):
 
 def call_visualization(logfile, outfile):
     os.system(f"python visualize.py {logfile} {outfile}")
+    create_output_table(logfile)
 
 
 @click.command()

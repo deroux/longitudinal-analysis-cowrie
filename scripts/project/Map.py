@@ -213,12 +213,13 @@ if __name__ == "__main__":
     if os.getcwd() == "/root":  # we check if current directory is /root so we know we are on a digitalocean node
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
 
-    if len(sys.argv) == 2:
+    if len(sys.argv) == 3:
         file = sys.argv[1]
-        run_map(file)
+        mode = sys.argv[2]
+        run_map(file, mode)
     else:
         # Fall back, try to use all files in current directory
         folder_path = Path(LOG_FILE_PATH)
         input_files = get_files_from_path(folder_path)
         for file in input_files:
-            run_map(file)
+            run_map(file, 'c') # default mode, continue on already existing

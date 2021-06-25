@@ -1,9 +1,9 @@
 #!/usr/bin/python
-import io, os, sys, psutil, operator, argparse
-import orjson, json  # as json is more conventient for writing to file, orjson faster
+import os, sys, argparse
+import json
 from pathlib import Path
 
-from Helpers import bcolors, build_json, get_files_from_path, split_data_by_events
+from Helpers import get_files_from_path, split_data_by_events
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
 
@@ -15,7 +15,7 @@ try:
 except Exception as e:
     # fallback if config file not found
     MAX_ROBOT_TIME = 10.0
-    LOG_FILE_PATH = '.\\'
+    LOG_FILE_PATH = ''
     print(e)
     pass
 
@@ -159,6 +159,5 @@ if __name__ == "__main__":
         folder_path = Path(LOG_FILE_PATH)
         files = get_files_from_path(folder_path, False, True, False)
 
-    outfile = LOG_FILE_PATH + '\\reduced.json'
-
+    outfile = LOG_FILE_PATH + 'reduced.json'
     run_reduce(files, outfile, 5)

@@ -122,13 +122,14 @@ def key_exists(dic, key):
 
 
 def write_to_file(filename, result, mode):
-    """Write a jsonj result to a specified filename according to mode.
+    """Write a json result to a specified filename according to mode.
       Args:
           filename (str): Output filename, e.g. result.json
           result   (Any): JSON result to write to output filename.
           mode     (str): Character to identify file write mode, 'a' .. append, 'w' .. write and so on.
     """
     import json
+    result = sorted(result, key=lambda k: k['date'], reverse=False)
     with open(filename, mode) as f:
         json.dump(result, f, indent=2)
 
@@ -191,6 +192,7 @@ def get_top_n_events(dict, n):
     for key in dict.keys():
         top_n = top_n + dict[key][:n]  # concat lists
     return top_n
+
 
 def split_data_by_events(counts, n):
     # build json from MapReduce data

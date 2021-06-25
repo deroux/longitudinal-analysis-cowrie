@@ -1,6 +1,4 @@
-import sys
-
-import paramiko
+import sys, os
 
 
 def run_on_remote():
@@ -13,7 +11,6 @@ def run_on_remote():
     rstream = open("/home/cowrie/cowrie/var/log/cowrie/Reduce.py")
     reduce_file = rstream.read()
     exec(reduce_file)
-
 
 def error_cli():
     """Processes input errors."""
@@ -42,6 +39,7 @@ def fetch_from_remote(ip_address, port, user, pw):
         sftp.get(remote_path, local_path)
         sftp.close()
         print(f'Downloaded reduced log file from {ip_address}:{port} into {local_path}')
+        return local_path
     except Exception as e:
         print(f"Error fetching files from remote {ip}:{port}")
         print(e)
@@ -66,9 +64,9 @@ def copy_scripts_to_remote(client):
     sftp.put('MapReduce.py', '/home/cowrie/cowrie/var/log/cowrie/MapReduce.py')
     print(f"copy requirements.txt")
     sftp.put('requirements.txt', '/home/cowrie/cowrie/var/log/cowrie/requirements.txt')
+    sftp.close()
     # print(f"copying config.json")
     # sftp.put('config.json', '/home/cowrie/cowrie/var/log/cowrie/config.json')
-    sftp.close()
 
 
 def install_python_env_remote(client):
@@ -114,9 +112,10 @@ def deploy_exec_remote(ip_address, port, user, pw):
 
 
 if __name__ == '__main__':
-    """If command line argument provided call deploy + execute, else just execute as we are on remote node."""
     # !/usr/bin/env python3
-    if len(sys.argv) > 1:
+    from Helpers import split_data_by_events
+    """If command line argument provided call deploy + execute, else just execute as we are on remote node."""
+    if len(sys.argv) > 4:
         try:
             ip_address = sys.argv[1]
             port = sys.argv[2]
@@ -124,9 +123,9 @@ if __name__ == '__main__':
             pw = sys.argv[4]
 
             # deploy to REMOTE server
-            deploy_exec_remote(ip, port, user, pw)
+            deploy_exec_remote(ip_address, port, user, pw)
             # fetch reduced file from REMOTE server
-            fetch_from_remote(ip, port, user, pw)
+            fetch_from_remote(ip_address, port, user, pw)
         except Exception as e:
             print(f"Error executing remote.py script")
             print(e)
