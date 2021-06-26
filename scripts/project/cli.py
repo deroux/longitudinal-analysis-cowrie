@@ -37,6 +37,7 @@ def cli():
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
 def analyze_remote(ip, port, user, pw, logfile, outfile):
     """Map-Reduce all log files on remote cowrie node, download reduced.json, create result.html for visualization."""
+    # python3 cli.py analyze-remote -i 104.248.245.133 -i 104.248.253.81 -p 2112 -p 2112 -pw 16Sfl,Rkack -pw 16Sfl,Rkack
     pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
     log_files = []
     items = []
