@@ -106,7 +106,7 @@ def deploy_exec_remote(ip_address, port, user, pw):
         client.close()
 
     except Exception as e:
-        print(f"Error deploying files to remote {ip}:{port}")
+        print(f"Error deploying files to remote {ip_address}:{port}")
         print(e)
         exit(0)
 

@@ -20,7 +20,7 @@ def combine_reduced_files(files, outfile):
             for element in data:
                 combined.append(element)
 
-    write_to_file(outfile, result, 'w')
+    write_to_file(outfile, combined, 'w')
 
 
 if __name__ == "__main__":

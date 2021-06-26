@@ -1,6 +1,8 @@
+import multiprocessing
 import os
 import click
 import pyfiglet
+import tqdm
 
 from Map import run_map
 from Reduce import run_reduce
@@ -27,18 +29,37 @@ def cli():
 
 # TODO: add possibility to specify n as parameter
 @click.command()
-@click.option('--ip', '-i', required=True, help="IP Address of remote droplet")
-@click.option('--port', '-p', required=True, help="Port of remote droplet (real SSH port of server, not cowrie port)")
-@click.option('--user', '-u', default='root', help="Login username of remote droplet")
-@click.option('--pw', '-pw', required=True, help="Login password of remote droplet")
-#@click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
+@click.option('--ip', '-i', required=True, multiple=True, help="IP Address of remote droplet")
+@click.option('--port', '-p', required=True, multiple=True, help="Port of remote droplet (real SSH port of server, not cowrie port)")
+@click.option('--user', '-u', default=['root'], multiple=True, help="Login username of remote droplet")
+@click.option('--pw', '-pw', required=True, multiple=True, help="Login password of remote droplet")
+@click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
-def analyze_remote(ip, port, user, pw, outfile):
+def analyze_remote(ip, port, user, pw, logfile, outfile):
     """Map-Reduce all log files on remote cowrie node, download reduced.json, create result.html for visualization."""
-    deploy_exec_remote(ip, port, user, pw)
-    logfile = fetch_from_remote(ip, port, user, pw)
+    pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
+    log_files = []
+    items = []
+    for i, val in enumerate(ip):
+        _ip = val
+        _port = port[i-1]
+        _user = user[i-1]
+        _pw = pw[i-1]
+        items.append((_ip, _port, _user, _pw))
+
+    for _ in tqdm.tqdm(pool.starmap(run_remote, items), total=len(ip)):
+        log_files.append(_)
+        pass
+
+    if len(log_files) > 1:
+        combine_reduced_files(log_files, logfile)
+
     call_visualization(logfile, outfile)
 
+def run_remote(ip, port, user, pw):
+    deploy_exec_remote(ip, port, user, pw)
+    logfile = fetch_from_remote(ip, port, user, pw)
+    return logfile
 
 @click.command()
 @click.option('--path', '-p', required=True, type=click.Path(exists=True), help="Local folder path to look for log files to map reduce and analyze")
