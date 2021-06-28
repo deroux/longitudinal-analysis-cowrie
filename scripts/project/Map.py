@@ -82,7 +82,6 @@ class Map:
 
                 if cEvent.SESSION_CLOSED in event:
                     duration = js.get('duration')
-                    # todo make configurable
                     if duration < MAX_ROBOT_TIME:  # most likely robot
                         el['robot'] = True
                     else:

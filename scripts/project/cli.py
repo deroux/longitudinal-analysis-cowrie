@@ -27,7 +27,6 @@ def cli():
     print(f.renderText('cowralyze'))
     pass
 
-# TODO: add possibility to specify n as parameter
 @click.command()
 @click.option('--ip', '-i', required=True, multiple=True, help="IP Address of remote droplet")
 @click.option('--port', '-p', required=True, multiple=True, help="Port of remote droplet (real SSH port of server, not cowrie port)")
@@ -54,6 +53,8 @@ def analyze_remote(ip, port, user, pw, logfile, outfile):
 
     if len(log_files) > 1:
         combine_reduced_files(log_files, logfile)
+    else:
+        logfile = log_files.pop()
 
     call_visualization(logfile, outfile)
 

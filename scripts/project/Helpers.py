@@ -3,8 +3,7 @@ import os
 
 # cowrie events
 class cEvent:
-    """The cEvent object contains functionality to retrieve (Cowrie) Log File Events.
-    """
+    """The cEvent object contains functionality to retrieve (Cowrie) Log File Events."""
     LOGIN = 'cowrie.login'
     CONNECT = 'cowrie.session.connect'
     FILE_DOWNLOAD = 'cowrie.session.file_download'
@@ -23,9 +22,7 @@ class cEvent:
 
 
 class bcolors:
-    """The bcolors object contains functionality to beautify the command line output.
-    TODO: what to do with this class, maybe we should beautify output using Click() somehow?
-    """
+    """The bcolors object contains functionality to beautify the command line output."""
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'

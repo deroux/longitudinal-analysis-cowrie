@@ -26,9 +26,7 @@ def fetch_from_remote(ip_address, port, user, pw):
         print(f"Copying reduced JSON from {ip_address}:{port}")
         # Setup sftp connection and fetch the reduced.json file
         remote_path = '/home/cowrie/cowrie/var/log/cowrie/reduced.json'
-        # TODO: implement check OS Windows/Unix
-        local_path = f'/Users/dominicrudigier/Documents/longitudinal-analysis-cowrie/scripts/project/{ip_address}_reduced.json'
-        # local_path = f'C:\Users\Dominic\Documents\longitudinal-analysis-cowrie\scripts\project\{ip_address}_reduced.json'
+        local_path = f'{os.path.dirname(__file__)}/{ip_address}_reduced.json'
 
         # Connect to remote host
         client = paramiko.SSHClient()
@@ -41,7 +39,7 @@ def fetch_from_remote(ip_address, port, user, pw):
         print(f'Downloaded reduced log file from {ip_address}:{port} into {local_path}')
         return local_path
     except Exception as e:
-        print(f"Error fetching files from remote {ip}:{port}")
+        print(f"Error fetching files from remote {ip_address}:{port}")
         print(e)
         exit(0)
 
@@ -64,9 +62,9 @@ def copy_scripts_to_remote(client):
     sftp.put('MapReduce.py', '/home/cowrie/cowrie/var/log/cowrie/MapReduce.py')
     print(f"copy requirements.txt")
     sftp.put('requirements.txt', '/home/cowrie/cowrie/var/log/cowrie/requirements.txt')
+    print(f"copying config.json")
+    sftp.put('config.json', '/home/cowrie/cowrie/var/log/cowrie/config.json')
     sftp.close()
-    # print(f"copying config.json")
-    # sftp.put('config.json', '/home/cowrie/cowrie/var/log/cowrie/config.json')
 
 
 def install_python_env_remote(client):
