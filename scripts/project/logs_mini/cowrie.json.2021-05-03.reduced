@@ -1,0 +1,91 @@
+[
+  {
+    "log": {
+      "event": "cowrie.login",
+      "username": "nproc",
+      "password": "nproc",
+      "date": "2021-05-01",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 2
+  },
+  {
+    "log": {
+      "event": "cowrie.login",
+      "username": "root",
+      "password": "Aa123654",
+      "date": "2021-05-01",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 1
+  },
+  {
+    "log": {
+      "event": "cowrie.command.input",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "date": "2021-05-01",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 4
+  },
+  {
+    "log": {
+      "event": "pre_disconnect_command",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "date": "2021-05-01",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 2
+  },
+  {
+    "log": {
+      "event": "cowrie.session.connect",
+      "src_ip": "54.37.138.193",
+      "dst_port": 2222,
+      "date": "2021-05-01",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 1
+  },
+  {
+    "log": {
+      "event": "cowrie.session.connect",
+      "src_ip": "101.32.218.36",
+      "dst_port": 2222,
+      "date": "2021-05-01",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 1
+  },
+  {
+    "log": {
+      "event": "cowrie.session.closed",
+      "src_ip": "54.37.138.193",
+      "robot": true,
+      "date": "2021-05-01",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 1
+  },
+  {
+    "log": {
+      "event": "cowrie.session.closed",
+      "src_ip": "101.32.218.36",
+      "robot": true,
+      "date": "2021-05-01",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 1
+  },
+  {
+    "log": {
+      "event": "cowrie.direct-tcpip.request",
+      "src_ip": "5.188.87.53",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "date": "2021-05-05",
+      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+    },
+    "count": 1
+  }
+]

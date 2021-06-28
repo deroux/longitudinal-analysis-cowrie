@@ -111,7 +111,7 @@ def deploy_exec_remote(ip_address, port, user, pw):
 
 if __name__ == '__main__':
     # !/usr/bin/env python3
-    from Helpers import split_data_by_events
+    from Helpers import get_files_from_path, split_data_by_events, write_to_file    # do not delete this is necessary for remote execution
     """If command line argument provided call deploy + execute, else just execute as we are on remote node."""
     if len(sys.argv) > 4:
         try:

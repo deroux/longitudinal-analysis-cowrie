@@ -88,13 +88,14 @@ def map(file, mode):
 @click.argument('files', nargs=-1, required=True, type=click.Path(exists=True)) # help="Local file/s to perform REDUCE operation on."
 @click.option('--outfile', '-o', default='reduced.json', help='Filename of reduced data *.json')
 @click.option('--top_n_events', '-n', default=5, help='Reduce & visualize top n occurring events in cowrie log files')
-def reduce(files, outfile, top_n_events):
+@click.option('--mode', '-m', default='w', help='Behaviour on already existing reduced file: c=continue, w=overwrite')
+def reduce(files, outfile, top_n_events, mode):
     """Reduce local log file/s and create reduced.json and REDUCED_FILE.reduced for further usage
      Params:
          files    (str, n): Filename/s of .mapped files to reduce
      """
     # python cli.py reduce-file logs_mini/cowrie.json.2021-05-03.mapped logs_mini/cowrie.json.2021-05-04.mapped # ... possibly n files
-    run_reduce(files, outfile, top_n_events)
+    run_reduce(files, outfile, top_n_events, mode)
 
 @click.command()
 @click.argument('files', nargs=-1, required=True, type=click.Path(exists=True))

@@ -191,6 +191,8 @@ def get_top_n_events(dict, n):
 
 
 def split_data_by_events(counts, n):
+    n = int(n)
+
     # build json from MapReduce data
     login_events = {}
     input_events = {}

@@ -3,7 +3,7 @@ import os, sys, argparse
 import json
 from pathlib import Path
 
-from Helpers import get_files_from_path, split_data_by_events
+from Helpers import get_files_from_path, split_data_by_events, write_to_file
 
 global MAX_ROBOT_TIME, LOG_FILE_PATH
 
@@ -63,7 +63,7 @@ class Reduce:
         return key, sum(occurences)
 
 
-def run_reduce(files, outFile, n):
+def run_reduce(files, outFile, n, mode):
     """
        Runner to perform reduce operation
 
@@ -88,12 +88,18 @@ def run_reduce(files, outFile, n):
         if isinstance(fl, io.TextIOWrapper):
             fl = f.name
 
+        no_extension = str(fl).rsplit('.', 1)[0]
+
+        if os.path.exists(f'{no_extension}.reduced'):
+            if 'c' in mode:
+                # continue on filename.reduced already existing
+                print(f"Already existing, using: {no_extension}.reduced")
+                fl = f'{no_extension}.reduced'
+
         with open(fl) as file:
-            if file.buffer.name == outFile:
-                continue
+            filename = file.buffer.name
 
             map_responses = []
-
             if(isinstance(f, str)):
                 name += f
             else:
@@ -116,8 +122,23 @@ def run_reduce(files, outFile, n):
             reduced_values.reverse()
 
             data = split_data_by_events(reduced_values, n)
-            result = build_json(data)
 
+            # create .reduced file
+            out = []
+            for tup in data:
+                for elem in data[tup]:
+                    elem['date'] = tup[0]
+                    elem['sensor'] = tup[1]
+                    count = int(elem['count'])
+                    # elem.pop('count', None)
+                    obj = {'log': elem, 'count': count}
+                    out.append(obj)
+
+            reducedFile = str(filename).rsplit('.', 1)[0] + '.reduced'
+            write_to_file(reducedFile, out, 'w')
+
+            # create json file
+            result = build_json(data)
             with open(outFile, 'a') as f:
                 json.dump(result, f, indent=2)
 
@@ -162,4 +183,5 @@ if __name__ == "__main__":
         files = get_files_from_path(folder_path, False, True, False)
 
     outfile = LOG_FILE_PATH + 'reduced.json'
-    run_reduce(files, outfile, TOP_N_EVENTS)
+    # TODO
+    run_reduce(files, outfile, TOP_N_EVENTS, 'c')

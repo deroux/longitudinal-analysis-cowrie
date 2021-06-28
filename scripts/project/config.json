@@ -2,7 +2,7 @@
     "settings":
     {
       "log_file_path2": "/home/cowrie/cowrie/var/log/cowrie/",
-      "log_file_path": "C:\\Users\\Dominic\\Documents\\longitudinal-analysis-cowrie\\scripts\\project",
+      "log_file_path": "/Users/dominicrudigier/Documents/longitudinal-analysis-cowrie/scripts/project/",
       "robot_max_time": "10.0",
       "top_n_events" : "2"
     }
