@@ -12,10 +12,12 @@ try:
         data = json.load(json_data_file)
         MAX_ROBOT_TIME = float(data["settings"]["robot_max_time"])
         LOG_FILE_PATH = data["settings"]["log_file_path"]
+        TOP_N_EVENTS = data["settings"]["top_n_events"]
 except Exception as e:
     # fallback if config file not found
     MAX_ROBOT_TIME = 10.0
     LOG_FILE_PATH = ''
+    TOP_N_EVENTS = 5
     print(e)
     pass
 
@@ -160,4 +162,4 @@ if __name__ == "__main__":
         files = get_files_from_path(folder_path, False, True, False)
 
     outfile = LOG_FILE_PATH + 'reduced.json'
-    run_reduce(files, outfile, 5)
+    run_reduce(files, outfile, TOP_N_EVENTS)

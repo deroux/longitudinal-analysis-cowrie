@@ -129,7 +129,6 @@ def write_to_file(filename, result, mode):
           mode     (str): Character to identify file write mode, 'a' .. append, 'w' .. write and so on.
     """
     import json
-    result = sorted(result, key=lambda k: k['date'], reverse=False)
     with open(filename, mode) as f:
         json.dump(result, f, indent=2)
 

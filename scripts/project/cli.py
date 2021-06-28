@@ -77,7 +77,7 @@ def analyze_local(path, logfile, outfile, top_n_events):
 @click.command()
 @click.option('--file', '-f', required=True, help='Filename of cowrie log file to map')
 @click.option('--mode', '-m', default='w', help='Behaviour on already existing mapped file: c=continue, w=overwrite')
-def map_file(file, mode):
+def map(file, mode):
     """Map local log file and create LOG_FILE.mapped"""
     # python cli.py map-file -f logs_mini/cowrie.json.2021-05-03
     run_map(file, mode)
@@ -87,7 +87,7 @@ def map_file(file, mode):
 @click.argument('files', nargs=-1, required=True, type=click.Path(exists=True)) # help="Local file/s to perform REDUCE operation on."
 @click.option('--outfile', '-o', default='reduced.json', help='Filename of reduced data *.json')
 @click.option('--top_n_events', '-n', default=5, help='Reduce & visualize top n occurring events in cowrie log files')
-def reduce_file(files, outfile, top_n_events):
+def reduce(files, outfile, top_n_events):
     """Reduce local log file/s and create reduced.json and REDUCED_FILE.reduced for further usage
      Params:
          files    (str, n): Filename/s of .mapped files to reduce
@@ -143,8 +143,8 @@ def trace_ip(file, ip):
 
 cli.add_command(analyze_remote)
 cli.add_command(analyze_local)
-cli.add_command(map_file)
-cli.add_command(reduce_file)
+cli.add_command(map)
+cli.add_command(reduce)
 cli.add_command(combine_reduced)
 cli.add_command(visualize)
 cli.add_command(trace_sid)
