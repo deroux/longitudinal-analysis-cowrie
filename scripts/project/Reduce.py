@@ -170,7 +170,16 @@ if __name__ == "__main__":
         LOG_FILE_PATH = "/home/cowrie/cowrie/var/log/cowrie/"
 
     files = []
-    if len(sys.argv) > 1:
+    file_exists = False
+    if len(sys.argv) == 2:
+        # check whether parameter is file or just top_n parameter was provided
+        file_exists = os.path.exists(sys.argv[1])
+        if file_exists:
+            pass
+        else:
+            TOP_N_EVENTS = int(sys.argv[1])
+
+    if file_exists or len(sys.argv) > 2:
         # use provided files to reduce
         parser = argparse.ArgumentParser()
         parser.add_argument('file', type=argparse.FileType('r'), nargs='+')
@@ -183,5 +192,4 @@ if __name__ == "__main__":
         files = get_files_from_path(folder_path, False, True, False)
 
     outfile = LOG_FILE_PATH + 'reduced.json'
-    # TODO
-    run_reduce(files, outfile, TOP_N_EVENTS, 'c')
+    run_reduce(files, outfile, TOP_N_EVENTS, 'w')

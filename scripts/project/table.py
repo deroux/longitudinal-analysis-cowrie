@@ -12,7 +12,6 @@ def create_output_table(file):
     with open(file) as json_file:
         data = json.load(json_file)
         data = sorted(data, key=lambda k: k['date'], reverse=False)
-        print(data)
 
         # Username Password Table
         table = Table(show_header=True, header_style="bold magenta")

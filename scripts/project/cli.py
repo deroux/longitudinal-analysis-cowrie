@@ -32,9 +32,10 @@ def cli():
 @click.option('--port', '-p', required=True, multiple=True, help="Port of remote droplet (real SSH port of server, not cowrie port)")
 @click.option('--user', '-u', default=['root'], multiple=True, help="Login username of remote droplet")
 @click.option('--pw', '-pw', required=True, multiple=True, help="Login password of remote droplet")
+@click.option('--top_n_events', '-n', default=[5], multiple=True, help='Reduce & visualize top n occurring events in cowrie log files')
 @click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
-def analyze_remote(ip, port, user, pw, logfile, outfile):
+def analyze_remote(ip, port, user, pw, top_n_events, logfile, outfile):
     """Map-Reduce all log files on remote cowrie node, download reduced.json, create result.html for visualization."""
     # python3 cli.py analyze-remote -i 104.248.245.133 -i 104.248.253.81 -p 2112 -p 2112 -pw 16Sfl,Rkack -pw 16Sfl,Rkack
     pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
@@ -45,7 +46,8 @@ def analyze_remote(ip, port, user, pw, logfile, outfile):
         _port = port[i-1]
         _user = user[i-1]
         _pw = pw[i-1]
-        items.append((_ip, _port, _user, _pw))
+        _top_n_events = top_n_events[i-1]
+        items.append((_ip, _port, _user, _pw, _top_n_events))
 
     for _ in tqdm.tqdm(pool.starmap(run_remote, items), total=len(ip)):
         log_files.append(_)
@@ -58,8 +60,9 @@ def analyze_remote(ip, port, user, pw, logfile, outfile):
 
     call_visualization(logfile, outfile)
 
-def run_remote(ip, port, user, pw):
-    deploy_exec_remote(ip, port, user, pw)
+
+def run_remote(ip, port, user, pw, top_n_events):
+    deploy_exec_remote(ip, port, user, pw, top_n_events)
     logfile = fetch_from_remote(ip, port, user, pw)
     return logfile
 

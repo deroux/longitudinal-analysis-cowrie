@@ -1,16 +1,20 @@
+import subprocess
 import sys, os
 
 
-def run_on_remote():
+def run_on_remote(top_n_events):
     """Runner to execute map-reduce on remote node"""
     # executed on remote machine
+
+    # Map
     mstream = open("/home/cowrie/cowrie/var/log/cowrie/Map.py")
     map_file = mstream.read()
     exec(map_file)
 
-    rstream = open("/home/cowrie/cowrie/var/log/cowrie/Reduce.py")
-    reduce_file = rstream.read()
-    exec(reduce_file)
+    # Reduce
+    subprocess.run(['python', '/home/cowrie/cowrie/var/log/cowrie/Reduce.py', f'{top_n_events}'])
+
+
 
 def error_cli():
     """Processes input errors."""
@@ -84,7 +88,7 @@ def install_python_env_remote(client):
             print(line, end="")
 
 
-def deploy_exec_remote(ip_address, port, user, pw):
+def deploy_exec_remote(ip_address, port, user, pw, top_n_events):
     """Runner to deploy and execute Map-Reduce reduction on remote node."""
     import paramiko
     print(f"Deploying scripts to {ip_address}:{port}")
@@ -97,7 +101,7 @@ def deploy_exec_remote(ip_address, port, user, pw):
         copy_scripts_to_remote(client)
         install_python_env_remote(client)
         # Run the transmitted script remotely without args and show its output.
-        stdin, stdout, stderr = client.exec_command('python3 /home/cowrie/cowrie/var/log/cowrie/remote.py', get_pty=True)
+        stdin, stdout, stderr = client.exec_command(f'python3 /home/cowrie/cowrie/var/log/cowrie/remote.py {top_n_events}', get_pty=True)
 
         for line in iter(stdout.readline, ""):
             print(line, end="")
@@ -121,7 +125,7 @@ if __name__ == '__main__':
             pw = sys.argv[4]
 
             # deploy to REMOTE server
-            deploy_exec_remote(ip_address, port, user, pw)
+            deploy_exec_remote(ip_address, port, user, pw, 5)
             # fetch reduced file from REMOTE server
             fetch_from_remote(ip_address, port, user, pw)
         except Exception as e:
@@ -130,4 +134,8 @@ if __name__ == '__main__':
             exit(0)
     else:
         # No cmd-line args provided, run script normally (on REMOTE server)
-        run_on_remote()
+        top_n_events = 5        # fallback
+        if len(sys.argv) > 1:
+            top_n_events = sys.argv[1]
+
+        run_on_remote(top_n_events)
