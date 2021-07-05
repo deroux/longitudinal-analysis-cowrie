@@ -6,7 +6,6 @@ from Helpers import add_to_dictionary, key_exists, key_exists_arr
 
 # todo: integrate animated bubble_chart
 
-
 def histogram(data, title):
     fig = go.Figure()
 

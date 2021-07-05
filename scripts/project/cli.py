@@ -6,7 +6,7 @@ import tqdm
 
 from Map import run_map
 from Reduce import run_reduce
-from remote import deploy_exec_remote, fetch_from_remote
+from Remote import deploy_exec_remote, fetch_from_remote
 from Combine import combine_reduced_files
 from table import create_output_table
 from tracer import print_session_trace, print_ip_many_session_trace

@@ -1,3 +1,5 @@
+import json
+
 import plotly.graph_objects as go
 import sys
 import orjson
@@ -45,6 +47,7 @@ def print_session_trace(file_path, session_id):
 
 def print_ip_many_session_trace(file_path, ip_address):
     session_trace = []
+
     with open(file_path, 'rt') as f:
         for line in f:
             js = orjson.loads(line)
@@ -113,5 +116,5 @@ if __name__ == "__main__":
     filename = sys.argv[1]
     session_id = sys.argv[2]
 
-    print_session_trace(filename, session_id)
-    # print_ip_many_session_trace(filename, '104.131.48.26')
+    # print_session_trace(filename, session_id)
+    print_ip_many_session_trace(filename, session_id)

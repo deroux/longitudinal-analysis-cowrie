@@ -127,8 +127,8 @@ def run_reduce(files, outFile, n, mode):
             out = []
             for tup in data:
                 for elem in data[tup]:
-                    elem['date'] = tup[0]
-                    elem['sensor'] = tup[1]
+                    #elem['date'] = tup[0]
+                    #elem['sensor'] = tup[1]
                     count = int(elem['count'])
                     # elem.pop('count', None)
                     obj = {'log': elem, 'count': count}
