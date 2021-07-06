@@ -127,6 +127,18 @@ def call_visualization(logfile, outfile):
     os.system(f"python visualize.py {logfile} {outfile}")
     create_output_table(logfile)
 
+@click.command()
+@click.option('--logfile', '-f', required=True, type=click.Path(exists=True), help='Filename of reduced log file of generated *.json')
+@click.option('--outfile', '-o', default='statistics.html', help='Filename of result visualization *.html')
+def statistics(logfile, outfile):
+    """Use reduced.json file and create statistics.html visualization out of it"""
+    call_statistics(logfile, outfile)
+
+
+def call_statistics(logfile, outfile):
+    os.system(f"python stats.py {logfile} {outfile}")
+
+
 
 @click.command()
 @click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
@@ -152,6 +164,7 @@ cli.add_command(map)
 cli.add_command(reduce)
 cli.add_command(combine_reduced)
 cli.add_command(visualize)
+cli.add_command(statistics)
 cli.add_command(trace_sid)
 cli.add_command(trace_ip)
 

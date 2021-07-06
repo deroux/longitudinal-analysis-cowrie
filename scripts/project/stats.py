@@ -11,8 +11,17 @@ import json
 # Date-Range angeben
 # Vertical Table
 # Date | Password | % Overall | % Increase
-from scripts.project.Helpers import add_to_dictionary, key_exists
+from Helpers import add_to_dictionary, key_exists
 
+
+def build_statistics_figures(d, text, threshold, figure_list):
+    fig_1 = create_statistics_table(d, threshold, 1, f'% {text} increase day to previous day')
+    fig_7 = create_statistics_table(d, threshold, 7, f'% {text} increase current day over past 7 days mean')
+    fig_30 = create_statistics_table(d, threshold, 30, f'% {text} increase current day over past 30 days mean')
+
+    figure_list.append(fig_1)
+    figure_list.append(fig_7)
+    figure_list.append(fig_30)
 
 def create_statistics_table(events_dict, threshold, compare_day, title):
     events = []
@@ -95,6 +104,8 @@ def create_statistics_table(events_dict, threshold, compare_day, title):
 if __name__ == '__main__':
     # !/usr/bin/env python3
     file = sys.argv[1]
+    output_html = sys.argv[2]
+
     f = open(file, 'r')
     data = json.load(f)
 
@@ -116,7 +127,7 @@ if __name__ == '__main__':
         passwords = obj['passwords']
         commands = obj.get('commands')
         pre_disconnect_commands = obj.get('pre_disconnect_command')
-        connects = obj['connect']
+        connects = obj.get('connect')
         session_closed = obj['session_closed']
         file_download = obj.get('file_download')
         file_upload = obj.get('file_upload')
@@ -147,12 +158,73 @@ if __name__ == '__main__':
                 count = int(el['count'])
                 add_to_dictionary(connect_dict, f'{honeypot}:{src_ip}:{dst_port}', f'{date}:{count}')
 
-        # session_closed, file_download, file_upload, proxy_request
+        if key_exists(obj, 'session_closed'):
+            for el in session_closed:
+                src_ip = el['src_ip']
+                robot = el['robot']
+                count = int(el['count'])
+                add_to_dictionary(sessionclosed_dict, f'{honeypot}:{src_ip}:{robot}', f'{date}:{count}')
+
+        if key_exists(obj, 'file_download'):
+            for el in file_download:
+                url = el['url']
+                count = int(el['count'])
+                add_to_dictionary(download_dict, f'{honeypot}:{url}:', f'{date}:{count}')
+
+        if key_exists(obj, 'file_upload'):
+            for el in file_upload:
+                filename = el['filename']
+                src_ip = el['src_ip']
+                count = int(el['count'])
+                add_to_dictionary(upload_dict, f'{honeypot}:{src_ip}:{filename}', f'{date}:{count}')
+
+        if key_exists(obj, 'proxy_request'):
+            for el in proxy_request:
+                src_ip = el['src_ip']
+                dst_ip = el['dst_ip']
+                dst_port = el['dst_port']
+                count = int(el['count'])
+                add_to_dictionary(proxy_request_dict, f'{honeypot}:{src_ip}:{filename}', f'{date}:{count}')
 
 
-    fig = create_statistics_table(pass_dict, 20.0, 1, '% user:pw increase day to previous day')
-    fig2 = create_statistics_table(pass_dict, 20.0, 7, '% user:pw increase current day over past 7 days mean')
-    fig = create_statistics_table(commands_dict, 20.0, 1, '% commands increase day to previous day')
-    fig2 = create_statistics_table(commands_dict, 20.0, 7, '% commands increase current day over past 7 days mean')
-    fig.show()
-    fig2.show()
+
+    threshold = 20.0
+    figure_list = []
+
+    # user:password
+    d = pass_dict
+    text = 'user:password'
+    build_statistics_figures(d, text, threshold, figure_list)
+    # commands
+    d = commands_dict
+    text = 'commands'
+    build_statistics_figures(d, text, threshold, figure_list)
+    # pre_disc_commands
+    d = pre_disc_comm_dict
+    text = 'pre-disconnect-commands'
+    build_statistics_figures(d, text, threshold, figure_list)
+    # connects
+    d = connect_dict
+    text = 'connects'
+    build_statistics_figures(d, text, threshold, figure_list)
+    # session_closed
+    d = sessionclosed_dict
+    text = 'session_closed'
+    build_statistics_figures(d, text, threshold, figure_list)
+    # file_download
+    d = download_dict
+    text = 'file_download'
+    build_statistics_figures(d, text, threshold, figure_list)
+    # file_upload
+    d = upload_dict
+    text = 'file_upload'
+    build_statistics_figures(d, text, threshold, figure_list)
+    # proxy_requests
+    d = proxy_request_dict
+    text = 'proxy_requests'
+    build_statistics_figures(d, text, threshold, figure_list)
+
+    with open(output_html, 'w') as f:  # a for append
+        for figure in figure_list:
+            f.write(figure.to_html(full_html=False, include_plotlyjs='cdn'))
+        print(f'created {output_html}')
