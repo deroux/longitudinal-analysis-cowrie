@@ -133,6 +133,7 @@ def call_visualization(logfile, outfile):
 @click.option('--threshold', '-t', default=20.0, help='Percentage of event changes visible in report, e.g. user:password increased > x %')
 def statistics(logfile, outfile, threshold):
     """Use reduced.json file and create statistics.html visualization out of it"""
+    # python3 cli.py statistics -f 104.248.245.133_reduced.json -t 5.0
     call_statistics(logfile, outfile, threshold)
 
 
