@@ -161,6 +161,10 @@ if __name__ == '__main__':
         input_y_global = []
         input_pre_disconnect_y_global = []
         connect_y_global = []
+        session_y_global = []
+        download_y_global = []
+        upload_y_global = []
+        proxy_req_y_global = []
 
         temp = {}
         lines = sorted(db, key=lambda k: k['date'], reverse=False)
@@ -169,6 +173,10 @@ if __name__ == '__main__':
         commands_dict = {}
         pre_disconnect_commands_dict = {}
         connect_dict = {}
+        sessionclosed_dict = {}
+        download_dict = {}
+        upload_dict = {}
+        proxy_request_dict = {}
 
         passwords_dict = {}
 
@@ -189,6 +197,10 @@ if __name__ == '__main__':
             commands = key_exists_arr(entry, 'commands')
             pre_disconnect_command = key_exists_arr(entry, 'pre_disconnect_command')
             connect = key_exists_arr(entry, 'connect')
+            session_closed = key_exists_arr(entry, 'session_closed')
+            file_download = key_exists_arr(entry, 'file_download')
+            file_upload = key_exists_arr(entry, 'file_upload')
+            proxy_request = key_exists_arr(entry, 'proxy_request')
 
             if key_exists(entry, 'file_download'):
                 for el in entry['file_download']:
@@ -242,6 +254,30 @@ if __name__ == '__main__':
 
                 add_to_dictionary(connect_dict, f"{src_ip}:{dst_port}", date + ':' + sensor + ":" + str(count))
 
+            for el in session_closed:
+                src_ip = el['src_ip']
+                robot = el['robot']
+                count = int(el['count'])
+                add_to_dictionary(sessionclosed_dict, f"{src_ip}:{robot}", date + ':' + sensor + ":" + str(count))
+
+            for el in file_download:
+                url = el['url']
+                count = int(el['count'])
+                add_to_dictionary(download_dict, f"{url}:", date + ':' + sensor + ":" + str(count))
+
+            for el in file_upload:
+                filename = el['filename']
+                src_ip = el['src_ip']
+                count = int(el['count'])
+                add_to_dictionary(sessionclosed_dict, f"{filename}:{src_ip}", date + ':' + sensor + ":" + str(count))
+
+            for el in proxy_request:
+                src_ip = el['src_ip']
+                dst_ip = el['dst_ip']
+                dst_port = el['dst_port']
+                count = int(el['count'])
+                add_to_dictionary(sessionclosed_dict, f"{src_ip}:{dst_ip}:{dst_port}", date + ':' + sensor + ":" + str(count))
+
         """
         Future: animated bubblechart for different dates
         
@@ -273,10 +309,15 @@ if __name__ == '__main__':
                                                       "Top n connects", "src_ip:dst_port")
         fig_histogram_connect = histogram(connect_dict, "Connection frequency")
         fig_histogram_pdc = histogram(pre_disconnect_commands_dict, "Pre disconnect command frequency")
-        fig_download_2d, fig_download_3d = bubble_chart(downloads, downloads_y_global, "date", "log(#downloads)", "Droplet",
+        fig_download_2d, fig_download_3d = bubble_chart(download_dict, downloads_y_global, "date", "log(#downloads)", "Droplet",
                                                         "Top n downloads", "File : Anti-Virus-Results")
-        fig_upload_2d, fig_upload_3d = bubble_chart(uploads, uploads_y_global, "date", "log(#uploads)", "Droplet",
+        fig_upload_2d, fig_upload_3d = bubble_chart(upload_dict, uploads_y_global, "date", "log(#uploads)", "Droplet",
                                                     "Top n uploads", "filename : src_ip")
+        fig_sc_2d, fig_sc_3d = bubble_chart(sessionclosed_dict, session_y_global, "date", "log(#sessions)", "Droplet",
+                                                        "Top n session closed", "src_ip : robot")
+        fig_proxy_req_2d, fig_proxy_req_3d = bubble_chart(proxy_request_dict, proxy_req_y_global, "date", "log(#downloads)", "Droplet",
+                                                        "Top n proxy requests", "src_ip : dst_ip : dst_port")
+
 
         figure_list = [
             fig_userpw_2d, fig_userpw_3d,
@@ -286,7 +327,9 @@ if __name__ == '__main__':
             fig_connect_2d, fig_connect_3d,
             fig_histogram_connect,
             fig_download_2d, fig_download_3d,
-            fig_upload_2d, fig_upload_3d
+            fig_upload_2d, fig_upload_3d,
+            fig_sc_2d, fig_sc_3d,
+            fig_proxy_req_2d, fig_proxy_req_3d
         ]
 
         with open(output_html, 'w') as f:  # a for append

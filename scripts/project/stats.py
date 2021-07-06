@@ -105,6 +105,7 @@ if __name__ == '__main__':
     # !/usr/bin/env python3
     file = sys.argv[1]
     output_html = sys.argv[2]
+    threshold = float(sys.argv[3])
 
     f = open(file, 'r')
     data = json.load(f)
@@ -188,7 +189,6 @@ if __name__ == '__main__':
 
 
 
-    threshold = 20.0
     figure_list = []
 
     # user:password

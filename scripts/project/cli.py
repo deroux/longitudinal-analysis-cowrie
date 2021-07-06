@@ -129,14 +129,15 @@ def call_visualization(logfile, outfile):
 
 @click.command()
 @click.option('--logfile', '-f', required=True, type=click.Path(exists=True), help='Filename of reduced log file of generated *.json')
-@click.option('--outfile', '-o', default='statistics.html', help='Filename of result visualization *.html')
-def statistics(logfile, outfile):
+@click.option('--outfile', '-o', default='stats.html', help='Filename of result visualization *.html')
+@click.option('--threshold', '-t', default=20.0, help='Percentage of event changes visible in report, e.g. user:password increased > x %')
+def statistics(logfile, outfile, threshold):
     """Use reduced.json file and create statistics.html visualization out of it"""
-    call_statistics(logfile, outfile)
+    call_statistics(logfile, outfile, threshold)
 
 
-def call_statistics(logfile, outfile):
-    os.system(f"python stats.py {logfile} {outfile}")
+def call_statistics(logfile, outfile, threshold):
+    os.system(f"python stats.py {logfile} {outfile} {threshold}")
 
 
 

@@ -1,5 +1,7 @@
 import sys
 
+from tabulate import tabulate
+
 from rich.console import Console
 from rich.table import Table
 import json
@@ -9,94 +11,122 @@ from Helpers import key_exists
 
 def create_output_table(file):
     console = Console()
+
+    f = open("result.log", "w")
+
+    my_data = []
     with open(file) as json_file:
         data = json.load(json_file)
-        data = sorted(data, key=lambda k: k['date'], reverse=False)
+        data = sorted(data, key=lambda k: k['date'], reverse=True)
 
         # Username Password Table
-        table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Date", style="dim", width=12)
-        table.add_column("Sensor")
-        table.add_column("Username", justify="right")
-        table.add_column("Password", justify="right")
-        table.add_column("Count", justify="right")
+        head = ["Date", "Sensor", "Username", "Password", "Count"]
 
         for elem in data:
             if key_exists(elem, 'passwords'):
                 for el in elem['passwords']:
-                    table.add_row(
-                        elem['date'], elem['sensor'], el['username'], el['password'], str(el['count'])
-                    )
-        console.print(table)
+                    my_data.append([elem['date'], elem['sensor'], el['username'], el['password'], str(el['count'])])
+
+        f.write("User : Password \n\n")
+        f.write(tabulate(my_data, headers=head, tablefmt="grid"))
+        f.write("\n\n")
 
         # Commands table
-        records = []
-        table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Date", style="dim", width=12)
-        table.add_column("Sensor")
-        table.add_column("Command", justify="right")
-        table.add_column("Count", justify="right")
-
+        head = ["Date", "Sensor", "Command", "Count"]
+        my_data.clear()
         for elem in data:
             if key_exists(elem, 'commands'):
                 for el in elem['commands']:
-                    table.add_row(
-                        elem['date'], elem['sensor'], el['input'], str(el['count'])
-                    )
-        console.print(table)
+                    inp = el['input']
+                    if len(inp) > 100:
+                        inp = inp[0 : 100] + '..'
+
+                    my_data.append([elem['date'], elem['sensor'], inp, str(el['count'])])
+
+        f.write("Commands \n\n")
+        f.write(tabulate(my_data, headers=head, tablefmt="grid"))
+        f.write("\n\n")
+
 
         # Pre-disconnect commands table
-        records = []
-        table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Date", style="dim", width=12)
-        table.add_column("Sensor")
-        table.add_column("Pre-disconnect-command", justify="right")
-        table.add_column("Count", justify="right")
-
+        head = ["Date", "Sensor", "Pre-disconnect-command", "Count"]
+        my_data.clear()
         for elem in data:
             if key_exists(elem, 'pre_disconnect_command'):
                 for el in elem['pre_disconnect_command']:
-                    table.add_row(
-                        elem['date'], elem['sensor'], el['input'], str(el['count'])
-                    )
-        console.print(table)
+                    inp = el['input']
+                    if len(inp) > 100:
+                        inp = inp[0 : 100] + '..'
+
+                    my_data.append([elem['date'], elem['sensor'], inp, str(el['count'])])
+
+        f.write("Pre-Disconnect-Commands \n\n")
+        f.write(tabulate(my_data, headers=head, tablefmt="grid"))
+        f.write("\n\n")
 
         # Connect table
-        table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Date", style="dim", width=12)
-        table.add_column("Sensor")
-        table.add_column("Source IP", justify="right")
-        table.add_column("Destination Port", justify="right")
-        table.add_column("Count", justify="right")
-
+        head = ["Date", "Sensor", "Source IP", "Destination Port", "Count"]
+        my_data.clear()
         for elem in data:
             if key_exists(elem, 'connect'):
                 for el in elem['connect']:
-                    table.add_row(
-                        elem['date'], elem['sensor'], el['src_ip'], str(el['dst_port']), str(el['count'])
-                    )
-        console.print(table)
+                    my_data.append([elem['date'], elem['sensor'], el['src_ip'], str(el['dst_port']), str(el['count'])])
+
+        f.write("Connects \n\n")
+        f.write(tabulate(my_data, headers=head, tablefmt="grid"))
+        f.write("\n\n")
+
 
         # Session closed
-        table = Table(show_header=True, header_style="bold magenta")
-        table.add_column("Date", style="dim", width=12)
-        table.add_column("Sensor")
-        table.add_column("Source IP", justify="right")
-        table.add_column("Robot", justify="right")
-        table.add_column("Count", justify="right")
-
+        head = ["Date", "Sensor", "Source IP", "Robot", "Count"]
+        my_data.clear()
         for elem in data:
             if key_exists(elem, 'session_closed'):
                 for el in elem['session_closed']:
-                    table.add_row(
-                        elem['date'], elem['sensor'], el['src_ip'], str(el['robot']), str(el['count'])
-                    )
-        console.print(table)
+                    my_data.append([elem['date'], elem['sensor'], el['src_ip'], str(el['robot']), str(el['count'])])
 
+        f.write("Session-Closed \n\n")
+        f.write(tabulate(my_data, headers=head, tablefmt="grid"))
+        f.write("\n\n")
 
         # file download
+        head = ["Date", "Sensor", "URL", "Positives / Total", "Count"]
+        my_data.clear()
+        for elem in data:
+            if key_exists(elem, 'file_download'):
+                for el in elem['file_download']:
+                    pos = el['scans']['positives']
+                    total = el['scans']['total']
+                    my_data.append([elem['date'], elem['sensor'], el['url'], f'{pos} / {total}', str(el['count'])])
+
+        f.write("File download \n\n")
+        f.write(tabulate(my_data, headers=head, tablefmt="grid"))
+        f.write("\n\n")
+
         # file upload
+        head = ["Date", "Sensor", "Filename", "Source IP", "Count"]
+        my_data.clear()
+        for elem in data:
+            if key_exists(elem, 'file_upload'):
+                for el in elem['file_upload']:
+                    my_data.append([elem['date'], elem['sensor'], el['filename'], el['src_ip'], str(el['count'])])
+
+        f.write("File upload \n\n")
+        f.write(tabulate(my_data, headers=head, tablefmt="grid"))
+        f.write("\n\n")
+
         # proxy request
+        head = ["Date", "Sensor", "Source IP", "Destination IP : PORT", "Count"]
+        my_data.clear()
+        for elem in data:
+            if key_exists(elem, 'proxy_request'):
+                for el in elem['proxy_request']:
+                    destination = el['dst_ip'] + ':' + str(el['dst_port'])
+                    my_data.append([elem['date'], elem['sensor'], el['src_ip'], destination, str(el['count'])])
+
+        f.write("Proxy request \n\n")
+        f.write(tabulate(my_data, headers=head, tablefmt="grid"))
+        f.write("\n\n")
 
 if __name__ == '__main__':
     # !/usr/bin/env python3
