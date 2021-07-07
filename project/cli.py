@@ -126,6 +126,7 @@ def visualize(logfile, outfile):
 def call_visualization(logfile, outfile):
     os.system(f"python visualize.py {logfile} {outfile}")
     create_output_table(logfile)
+    call_statistics(logfile, 'stats.html', 25.0)
 
 @click.command()
 @click.option('--logfile', '-f', required=True, type=click.Path(exists=True), help='Filename of reduced log file of generated *.json')
@@ -152,8 +153,8 @@ def trace_sid(file, session_id):
 
 
 @click.command()
-@ click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
-@ click.option('--ip', '-i', required=True, help='Session ID for specific session trace of interest')
+@click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to find session id in and create trace of commands executed')
+@click.option('--ip', '-i', required=True, help='Session ID for specific session trace of interest')
 def trace_ip(file, ip):
     """Use cowrie.json.YYYY-MM-DD file and IP to trace commands executed"""
     # python cli.py trace-sid -f logs\honeypot-a\cowrie.json.2021-05-01 -sid 104.131.48.26

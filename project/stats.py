@@ -143,12 +143,16 @@ if __name__ == '__main__':
         if key_exists(obj, 'commands'):
             for el in commands:
                 inp = el['input']
+                if len(inp) > 100:
+                    inp = inp[0: 50] + '..'
                 count = int(el['count'])
                 add_to_dictionary(commands_dict, f'{honeypot}:{inp}:', f'{date}:{count}')
 
         if key_exists(obj, 'pre_disconnect_command'):
             for el in pre_disconnect_commands:
                 inp = el['input']
+                if len(inp) > 100:
+                    inp = inp[0: 50] + '..'
                 count = int(el['count'])
                 add_to_dictionary(pre_disc_comm_dict, f'{honeypot}:{inp}:', f'{date}:{count}')
 
