@@ -42,7 +42,7 @@ def histogram(data, title):
     return fig
 
 
-def bubble_chart(data, y_global, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
+def bubble_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
     fig_2d = go.Figure()
     data_3d = []
 
@@ -65,7 +65,7 @@ def bubble_chart(data, y_global, str_xaxis, str_yaxis, str_zaxis, title, legend_
             z_data.append(sensor)
 
         # normalize y data to build marker size
-        m_size = normalize_range(y_data, max(y_global), min(y_global), 100, 10)
+        m_size = normalize_range(y_data, max(y_data), min(y_data), 100, 10)
         fig_2d.add_trace(go.Scatter(
             x=x_data, y=y_data,
             name=key, text=[key + ':' + str(y) for y in y_data],
@@ -82,7 +82,6 @@ def bubble_chart(data, y_global, str_xaxis, str_yaxis, str_zaxis, title, legend_
                                  color="Black"
                              ))
 
-        # m_size = normalizeRange(y_data, max(y_global), min(y_global), 100, 10)
         data_3d.append(go.Scatter3d(
             x=x_data,
             y=y_data,
@@ -156,17 +155,7 @@ if __name__ == '__main__':
         f = open(reduced_json, 'r')
         db = json.load(f)
 
-        x_global = []
-        userpw_y_global = []
-        input_y_global = []
-        input_pre_disconnect_y_global = []
-        connect_y_global = []
-        session_y_global = []
-        download_y_global = []
-        upload_y_global = []
-        proxy_req_y_global = []
-
-        temp = {}
+        # sort by date
         lines = sorted(db, key=lambda k: k['date'], reverse=False)
 
         userpw_dict = {}
@@ -213,7 +202,6 @@ if __name__ == '__main__':
                     avira = f"{el['scans']['positives']} / {el['scans']['total']} positives."
                     count = el['count']
 
-                    downloads_y_global.append(count)
                     add_to_dictionary(downloads, url + ' : ' + avira, date + ':' + sensor + ":" + str(count))
 
             if key_exists(entry, 'file_upload'):
@@ -222,27 +210,23 @@ if __name__ == '__main__':
                     src_ip = el['src_ip']
                     count = el['count']
 
-                    uploads_y_global.append(count)
                     add_to_dictionary(uploads, filename + ' : ' + src_ip, date + ':' + sensor + ":" + str(count))
 
             for el in passwords:
                 userpw = el['username'] + ':' + el['password']
                 count = el['count']
-                userpw_y_global.append(count)
 
                 add_to_dictionary(userpw_dict, userpw, date + ':' + sensor + ":" + str(count))
 
             for el in commands:
                 inp = el['input']
                 count = el['count']
-                input_y_global.append(count)
 
                 add_to_dictionary(commands_dict, inp, date + ':' + sensor + ":" + str(count))
 
             for el in pre_disconnect_command:
                 inp = el['input']
                 count = el['count']
-                input_pre_disconnect_y_global.append(count)
 
                 add_to_dictionary(pre_disconnect_commands_dict, inp, date + ':' + sensor + ":" + str(count))
 
@@ -250,7 +234,6 @@ if __name__ == '__main__':
                 src_ip = el['src_ip']
                 dst_port = el['dst_port']
                 count = el['count']
-                connect_y_global.append(count)
 
                 add_to_dictionary(connect_dict, f"{src_ip}:{dst_port}", date + ':' + sensor + ":" + str(count))
 
@@ -258,17 +241,20 @@ if __name__ == '__main__':
                 src_ip = el['src_ip']
                 robot = el['robot']
                 count = int(el['count'])
+
                 add_to_dictionary(sessionclosed_dict, f"{src_ip}:{robot}", date + ':' + sensor + ":" + str(count))
 
             for el in file_download:
                 url = el['url']
                 count = int(el['count'])
+
                 add_to_dictionary(download_dict, f"{url}:", date + ':' + sensor + ":" + str(count))
 
             for el in file_upload:
                 filename = el['filename']
                 src_ip = el['src_ip']
                 count = int(el['count'])
+
                 add_to_dictionary(sessionclosed_dict, f"{filename}:{src_ip}", date + ':' + sensor + ":" + str(count))
 
             for el in proxy_request:
@@ -276,6 +262,7 @@ if __name__ == '__main__':
                 dst_ip = el['dst_ip']
                 dst_port = el['dst_port']
                 count = int(el['count'])
+
                 add_to_dictionary(sessionclosed_dict, f"{src_ip}:{dst_ip}:{dst_port}", date + ':' + sensor + ":" + str(count))
 
         """
@@ -296,26 +283,26 @@ if __name__ == '__main__':
         # iplot(figure, config={'scrollzoom': True})
         """
 
-        fig_userpw_2d, fig_userpw_3d = bubble_chart(userpw_dict, userpw_y_global, "date", "log(#logins)", "Droplet",
+        fig_userpw_2d, fig_userpw_3d = bubble_chart(userpw_dict, "date", "log(#logins)", "Droplet",
                                                     "Top n user:password combinations", "user:password")
-        fig_input_2d, fig_input_3d = bubble_chart(commands_dict, input_y_global, "date", "log(#inputs)", "Droplet",
+        fig_input_2d, fig_input_3d = bubble_chart(commands_dict, "date", "log(#inputs)", "Droplet",
                                                   "Top n commands", "Command")
         fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d = bubble_chart(pre_disconnect_commands_dict,
-                                                                                input_pre_disconnect_y_global, "date",
+                                                                                "date",
                                                                                 "log(#inputs)", "Droplet",
                                                                                 "Top n pre-disconnect-commands",
                                                                                 "Pre-disconnect command")
-        fig_connect_2d, fig_connect_3d = bubble_chart(connect_dict, connect_y_global, "date", "log(#inputs)", "Droplet",
+        fig_connect_2d, fig_connect_3d = bubble_chart(connect_dict, "date", "log(#inputs)", "Droplet",
                                                       "Top n connects", "src_ip:dst_port")
         fig_histogram_connect = histogram(connect_dict, "Connection frequency")
         fig_histogram_pdc = histogram(pre_disconnect_commands_dict, "Pre disconnect command frequency")
-        fig_download_2d, fig_download_3d = bubble_chart(download_dict, downloads_y_global, "date", "log(#downloads)", "Droplet",
+        fig_download_2d, fig_download_3d = bubble_chart(download_dict, "date", "log(#downloads)", "Droplet",
                                                         "Top n downloads", "File : Anti-Virus-Results")
-        fig_upload_2d, fig_upload_3d = bubble_chart(upload_dict, uploads_y_global, "date", "log(#uploads)", "Droplet",
+        fig_upload_2d, fig_upload_3d = bubble_chart(upload_dict, "date", "log(#uploads)", "Droplet",
                                                     "Top n uploads", "filename : src_ip")
-        fig_sc_2d, fig_sc_3d = bubble_chart(sessionclosed_dict, session_y_global, "date", "log(#sessions)", "Droplet",
+        fig_sc_2d, fig_sc_3d = bubble_chart(sessionclosed_dict, "date", "log(#sessions)", "Droplet",
                                                         "Top n session closed", "src_ip : robot")
-        fig_proxy_req_2d, fig_proxy_req_3d = bubble_chart(proxy_request_dict, proxy_req_y_global, "date", "log(#downloads)", "Droplet",
+        fig_proxy_req_2d, fig_proxy_req_3d = bubble_chart(proxy_request_dict, "date", "log(#proxy-requests)", "Droplet",
                                                         "Top n proxy requests", "src_ip : dst_ip : dst_port")
 
 
