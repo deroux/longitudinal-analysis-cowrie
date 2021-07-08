@@ -189,7 +189,7 @@ if __name__ == '__main__':
                 dst_ip = el['dst_ip']
                 dst_port = el['dst_port']
                 count = int(el['count'])
-                add_to_dictionary(proxy_request_dict, f'{honeypot}:{src_ip}:{filename}', f'{date}:{count}')
+                add_to_dictionary(proxy_request_dict, f'{honeypot}:{src_ip}:{dst_ip}:{dst_port}', f'{date}:{count}')
 
 
 
