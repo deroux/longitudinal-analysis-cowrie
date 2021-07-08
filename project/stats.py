@@ -8,49 +8,51 @@ import json
 # changes month
 # changes 6 months
 
-# Date-Range angeben
+# provide Date-Range
 # Vertical Table
 # Date | Password | % Overall | % Increase
 from Helpers import add_to_dictionary, key_exists
 
 
-def build_statistics_figures(d, text, threshold, figure_list):
-    fig_1 = create_statistics_table(d, threshold, 1, f'% {text} increase day to previous day')
-    fig_7 = create_statistics_table(d, threshold, 7, f'% {text} increase current day over past 7 days mean')
-    fig_30 = create_statistics_table(d, threshold, 30, f'% {text} increase current day over past 30 days mean')
+def build_statistics_figures(dic, event, thresh, fig_list):
+    fig_1 = create_statistics_table(dic, thresh, 1, f'% {event} increase day to previous day')
+    fig_7 = create_statistics_table(dic, thresh, 7, f'% {event} increase current day over past 7 days mean')
+    fig_30 = create_statistics_table(dic, thresh, 30, f'% {event} increase current day over past 30 days mean')
 
-    figure_list.append(fig_1)
-    figure_list.append(fig_7)
-    figure_list.append(fig_30)
+    fig_list.append(fig_1)
+    fig_list.append(fig_7)
+    fig_list.append(fig_30)
+    return fig_list
 
-def create_statistics_table(events_dict, threshold, compare_day, title):
+
+def create_statistics_table(events_dict, thresh, compare_day, title):
     events = []
     dates = []
     counts = []
 
-    perc_overall = []
-    perc_increase = []
+    percent_overall = []
+    percent_increase = []
 
     overall_dict = {}
 
-    for obj in events_dict.keys():
-        ht = obj.split(':')
+    for item in events_dict.keys():
+        ht = item.split(':')
         # honeypot = ht[0]
         event = ht[1] + ':' + ht[2]
         if ht[2] == '':
             event = ht[1]
 
-        honeypot_counts = events_dict[obj]
+        honeypot_counts = events_dict[item]
 
-        for count in honeypot_counts:
-            sp = count.split(':')
+        for elem in honeypot_counts:
+            sp = elem.split(':')
 
-            date = sp[0]
-            count = int(sp[1])
+            e_date = sp[0]
+            e_count = int(sp[1])
 
-            dates.append(date)
+            dates.append(e_date)
             events.append(event)
-            counts.append(count)
+            counts.append(e_count)
 
             add_to_dictionary(overall_dict, f'{event}', count)
 
@@ -58,18 +60,18 @@ def create_statistics_table(events_dict, threshold, compare_day, title):
         total = sum(overall_dict[events[i]])
         a = int(counts[i])
         overall = (100 / total) * a
-        perc_overall.append(overall)
+        percent_overall.append(overall)
 
     # change to 7::1 for changes over 7 days
     if compare_day == 1:
         for a, b in zip(counts[::1], counts[compare_day::1]):
             percent = 100 * (a - b) / b
-            perc_increase.append(percent)
+            percent_increase.append(percent)
     else:
         n = compare_day
         mean_list = []
-        for el in counts:
-            idx = counts.index(el)
+        for item in counts:
+            idx = counts.index(item)
             list_of_counts = counts[idx:n]
 
             if len(list_of_counts) == 0:
@@ -80,26 +82,24 @@ def create_statistics_table(events_dict, threshold, compare_day, title):
 
         for a, b in zip(counts[::1], mean_list[::1]):
             percent = 100 * (a - b) / b
-            perc_increase.append(percent)
-
-
-    thresh = threshold # float
+            percent_increase.append(percent)
 
     k = 0
-    for el in perc_increase.copy():
-        if abs(el) > thresh:
+    for item in percent_increase.copy():
+        if abs(item) > thresh:
             k += 1
         else:
             dates.pop(k)
             events.pop(k)
             counts.pop(k)
-            perc_overall.pop(k)
-            perc_increase.pop(k)
+            percent_overall.pop(k)
+            percent_increase.pop(k)
 
     fig = go.Figure(data=[go.Table(header=dict(values=['Date', 'Event', 'Counts', '% Overall', '% Increase']),
-                                   cells=dict(values=[dates, events, counts, perc_overall, perc_increase]))])
+                                   cells=dict(values=[dates, events, counts, percent_overall, percent_increase]))])
     fig.update_layout(title_text=title, title_x=0.5)
     return fig
+
 
 if __name__ == '__main__':
     # !/usr/bin/env python3
@@ -116,14 +116,14 @@ if __name__ == '__main__':
     commands_dict = {}
     pre_disc_comm_dict = {}
     connect_dict = {}
-    sessionclosed_dict = {}
+    session_closed_dict = {}
     download_dict = {}
     upload_dict = {}
     proxy_request_dict = {}
 
     for obj in db:
         honeypot = obj['sensor']
-        date = obj ['date']
+        date = obj['date']
 
         passwords = obj['passwords']
         commands = obj.get('commands')
@@ -168,7 +168,7 @@ if __name__ == '__main__':
                 src_ip = el['src_ip']
                 robot = el['robot']
                 count = int(el['count'])
-                add_to_dictionary(sessionclosed_dict, f'{honeypot}:{src_ip}:{robot}', f'{date}:{count}')
+                add_to_dictionary(session_closed_dict, f'{honeypot}:{src_ip}:{robot}', f'{date}:{count}')
 
         if key_exists(obj, 'file_download'):
             for el in file_download:
@@ -191,8 +191,6 @@ if __name__ == '__main__':
                 count = int(el['count'])
                 add_to_dictionary(proxy_request_dict, f'{honeypot}:{src_ip}:{dst_ip}:{dst_port}', f'{date}:{count}')
 
-
-
     figure_list = []
 
     # user:password
@@ -212,7 +210,7 @@ if __name__ == '__main__':
     text = 'connects'
     build_statistics_figures(d, text, threshold, figure_list)
     # session_closed
-    d = sessionclosed_dict
+    d = session_closed_dict
     text = 'session_closed'
     build_statistics_figures(d, text, threshold, figure_list)
     # file_download
