@@ -247,8 +247,10 @@ if __name__ == '__main__':
             for el in file_download:
                 url = el['url']
                 count = int(el['count'])
+                pos = el['scans']['positives']
+                total = el['scans']['total']
 
-                add_to_dictionary(download_dict, f"{url}:", date + ':' + sensor + ":" + str(count))
+                add_to_dictionary(download_dict, f"{url} : {pos} / {total}", date + ':' + sensor + ":" + str(count))
 
             for el in file_upload:
                 filename = el['filename']

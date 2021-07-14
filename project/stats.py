@@ -125,20 +125,21 @@ if __name__ == '__main__':
         honeypot = obj['sensor']
         date = obj['date']
 
-        passwords = obj['passwords']
+        passwords = obj.get('passwords')
         commands = obj.get('commands')
         pre_disconnect_commands = obj.get('pre_disconnect_command')
         connects = obj.get('connect')
-        session_closed = obj['session_closed']
+        session_closed = obj.get('session_closed')
         file_download = obj.get('file_download')
         file_upload = obj.get('file_upload')
         proxy_request = obj.get('proxy_request')
 
-        for el in passwords:
-            user = el['username']
-            pas = el['password']
-            count = int(el['count'])
-            add_to_dictionary(pass_dict, f'{honeypot}:{user}:{pas}', f'{date}:{count}')
+        if key_exists(obj, 'passwords'):
+            for el in passwords:
+                user = el['username']
+                pas = el['password']
+                count = int(el['count'])
+                add_to_dictionary(pass_dict, f'{honeypot}:{user}:{pas}', f'{date}:{count}')
 
         if key_exists(obj, 'commands'):
             for el in commands:
