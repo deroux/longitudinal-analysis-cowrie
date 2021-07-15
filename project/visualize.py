@@ -42,6 +42,51 @@ def histogram(data, title):
     return fig
 
 
+def line_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
+    import numpy as np
+
+    fig_2d = go.Figure()
+
+    for key in data:
+        x_data = []
+        y_data = []
+        z_data = []
+
+        elements = data[key]
+        # shorten text key (as long commands might destroy layout)
+        key = (key[:75] + '..') if len(key) > 75 else key
+
+        for el in elements:
+            spl = el.split(':')
+            date = spl[0]  # + ':' + spl[1]
+            # sensor = spl[1]
+            count = int(spl[2])
+            x_data.append(date)
+            y_data.append(count)
+            # z_data.append(sensor)
+
+
+        fig_2d.add_trace(go.Scatter(
+            x=x_data, y=y_data,
+            name=key, text=[key + ':' + str(y) for y in y_data],
+            mode='lines+markers',
+            connectgaps=False,
+            line_shape='linear' # 'spline' or 'linear' 'hv'
+            # marker_size=m_size
+        ))  # , row=2, col=1)
+        fig_2d.update_xaxes(title_text=str_xaxis)
+        fig_2d.update_yaxes(title_text=str_yaxis, type="log")
+        fig_2d.update_layout(title=f"{title}",
+                             legend_title=f"{legend_title}",
+                             font=dict(
+                                 family="Courier New, monospace",
+                                 size=14,
+                                 color="Black"
+                             ))
+
+    return fig_2d
+
+
 def bubble_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
     fig_2d = go.Figure()
     data_3d = []
@@ -287,39 +332,68 @@ if __name__ == '__main__':
 
         fig_userpw_2d, fig_userpw_3d = bubble_chart(userpw_dict, "date", "log(#logins)", "Droplet",
                                                     "Top n user:password combinations", "user:password")
+        fig_userpw_line_2d = line_chart(userpw_dict, "date", "log(#logins)", "Droplet",
+                                                    "Top n user:password combinations", "user:password")
+
         fig_input_2d, fig_input_3d = bubble_chart(commands_dict, "date", "log(#inputs)", "Droplet",
                                                   "Top n commands", "Command")
+        fig_input_line_2d = line_chart(commands_dict, "date", "log(#inputs)", "Droplet",
+                                                  "Top n commands", "Command")
+
         fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d = bubble_chart(pre_disconnect_commands_dict,
                                                                                 "date",
                                                                                 "log(#inputs)", "Droplet",
                                                                                 "Top n pre-disconnect-commands",
                                                                                 "Pre-disconnect command")
+        fig_pre_disconnect_input_line_2d = line_chart(pre_disconnect_commands_dict,
+                                                                                "date",
+                                                                                "log(#inputs)", "Droplet",
+                                                                                "Top n pre-disconnect-commands",
+                                                                                "Pre-disconnect command")
+
         fig_connect_2d, fig_connect_3d = bubble_chart(connect_dict, "date", "log(#inputs)", "Droplet",
                                                       "Top n connects", "src_ip:dst_port")
+        fig_connect_line_2d = line_chart(connect_dict, "date", "log(#inputs)", "Droplet",
+                                                      "Top n connects", "src_ip:dst_port")
+
         fig_histogram_connect = histogram(connect_dict, "Connection frequency")
         fig_histogram_pdc = histogram(pre_disconnect_commands_dict, "Pre disconnect command frequency")
+
         fig_download_2d, fig_download_3d = bubble_chart(download_dict, "date", "log(#downloads)", "Droplet",
                                                         "Top n downloads", "File : Anti-Virus-Results")
+        fig_download_line_2d = line_chart(download_dict, "date", "log(#downloads)", "Droplet",
+                                                        "Top n downloads", "File : Anti-Virus-Results")
+
         fig_upload_2d, fig_upload_3d = bubble_chart(upload_dict, "date", "log(#uploads)", "Droplet",
                                                     "Top n uploads", "filename : src_ip")
+        fig_upload_line_2d = line_chart(upload_dict, "date", "log(#uploads)", "Droplet",
+                                                    "Top n uploads", "filename : src_ip")
+
         fig_sc_2d, fig_sc_3d = bubble_chart(sessionclosed_dict, "date", "log(#sessions)", "Droplet",
                                                         "Top n session closed", "src_ip : robot")
+        fig_sc_line_2d = line_chart(sessionclosed_dict, "date", "log(#sessions)", "Droplet",
+                                                        "Top n session closed", "src_ip : robot")
+
         fig_proxy_req_2d, fig_proxy_req_3d = bubble_chart(proxy_request_dict, "date", "log(#proxy-requests)", "Droplet",
                                                         "Top n proxy requests", "src_ip : dst_ip : dst_port")
-
+        fig_proxy_line_2d = line_chart(proxy_request_dict, "date", "log(#proxy-requests)", "Droplet",
+                                                        "Top n proxy requests", "src_ip : dst_ip : dst_port")
 
         figure_list = [
-            fig_userpw_2d, fig_userpw_3d,
-            fig_input_2d, fig_input_3d,
-            fig_pre_disconnect_input_2d, fig_pre_disconnect_input_3d,
+            fig_userpw_line_2d, fig_userpw_3d,
+            fig_input_line_2d, fig_input_3d,
+            fig_pre_disconnect_input_line_2d, fig_pre_disconnect_input_3d,
             fig_histogram_pdc,
-            fig_connect_2d, fig_connect_3d,
+            fig_connect_line_2d, fig_connect_3d,
             fig_histogram_connect,
-            fig_download_2d, fig_download_3d,
-            fig_upload_2d, fig_upload_3d,
-            fig_sc_2d, fig_sc_3d,
-            fig_proxy_req_2d, fig_proxy_req_3d
+            fig_download_line_2d, fig_download_3d,
+            fig_upload_line_2d, fig_upload_3d,
+            fig_sc_line_2d, fig_sc_3d,
+            fig_proxy_line_2d, fig_proxy_req_3d
         ]
+
+        """
+        """
 
         with open(output_html, 'w') as f:  # a for append
             for figure in figure_list:

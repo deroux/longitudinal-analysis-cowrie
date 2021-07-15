@@ -157,6 +157,9 @@ def download_scripts_from_remote(ip_address, port, user, pw, local_path):
         #threads = []
         for file in files:
             download_file(client, file, remote_folder_path, local_path)
+
+        # TODO: make multithreaded download in future
+
         #    t = threading.Thread(target=download_file, args=(client, file, remote_folder_path, local_path))
         #    threads.append(t)
 
