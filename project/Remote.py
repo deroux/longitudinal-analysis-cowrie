@@ -1,5 +1,6 @@
 import subprocess
 import sys, os
+import threading
 
 
 def run_on_remote(top_n_events):
@@ -112,6 +113,75 @@ def deploy_exec_remote(ip_address, port, user, pw, top_n_events):
         print(e)
         exit(0)
 
+
+def progress(current, total):
+    c = round(current / (1024 ** 2), 2)
+    t = round(total / (1024 ** 2), 2)
+    print(f'{c} MB / {t} MB', end='\r')
+    # print(f'{threading.current_thread()} : {c} MB / {t} MB')
+
+
+def download_file(client, file, remote_folder_path, local_path):
+    sftp = client.open_sftp()
+    info = sftp.stat(remote_folder_path + "/" + file)
+    size_mb = int(round((info.st_size / 1024 ** 2)))
+
+    if size_mb > 500:
+        print(f'Skipped {file} as too big for paramiko..')
+        return
+
+    file_remote = os.path.join(remote_folder_path, file)
+    file_local = os.path.join(local_path, file)
+    print(file_remote + ' >>>> ' + file_local)
+
+    sftp.get(file_remote, file_local, callback=progress)
+    sftp.close()
+
+
+def download_scripts_from_remote(ip_address, port, user, pw, local_path):
+    """Runner to copy cowrie log files from remote droplet."""
+    import multiprocessing
+    import paramiko
+    from tqdm import tqdm
+    print(f"Copying log files from {ip_address}:{port}")
+    try:
+        # Connect to remote host
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(ip_address, username=user, password=pw, port=port, timeout=100)
+
+        sftp = client.open_sftp()
+        remote_folder_path = '/home/cowrie/cowrie/var/log/cowrie'
+        files = sftp.listdir(remote_folder_path)
+
+        #threads = []
+        for file in files:
+            download_file(client, file, remote_folder_path, local_path)
+        #    t = threading.Thread(target=download_file, args=(client, file, remote_folder_path, local_path))
+        #    threads.append(t)
+
+        #for t in threads:
+        #    t.start()
+
+        #for t in threads:
+        #    t.join()
+            # _thread.start_new_thread(download_file, (client, file, remote_folder_path, local_path))
+            # thread.start_new_thread(progress, ('20', '100'))
+            # items.append((client, file, remote_folder_path, local_path))
+
+        # pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
+        # for _ in tqdm.tqdm(pool.starmap(download_file, items), total=len(items)):
+            # log_files.append(_)
+        #    pass
+
+        for line in iter(sys.stdout.readline, ""):
+            print(line, end="")
+        client.close()
+
+    except Exception as e:
+        print(f"Error copying files from remote {ip_address}:{port}")
+        print(e)
+        exit(0)
 
 if __name__ == '__main__':
     # !/usr/bin/env python3

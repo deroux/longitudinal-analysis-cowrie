@@ -6,7 +6,7 @@ import tqdm
 
 from Map import run_map
 from Reduce import run_reduce
-from Remote import deploy_exec_remote, fetch_from_remote
+from Remote import deploy_exec_remote, fetch_from_remote, download_scripts_from_remote
 from Combine import combine_reduced_files
 from table import create_output_table
 from tracer import print_session_trace, print_ip_many_session_trace
@@ -76,6 +76,28 @@ def analyze_local(path, logfile, outfile, top_n_events):
     # python cli.py analyze-local -p C:\Users\Dominic\Documents\longitudinal-analysis-cowrie\scripts\project\logs
     os.system(f"python Local.py {path} {top_n_events}")
     call_visualization(logfile, outfile)
+
+@click.command()
+@click.option('--ip', '-i', required=True, multiple=True, help="IP Address of remote droplet")
+@click.option('--port', '-p', required=True, multiple=True, help="Port of remote droplet (real SSH port of server, not cowrie port)")
+@click.option('--user', '-u', default=['root'], multiple=True, help="Login username of remote droplet")
+@click.option('--pw', '-pw', required=True, multiple=True, help="Login password of remote droplet")
+@click.option('--folder', '-f', required=True, type=click.Path(exists=True), help="Local folder path to store log files from remote into.")
+def download_logs(ip, port, user, pw, folder):
+    """Map-Reduce all log files in local folder, create reduced.json, create result.html for visualization."""
+    # python3 cli.py download-logs -i 104.248.245.133 -u root -p 2112 -pw 16Sfl,Rkack -f /Users/deroux/Documents/longitudinal-analysis-cowrie/logs/todelete
+    pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
+    items = []
+    for i, val in enumerate(ip):
+        _ip = val
+        _port = port[i-1]
+        _user = user[i-1]
+        _pw = pw[i-1]
+        items.append((_ip, _port, _user, _pw, folder))
+
+    for _ in tqdm.tqdm(pool.starmap(download_scripts_from_remote, items), total=len(ip)):
+        # TODO: probably we need some kind of parallel ssh client for this, not tested on multiple remote hosts
+        pass
 
 
 @click.command()
@@ -163,6 +185,7 @@ def trace_ip(file, ip):
 
 cli.add_command(analyze_remote)
 cli.add_command(analyze_local)
+cli.add_command(download_logs)
 cli.add_command(map)
 cli.add_command(reduce)
 cli.add_command(combine_reduced)
