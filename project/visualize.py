@@ -222,7 +222,6 @@ if __name__ == '__main__':
         downloads = {}
         downloads_y_global = []
         uploads_y_global = []
-        uploads = {}
 
         for entry in lines:
             date = key_exists_arr(entry, 'date')
@@ -247,7 +246,7 @@ if __name__ == '__main__':
                     avira = f"{el['scans']['positives']} / {el['scans']['total']} positives."
                     count = el['count']
 
-                    add_to_dictionary(downloads, url + ' : ' + avira, date + ':' + sensor + ":" + str(count))
+                    add_to_dictionary(download_dict, url + ' : ' + avira, date + ':' + sensor + ":" + str(count))
 
             if key_exists(entry, 'file_upload'):
                 for el in entry['file_upload']:
@@ -255,7 +254,7 @@ if __name__ == '__main__':
                     src_ip = el['src_ip']
                     count = el['count']
 
-                    add_to_dictionary(uploads, filename + ' : ' + src_ip, date + ':' + sensor + ":" + str(count))
+                    add_to_dictionary(upload_dict, filename + ' : ' + src_ip, date + ':' + sensor + ":" + str(count))
 
             for el in passwords:
                 userpw = el['username'] + ':' + el['password']
@@ -310,7 +309,7 @@ if __name__ == '__main__':
                 dst_port = el['dst_port']
                 count = int(el['count'])
 
-                add_to_dictionary(sessionclosed_dict, f"{src_ip}:{dst_ip}:{dst_port}", date + ':' + sensor + ":" + str(count))
+                add_to_dictionary(proxy_request_dict, f"{src_ip}:{dst_ip}:{dst_port}", date + ':' + sensor + ":" + str(count))
 
         """
         Future: animated bubblechart for different dates

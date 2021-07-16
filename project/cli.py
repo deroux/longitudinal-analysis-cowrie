@@ -9,7 +9,7 @@ from Reduce import run_reduce
 from Remote import deploy_exec_remote, fetch_from_remote, download_scripts_from_remote
 from Combine import combine_reduced_files
 from table import create_output_table
-from tracer import print_session_trace, print_ip_many_session_trace
+from tracer import print_session_trace, print_ip_many_session_trace, sankey_plot_inputs
 
 __author__ = "deroux"
 
@@ -183,6 +183,14 @@ def trace_ip(file, ip):
     print_ip_many_session_trace(file, ip)
 
 
+@click.command()
+@click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to create trace of commands executed')
+def command_chains(file):
+    """Use cowrie.json.YYYY-MM-DD file and IP to trace commands executed"""
+    # python cli.py trace-sid -f logs\honeypot-a\cowrie.json.2021-05-01 -sid 104.131.48.26
+    sankey_plot_inputs(file)
+
+
 cli.add_command(analyze_remote)
 cli.add_command(analyze_local)
 cli.add_command(download_logs)
@@ -193,6 +201,7 @@ cli.add_command(visualize)
 cli.add_command(statistics)
 cli.add_command(trace_sid)
 cli.add_command(trace_ip)
+cli.add_command(command_chains)
 
 if __name__ == "__main__":
     # !/usr/bin/env python3
