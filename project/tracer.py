@@ -111,10 +111,9 @@ def similar(a, b):
         else:
             before_and_after = 1
             score -= 1
-    if score > 5 and before_and_after == 2:   # filter out e.g. 'echo "root:UIdsK9d9zISe"|chpasswd|bash' and 'echo "root:fJOKRFQ0oaGB"|chpasswd|bash' result in 'echo "root:"|chpasswd|bash'
-        str_out = buf.getvalue()
+    if score > 15 and before_and_after == 2:   # filter out e.g. 'echo "root:UIdsK9d9zISe"|chpasswd|bash' and 'echo "root:fJOKRFQ0oaGB"|chpasswd|bash' result in 'echo "root:"|chpasswd|bash'
         return True, buf.getvalue()
-    elif score > 25:
+    elif score > 20:
         return True, a
     else:
         return False, ''
@@ -153,7 +152,7 @@ def sankey_plot_inputs(file_path):
             input, timestamp = lst[i]
 
             if i == 0:
-                key = (input, 'None')
+                key = (input, '')
             if i + 1 < num_commands:
                 input_next, timestamp_next = lst[i + 1]
                 key = (input, input_next)
@@ -174,6 +173,9 @@ def sankey_plot_inputs(file_path):
     for key, value in sorted_list:
         source_cmd, target_cmd = key
         val = value
+
+        #if val == 1:
+        #    continue
 
         splitter = ''
         if '&&' in source_cmd or '&&' in target_cmd:
