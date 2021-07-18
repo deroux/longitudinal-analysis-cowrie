@@ -187,7 +187,7 @@ def trace_ip(file, ip):
 @click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to create trace of commands executed')
 def command_chains(file):
     """Use cowrie.json.YYYY-MM-DD file and IP to trace commands executed"""
-    # python cli.py trace-sid -f logs\honeypot-a\cowrie.json.2021-05-01 -sid 104.131.48.26
+    # python3 cli.py command-chains -f cowrie.json.2021-05-08
     sankey_plot_inputs(file)
 
 
