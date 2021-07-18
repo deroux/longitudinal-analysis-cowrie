@@ -46,13 +46,44 @@ def print_session_trace(file_path, session_id):
     fig.show()
 
 
+def longest_common_prefix(a):
+    if not a:
+        return ''
+    prefix = a[0]
+    for word in a:
+        if len(prefix) > len(word):
+            prefix, word = word, prefix
+
+        while len(prefix) > 0:
+            if word[:len(prefix)] == prefix:
+                break
+            else:
+                prefix = prefix[:-1]
+    return prefix
+
+"""
+    import textdistance
+    dist = textdistance.levenshtein.normalized_similarity(a, b)
+    if dist > 0.8:
+        print(a)
+        print(b)
+        print(dist)
+        # find and return longest matching prefix
+        a, b = a.strip(), b.strip()
+        return True, longest_common_prefix([a,b])
+    return False, ''
+    """
 def similar(a, b):
+    from io import StringIO
+    buf = StringIO()
+
+    if a == b:
+        return True, a
     # We filter out common commands with different subpatterns
     # a = echo "root:gXPbD7x50eAW"|chpasswd|bash
     # b = echo "root:OS4DnVZpKnby"|chpasswd|bash
     # str_out = echo "root:"|chpasswd|bash
     score = 0
-    str_out = ''
     lenA = len(a)
     lenB = len(b)
     stop = lenA
@@ -65,17 +96,26 @@ def similar(a, b):
         stop = lenA
 
     before_and_after = 0
+
     for i in range(stop):
         if a[i] == b[i]:
-            if before_and_after == 1:
-                before_and_after = 2
-            str_out += a[i]
+            next_char_match = True
+            if i < stop-1:
+                next_char_match = a[i + 1] == b[i + 1]
+            if next_char_match:
+                if before_and_after == 1:
+                    before_and_after = 2
+                buf.write(a[i])
+
             score += 1
         else:
             before_and_after = 1
             score -= 1
-    if score > 5 and before_and_after == 2:
-        return True, str_out
+    if score > 5 and before_and_after == 2:   # filter out e.g. 'echo "root:UIdsK9d9zISe"|chpasswd|bash' and 'echo "root:fJOKRFQ0oaGB"|chpasswd|bash' result in 'echo "root:"|chpasswd|bash'
+        str_out = buf.getvalue()
+        return True, buf.getvalue()
+    elif score > 25:
+        return True, a
     else:
         return False, ''
 
@@ -95,9 +135,13 @@ def sankey_plot_inputs(file_path):
         for i in range(sessions):
             input, timestamp = lst[i]
             for c in known_commands:
-                probably_same, str_out = similar(input, c)
-                if probably_same:
-                    lst[i] = (str_out, timestamp)
+                if c[0] == input[0]:
+                    # possibly same commands
+                    probably_same, str_out = similar(input, c)
+                    if probably_same:
+                        lst[i] = (str_out, timestamp)
+                        if str_out not in known_commands:
+                            known_commands.append(str_out)
 
             if input not in known_commands:
                 known_commands.append(input)
@@ -113,6 +157,7 @@ def sankey_plot_inputs(file_path):
             if i + 1 < num_commands:
                 input_next, timestamp_next = lst[i + 1]
                 key = (input, input_next)
+
             if key in source_target_value:
                 source_target_value[key] += 1
             else:
@@ -130,9 +175,27 @@ def sankey_plot_inputs(file_path):
         source_cmd, target_cmd = key
         val = value
 
-        if '&&' in source_cmd or '&&' in target_cmd:   # split inputs chained with &&
-            src_lst = source_cmd.split('&&')
-            trg_lst = target_cmd.split('&&')
+        splitter = ''
+        if '&&' in source_cmd or '&&' in target_cmd:
+            splitter = '&&'
+        elif '||' in source_cmd or '||' in target_cmd:
+            splitter= '||'
+
+        if splitter == '':
+            # normal case
+            if source_cmd not in feeder:
+                feeder.append(source_cmd)
+            if target_cmd not in feeder:
+                feeder.append(target_cmd)
+
+            labels.append(f'{source_cmd} : {val}')
+            sources.append(feeder.index(source_cmd))
+            targets.append(feeder.index(target_cmd))
+            values.append(val)
+        else:
+            # split command case
+            src_lst = source_cmd.split(splitter)
+            trg_lst = target_cmd.split(splitter)
 
             total = src_lst + trg_lst
 
@@ -149,16 +212,6 @@ def sankey_plot_inputs(file_path):
                 sources.append(feeder.index(src_))
                 targets.append(feeder.index(trg_))
                 values.append(val)
-        else:
-            if source_cmd not in feeder:
-                feeder.append(source_cmd)
-            if target_cmd not in feeder:
-                feeder.append(target_cmd)
-
-            labels.append(f'{source_cmd} : {val}')
-            sources.append(feeder.index(source_cmd))
-            targets.append(feeder.index(target_cmd))
-            values.append(val)
 
 
     fig = go.Figure(
