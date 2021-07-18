@@ -109,7 +109,7 @@ def sankey_plot_inputs(file_path):
             input, timestamp = lst[i]
 
             if i == 0:
-                key = (input, None)
+                key = (input, 'None')
             if i + 1 < num_commands:
                 input_next, timestamp_next = lst[i + 1]
                 key = (input, input_next)
@@ -130,9 +130,7 @@ def sankey_plot_inputs(file_path):
         source_cmd, target_cmd = key
         val = value
 
-        labels.append(f'{source_cmd} : {val}')
-
-        if target_cmd is not None and ('&&' in source_cmd or '&&' in target_cmd):   # split inputs chained with &&
+        if '&&' in source_cmd or '&&' in target_cmd:   # split inputs chained with &&
             src_lst = source_cmd.split('&&')
             trg_lst = target_cmd.split('&&')
 
@@ -147,6 +145,7 @@ def sankey_plot_inputs(file_path):
                 if trg_ not in feeder:
                     feeder.append(trg_)
 
+                labels.append(f'{src_} : {val}')
                 sources.append(feeder.index(src_))
                 targets.append(feeder.index(trg_))
                 values.append(val)
@@ -156,6 +155,7 @@ def sankey_plot_inputs(file_path):
             if target_cmd not in feeder:
                 feeder.append(target_cmd)
 
+            labels.append(f'{source_cmd} : {val}')
             sources.append(feeder.index(source_cmd))
             targets.append(feeder.index(target_cmd))
             values.append(val)
