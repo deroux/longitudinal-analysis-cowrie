@@ -389,19 +389,19 @@ if __name__ == '__main__':
         file_count = 0
         no_extension = str(output_html).rsplit('.', 1)[0]
 
-        while len(figure_list) > 1:
+        while len(figure_list) > 0:
             file = f'{no_extension}-{file_count}.html'
             with open(file, 'w') as f:  # a for append
                 too_big = 5*1024**2 # 5 MB is considered too big
                 run = True
                 while run:
+                    size = os.path.getsize(f.name)
+                    if len(figure_list) == 0 or size > too_big:
+                        run = False
+                        break
+
                     fig = figure_list.pop(0)
                     f.write(fig.to_html(full_html=False, include_plotlyjs='cdn'))
-                    size = os.path.getsize(f.name)
-
-                    if size > too_big:
-                        run = False
-
                 print(f'created {file}')
             file_count += 1
     except Exception as e:
