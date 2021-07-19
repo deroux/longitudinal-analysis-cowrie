@@ -44,14 +44,11 @@ def histogram(data, title):
 
 
 def line_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
-    import numpy as np
-
     fig_2d = go.Figure()
 
     for key in data:
         x_data = []
         y_data = []
-        z_data = []
 
         elements = data[key]
         # shorten text key (as long commands might destroy layout)
@@ -64,7 +61,6 @@ def line_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
             count = int(spl[2])
             x_data.append(date)
             y_data.append(count)
-            # z_data.append(sensor)
 
 
         fig_2d.add_trace(go.Scatter(
@@ -73,8 +69,7 @@ def line_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
             mode='lines+markers',
             connectgaps=False,
             line_shape='linear' # 'spline' or 'linear' 'hv'
-            # marker_size=m_size
-        ))  # , row=2, col=1)
+        ))
         fig_2d.update_xaxes(title_text=str_xaxis)
         fig_2d.update_yaxes(title_text=str_yaxis, type="log")
         fig_2d.update_layout(title=f"{title}",
@@ -84,7 +79,6 @@ def line_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
                                  size=14,
                                  color="Black"
                              ))
-
     return fig_2d
 
 
@@ -117,7 +111,7 @@ def bubble_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
             name=key, text=[key + ':' + str(y) for y in y_data],
             mode='markers',
             marker_size=m_size
-        ))  # , row=2, col=1)
+        ))
         fig_2d.update_xaxes(title_text=str_xaxis)
         fig_2d.update_yaxes(title_text=str_yaxis, type="log")
         fig_2d.update_layout(title=f"{title}",
@@ -391,9 +385,6 @@ if __name__ == '__main__':
             fig_sc_line_2d, fig_sc_3d,
             fig_proxy_line_2d, fig_proxy_req_3d
         ]
-
-        """
-        """
 
         file_count = 0
         no_extension = str(output_html).rsplit('.', 1)[0]
