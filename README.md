@@ -330,7 +330,7 @@ graph LR
 ```
     
 ## Contributors
-+ In general, feel free to advance every functionality / problem / feature of the project.
++ In general, feel free to advance every functionality / problem / feature of the project or create an issue of a wanted feature.
 + [Create your Issue on Github](https://github.com/deroux/longitudinal-analysis-cowrie/issues)
 + [Join the Slack Channel and ask questions](https://join.slack.com/t/longitudinala-bbj1680/shared_invite/zt-t64komf9-tiAre9JPWnDlXQkGKDxSbg)
 
