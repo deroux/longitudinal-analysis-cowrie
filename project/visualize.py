@@ -1,5 +1,6 @@
 import json, sys
 import plotly.graph_objects as go
+import os
 
 from Helpers import add_to_dictionary, key_exists, key_exists_arr
 
@@ -394,10 +395,24 @@ if __name__ == '__main__':
         """
         """
 
-        with open(output_html, 'w') as f:  # a for append
-            for figure in figure_list:
-                f.write(figure.to_html(full_html=False, include_plotlyjs='cdn'))
-            print(f'created {output_html}')
+        file_count = 0
+        no_extension = str(output_html).rsplit('.', 1)[0]
+
+        while len(figure_list) > 1:
+            file = f'{no_extension}-{file_count}.html'
+            with open(file, 'w') as f:  # a for append
+                too_big = 5*1024**2 # 5 MB is considered too big
+                run = True
+                while run:
+                    fig = figure_list.pop(0)
+                    f.write(fig.to_html(full_html=False, include_plotlyjs='cdn'))
+                    size = os.path.getsize(f.name)
+
+                    if size > too_big:
+                        run = False
+
+                print(f'created {file}')
+            file_count += 1
     except Exception as e:
         print(e)
         exit(0)

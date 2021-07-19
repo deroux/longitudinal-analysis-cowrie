@@ -89,18 +89,21 @@ def install_python_env_remote(client):
             print(line, end="")
 
 
-def deploy_exec_remote(ip_address, port, user, pw, top_n_events):
+def deploy_exec_remote(ip_address, port, user, pw, top_n_events, setup_remote_environment):
     """Runner to deploy and execute Map-Reduce reduction on remote node."""
     import paramiko
-    print(f"Deploying scripts to {ip_address}:{port}")
     try:
         # Connect to remote host
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         client.connect(ip_address, username=user, password=pw, port=port)
 
-        copy_scripts_to_remote(client)
-        install_python_env_remote(client)
+        if setup_remote_environment:
+            print(f"Deploying scripts to {ip_address}:{port}")
+            copy_scripts_to_remote(client)
+            install_python_env_remote(client)
+
+        print(f"Starting map-reduce on remote node <{ip_address}:{port}>")
         # Run the transmitted script remotely without args and show its output.
         stdin, stdout, stderr = client.exec_command(f'python3 /home/cowrie/cowrie/var/log/cowrie/Remote.py {top_n_events}', get_pty=True)
 
@@ -198,7 +201,7 @@ if __name__ == '__main__':
             pw = sys.argv[4]
 
             # deploy to REMOTE server
-            deploy_exec_remote(ip_address, port, user, pw, 5)
+            deploy_exec_remote(ip_address, port, user, pw, 5, False)
             # fetch reduced file from REMOTE server
             fetch_from_remote(ip_address, port, user, pw)
         except Exception as e:

@@ -74,7 +74,7 @@ def run_reduce(files, outFile, n, mode):
     """
     from Reduce import Reduce
     from Helpers import bcolors, build_json
-    import io, json, psutil, orjson, operator
+    import io, json, psutil, orjson, operator, os
 
     name = 'cowrie.json.'
 
@@ -89,7 +89,7 @@ def run_reduce(files, outFile, n, mode):
             fl = f.name
 
         no_extension = str(fl).rsplit('.', 1)[0]
-
+        print(no_extension)
         if os.path.exists(f'{no_extension}.reduced'):
             if 'c' in mode:
                 # continue on filename.reduced already existing

@@ -33,9 +33,12 @@ def cli():
 @click.option('--user', '-u', default=['root'], multiple=True, help="Login username of remote droplet")
 @click.option('--pw', '-pw', required=True, multiple=True, help="Login password of remote droplet")
 @click.option('--top_n_events', '-n', default=[5], multiple=True, help='Reduce & visualize top n occurring events in cowrie log files')
+@click.option('--setup_remote_environment', '-r', default=[False], multiple=True, help='Setup python environment and copy scripts to remote node (only first time needed)')
 @click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
-def analyze_remote(ip, port, user, pw, top_n_events, logfile, outfile):
+@click.option('--threshold', '-t', default=20.0, help='Percentage of event changes visible in report, e.g. user:password increased > x %')
+@click.option('--last_n_days', '-l', default=7, help='Create statistics for specific event of % increase for last n days across honeypots')
+def analyze_remote(ip, port, user, pw, top_n_events, setup_remote_environment, logfile, outfile, threshold, last_n_days):
     """Map-Reduce all log files on remote cowrie node, download reduced.json, create result.html for visualization."""
     # python3 cli.py analyze-remote -i 104.248.245.133 -i 104.248.253.81 -p 2112 -p 2112 -pw 16Sfl,Rkack -pw 16Sfl,Rkack
     pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
@@ -47,7 +50,8 @@ def analyze_remote(ip, port, user, pw, top_n_events, logfile, outfile):
         _user = user[i-1]
         _pw = pw[i-1]
         _top_n_events = top_n_events[i-1]
-        items.append((_ip, _port, _user, _pw, _top_n_events))
+        _remote_environment = setup_remote_environment[i-1]
+        items.append((_ip, _port, _user, _pw, _top_n_events, _remote_environment))
 
     for _ in tqdm.tqdm(pool.starmap(run_remote, items), total=len(ip)):
         log_files.append(_)
@@ -58,11 +62,11 @@ def analyze_remote(ip, port, user, pw, top_n_events, logfile, outfile):
     else:
         logfile = log_files.pop()
 
-    call_visualization(logfile, outfile)
+    call_visualization(logfile, outfile, threshold, last_n_days)
 
 
-def run_remote(ip, port, user, pw, top_n_events):
-    deploy_exec_remote(ip, port, user, pw, top_n_events)
+def run_remote(ip, port, user, pw, top_n_events, setup_remote_environment):
+    deploy_exec_remote(ip, port, user, pw, top_n_events, setup_remote_environment)
     logfile = fetch_from_remote(ip, port, user, pw)
     return logfile
 
@@ -71,11 +75,13 @@ def run_remote(ip, port, user, pw, top_n_events):
 @click.option('--logfile', '-f', default='reduced.json', help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
 @click.option('--top_n_events', '-n', default=5, help='Reduce & visualize top n occurring events in cowrie log files')
-def analyze_local(path, logfile, outfile, top_n_events):
+@click.option('--threshold', '-t', default=20.0, help='Percentage of event changes visible in report, e.g. user:password increased > x %')
+@click.option('--last_n_days', '-n', default=7, help='Create statistics for specific event of % increase for last n days across honeypots')
+def analyze_local(path, logfile, outfile, top_n_events, threshold, last_n_days):
     """Map-Reduce all log files in local folder, create reduced.json, create result.html for visualization."""
     # python cli.py analyze-local -p C:\Users\Dominic\Documents\longitudinal-analysis-cowrie\scripts\project\logs
     os.system(f"python Local.py {path} {top_n_events}")
-    call_visualization(logfile, outfile)
+    call_visualization(logfile, outfile, threshold, last_n_days)
 
 @click.command()
 @click.option('--ip', '-i', required=True, multiple=True, help="IP Address of remote droplet")
@@ -140,29 +146,31 @@ def combine_reduced(files, outfile):
 @click.command()
 @click.option('--logfile', '-f', required=True, type=click.Path(exists=True), help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='result.html', help='Filename of result visualization *.html')
-def visualize(logfile, outfile):
+@click.option('--threshold', '-t', default=20.0, help='Percentage of event changes visible in report, e.g. user:password increased > x %')
+@click.option('--last_n_days', '-n', default=7, help='Create statistics for specific event of % increase for last n days across honeypots')
+def visualize(logfile, outfile, threshold, last_n_days):
     """Use reduced.json file and create result.html visualization out of it"""
-    call_visualization(logfile, outfile)
+    call_visualization(logfile, outfile, threshold, last_n_days)
 
 
-def call_visualization(logfile, outfile):
+def call_visualization(logfile, outfile, threshold, n):
     os.system(f"python visualize.py {logfile} {outfile}")
     create_output_table(logfile)
-    call_statistics(logfile, 'stats.html', 25.0)
+    call_statistics(logfile, 'stats.html', threshold, n)
 
 @click.command()
 @click.option('--logfile', '-f', required=True, type=click.Path(exists=True), help='Filename of reduced log file of generated *.json')
 @click.option('--outfile', '-o', default='stats.html', help='Filename of result visualization *.html')
 @click.option('--threshold', '-t', default=20.0, help='Percentage of event changes visible in report, e.g. user:password increased > x %')
 @click.option('--last_n_days', '-n', default=7, help='Create statistics for specific event of % increase for last n days across honeypots')
-def statistics(logfile, outfile, threshold):
+def statistics(logfile, outfile, threshold, last_n_days):
     """Use reduced.json file and create statistics.html visualization out of it"""
     # python3 cli.py statistics -f 104.248.245.133_reduced.json -t 5.0
-    call_statistics(logfile, outfile, threshold)
+    call_statistics(logfile, outfile, threshold, last_n_days)
 
 
-def call_statistics(logfile, outfile, threshold):
-    os.system(f"python stats.py {logfile} {outfile} {threshold}")
+def call_statistics(logfile, outfile, threshold, n):
+    os.system(f"python stats.py {logfile} {outfile} {threshold} {n}")
 
 
 
