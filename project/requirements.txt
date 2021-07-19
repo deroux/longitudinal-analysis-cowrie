@@ -175,6 +175,7 @@ PyQt5-Qt5==5.15.2
 PyQt5-sip==12.8.1
 pyqtgraph==0.12.1
 pyrsistent==0.15.7
+pysftp==0.2.9
 PySocks==1.7.1
 pytest==5.3.5
 pytest-arraydiff==0.3
@@ -186,6 +187,7 @@ pytest-remotedata==0.3.2
 python-dateutil==2.8.1
 python-jsonrpc-server==0.3.4
 python-language-server==0.31.7
+python-Levenshtein==0.12.2
 pytz==2019.3
 PyWavelets==1.1.1
 PyYAML==5.3
@@ -233,6 +235,7 @@ tblib==1.6.0
 tenacity==7.0.0
 terminado==0.8.3
 testpath==0.4.4
+textdistance==4.2.1
 toolz==0.10.0
 torch==1.7.0
 torchvision==0.8.1

@@ -90,7 +90,7 @@ def analyze_local(path, logfile, outfile, top_n_events, threshold, last_n_days):
 @click.option('--pw', '-pw', required=True, multiple=True, help="Login password of remote droplet")
 @click.option('--folder', '-f', required=True, type=click.Path(exists=True), help="Local folder path to store log files from remote into.")
 def download_logs(ip, port, user, pw, folder):
-    """Map-Reduce all log files in local folder, create reduced.json, create result.html for visualization."""
+    """Download all log files from remote node."""
     # python3 cli.py download-logs -i 104.248.245.133 -u root -p 2112 -pw 16Sfl,Rkack -f /Users/deroux/Documents/longitudinal-analysis-cowrie/logs/todelete
     pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
     items = []
@@ -149,7 +149,7 @@ def combine_reduced(files, outfile):
 @click.option('--threshold', '-t', default=20.0, help='Percentage of event changes visible in report, e.g. user:password increased > x %')
 @click.option('--last_n_days', '-n', default=7, help='Create statistics for specific event of % increase for last n days across honeypots')
 def visualize(logfile, outfile, threshold, last_n_days):
-    """Use reduced.json file and create result.html visualization out of it"""
+    """Use reduced.json file and create result.html and stats.html visualization out of it"""
     call_visualization(logfile, outfile, threshold, last_n_days)
 
 
@@ -164,7 +164,7 @@ def call_visualization(logfile, outfile, threshold, n):
 @click.option('--threshold', '-t', default=20.0, help='Percentage of event changes visible in report, e.g. user:password increased > x %')
 @click.option('--last_n_days', '-n', default=7, help='Create statistics for specific event of % increase for last n days across honeypots')
 def statistics(logfile, outfile, threshold, last_n_days):
-    """Use reduced.json file and create statistics.html visualization out of it"""
+    """Use reduced.json file and create stats.html visualization out of it"""
     # python3 cli.py statistics -f 104.248.245.133_reduced.json -t 5.0
     call_statistics(logfile, outfile, threshold, last_n_days)
 
@@ -195,7 +195,7 @@ def trace_ip(file, ip):
 @click.command()
 @click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to create trace of commands executed')
 def command_chains(file):
-    """Use cowrie.json.YYYY-MM-DD file and IP to trace commands executed"""
+    """Use cowrie.json.YYYY-MM-DD file to trace commands executed for all sessions in Sankey-Plot."""
     # python3 cli.py command-chains -f cowrie.json.2021-05-08
     sankey_plot_inputs(file)
 
