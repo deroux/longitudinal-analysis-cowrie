@@ -159,6 +159,8 @@ def download_scripts_from_remote(ip_address, port, user, pw, local_path):
 
         #threads = []
         for file in files:
+            if '.mapped' in file or '.reduced' in file or '.log' in file or '.py' in file:
+                continue
             download_file(client, file, remote_folder_path, local_path)
 
         # TODO: make multithreaded download in future

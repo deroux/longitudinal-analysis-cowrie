@@ -1,0 +1,412 @@
+                                 __               
+  _________ _      ___________ _/ /_  ______  ___ 
+ / ___/ __ \ | /| / / ___/ __ `/ / / / /_  / / _ \
+/ /__/ /_/ / |/ |/ / /  / /_/ / / /_/ / / /_/  __/
+\___/\____/|__/|__/_/   \__,_/_/\__, / /___/\___/ 
+                               /____/             
+
+Deploying scripts to 104.248.245.133:2112
+copy /Users/dominicrudigier/Documents/longitudinal-analysis-cowrie/project/Remote.py
+copy Map.py
+copy Reduce.py
+copy Local.py
+copy Helpers.py
+copy MapReduce.py
+copy requirements.txt
+copying config.json
+0% [Working]            Hit:1 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu bionic InRelease
+0% [Connecting to security.ubuntu.com (91.189.91.39)] [Connected to repos.insig                                                                               Hit:2 https://repos.insights.digitalocean.com/apt/do-agent main InRelease
+                                                                               0% [Connecting to security.ubuntu.com (91.189.91.39)]0% [1 InRelease gpgv 15.9 kB] [Connecting to security.ubuntu.com (91.189.91.39)                                                                               0% [Waiting for headers]0% [2 InRelease gpgv 5132 B] [Waiting for headers]                                                  Get:3 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+0% [2 InRelease gpgv 5132 B] [3 InRelease 14.2 kB/88.7 kB 16%]                                                              0% [3 InRelease 31.5 kB/88.7 kB 36%]                                    0% [Working]0% [3 InRelease gpgv 88.7 kB]                             0% [Working]            Get:4 http://mirrors.digitalocean.com/ubuntu bionic InRelease [242 kB]
+0% [4 InRelease 14.2 kB/242 kB 6%]                                  0% [Working]0% [4 InRelease gpgv 242 kB] [Waiting for headers]                                                  Hit:5 http://mirrors.digitalocean.com/ubuntu bionic-updates InRelease
+0% [4 InRelease gpgv 242 kB] [Waiting for headers]                                                  Hit:6 http://mirrors.digitalocean.com/ubuntu bionic-backports InRelease
+                                                  0% [4 InRelease gpgv 242 kB]                            0% [Working]0% [5 InRelease gpgv 88.7 kB]                             0% [Working]0% [6 InRelease gpgv 74.6 kB]                             100% [Working]              Fetched 331 kB in 1s (258 kB/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 3%Reading package lists... 3%Reading package lists... 5%Reading package lists... 5%Reading package lists... 5%Reading package lists... 5%Reading package lists... 5%Reading package lists... 5%Reading package lists... 33%Reading package lists... 37%Reading package lists... 37%Reading package lists... 55%Reading package lists... 55%Reading package lists... 55%Reading package lists... 55%Reading package lists... 55%Reading package lists... 55%Reading package lists... 63%Reading package lists... 63%Reading package lists... 68%Reading package lists... 68%Reading package lists... 70%Reading package lists... 70%Reading package lists... 71%Reading package lists... 71%Reading package lists... 77%Reading package lists... 77%Reading package lists... 79%Reading package lists... 79%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 80%Reading package lists... 86%Reading package lists... 86%Reading package lists... 89%Reading package lists... 91%Reading package lists... 91%Reading package lists... 92%Reading package lists... 92%Reading package lists... 93%Reading package lists... 93%Reading package lists... 97%Reading package lists... 97%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+Calculating upgrade... 0%Calculating upgrade... 50%Calculating upgrade... Done
+The following package was automatically installed and is no longer required:
+  grub-pc-bin
+Use 'sudo apt autoremove' to remove it.
+The following packages have been kept back:
+  sosreport ubuntu-advantage-tools
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+python3.9 is already the newest version (3.9.6-1+bionic1).
+The following package was automatically installed and is no longer required:
+  grub-pc-bin
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+python3-pip is already the newest version (9.0.1-2.3~ubuntu1.18.04.5).
+The following package was automatically installed and is no longer required:
+  grub-pc-bin
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+python3-venv is already the newest version (3.6.7-1~18.04).
+The following package was automatically installed and is no longer required:
+  grub-pc-bin
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+/usr/lib/python3/dist-packages/secretstorage/dhcrypto.py:15: CryptographyDeprecationWarning: int_from_bytes is deprecated, use int.from_bytes instead
+  from cryptography.utils import int_from_bytes
+/usr/lib/python3/dist-packages/secretstorage/util.py:19: CryptographyDeprecationWarning: int_from_bytes is deprecated, use int.from_bytes instead
+  from cryptography.utils import int_from_bytes
+Requirement already satisfied: pip in /usr/local/lib/python3.6/dist-packages (21.2.2)
+[33mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv[0m
+/usr/lib/python3/dist-packages/secretstorage/dhcrypto.py:15: CryptographyDeprecationWarning: int_from_bytes is deprecated, use int.from_bytes instead
+  from cryptography.utils import int_from_bytes
+/usr/lib/python3/dist-packages/secretstorage/util.py:19: CryptographyDeprecationWarning: int_from_bytes is deprecated, use int.from_bytes instead
+  from cryptography.utils import int_from_bytes
+Processing /tmp/build/80754af9/typing_extensions_1598376058250/work
+[31mERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: '/tmp/build/80754af9/typing_extensions_1598376058250/work'
+[0m
+Starting map-reduce on remote node <104.248.245.133:2112>
+[Errno 2] No such file or directory: 'config.json'
+[Errno 2] No such file or directory: 'config.json'
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-16
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-16.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-17
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-17.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-10
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-10.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-08
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-08.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-23
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-23.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-14
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-14.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-16
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-16.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-12
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-12.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-09
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-09.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-02
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-02.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-09
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-09.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-13
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-13.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-01
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-01.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-18
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-18.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-14
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-14.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-13
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-13.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-14
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-14.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-08
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-08.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-12
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-12.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-12
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-12.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-12
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-12.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-18
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-18.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-26
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-26.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-06
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-06.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-31
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-31.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-10
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-10.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-11
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-11.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-13
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-13.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-30
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-30.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-17
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-17.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-18
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-18.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-11
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-11.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-03
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-03.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-05
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-05.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-10
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-10.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-15
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-15.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-02
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-02.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-22
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-22.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-11
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-11.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-04
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-04.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-29
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-29.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-17
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-17.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-15
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-15.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-16
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-16.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-21
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-21.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-01
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-01.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-09
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-09.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-24
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-24.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-19
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-19.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-13
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-13.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-20
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-20.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-15
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-15.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-07
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-07.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-11
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-11.mapped
+Map on: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-25
+Already existing, using: /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-25.mapped
+[Errno 2] No such file or directory: 'config.json'
+[Errno 2] No such file or directory: 'config.json'
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-16
+RAM usage: 128.23 MB 	 21.6 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-16.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-16.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-17
+RAM usage: 164.77 MB 	 23.4 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-17.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-17.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-21
+RAM usage: 193.29 MB 	 24.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-21.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-21.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-03
+RAM usage: 296.01 MB 	 29.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-03.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-03.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-22
+RAM usage: 231.68 MB 	 26.5 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-22.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-22.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-14
+RAM usage: 338.64 MB 	 31.6 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-14.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-14.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-01
+RAM usage: 214.68 MB 	 25.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-01.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-01.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-05
+RAM usage: 348.42 MB 	 32.1 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-05.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-05.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-19
+RAM usage: 329.65 MB 	 31.2 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-19.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-19.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-10
+RAM usage: 374.9 MB 	 33.4 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-10.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-10.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-11
+RAM usage: 255.95 MB 	 27.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-11.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-11.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-11
+RAM usage: 270.24 MB 	 28.3 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-11.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-11.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-20
+RAM usage: 321.83 MB 	 30.8 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-20.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-20.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-15
+RAM usage: 392.0 MB 	 34.2 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-15.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-15.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-18
+RAM usage: 315.49 MB 	 30.5 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-18.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-18.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-10
+RAM usage: 372.12 MB 	 33.2 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-10.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-10.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-16
+RAM usage: 364.72 MB 	 32.9 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-16.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-16.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-18
+RAM usage: 266.73 MB 	 28.2 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-18.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-18.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-13
+RAM usage: 327.32 MB 	 31.1 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-13.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-13.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-17
+RAM usage: 386.65 MB 	 33.9 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-17.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-17.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-14
+RAM usage: 330.66 MB 	 31.2 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-14.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-14.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-30
+RAM usage: 304.63 MB 	 30.0 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-30.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-30.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-26
+RAM usage: 286.78 MB 	 29.1 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-26.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-26.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-16
+RAM usage: 407.27 MB 	 34.9 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-16.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-16.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-29
+RAM usage: 294.9 MB 	 29.5 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-29.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-29.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-15
+RAM usage: 289.89 MB 	 29.3 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-15.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-15.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-24
+RAM usage: 292.53 MB 	 29.4 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-24.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-24.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-11
+RAM usage: 396.14 MB 	 34.4 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-11.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-11.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-09
+RAM usage: 338.67 MB 	 31.6 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-09.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-09.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-13
+RAM usage: 325.04 MB 	 31.0 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-13.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-13.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-10
+RAM usage: 320.82 MB 	 30.8 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-10.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-10.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-23
+RAM usage: 298.03 MB 	 29.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-23.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-23.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-01
+RAM usage: 300.46 MB 	 29.8 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-01.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-01.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-02
+RAM usage: 298.04 MB 	 29.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-02.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-02.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-31
+RAM usage: 400.45 MB 	 34.6 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-31.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-31.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-14
+RAM usage: 382.44 MB 	 33.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-14.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-14.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-17
+RAM usage: 390.05 MB 	 34.1 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-17.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-17.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-06
+RAM usage: 376.66 MB 	 33.5 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-06.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-06.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-15
+RAM usage: 383.75 MB 	 33.8 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-15.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-15.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-08
+RAM usage: 364.86 MB 	 32.9 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-08.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-08.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-12
+RAM usage: 400.61 MB 	 34.6 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-12.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-12.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-08
+RAM usage: 292.04 MB 	 29.4 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-08.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-08.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-11
+RAM usage: 399.46 MB 	 34.6 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-11.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-11.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-18
+RAM usage: 326.32 MB 	 31.1 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-18.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-18.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-04
+RAM usage: 372.76 MB 	 33.3 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-04.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-04.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-12
+RAM usage: 301.85 MB 	 29.9 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-12.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-12.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-09
+RAM usage: 347.82 MB 	 32.1 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-09.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-09.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+created result-0.html
+created result-1.html
+created result-2.html
+created stats.html
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-13
+RAM usage: 297.28 MB 	 29.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-13.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-13.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-09
+RAM usage: 380.91 MB 	 33.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-09.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-09.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-25
+RAM usage: 296.97 MB 	 29.7 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-25.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-07-25.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-12
+RAM usage: 291.0 MB 	 29.4 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-12.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-03-12.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-02
+RAM usage: 300.63 MB 	 29.8 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-02.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-08-02.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-12
+RAM usage: 389.03 MB 	 34.1 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-12.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-12.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-13
+RAM usage: 382.71 MB 	 33.8 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-13.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-06-13.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+/home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-07
+RAM usage: 368.01 MB 	 33.1 % occupied
+[92m created /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-07.reduced [0m
+[92m reduced /home/cowrie/cowrie/var/log/cowrie/cowrie.json.2021-05-07.mapped to /home/cowrie/cowrie/var/log/cowrie/reduced.json (append) [0m
+Copying reduced JSON from 104.248.245.133:2112
+Downloaded reduced log file from 104.248.245.133:2112 into /Users/dominicrudigier/Documents/longitudinal-analysis-cowrie/project/104.248.245.133_reduced.json
