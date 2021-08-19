@@ -237,8 +237,8 @@ Usage: cli.py reduce [OPTIONS]
 
 ```mermaid
 graph LR
-    A(cowrie.json.2021-05-03.mapped) -->|map| C[cowrie.json.2021-05-03.reduced]
-    B(cowrie.json.2021-05-04.mapped) -->|map| D[cowrie.json.2021-05-04.reduced]
+    A(cowrie.json.2021-05-03.mapped) -->|reduce| C[cowrie.json.2021-05-03.reduced]
+    B(cowrie.json.2021-05-04.mapped) -->|reduce| D[cowrie.json.2021-05-04.reduced]
     C -->|aggregate| E[reduced.json]
     D -->|aggregate| E[reduced.json]
 ```

@@ -13,7 +13,7 @@ def run_on_remote(top_n_events):
     exec(map_file)
 
     # Reduce
-    subprocess.run(['python', '/home/cowrie/cowrie/var/log/cowrie/Reduce.py', f'{top_n_events}'])
+    subprocess.run(['python3', '/home/cowrie/cowrie/var/log/cowrie/Reduce.py', f'{top_n_events}'])
 
 
 
@@ -98,7 +98,7 @@ def deploy_exec_remote(ip_address, port, user, pw, top_n_events, setup_remote_en
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         client.connect(ip_address, username=user, password=pw, port=port)
 
-        if setup_remote_environment:
+        if setup_remote_environment == 'True':
             print(f"Deploying scripts to {ip_address}:{port}")
             copy_scripts_to_remote(client)
             install_python_env_remote(client)

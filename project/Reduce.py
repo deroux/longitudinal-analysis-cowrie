@@ -141,15 +141,15 @@ def run_reduce(files, outFile, n, mode):
             result = build_json(data)
             with open(outFile, 'a') as f:
                 json.dump(result, f, indent=2)
+                if len(result) > 0:
+                    print(f"{bcolors.OKGREEN} reduced {file.buffer.name} to {outFile} (append) {bcolors.ENDC}")
+                else:
+                    print(f"{bcolors.WARNING} {outFile} contains no data... please check manually {bcolors.ENDC}")
 
                 if it < len(files):
                     f.write(",\n")
                     it += 1
 
-                if len(result) > 0:
-                    print(f"{bcolors.OKGREEN} reduced {file.buffer.name} to {outFile} (append) {bcolors.ENDC}")
-                else:
-                    print(f"{bcolors.WARNING} {outFile} contains no data... please check manually {bcolors.ENDC}")
 
     out = open(outFile, "a")
     out.write("\n]")

@@ -40,6 +40,7 @@ def cli():
 @click.option('--last_n_days', '-l', default=7, help='Create statistics for specific event of % increase for last n days across honeypots')
 def analyze_remote(ip, port, user, pw, top_n_events, setup_remote_environment, logfile, outfile, threshold, last_n_days):
     """Map-Reduce all log files on remote cowrie node, download reduced.json, create result.html for visualization."""
+    import time
     # python3 cli.py analyze-remote -i 104.248.245.133 -i 104.248.253.81 -p 2112 -p 2112 -pw 16Sfl,Rkack -pw 16Sfl,Rkack
     pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
     log_files = []
@@ -53,6 +54,7 @@ def analyze_remote(ip, port, user, pw, top_n_events, setup_remote_environment, l
         _remote_environment = setup_remote_environment[i-1]
         items.append((_ip, _port, _user, _pw, _top_n_events, _remote_environment))
 
+    start_time = time.time()
     for _ in tqdm.tqdm(pool.starmap(run_remote, items), total=len(ip)):
         log_files.append(_)
         pass
@@ -63,6 +65,7 @@ def analyze_remote(ip, port, user, pw, top_n_events, setup_remote_environment, l
         logfile = log_files.pop()
 
     call_visualization(logfile, outfile, threshold, last_n_days)
+    print("--- Remote analysis took %s seconds ---" % (time.time() - start_time))
 
 
 def run_remote(ip, port, user, pw, top_n_events, setup_remote_environment):

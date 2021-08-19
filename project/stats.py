@@ -80,7 +80,11 @@ if __name__ == '__main__':
     f = open(file, 'r')
     data = json.load(f)
 
-    db = sorted(data, key=lambda k: k['date'], reverse=True)
+    try:
+        db = sorted(data, key=lambda k: k['date'], reverse=True)
+    except Exception as e:
+        print(e)
+        db = data
 
     pass_dict = {}
     commands_dict = {}

@@ -20,7 +20,12 @@ def combine_reduced_files(files, outfile):
             for element in data:
                 combined.append(element)
 
-    result = sorted(combined, key=lambda k: k['date'], reverse=False)
+    try:
+        result = sorted(combined, key=lambda k: k['date'], reverse=False)
+    except Exception as e:
+        print(e)
+        result = combined
+
     write_to_file(outfile, result, 'w')
 
 

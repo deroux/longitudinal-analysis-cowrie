@@ -17,7 +17,11 @@ def create_output_table(file):
     my_data = []
     with open(file) as json_file:
         data = json.load(json_file)
-        data = sorted(data, key=lambda k: k['date'], reverse=True)
+        try:
+            data = sorted(data, key=lambda k: k['date'], reverse=True)
+        except Exception as e:
+            print(e)
+            pass
 
         # Username Password Table
         head = ["Date", "Sensor", "Username", "Password", "Count"]

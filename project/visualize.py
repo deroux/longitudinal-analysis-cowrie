@@ -105,7 +105,7 @@ def bubble_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
             z_data.append(sensor)
 
         # normalize y data to build marker size
-        m_size = normalize_range(y_data, max(y_data), min(y_data), 100, 10)
+        m_size = normalize_range(y_data, max(y_data), min(y_data), 50, 10)
         fig_2d.add_trace(go.Scatter(
             x=x_data, y=y_data,
             name=key, text=[key + ':' + str(y) for y in y_data],
