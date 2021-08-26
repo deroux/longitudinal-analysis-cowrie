@@ -119,7 +119,7 @@ def similar(a, b):
         return False, ''
 
 
-def sankey_plot_inputs(file_path):
+def sankey_plot_inputs(file_path, threshold):
     session_inputs = {}
     with open(file_path, 'rt') as f:
         for line in f:
@@ -174,8 +174,8 @@ def sankey_plot_inputs(file_path):
         source_cmd, target_cmd = key
         val = value
 
-        #if val == 1:
-        #    continue
+        if val < threshold:
+            continue
 
         splitter = ''
         if '&&' in source_cmd or '&&' in target_cmd:
@@ -215,7 +215,6 @@ def sankey_plot_inputs(file_path):
                 targets.append(feeder.index(trg_))
                 values.append(val)
 
-
     fig = go.Figure(
         data=[
             go.Sankey(
@@ -236,8 +235,10 @@ def sankey_plot_inputs(file_path):
             )
         ]
     )
-    fig.show()
 
+    with open(f'command-chains.html', 'w') as f:  # a for append
+        f.write(fig.to_html(full_html=False, include_plotlyjs='cdn'))
+        print("finished sankey-plot, created command-chains.html")
 
 def print_ip_many_session_trace(file_path, ip_address):
     session_trace = []
@@ -312,4 +313,4 @@ if __name__ == "__main__":
 
     # print_session_trace(filename, session_id)
     # print_ip_many_session_trace(filename, session_id)
-    sankey_plot_inputs(filename)
+    sankey_plot_inputs(filename, 10)

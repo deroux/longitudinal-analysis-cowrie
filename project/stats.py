@@ -8,7 +8,7 @@ from Helpers import add_to_dictionary, key_exists
 
 
 def build_statistics_figures(dic, event, thresh, n, fig_list):
-    statistics_figure = create_statistics_table(dic, thresh, n, f'% {event} increase over time across all honeypots')
+    statistics_figure = create_statistics_table(dic, thresh, n, f'% {event} increase over time across all honeypots (n={n-1}, Thresh={thresh}%)')
     fig_list.append(statistics_figure)
     return fig_list
 
@@ -20,10 +20,11 @@ def create_statistics_table(events_dict, thresh, n, title):
         for item in lst:
             s = item.split(':')
             count = s[len(s)-1]
-            event = ':'.join(s[:len(s)-1])
+            event = ':'.join(s[1:len(s)-1])
             add_to_dictionary(temp_dict, event, int(count))
 
     events = []
+    event_types = []
     dates = []
     counts = []
     percent_overall = []
@@ -34,14 +35,15 @@ def create_statistics_table(events_dict, thresh, n, title):
         for item in current_lst:
             s = item.split(':')
             count = s[len(s) - 1]
-            event = ':'.join(s[:len(s) - 1])
-
+            event_type = s[0]
+            event = ':'.join(s[1:len(s) - 1])
 
             lst_count = temp_dict.get(event)
             a = int(count)
             b = mean(lst_count)
 
             pct_overall = 100 * (a - b) / b
+            pct_overall = float("{:0.2f}".format(pct_overall))
 
             # 7 days increase
             a = int(count)
@@ -55,17 +57,19 @@ def create_statistics_table(events_dict, thresh, n, title):
 
             b = mean(n_days)
             pct_increase = 100 * (a - b) / b
+            pct_increase = float("{:0.2f}".format(pct_increase))
 
             if pct_overall >= thresh and pct_increase >= thresh:
                 dates.append(date)
                 events.append(event)
+                event_types.append(event_type)
                 counts.append(count)
                 percent_overall.append(pct_overall)
                 percent_increase.append(pct_increase)
 
 
-    fig = go.Figure(data=[go.Table(header=dict(values=['Date', 'Event', 'Counts', '% Overall', '% Increase n days']),
-                                   cells=dict(values=[dates, events, counts, percent_overall, percent_increase]))])
+    fig = go.Figure(data=[go.Table(header=dict(values=['Date', 'Event', 'Command', 'Counts', '% Overall', '% Increase n days']),
+                                   cells=dict(values=[dates, event_types, events, counts, percent_overall, percent_increase]))])
     fig.update_layout(title_text=title, title_x=0.5)
     return fig
 
@@ -116,7 +120,7 @@ if __name__ == '__main__':
                 pas = el['password']
                 count = int(el['count'])
                 add_to_dictionary(pass_dict, f'{honeypot}:{user}:{pas}', f'{_date}:{count}')
-                add_to_dictionary(all, f'{_date}', f'{user}:{pas}:{count}')
+                add_to_dictionary(all, f'{_date}', f'Login:{user}:{pas}:{count}')
 
         if key_exists(obj, 'commands'):
             for el in commands:
@@ -125,7 +129,7 @@ if __name__ == '__main__':
                     inp = inp[0: 50] + '..'
                 count = int(el['count'])
                 add_to_dictionary(commands_dict, f'{honeypot}:{inp}:', f'{_date}:{count}')
-                add_to_dictionary(all, f'{_date}', f'{inp}:{count}')
+                add_to_dictionary(all, f'{_date}', f'Cmd:{inp}:{count}')
 
         if key_exists(obj, 'pre_disconnect_command'):
             for el in pre_disconnect_commands:
@@ -134,7 +138,7 @@ if __name__ == '__main__':
                     inp = inp[0: 50] + '..'
                 count = int(el['count'])
                 add_to_dictionary(pre_disc_comm_dict, f'{honeypot}:{inp}:', f'{_date}:{count}')
-                add_to_dictionary(all, f'{_date}', f'{inp}:{count}')
+                add_to_dictionary(all, f'{_date}', f'Pre-disc-cmd:{inp}:{count}')
 
         if key_exists(obj, 'connect'):
             for el in connects:
@@ -142,7 +146,7 @@ if __name__ == '__main__':
                 dst_port = el['dst_port']
                 count = int(el['count'])
                 add_to_dictionary(connect_dict, f'{honeypot}:{src_ip}:{dst_port}', f'{_date}:{count}')
-                add_to_dictionary(all, f'{_date}', f'{src_ip}:{dst_port}:{count}')
+                add_to_dictionary(all, f'{_date}', f'Connect:{src_ip}:{dst_port}:{count}')
 
         if key_exists(obj, 'session_closed'):
             for el in session_closed:
@@ -150,14 +154,14 @@ if __name__ == '__main__':
                 robot = el['robot']
                 count = int(el['count'])
                 add_to_dictionary(session_closed_dict, f'{honeypot}:{src_ip}:{robot}', f'{_date}:{count}')
-                add_to_dictionary(all, f'{_date}', f'{src_ip}:{robot}:{count}')
+                add_to_dictionary(all, f'{_date}', f'Sess-closed:{src_ip}:{robot}:{count}')
 
         if key_exists(obj, 'file_download'):
             for el in file_download:
                 url = el['url']
                 count = int(el['count'])
                 add_to_dictionary(download_dict, f'{honeypot}:{url}:', f'{_date}:{count}')
-                add_to_dictionary(all, f'{_date}', f'{url}:{count}')
+                add_to_dictionary(all, f'{_date}', f'Download:{url}:{count}')
 
         if key_exists(obj, 'file_upload'):
             for el in file_upload:
@@ -165,7 +169,7 @@ if __name__ == '__main__':
                 src_ip = el['src_ip']
                 count = int(el['count'])
                 add_to_dictionary(upload_dict, f'{honeypot}:{src_ip}:{filename}', f'{_date}:{count}')
-                add_to_dictionary(all, f'{_date}', f'{src_ip}:{filename}:{count}')
+                add_to_dictionary(all, f'{_date}', f'Upload:{src_ip}:{filename}:{count}')
 
         if key_exists(obj, 'proxy_request'):
             for el in proxy_request:
@@ -174,7 +178,7 @@ if __name__ == '__main__':
                 dst_port = el['dst_port']
                 count = int(el['count'])
                 add_to_dictionary(proxy_request_dict, f'{honeypot}:{src_ip}:{dst_ip}:{dst_port}', f'{_date}:{count}')
-                add_to_dictionary(all, f'{_date}', f'{src_ip}:{dst_ip}:{dst_port}:{count}')
+                add_to_dictionary(all, f'{_date}', f'Proxy-request:{src_ip}:{dst_ip}:{dst_port}:{count}')
 
 
     figure_list = []

@@ -7,7 +7,7 @@ from Helpers import add_to_dictionary, key_exists, key_exists_arr
 
 # todo: integrate animated bubble_chart
 
-def histogram(data, title):
+def bar_chart(data, title):
     fig = go.Figure()
 
     for key in data:
@@ -350,8 +350,8 @@ if __name__ == '__main__':
         fig_connect_line_2d = line_chart(connect_dict, "date", "log(#inputs)", "Droplet",
                                                       "Top n connects", "src_ip:dst_port")
 
-        fig_histogram_connect = histogram(connect_dict, "Connection frequency")
-        fig_histogram_pdc = histogram(pre_disconnect_commands_dict, "Pre disconnect command frequency")
+        fig_histogram_connect = bar_chart(connect_dict, "Connection frequency")
+        fig_histogram_pdc = bar_chart(pre_disconnect_commands_dict, "Pre disconnect command frequency")
 
         fig_download_2d, fig_download_3d = bubble_chart(download_dict, "date", "log(#downloads)", "Droplet",
                                                         "Top n downloads", "File : Anti-Virus-Results")

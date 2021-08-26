@@ -197,10 +197,11 @@ def trace_ip(file, ip):
 
 @click.command()
 @click.option('--file', '-f', required=True, type=click.Path(exists=True), help='Filename of log file to create trace of commands executed')
-def command_chains(file):
+@click.option('--threshold', '-t', default=10, help='Threshold of how often command had to be executed to be visible in Sankey Plot')
+def command_chains(file, threshold):
     """Use cowrie.json.YYYY-MM-DD file to trace commands executed for all sessions in Sankey-Plot."""
     # python3 cli.py command-chains -f cowrie.json.2021-05-08
-    sankey_plot_inputs(file)
+    sankey_plot_inputs(file, threshold)
 
 
 cli.add_command(analyze_remote)
