@@ -4,15 +4,19 @@ This project is about a Command Line Map-Reduce tool to analyze cowrie log files
 over time and create a visualization and statistics of the data.
 
 The tool uses multiple log files <cowrie.json.YYYY-MM-DD> to create a cummulated information file and 
-visualization from local or remote folder path.
+visualization from local or remote folder path, finally creating statistics about all the event changes over time.
+
+	python3 cowralyze.py --help               # shows available commands and a description for each command
+	
+![plot](./project/example_outputs/2d_userpw.png)
+![plot](./project/example_outputs/3d_pdc.png)
+![plot](./project/example_outputs/statistics.png)
 
 Furthermore there's the possibility to trace commands by session id or ip, as well as creating Sankey Command Chain Plots
 for specific log files.
-
+	
+![plot](./project/example_outputs/command_chain_t10.png)
     
-	python3 cli.py --help               # shows available commands and a description for each command
-
-
 ## Motivation
 This project was created in course of my Bachelor's Thesis: Longitudinal Analysis of SSH Honeypots.
 While a large number of honeypot related tools exist, they generally focus on high-level aggregated statistics and not about individual log anomalies.
@@ -33,13 +37,13 @@ The stats.html provides the accumulated percentual changes over time, result.htm
     source venv/bin/activate
     pip3 install -r requirements.txt
 
-    python3 cli.py --help
+    python3 cowralyze.py --help
 
 ## Features / Usage of available commands  
 ### analyze-local 
 + Properties 
   
-Usage: cli.py analyze-local [OPTIONS]
+Usage: cowralyze.py analyze-local [OPTIONS]
     
       Map-Reduce all log files in local folder, create reduced.json, create
       result.html for visualization.
@@ -58,7 +62,7 @@ Usage: cli.py analyze-local [OPTIONS]
       --help                      Show this message and exit.
 
 + Execution workflow
-> python3 cli.py analyze-local -p ./
+> python3 cowralyze.py analyze-local -p ./
 ```mermaid
 graph LR
 A(Find all cowrie log files in ./) --> B(Map)
@@ -72,7 +76,7 @@ A(Find all cowrie log files in ./) --> B(Map)
 **Currently only tested with Digitalocean - Ubuntu 18.04 LTS**
   
 + Properties 
-Usage: cli.py analyze-remote [OPTIONS] 
+Usage: cowralyze.py analyze-remote [OPTIONS] 
     
       Map-Reduce all log files on remote cowrie node, download reduced.json,
       create result.html for visualization.
@@ -104,7 +108,7 @@ Usage: cli.py analyze-remote [OPTIONS]
 >
 > We want TOP 5 events of every log file to be accummulated to get a grasp of what's happening on our honeypots. 
 
-  `python3 cli.py analyze-remote -i 104.248.245.133 -i 104.248.253.81 -i 104.248.253.142 -u root -u root -u root -p 2112 -p 2112 -p 2112 -n 5 -n 5 -n 5 -pw pass -pw pass -pw pass -r True -r True -r True`
+  `python3 cowralyze.py analyze-remote -i 104.248.245.133 -i 104.248.253.81 -i 104.248.253.142 -u root -u root -u root -p 2112 -p 2112 -p 2112 -n 5 -n 5 -n 5 -pw pass -pw pass -pw pass -r True -r True -r True`
 
 ```mermaid
     %% analyze-remote sequence diagram
@@ -137,7 +141,7 @@ Usage: cli.py analyze-remote [OPTIONS]
         Local->>Local: Generate stats.html
 ```
 ### combine-reduced
-Usage: cli.py combine-reduced [OPTIONS]
+Usage: cowralyze.py combine-reduced [OPTIONS]
  
     Combine reduced.json files from multiple nodes to single reduced.json
       Params:     files    (str, n): Filename/s of result.json files to combine
@@ -150,7 +154,7 @@ Usage: cli.py combine-reduced [OPTIONS]
   
 
 + Execution workflow
->  python3 cli.py combine-reduced -o combined.json 104.248.253.81_reduced.json 104.248.245.133_reduced.json
+>  python3 cowralyze.py combine-reduced -o combined.json 104.248.253.81_reduced.json 104.248.245.133_reduced.json
 ```mermaid
 graph LR
     A(104.248.253.81_reduced.json) -->|combine| C[Create combined.json]
@@ -158,7 +162,7 @@ graph LR
 ```
 
 ### command-chains
-Usage: cli.py command-chains [OPTIONS]
+Usage: cowralyze.py command-chains [OPTIONS]
  
     Use cowrie.json.YYYY-MM-DD file to trace commands executed for all sessions
     in Sankey-Plot.
@@ -170,13 +174,13 @@ Usage: cli.py command-chains [OPTIONS]
     
 
 + Execution workflow
->  python3 cli.py command-chains -f cowrie.json.2021-05-08
+>  python3 cowralyze.py command-chains -f cowrie.json.2021-05-08
 ```mermaid
 graph LR
     A(cowrie.json.2021-05-08) -->|analyze| C[Sankey Plot of accumulated Commands across all Sessions]
 ```
 ### download-logs
-Usage: cli.py download-logs [OPTIONS]
+Usage: cowralyze.py download-logs [OPTIONS]
  
   
     Download all log files from remote node.
@@ -194,10 +198,10 @@ Usage: cli.py download-logs [OPTIONS]
     
 
 + Execution workflow
->  python3 cli.py download-logs -i 104.248.245.133 -u root -p 2112 -pw pass -f /Users/dominicrudigier/Documents/longitudinal-analysis-cowrie/logs/todelete
+>  python3 cowralyze.py download-logs -i 104.248.245.133 -u root -p 2112 -pw pass -f /Users/dominicrudigier/Documents/longitudinal-analysis-cowrie/logs/todelete
 
 ### map
-Usage: cli.py map [OPTIONS]
+Usage: cowralyze.py map [OPTIONS]
    
     Map local log file and create LOG_FILE.mapped
   
@@ -209,14 +213,14 @@ Usage: cli.py map [OPTIONS]
 
 
 + Execution workflow
->  python3 cli.py map -f example_logs/cowrie.json.2021-05-03
+>  python3 cowralyze.py map -f example_logs/cowrie.json.2021-05-03
 
 ```mermaid
 graph LR
     A(cowrie.json.2021-05-03) -->|map| C[cowrie.json.2021-05-03.mapped]
 ```
 ### reduce
-Usage: cli.py reduce [OPTIONS]
+Usage: cowralyze.py reduce [OPTIONS]
    
    
     Reduce local log file/s and create reduced.json and REDUCED_FILE.reduced for
@@ -233,7 +237,7 @@ Usage: cli.py reduce [OPTIONS]
 
 
 + Execution workflow
->  python3 cli.py reduce example_logs/cowrie.json.2021-05-03.mapped example_logs/cowrie.json.2021-05-04.mapped
+>  python3 cowralyze.py reduce example_logs/cowrie.json.2021-05-03.mapped example_logs/cowrie.json.2021-05-04.mapped
 
 ```mermaid
 graph LR
@@ -243,7 +247,7 @@ graph LR
     D -->|aggregate| E[reduced.json]
 ```
 ### statistics
-Usage: cli.py statistics [OPTIONS]
+Usage: cowralyze.py statistics [OPTIONS]
    
     Use reduced.json file and create stats.html visualization out of it
   
@@ -258,7 +262,7 @@ Usage: cli.py statistics [OPTIONS]
       --help                     Show this message and exit.
 
 + Execution workflow
->  python3 cli.py statistics -f 104.248.253.142_reduced.json
+>  python3 cowralyze.py statistics -f 104.248.253.142_reduced.json
 
 ```mermaid
 graph LR
@@ -266,7 +270,7 @@ graph LR
 ```
 
 ### trace-ip
-Usage: cli.py trace-ip [OPTIONS]
+Usage: cowralyze.py trace-ip [OPTIONS]
 
     Use cowrie.json.YYYY-MM-DD file and IP to trace commands executed
   
@@ -278,14 +282,14 @@ Usage: cli.py trace-ip [OPTIONS]
       --help           Show this message and exit.
 
 + Execution workflow
->  python3 cli.py trace-ip -f example_logs/cowrie.json.2021-05-03 -i 101.32.218.36 
+>  python3 cowralyze.py trace-ip -f example_logs/cowrie.json.2021-05-03 -i 101.32.218.36 
 
 ```mermaid
 graph LR
     A(example_logs/cowrie.json.2021-05-03) -->|find commands of 101.32.218.36| C[visualize]
 ```
 ### trace-sid
-Usage: cli.py trace-sid [OPTIONS]
+Usage: cowralyze.py trace-sid [OPTIONS]
 
     Use cowrie.json.YYYY-MM-DD file and Session ID to trace commands executed
   
@@ -298,14 +302,14 @@ Usage: cli.py trace-sid [OPTIONS]
 
 
 + Execution workflow
->  python3 cli.py trace-sid -f example_logs/cowrie.json.2021-05-03 -sid d3ddf15870bd 
+>  python3 cowralyze.py trace-sid -f example_logs/cowrie.json.2021-05-03 -sid d3ddf15870bd 
 
 ```mermaid
 graph LR
     A(example_logs/cowrie.json.2021-05-03) -->|find commands of d3ddf15870bd| C[visualize]
 ```
 ### visualize
-Usage: cli.py visualize [OPTIONS]
+Usage: cowralyze.py visualize [OPTIONS]
 
     Use reduced.json file and create result.html and stats.html visualization out of it
   
@@ -321,7 +325,7 @@ Usage: cli.py visualize [OPTIONS]
 
 
 + Execution workflow
->  python3 cli.py visualize -f 104.248.245.133_reduced.json
+>  python3 cowralyze.py visualize -f 104.248.245.133_reduced.json
 
 ```mermaid
 graph LR
