@@ -8,14 +8,14 @@ visualization from local or remote folder path, finally creating statistics abou
 
 	python3 cowralyze.py --help               # shows available commands and a description for each command
 	
-![plot](./project/example_outputs/2d_userpw.png)
-![plot](./project/example_outputs/3d_pdc.png)
-![plot](./project/example_outputs/statistics.png)
+![plot](cowralyze/example_outputs/2d_userpw.png)
+![plot](cowralyze/example_outputs/3d_pdc.png)
+![plot](cowralyze/example_outputs/statistics.png)
 
 Furthermore there's the possibility to trace commands by session id or ip, as well as creating Sankey Command Chain Plots
 for specific log files.
 	
-![plot](./project/example_outputs/command_chain_t10.png)
+![plot](cowralyze/example_outputs/command_chain_t10.png)
     
 ## Motivation
 This project was created in course of my Bachelor's Thesis: Longitudinal Analysis of SSH Honeypots.

@@ -15,6 +15,7 @@ def create_output_table(file):
     f = open("result.log", "w")
 
     my_data = []
+    console.log(file)
     with open(file) as json_file:
         data = json.load(json_file)
         try:

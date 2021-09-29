@@ -1,8 +1,8 @@
 from statistics import mean
 
 import plotly.graph_objects as go
-import sys
 import json
+import sys
 
 from Helpers import add_to_dictionary, key_exists
 

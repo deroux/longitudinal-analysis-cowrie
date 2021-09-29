@@ -1,4 +1,4 @@
-import io, sys, argparse
+import io, argparse
 import json
 
 from Helpers import write_to_file

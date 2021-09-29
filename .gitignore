@@ -1,13 +1,13 @@
 >>>>>>> master
 .DS_Store
 scripts/old_MapReduce/logs
-scripts/project/venv
-scripts/project/venv_mac
-scripts/project/__pycache__
-scripts/project/result.html
+scripts/cowralyze/venv
+scripts/cowralyze/venv_mac
+scripts/cowralyze/__pycache__
+scripts/cowralyze/result.html
 logs/todelete
-project/logs/
+cowralyze/logs/
 .idea
-project/.idea/
-project/__pycache__/
+cowralyze/.idea/
+cowralyze/__pycache__/
 /scripts/

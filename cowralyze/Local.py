@@ -1,6 +1,8 @@
 import sys
 import time
 from pathlib import Path
+cwd = str(Path(__file__).parent)
+sys.path.insert(0, cwd)
 
 from MapReduce import MapReduce
 from Helpers import cEvent, bcolors, build_json, write_to_file, get_files_from_path, split_data_by_events

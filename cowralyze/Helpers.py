@@ -1,5 +1,9 @@
 import orjson
 import os
+from pathlib import Path
+import sys
+cwd = str(Path(__file__).parent)
+sys.path.insert(0, cwd)
 
 # cowrie events
 class cEvent:

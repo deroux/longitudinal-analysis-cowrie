@@ -3,8 +3,12 @@ import os
 import click
 import pyfiglet
 import tqdm
+from pathlib import Path
+import sys
+cwd = str(Path(__file__).parent)
+sys.path.insert(0, cwd)
 
-from Map import run_map
+from Map import *
 from Reduce import run_reduce
 from Remote import deploy_exec_remote, fetch_from_remote, download_scripts_from_remote
 from Combine import combine_reduced_files

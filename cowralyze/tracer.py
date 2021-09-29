@@ -2,7 +2,6 @@ import json
 import operator
 
 import plotly.graph_objects as go
-import sys
 import orjson
 
 from Helpers import add_to_dictionary
