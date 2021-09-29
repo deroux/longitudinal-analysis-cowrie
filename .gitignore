@@ -9,3 +9,4 @@ logs/todelete
 project/logs/
 project/.idea
 project/__pycache__/
+/scripts/
