@@ -7,6 +7,7 @@ scripts/project/__pycache__
 scripts/project/result.html
 logs/todelete
 project/logs/
-project/.idea
+.idea
+project/.idea/
 project/__pycache__/
 /scripts/
