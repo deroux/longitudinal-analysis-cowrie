@@ -6,4 +6,6 @@ scripts/project/venv_mac
 scripts/project/__pycache__
 scripts/project/result.html
 logs/todelete
-project/logs
+project/logs/
+project/.idea
+project/__pycache__/
