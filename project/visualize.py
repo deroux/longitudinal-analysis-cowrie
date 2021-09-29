@@ -237,11 +237,15 @@ if __name__ == '__main__':
                     if url == '' or url == None:
                         continue
 
+                    spl = url.split('/')
+                    ip = spl[2]
+                    filename = '/'.join(spl[3:])
+
                     outfile = el['outfile']
-                    avira = f"{el['scans']['positives']} / {el['scans']['total']} positives."
+                    avira = f"{filename} has {el['scans']['positives']} / {el['scans']['total']} positives."
                     count = el['count']
 
-                    add_to_dictionary(download_dict, url + ' : ' + avira, date + ':' + sensor + ":" + str(count))
+                    add_to_dictionary(download_dict, ip + ' : ' + avira, date + ':' + sensor + ":" + str(count))
 
             if key_exists(entry, 'file_upload'):
                 for el in entry['file_upload']:

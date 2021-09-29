@@ -41,7 +41,7 @@ def cli():
 def analyze_remote(ip, port, user, pw, top_n_events, setup_remote_environment, logfile, outfile, threshold, last_n_days):
     """Map-Reduce all log files on remote cowrie node, download reduced.json, create result.html for visualization."""
     import time
-    # python3 cli.py analyze-remote -i 104.248.245.133 -i 104.248.253.81 -p 2112 -p 2112 -pw 16Sfl,Rkack -pw 16Sfl,Rkack
+    # python3 cli.py analyze-remote -i 104.248.245.133 -i 104.248.253.81 -p 2112 -p 2112 -pw asdf12345 -pw asdf12345
     pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
     log_files = []
     items = []
@@ -94,7 +94,7 @@ def analyze_local(path, logfile, outfile, top_n_events, threshold, last_n_days):
 @click.option('--folder', '-f', required=True, type=click.Path(exists=True), help="Local folder path to store log files from remote into.")
 def download_logs(ip, port, user, pw, folder):
     """Download all log files from remote node."""
-    # python3 cli.py download-logs -i 104.248.245.133 -u root -p 2112 -pw 16Sfl,Rkack -f /Users/deroux/Documents/longitudinal-analysis-cowrie/logs/todelete
+    # python3 cli.py download-logs -i 104.248.245.133 -u root -p 2112 -pw asdf12345 -f /Users/deroux/Documents/longitudinal-analysis-cowrie/logs/todelete
     pool = multiprocessing.Pool(multiprocessing.cpu_count() * 2)
     items = []
     for i, val in enumerate(ip):
