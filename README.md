@@ -38,6 +38,11 @@ The stats.html provides the accumulated percentual changes over time, result.htm
     pip3 install -r requirements.txt
 
     python3 cowralyze.py --help
+    
+    # or alternatively use setup.py
+    virtualenv myenv
+    source myenv/bin/activate
+    pip install .
 
 ## Features / Usage of available commands  
 ### analyze-local 
