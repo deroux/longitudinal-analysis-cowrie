@@ -181,7 +181,6 @@ def normalize_range(data, OldMax, OldMin, NewMax, NewMin):
         normalized.append(round(NewValue, 0))  # rounded to e.g. 5.35453 => 5
     return normalized;
 
-
 if __name__ == '__main__':
     # !/usr/bin/env python3
     if len(sys.argv) > 1:
@@ -196,7 +195,11 @@ if __name__ == '__main__':
         db = json.load(f)
 
         # sort by date
-        lines = sorted(db, key=lambda k: k['date'], reverse=False)
+        try:
+            lines = sorted(db, key=lambda k: k['date'], reverse=True)
+        except Exception as e:
+            print(e)
+            lines = db
 
         userpw_dict = {}
         commands_dict = {}
@@ -219,6 +222,11 @@ if __name__ == '__main__':
         uploads_y_global = []
 
         for entry in lines:
+            if len(entry) == 0:
+                continue
+            if type(entry) == list:
+                entry = entry[0]
+
             date = key_exists_arr(entry, 'date')
             sensor = key_exists_arr(entry, 'sensor')
             passwords = key_exists_arr(entry, 'passwords')

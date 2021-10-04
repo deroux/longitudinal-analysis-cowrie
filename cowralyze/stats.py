@@ -102,6 +102,11 @@ if __name__ == '__main__':
     all = {}
 
     for obj in db:
+        if len(obj) == 0:
+            continue
+        if type(obj) == list:
+            obj = obj[0]
+
         honeypot = obj['sensor']
         _date = obj['date']
 

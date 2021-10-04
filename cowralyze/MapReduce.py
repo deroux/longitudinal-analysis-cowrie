@@ -2,6 +2,8 @@
 import collections
 import itertools
 import multiprocessing
+import time
+
 import tqdm
 
 
@@ -56,10 +58,15 @@ class MapReduce(object):
         # https: // stackoverflow.com / questions / 26520781 / multiprocessing - pool - whats - the-difference-between-map-async-and-imap
         print("map...")
         map_responses = []
+
+        start = time.time()
         for _ in tqdm.tqdm(self.pool.imap_unordered(self.map_func, inputs, chunksize=chunksize), total=len(inputs)):
             map_responses.append(_)
             pass
+        end = time.time()
+        print("Map time:  \t     {:10.2f} s {:10.2f} min".format((end - start), (end - start) / 60))
 
+        start = time.time()
         print("partition...")
         partitioned_data = self.partition(itertools.chain(*map_responses))
 
@@ -68,4 +75,7 @@ class MapReduce(object):
         for _ in tqdm.tqdm(self.pool.map(self.reduce_func, partitioned_data), total=len(partitioned_data)):
             reduced_values.append(_)
             pass
+        end = time.time()
+        print("Reduce time:  \t     {:10.2f} s {:10.2f} min".format((end - start), (end - start) / 60))
+
         return reduced_values
