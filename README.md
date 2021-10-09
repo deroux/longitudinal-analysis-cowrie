@@ -119,29 +119,29 @@ Usage: cowralyze.py analyze-remote [OPTIONS]
     %% analyze-remote sequence diagram
       sequenceDiagram
         alt Setup remote environment
-        Local->>104.248.245.133: copy_scripts_to_remote
-        Local->>104.248.245.133: install_python_env_remote
+        Local->>A: copy_scripts_to_remote
+        Local->>A: install_python_env_remote
         end
-        Local->>104.248.245.133: python3 /home/cowrie/cowrie/var/log/cowrie/Remote.py 5
+        Local->>A: python3 /home/cowrie/cowrie/var/log/cowrie/Remote.py 5
         alt Map-Reduce
-        104.248.245.133->>104.248.245.133: Map cowrie log files
-        104.248.245.133->>104.248.245.133: Reduce .mapped files
-        104.248.245.133->>104.248.245.133: Create reduced.json        
+        A->>A: Map cowrie log files
+        A->>A: Reduce .mapped files
+        A->>A: Create reduced.json        
         end
-        104.248.245.133->>Local: Download 104.248.245.133_reduced.json file        
+        A->>Local: Download A_reduced.json file        
         
-        alt Same as above for 104.248.253.81
-        Local->>104.248.253.81: ...
-        104.248.253.81->>Local: Download 104.248.253.81_reduced.json file        
+        alt Same as above for B
+        Local->>B: ...
+        B->>Local: Download B_reduced.json file        
         end 
         
-        alt Same as above for 104.248.253.142
-        Local->>104.248.253.142: ...
-        104.248.253.142->>Local: Download 104.248.253.142_reduced.json file        
+        alt Same as above for C
+        Local->>C: ...
+        C->>Local: Download C_reduced.json file        
         end 
         
          
-        Local->>Local: Create accumulated reduced.json file from all IP_reduced.json files
+        Local->>Local: Combine *_reduced.json files
         Local->>Local: Generate result.html        
         Local->>Local: Generate stats.html
 ```
