@@ -58,8 +58,7 @@ def create_statistics_table(events_dict, thresh, n, title):
             b = mean(n_days)
             pct_increase = 100 * (a - b) / b
             pct_increase = float("{:0.2f}".format(pct_increase))
-
-            if pct_overall >= thresh and pct_increase >= thresh:
+            if (pct_overall >= thresh or pct_overall <= -thresh) and (pct_increase >= thresh or pct_increase <= -thresh) :
                 dates.append(date)
                 events.append(event)
                 event_types.append(event_type)
@@ -67,8 +66,7 @@ def create_statistics_table(events_dict, thresh, n, title):
                 percent_overall.append(pct_overall)
                 percent_increase.append(pct_increase)
 
-
-    fig = go.Figure(data=[go.Table(header=dict(values=['Date', 'Event', 'Command', 'Counts', '% Overall', '% Increase n days']),
+    fig = go.Figure(data=[go.Table(header=dict(values=['Date', 'Event', 'Command', 'Counts', '% Overall', '% change n days']),
                                    cells=dict(values=[dates, event_types, events, counts, percent_overall, percent_increase]))])
     fig.update_layout(title_text=title, title_x=0.5)
     return fig

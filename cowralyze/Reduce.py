@@ -89,7 +89,9 @@ def run_reduce(files, outFile, n, mode):
             fl = f.name
 
         no_extension = str(fl).rsplit('.', 1)[0]
-        print(no_extension)
+        if (os.path.exists("/home/cowrie/cowrie/var/log/cowrie/")):
+            # assume we can try to re-use the reduced files for faster processing
+            mode = 'c'
         if os.path.exists(f'{no_extension}.reduced'):
             if 'c' in mode:
                 # continue on filename.reduced already existing
@@ -127,8 +129,8 @@ def run_reduce(files, outFile, n, mode):
             out = []
             for tup in data:
                 for elem in data[tup]:
-                    #elem['date'] = tup[0]
-                    #elem['sensor'] = tup[1]
+                    elem['date'] = tup[0]
+                    elem['sensor'] = tup[1]
                     count = int(elem['count'])
                     # elem.pop('count', None)
                     obj = {'log': elem, 'count': count}
