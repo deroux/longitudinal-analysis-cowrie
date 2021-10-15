@@ -1,4 +1,6 @@
 import json, sys
+from collections import OrderedDict
+
 import plotly.graph_objects as go
 import os
 
@@ -192,12 +194,13 @@ if __name__ == '__main__':
 
     try:
         f = open(reduced_json, 'r')
-        db = json.load(f)
+        djson = f.read()
+        db = json.loads(djson)
 
-        # sort by date
         try:
             lines = sorted(db, key=lambda k: k['date'], reverse=True)
         except Exception as e:
+            print('Error sorting in [visualize] step: ')
             print(e)
             lines = db
 
@@ -258,7 +261,7 @@ if __name__ == '__main__':
             if key_exists(entry, 'file_upload'):
                 for el in entry['file_upload']:
                     filename = el['filename']
-                    src_ip = el['src_ip']
+                    src_ip = '' # el['src_ip']
                     count = el['count']
 
                     add_to_dictionary(upload_dict, filename + ' : ' + src_ip, date + ':' + sensor + ":" + str(count))
@@ -305,10 +308,10 @@ if __name__ == '__main__':
 
             for el in file_upload:
                 filename = el['filename']
-                src_ip = el['src_ip']
+                src_ip = '' # el['src_ip']
                 count = int(el['count'])
 
-                add_to_dictionary(sessionclosed_dict, f"{filename}:{src_ip}", date + ':' + sensor + ":" + str(count))
+                add_to_dictionary(sessionclosed_dict, f"{filename}", date + ':' + sensor + ":" + str(count))
 
             for el in proxy_request:
                 src_ip = el['src_ip']
@@ -371,9 +374,9 @@ if __name__ == '__main__':
                                                         "Top n downloads", "File : Anti-Virus-Results")
 
         fig_upload_2d, fig_upload_3d = bubble_chart(upload_dict, "date", "log(#uploads)", "Droplet",
-                                                    "Top n uploads", "filename : src_ip")
+                                                    "Top n uploads", "filename")
         fig_upload_line_2d = line_chart(upload_dict, "date", "log(#uploads)", "Droplet",
-                                                    "Top n uploads", "filename : src_ip")
+                                                    "Top n uploads", "filename")
 
         fig_sc_2d, fig_sc_3d = bubble_chart(sessionclosed_dict, "date", "log(#sessions)", "Droplet",
                                                         "Top n session closed", "src_ip : robot")

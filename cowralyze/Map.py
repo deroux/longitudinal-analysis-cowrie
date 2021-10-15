@@ -101,7 +101,7 @@ class Map:
 
                 if cEvent.FILE_UPLOAD in event:
                     el['filename'] = js.get('filename')
-                    el['src_ip'] = js.get('src_ip')
+                    # el['src_ip'] = js.get('src_ip')
                     output.append((orjson.dumps(el), 1))
 
                 if cEvent.FILE_DOWNLOAD in event:

@@ -1,4 +1,4 @@
-import io, argparse
+import io, argparse, sys
 import json
 
 from Helpers import write_to_file
@@ -12,9 +12,10 @@ def combine_reduced_files(files, outfile):
         if isinstance(fl, io.TextIOWrapper):
             fl = f.name
 
-        with open(fl) as file:
+        with open(fl, 'r') as file:
             if file.buffer.name == outfile:
                 continue
+
             data = json.load(file)
 
             for element in data:
@@ -23,8 +24,9 @@ def combine_reduced_files(files, outfile):
     try:
         result = sorted(combined, key=lambda k: k['date'], reverse=False)
     except Exception as e:
-        print(e)
         result = combined
+        print('Error sorting in [combine] step: ')
+        print(e)
 
     write_to_file(outfile, result, 'w')
 

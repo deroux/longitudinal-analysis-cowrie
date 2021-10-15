@@ -169,7 +169,7 @@ if __name__ == '__main__':
         if key_exists(obj, 'file_upload'):
             for el in file_upload:
                 filename = el['filename']
-                src_ip = el['src_ip']
+                src_ip = None # el['src_ip']
                 count = int(el['count'])
                 add_to_dictionary(upload_dict, f'{honeypot}:{src_ip}:{filename}', f'{_date}:{count}')
                 add_to_dictionary(all, f'{_date}', f'Upload:{src_ip}:{filename}:{count}')

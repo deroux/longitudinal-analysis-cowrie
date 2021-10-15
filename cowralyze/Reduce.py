@@ -139,6 +139,13 @@ def run_reduce(files, outFile, n, mode):
             reducedFile = str(filename).rsplit('.', 1)[0] + '.reduced'
             write_to_file(reducedFile, out, 'w')
 
+            # remove unnecessary fields for output reduced.json
+            for tup in data:
+                for elem in data[tup]:
+                    elem.pop('date', None)
+                    elem.pop('sensor', None)
+                    # elem.pop('count', None)
+
             # create json file
             result = build_json(data)
             with open(outFile, 'a') as f:

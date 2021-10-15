@@ -113,7 +113,7 @@ def create_output_table(file):
         for elem in data:
             if key_exists(elem, 'file_upload'):
                 for el in elem['file_upload']:
-                    my_data.append([elem['date'], elem['sensor'], el['filename'], el['src_ip'], str(el['count'])])
+                    my_data.append([elem['date'], elem['sensor'], el['filename'], str(el['count'])]) # el['src_ip'],
 
         f.write("File upload \n\n")
         f.write(tabulate(my_data, headers=head, tablefmt="grid"))

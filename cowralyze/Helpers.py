@@ -37,7 +37,6 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-
 def get_files_from_path(path, useLogFiles=True, useMappedFiles=False, useReducedFiles=False):
     """Fetch log files in format *.json.* from specified directory.
       Args:
@@ -278,7 +277,7 @@ def split_data_by_events(counts, n):
                 obj['count'] = count
             if event.startswith(cEvent.FILE_UPLOAD):
                 obj['filename'] = elem['filename']
-                obj['src_ip'] = elem['src_ip']
+                # obj['src_ip'] = elem['src_ip']
                 obj['count'] = count
             if event.startswith(cEvent.DIRECT_TCPIP_PROXYING):
                 obj['src_ip'] = elem['src_ip']
