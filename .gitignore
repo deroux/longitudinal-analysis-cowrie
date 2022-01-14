@@ -11,3 +11,13 @@ cowralyze/logs/
 cowralyze/.idea/
 cowralyze/__pycache__/
 /scripts/
+cowralyze/104.248.245.133_reduced.json
+cowralyze/104.248.253.142_reduced.json
+cowralyze/command-chains.html
+cowralyze/reduced.json
+cowralyze/result-0.html
+cowralyze/result-1.html
+cowralyze/result-2.html
+cowralyze/result.log
+cowralyze/stats.html
+cowralyze/visualize.py

